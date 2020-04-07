@@ -3,14 +3,14 @@ package client.model.Manager;
 public class Manager {
   private String name;
   private int cpr;
-  private int cellNr;
+  private int tlfnr;
   private String address;
 
-  public Manager(String name, int cpr, int cellNr, String address)
+  public Manager(String name, int cpr, int tlfnr, String address)
   {
     this.name = name;
     this.cpr = cpr;
-    this.cellNr = cellNr;
+    this.tlfnr = tlfnr;
     this.address = address;
   }
 
@@ -22,24 +22,44 @@ public class Manager {
     return cpr;
   }
 
-  public int getCellNr() {
-    return cellNr;
+  public int getTlfnr() {
+    return tlfnr;
   }
 
   public String getAddress() {
     return address;
   }
 
+  public void setName(String name)
+  {
+    this.name = name;
+  }
+
+  public void setCpr(int cpr)
+  {
+    this.cpr = cpr;
+  }
+
+  public void setTlfnr(int tlfnr)
+  {
+    this.tlfnr = tlfnr;
+  }
+
+  public void setAddress(String address)
+  {
+    this.address = address;
+  }
+
   public String toString()
   {
-    return "name: " + name + "cpr: " + cpr + "cell: " + cellNr + "address: " + address;
+    return "name: " + name + "cpr: " + cpr + "cell: " + tlfnr + "address: " + address;
   }
 
   public void editManager(String name, int cpr, int cellNr, String address)
   {
     this.name = name;
     this.cpr = cpr;
-    this.cellNr = cellNr;
+    this.tlfnr = cellNr;
     this.address = address;
   }
 }

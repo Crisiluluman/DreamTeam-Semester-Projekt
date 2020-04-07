@@ -1,6 +1,6 @@
 package client.networking;
 
-import client.model.Subject;
+import shared.Subject;
 
 public interface Client extends Subject
 {

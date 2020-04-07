@@ -45,6 +45,31 @@ public class Salesman
     return tlfNo;
   }
 
+  public void setName(String name)
+  {
+    this.name = name;
+  }
+
+  public void setCPRNo(int CPRNo)
+  {
+    this.CPRNo = CPRNo;
+  }
+
+  public void setAddress(String address)
+  {
+    this.address = address;
+  }
+
+  public void setEmail(String email)
+  {
+    this.email = email;
+  }
+
+  public void setTlfNo(int tlfNo)
+  {
+    this.tlfNo = tlfNo;
+  }
+
   @Override public String toString()
   {
     return "Salesman name: " + getName() + " \n" +

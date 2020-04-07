@@ -1,18 +1,22 @@
 package client.model.Police;
 
+import client.model.Customer.Customer;
+
 public class Police
 {
   private int policeNo;
   private int price;
   private int deductible;
-  private int coverage;
+  private String coverage;
+  private Customer customer;
 
-  public Police(int policeNo, int price, int deductible, int coverage)
+  public Police(int policeNo, int price, int deductible, String coverage, Customer customer)
   {
     this.policeNo = policeNo;
     this.price = price;
     this.deductible = deductible;
     this.coverage = coverage;
+    this.customer = customer;
   }
 
   public int getPoliceNo()
@@ -30,9 +34,29 @@ public class Police
     return deductible;
   }
 
-  public int getCoverage()
+  public String getCoverage()
   {
     return coverage;
+  }
+
+  public Customer getCustomer()
+  {
+    return customer;
+  }
+
+  public void setPoliceNo(int policeNo)
+  {
+    this.policeNo = policeNo;
+  }
+
+  public void setPrice(int price)
+  {
+    this.price = price;
+  }
+
+  public void setDeductible(int deductible)
+  {
+    this.deductible = deductible;
   }
 
   @Override public String toString()

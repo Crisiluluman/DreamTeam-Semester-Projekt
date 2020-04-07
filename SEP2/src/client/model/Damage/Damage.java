@@ -26,14 +26,24 @@ public class Damage {
     return info;
   }
 
+  public void setPolice(Police police)
+  {
+    this.police = police;
+  }
+
+  public void setExpenses(int expenses)
+  {
+    this.expenses = expenses;
+  }
+
+  public void setInfo(String info)
+  {
+    this.info = info;
+  }
+
   public String toString()
   {
     return "" + "Police:" + police + " expenses: " + expenses + " info: " + info;
   }
 
-  public void editDamage(Police police, int expenses, String info) {
-    this.police = police;
-    this.expenses = expenses;
-    this.info = info;
-  }
 }

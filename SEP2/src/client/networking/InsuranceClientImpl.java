@@ -7,6 +7,7 @@ import java.beans.PropertyChangeListener;
 
 public class InsuranceClientImpl implements InsuranceClient, Client
 {
+
   @Override public void startClient()
   {
 
