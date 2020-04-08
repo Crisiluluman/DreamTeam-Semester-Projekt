@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.Salesman.CreateCustomer.CreateCustomerViewController">
+   <top>
+      <Pane prefHeight="54.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text layoutX="228.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create Customer" wrappingWidth="143.20703125">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </top>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text layoutX="151.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+            <TextField fx:id="nameTextfield" layoutX="216.0" layoutY="48.0" prefHeight="25.0" prefWidth="232.0" />
+            <Text layoutX="151.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
+            <TextField fx:id="addressTextfield" layoutX="216.0" layoutY="79.0" prefHeight="25.0" prefWidth="232.0" />
+            <Text layoutX="151.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Postcode" />
+            <TextField fx:id="postcodeTextField" layoutX="216.0" layoutY="112.0" prefHeight="25.0" prefWidth="232.0" />
+            <Text layoutX="151.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPR-nr" />
+            <TextField fx:id="cprnrTextfield" layoutX="216.0" layoutY="143.0" prefHeight="25.0" prefWidth="232.0" />
+            <Text layoutX="151.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Household" />
+            <TextField fx:id="householdTextfield" layoutX="217.0" layoutY="176.0" prefHeight="25.0" prefWidth="232.0" />
+         </children>
+      </Pane>
+   </center>
+   <bottom>
+      <Pane prefHeight="64.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="cancelButton" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" text="Cancel" />
+            <Button fx:id="createCustomerButton" layoutX="481.0" layoutY="20.0" mnemonicParsing="false" text="Create Customer" />
+         </children>
+      </Pane>
+   </bottom>
+</BorderPane>

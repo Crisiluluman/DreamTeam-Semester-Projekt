@@ -5,6 +5,9 @@ import client.view.DamageEmployee.DEMain.DEMainViewModel;
 import client.view.DamageEmployee.EditPolicy.EditPolicyViewModel;
 import client.view.DamageEmployee.Policies.PoliciesViewModel;
 import client.view.Login.LoginViewModel;
+import client.view.Salesman.CreateCustomer.CreateCustomerViewModel;
+import client.view.Salesman.ManageCustomer.ManageCustomerViewModel;
+import client.view.Salesman.SalesmanView.SalesmanViewModel;
 
 public class ViewModelFactory
 {
@@ -20,6 +23,9 @@ public class ViewModelFactory
   private PoliciesViewModel pvm;
   private EditPolicyViewModel epv;
   private CreateDamageViewModel cdv;
+  private CreateCustomerViewModel ccv;
+  private SalesmanViewModel svm;
+  private ManageCustomerViewModel mcv;
 
   public LoginViewModel getLoginViewModel()
   {
@@ -30,7 +36,6 @@ public class ViewModelFactory
     }
     return lvm;
   }
-
   public DEMainViewModel getDEMainViewModel()
   {
     if(dvm == null)
@@ -66,5 +71,30 @@ public class ViewModelFactory
       cdv = new CreateDamageViewModel(modelFactory.getModel());
     }
     return cdv;
+  }
+
+  public CreateCustomerViewModel getCreateCustomerViewModel()
+  {
+    if(ccv == null)
+    {
+      ccv = new CreateCustomerViewModel(modelFactory.getModel());
+    }
+    return ccv;
+  }
+  public SalesmanViewModel getSalesmanViewModel()
+  {
+    if(svm == null)
+    {
+      svm = new SalesmanViewModel(modelFactory.getModel());
+    }
+    return svm;
+  }
+  public ManageCustomerViewModel getManageCustomerViewModel()
+  {
+    if(mcv == null)
+    {
+      mcv = new ManageCustomerViewModel(modelFactory.getModel());
+    }
+    return mcv;
   }
 }

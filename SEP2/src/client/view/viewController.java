@@ -2,9 +2,7 @@ package client.view;
 
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
-
-import javax.swing.plaf.synth.Region;
-
+import javafx.scene.layout.Region;
 
 public interface viewController
 {
