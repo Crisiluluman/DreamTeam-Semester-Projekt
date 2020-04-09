@@ -10,12 +10,13 @@ public class ManageBusinessController implements viewController
 {
   private ViewHandler vh;
   private ManagerViewModel mvm;
+  private ManageBusinessViewModel mbvm;
   private Region root;
 
   @Override public void init(ViewHandler vh, ViewModelFactory vmf, Region root)
   {
     this.vh = vh;
     this.root = root;
-    mvm = vmf.getManagerViewModel();
+    mbvm = vmf.getManageBusinessViewModel();
   }
 }
