@@ -2,10 +2,11 @@ package client.view.DamageEmployee.Policies;
 
 import client.model.Model;
 
-public class PoliciesViewModel {
+public class DEPoliciesViewModel
+{
     private Model model;
 
-    public PoliciesViewModel(Model model)
+    public DEPoliciesViewModel(Model model)
     {
         this.model = model;
     }

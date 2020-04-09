@@ -1,4 +1,4 @@
-package client.view.DamageEmployee.EditPolicy;
+package client.view.DamageEmployee.Policies.EditPolicy;
 
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
