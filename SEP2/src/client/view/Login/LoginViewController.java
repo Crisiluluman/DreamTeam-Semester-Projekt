@@ -3,8 +3,7 @@ package client.view.Login;
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.view.viewController;
-
-import javax.swing.plaf.synth.Region;
+import javafx.scene.layout.Region;
 
 public class LoginViewController implements viewController
 {
@@ -19,6 +18,4 @@ public class LoginViewController implements viewController
     this.lvm = vmf.getLoginViewModel();
     this.root = root;
   }
-
-
 }
