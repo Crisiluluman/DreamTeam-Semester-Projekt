@@ -21,4 +21,9 @@ public class ManagerViewController implements viewController
     this.root = root;
     mvm = vmf.getManagerViewModel();
   }
+
+  @Override
+  public Region getRoot() {
+    return root;
+  }
 }

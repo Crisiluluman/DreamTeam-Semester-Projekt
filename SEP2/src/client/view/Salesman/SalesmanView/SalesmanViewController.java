@@ -28,6 +28,10 @@ public void init( ViewHandler vh, ViewModelFactory vmf, Region root)
 
 }
 
+  @Override
+  public Region getRoot() {
+    return root;
+  }
 
 
 }

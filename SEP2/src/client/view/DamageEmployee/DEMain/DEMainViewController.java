@@ -25,6 +25,10 @@ public class DEMainViewController implements viewController {
         dmv = vmf.getDEMainViewModel();
         this.root = root;
     }
+    @Override
+    public Region getRoot() {
+        return root;
+    }
 
 
 }

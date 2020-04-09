@@ -8,7 +8,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.layout.Region;
 
 
-public class PoliciesViewController implements viewController {
+public class DEPoliciesViewController implements viewController {
 
     private ViewHandler vh;
     private DEPoliciesViewModel pvm;
@@ -22,5 +22,9 @@ public class PoliciesViewController implements viewController {
         this.vh = vh;
         pvm = vmf.getDEPoliciesViewModel();
         this.root = root;
+    }
+    @Override
+    public Region getRoot() {
+        return root;
     }
 }

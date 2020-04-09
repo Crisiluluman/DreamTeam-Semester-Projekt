@@ -18,4 +18,9 @@ public class CreatePoliceViewController implements viewController
        cpv = vmf.getCreatePoliceViewModel();
        this.root = root;
   }
+
+    @Override
+    public Region getRoot() {
+        return root;
+    }
 }

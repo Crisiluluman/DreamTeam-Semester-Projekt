@@ -1,13 +1,285 @@
 package client.core;
 
+
+import client.view.DamageEmployee.CreateDamage.CreateDamageViewController;
+import client.view.DamageEmployee.DEMain.DEMainViewController;
+import client.view.DamageEmployee.Policies.DEPoliciesViewController;
+import client.view.DamageEmployee.Policies.EditPolicy.EditPolicyViewController;
+import client.view.Login.LoginViewController;
+import client.view.Login.LoginViewModel;
+import client.view.Manager.CreateEmployee.CreateEmployeeViewController;
+import client.view.Manager.EditEmployee.EditEmployeeViewController;
+import client.view.Manager.ManageBusiness.ManageBusinessController;
+import client.view.Manager.ManageEmployee.ManageEmployeeController;
+import client.view.Manager.ManagerView.ManagerViewController;
+import client.view.Salesman.CreateCustomer.CreateCustomerViewController;
+import client.view.Salesman.CreatePolice.CreatePoliceViewController;
+import client.view.Salesman.ManageCustomer.ManageCustomerViewController;
+import client.view.Salesman.Policies.PoliciesViewController;
+import client.view.Salesman.SalesmanView.SalesmanViewController;
+import client.view.viewController;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
-public class ViewHandler
+public class ViewHandler extends Application
 {
-  private ViewModelFactory viewModelFactory;
-  private Stage stage;
+  private ViewModelFactory vmf;
+  private Stage primaryStage;
+  private Scene currentScene;
+  private CreateDamageViewController createDamageViewController;
+  private DEMainViewController deMainViewController;
+  private DEPoliciesViewController depoliciesViewController;
+  private EditPolicyViewController editPolicyViewController;
+  private LoginViewController loginViewController;
+  private CreateEmployeeViewController createEmployeeViewController;
+  private EditEmployeeViewController editEmployeeViewController;
+  private ManageBusinessController manageBusinessController;
+  private ManageEmployeeController manageEmployeeController;
+  private ManagerViewController managerViewController;
+  private CreateCustomerViewController createCustomerViewController;
+  private CreatePoliceViewController createPoliceViewController;
+  private ManageCustomerViewController manageCustomerViewController;
+  private PoliciesViewController policiesViewController;
+  private SalesmanViewController salesmanViewController;
 
+  public ViewHandler(ViewModelFactory vmf)
+  {
+    this.vmf = vmf;
+  }
+
+  @Override
+  public void start(Stage stage) throws Exception {
+    primaryStage = stage;
+    currentScene = new Scene(new Region());
+    openView("Login");
+  }
+
+  public void openView(String id)
+  {
+    Region root = null;
+    switch (id)
+    {
+      case "Login":
+        root = loadLoginView("../view/Login/LoginView.fxml");
+        break;
+      case "CreateDamage":
+        root = loadCreateDamageView("../view/DamageEmployee/CreateDamage/CreateDamageView.fxml");
+        break;
+      case "DEMain":
+        root = loadDEMainView("../view/DamageEmployee/DEMain/DEMainView.fxml");
+        break;
+      case "DEPolicies":
+        root = loadDEPoliciesView("../view/DamageEmployee/Policies/DEPoliciesView.fxml");
+        break;
+      case "EditPolicy":
+        root = loadEditPolicyView("../view/DamageEmployee/Policies/EditPolicy/EditPolicyView.fxml");
+        break;
+      case "CreateEmployee":
+        root = loadCreateEmployeeView("../view/Manager/CreateEmployee/CreateEmployeeView.fxml");
+        break;
+      case "EditEmployee":
+        root = loadEditEmployeeView("../view/Manager/EditEmployee/EditEmployeeView.fxml");
+        break;
+      case "ManageBusiness":
+        root = loadManageBusinessView("../view/Manager/ManageBusiness/ManageBusinessView.fxml");
+        break;
+      case "ManageEmployee":
+        root = loadManageEmployeeView("../view/Manager/ManageEmployee/ManageEmployeeView.fxml");
+        break;
+
+
+    }
+    currentScene.setRoot(root);
+
+    String title = "";
+    if (root.getUserData() != null)
+    {
+      title += root.getUserData();
+    }
+    primaryStage.setTitle(title);
+    primaryStage.setScene(currentScene);
+    primaryStage.setWidth(root.getPrefWidth());
+    primaryStage.setHeight(root.getPrefHeight());
+    primaryStage.show();
+  }
+
+  private Region loadManageEmployeeView(String fxmlFile) {
+    if (manageEmployeeController == null)
+    {
+      try{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        Region root = loader.load();
+        manageEmployeeController = loader.getController();
+        manageEmployeeController.init(this,  vmf, root);
+      } catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+    return manageEmployeeController.getRoot();
+  }
+
+  private Region loadManageBusinessView(String fxmlFile) {
+    if (manageBusinessController == null)
+    {
+      try{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        Region root = loader.load();
+        manageBusinessController = loader.getController();
+        manageBusinessController.init(this,  vmf, root);
+      } catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+    return manageBusinessController.getRoot();
+  }
+
+  private Region loadEditEmployeeView(String fxmlFile) {
+    if (editEmployeeViewController == null)
+    {
+      try{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        Region root = loader.load();
+        editEmployeeViewController = loader.getController();
+        editEmployeeViewController.init(this,  vmf, root);
+      } catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+    return editEmployeeViewController.getRoot();
+  }
+
+  private Region loadCreateEmployeeView(String fxmlFile) {
+    if (createEmployeeViewController == null)
+    {
+      try{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        Region root = loader.load();
+        createEmployeeViewController = loader.getController();
+        createEmployeeViewController.init(this,  vmf, root);
+      } catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+    return createEmployeeViewController.getRoot();
+  }
+
+  private Region loadEditPolicyView(String fxmlFile) {
+    if (editPolicyViewController == null)
+    {
+      try{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        Region root = loader.load();
+        editPolicyViewController = loader.getController();
+        editPolicyViewController.init(this,  vmf, root);
+      } catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+    return editPolicyViewController.getRoot();
+  }
+
+  private Region loadDEPoliciesView(String fxmlFile) {
+    if (depoliciesViewController == null)
+    {
+      try{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        Region root = loader.load();
+        depoliciesViewController = loader.getController();
+        depoliciesViewController.init(this,  vmf, root);
+      } catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+    return depoliciesViewController.getRoot();
+  }
+
+  private Region loadDEMainView(String fxmlFile) {
+    if (deMainViewController == null)
+    {
+      try{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        Region root = loader.load();
+        deMainViewController = loader.getController();
+        deMainViewController.init(this,  vmf, root);
+      } catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+    return deMainViewController.getRoot();
+  }
+
+
+  private Region loadLoginView(String fxmlFile) {
+    if (loginViewController == null)
+    {
+      try{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        Region root = loader.load();
+        loginViewController = loader.getController();
+        loginViewController.init(this,  vmf, root);
+      } catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+      return loginViewController.getRoot();
+  }
+
+  private Region loadCreateDamageView(String fxmlFile)
+  {
+    if(createDamageViewController == null)
+    {
+      try{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        Region root = loader.load();
+        createDamageViewController = loader.getController();
+        createDamageViewController.init(this, vmf, root);
+      }catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+    return createDamageViewController.getRoot();
+  }
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

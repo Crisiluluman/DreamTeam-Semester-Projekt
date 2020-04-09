@@ -30,4 +30,9 @@ public class ManageEmployeeController implements viewController
     this.root = root;
     mevm = vmf.getManageEmployeeViewModel();
   }
+
+  @Override
+  public Region getRoot() {
+    return root;
+  }
 }

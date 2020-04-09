@@ -25,4 +25,9 @@ public class EditEmployeeViewController implements viewController {
         eev = vmf.getEditEmployeeViewModel();
         this.root = root;
     }
+
+    @Override
+    public Region getRoot() {
+        return root;
+    }
 }

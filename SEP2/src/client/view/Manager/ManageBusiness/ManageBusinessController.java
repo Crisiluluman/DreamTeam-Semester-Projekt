@@ -19,4 +19,8 @@ public class ManageBusinessController implements viewController
     this.root = root;
     mbvm = vmf.getManageBusinessViewModel();
   }
+  @Override
+  public Region getRoot() {
+    return root;
+  }
 }

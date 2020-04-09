@@ -3,12 +3,13 @@ package client.view.Salesman.ManageCustomer;
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.view.Salesman.SalesmanView.SalesmanViewModel;
+import client.view.viewController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 
-public class ManageCustomerViewController
+public class ManageCustomerViewController implements viewController
 {
   @FXML TextField manageCustomerTextfield;
   @FXML TextField manageCustomerAddress;
@@ -27,6 +28,11 @@ public class ManageCustomerViewController
     mcv = vmf.getManageCustomerViewModel();
     this.root = root;
 
+  }
+
+  @Override
+  public Region getRoot() {
+    return root;
   }
 
 }

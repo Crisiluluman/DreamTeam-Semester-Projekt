@@ -26,4 +26,9 @@ public class CreateEmployeeViewController implements viewController {
         this.root = root;
 
     }
+
+    @Override
+    public Region getRoot() {
+        return root;
+    }
 }
