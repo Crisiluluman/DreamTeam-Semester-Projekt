@@ -3,8 +3,8 @@ package client.view.Login;
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.view.viewController;
+import javafx.scene.layout.Region;
 
-import javax.swing.plaf.synth.Region;
 
 public class LoginViewController implements viewController
 {
