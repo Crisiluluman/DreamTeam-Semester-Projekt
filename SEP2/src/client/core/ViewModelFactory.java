@@ -2,11 +2,13 @@ package client.core;
 
 import client.view.DamageEmployee.CreateDamage.CreateDamageViewModel;
 import client.view.DamageEmployee.DEMain.DEMainViewModel;
-import client.view.DamageEmployee.EditPolicy.EditPolicyViewModel;
-import client.view.DamageEmployee.Policies.PoliciesViewModel;
+import client.view.DamageEmployee.Policies.EditPolicy.EditPolicyViewModel;
+import client.view.DamageEmployee.Policies.DEPoliciesViewModel;
 import client.view.Login.LoginViewModel;
 import client.view.Salesman.CreateCustomer.CreateCustomerViewModel;
+import client.view.Salesman.CreatePolice.CreatePoliceViewModel;
 import client.view.Salesman.ManageCustomer.ManageCustomerViewModel;
+import client.view.Salesman.Policies.PoliciesViewModel;
 import client.view.Salesman.SalesmanView.SalesmanViewModel;
 
 public class ViewModelFactory
@@ -20,12 +22,25 @@ public class ViewModelFactory
 
   private LoginViewModel lvm;
   private DEMainViewModel dvm;
-  private PoliciesViewModel pvm;
+  private DEPoliciesViewModel DEpvm;
   private EditPolicyViewModel epv;
   private CreateDamageViewModel cdv;
   private CreateCustomerViewModel ccv;
   private SalesmanViewModel svm;
   private ManageCustomerViewModel mcv;
+  private PoliciesViewModel pvm;
+  private CreatePoliceViewModel cpv;
+
+  public CreatePoliceViewModel getCreatePoliceViewModel()
+  {
+    if(cpv == null)
+    {
+      cpv = new CreatePoliceViewModel(modelFactory.getModel());
+    }
+    return cpv;
+  }
+
+
 
   public LoginViewModel getLoginViewModel()
   {
@@ -36,6 +51,7 @@ public class ViewModelFactory
     }
     return lvm;
   }
+
   public DEMainViewModel getDEMainViewModel()
   {
     if(dvm == null)
@@ -45,14 +61,13 @@ public class ViewModelFactory
     }
     return dvm;
   }
-
-  public PoliciesViewModel getPoliciesViewModel()
+  public DEPoliciesViewModel getDEPoliciesViewModel()
   {
-    if(pvm == null)
+    if(DEpvm == null)
     {
-      pvm = new PoliciesViewModel(modelFactory.getModel());
+      DEpvm = new DEPoliciesViewModel(modelFactory.getModel());
     }
-    return pvm;
+    return DEpvm;
   }
 
   public EditPolicyViewModel getEditPolicyViewModel()
@@ -81,6 +96,7 @@ public class ViewModelFactory
     }
     return ccv;
   }
+
   public SalesmanViewModel getSalesmanViewModel()
   {
     if(svm == null)
@@ -96,5 +112,13 @@ public class ViewModelFactory
       mcv = new ManageCustomerViewModel(modelFactory.getModel());
     }
     return mcv;
+  }
+  public PoliciesViewModel getPoliciesViewModel()
+  {
+    if(pvm == null)
+    {
+      pvm = new PoliciesViewModel(modelFactory.getModel());
+    }
+    return pvm;
   }
 }

@@ -11,7 +11,7 @@ import javafx.scene.layout.Region;
 public class PoliciesViewController implements viewController {
 
     private ViewHandler vh;
-    private PoliciesViewModel pvm;
+    private DEPoliciesViewModel pvm;
     private Region root;
 
     @FXML TableView view;
@@ -20,7 +20,7 @@ public class PoliciesViewController implements viewController {
     public void init(ViewHandler vh, ViewModelFactory vmf, Region root) {
 
         this.vh = vh;
-        pvm = vmf.getPoliciesViewModel();
+        pvm = vmf.getDEPoliciesViewModel();
         this.root = root;
     }
 }
