@@ -18,6 +18,8 @@ public class PoliciesViewController implements viewController
   @Override public void init(ViewHandler vh, ViewModelFactory vmf, Region root)
   {
     this.vh = vh;
+    pvm = vmf.getPoliciesViewModel();
+    this.root = root;
 
   }
 }

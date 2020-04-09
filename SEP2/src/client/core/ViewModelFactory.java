@@ -5,6 +5,8 @@ import client.view.DamageEmployee.DEMain.DEMainViewModel;
 import client.view.DamageEmployee.Policies.EditPolicy.EditPolicyViewModel;
 import client.view.DamageEmployee.Policies.DEPoliciesViewModel;
 import client.view.Login.LoginViewModel;
+import client.view.Manager.CreateEmployee.CreateEmployeeViewModel;
+import client.view.Manager.EditEmployee.EditEmployeeViewModel;
 import client.view.Manager.ManageBusiness.ManageBusinessViewModel;
 import client.view.Manager.ManagerView.ManagerViewModel;
 import client.view.Salesman.CreateCustomer.CreateCustomerViewModel;
@@ -34,6 +36,8 @@ public class ViewModelFactory
   private ManageBusinessViewModel mb;
   private PoliciesViewModel pvm;
   private CreatePoliceViewModel cpv;
+  private CreateEmployeeViewModel cev;
+  private EditEmployeeViewModel eev;
 
   public CreatePoliceViewModel getCreatePoliceViewModel()
   {
@@ -141,6 +145,24 @@ public class ViewModelFactory
       pvm = new PoliciesViewModel(modelFactory.getModel());
     }
     return pvm;
+  }
+
+  public CreateEmployeeViewModel getCreateEmployeeViewModel()
+  {
+    if(cev == null)
+    {
+      cev = new CreateEmployeeViewModel(modelFactory.getModel());
+    }
+    return cev;
+  }
+
+  public EditEmployeeViewModel getEditEmployeeViewModel()
+  {
+    if(eev == null)
+    {
+      eev = new EditEmployeeViewModel(modelFactory.getModel());
+    }
+    return eev;
   }
 
 }
