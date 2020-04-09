@@ -7,6 +7,7 @@ public class Test
     System.out.println("Kevin was here");
     System.out.println("Sonny her!");
     System.out.println("hej hilsen anne ");
+    System.out.println("Lib test");
   }
 
 }
