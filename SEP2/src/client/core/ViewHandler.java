@@ -52,7 +52,7 @@ public class ViewHandler extends Application
   public void start(Stage stage) throws Exception {
     primaryStage = stage;
     currentScene = new Scene(new Region());
-    openView("Login");
+    openView("Salesman");
   }
 
   public void openView(String id)
@@ -116,8 +116,6 @@ public class ViewHandler extends Application
     }
     primaryStage.setTitle(title);
     primaryStage.setScene(currentScene);
-    primaryStage.setWidth(root.getPrefWidth());
-    primaryStage.setHeight(root.getPrefHeight());
     primaryStage.show();
   }
 
