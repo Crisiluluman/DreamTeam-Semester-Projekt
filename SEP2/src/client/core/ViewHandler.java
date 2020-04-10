@@ -6,7 +6,6 @@ import client.view.DamageEmployee.DEMain.DEMainViewController;
 import client.view.DamageEmployee.Policies.DEPoliciesViewController;
 import client.view.DamageEmployee.Policies.EditPolicy.EditPolicyViewController;
 import client.view.Login.LoginViewController;
-import client.view.Login.LoginViewModel;
 import client.view.Manager.CreateEmployee.CreateEmployeeViewController;
 import client.view.Manager.EditEmployee.EditEmployeeViewController;
 import client.view.Manager.ManageBusiness.ManageBusinessController;
@@ -17,7 +16,6 @@ import client.view.Salesman.CreatePolice.CreatePoliceViewController;
 import client.view.Salesman.ManageCustomer.ManageCustomerViewController;
 import client.view.Salesman.Policies.PoliciesViewController;
 import client.view.Salesman.SalesmanView.SalesmanViewController;
-import client.view.viewController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -89,7 +87,24 @@ public class ViewHandler extends Application
       case "ManageEmployee":
         root = loadManageEmployeeView("../view/Manager/ManageEmployee/ManageEmployeeView.fxml");
         break;
-
+      case "Manager":
+        root = loadManagerView("../view/Manager/ManagerView/ManagerView.fxml");
+        break;
+      case "CreateCustomer":
+        root = loadCreateCustomerView("../view/Salesman/CreateCustomer/CreateCustomerView.fxml");
+        break;
+      case "CreatePolice":
+        root = loadCreatePoliceView("../view/Salesman/CreatePolice/CreatePoliceView.fxml");
+        break;
+      case "ManageCustomer":
+        root = loadManageCustomerView("../view/Salesman/ManageCustomer/ManageCustomerView.fxml");
+        break;
+      case "Policies":
+        root = loadPoliciesView("../view/Salesman/Policies/PoliciesView.fxml");
+        break;
+      case "Salesman":
+        root = loadSalesmanView("../view/Salesman/SalesmanView/SalesmanView.fxml");
+        break;
 
     }
     currentScene.setRoot(root);
@@ -104,6 +119,108 @@ public class ViewHandler extends Application
     primaryStage.setWidth(root.getPrefWidth());
     primaryStage.setHeight(root.getPrefHeight());
     primaryStage.show();
+  }
+
+  private Region loadSalesmanView(String fxmlFile) {
+    if (salesmanViewController == null)
+    {
+      try{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        Region root = loader.load();
+        salesmanViewController = loader.getController();
+        salesmanViewController.init(this,  vmf, root);
+      } catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+    return salesmanViewController.getRoot();
+  }
+
+  private Region loadPoliciesView(String fxmlFile) {
+    if (policiesViewController == null)
+    {
+      try{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        Region root = loader.load();
+        policiesViewController = loader.getController();
+        policiesViewController.init(this,  vmf, root);
+      } catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+    return policiesViewController.getRoot();
+  }
+
+  private Region loadManageCustomerView(String fxmlFile) {
+    if (manageCustomerViewController == null)
+    {
+      try{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        Region root = loader.load();
+        manageCustomerViewController = loader.getController();
+        manageCustomerViewController.init(this,  vmf, root);
+      } catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+    return manageCustomerViewController.getRoot();
+  }
+
+  private Region loadCreatePoliceView(String fxmlFile) {
+    if (createPoliceViewController == null)
+    {
+      try{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        Region root = loader.load();
+        createPoliceViewController= loader.getController();
+        createPoliceViewController.init(this,  vmf, root);
+      } catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+    return createPoliceViewController.getRoot();
+  }
+
+  private Region loadCreateCustomerView(String fxmlFile) {
+    if (createCustomerViewController == null)
+    {
+      try{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        Region root = loader.load();
+        createCustomerViewController = loader.getController();
+        createCustomerViewController.init(this,  vmf, root);
+      } catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+    return createCustomerViewController.getRoot();
+  }
+
+  private Region loadManagerView(String fxmlFile) {
+    if (managerViewController == null)
+    {
+      try{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        Region root = loader.load();
+        managerViewController = loader.getController();
+        managerViewController.init(this,  vmf, root);
+      } catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+    return managerViewController.getRoot();
   }
 
   private Region loadManageEmployeeView(String fxmlFile) {
