@@ -38,8 +38,8 @@
    <bottom>
       <Pane prefHeight="64.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="cancelButton" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" text="Cancel" />
-            <Button fx:id="createCustomerButton" layoutX="481.0" layoutY="20.0" mnemonicParsing="false" text="Create Customer" />
+            <Button fx:id="cancelButton" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onAction="#onCancel" text="Cancel" />
+            <Button fx:id="createCustomerButton" layoutX="481.0" layoutY="20.0" mnemonicParsing="false" onAction="#onCreateCustomer" text="Create Customer" />
          </children>
       </Pane>
    </bottom>

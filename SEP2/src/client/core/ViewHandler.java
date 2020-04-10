@@ -15,6 +15,7 @@ import client.view.Salesman.CreateCustomer.CreateCustomerViewController;
 import client.view.Salesman.CreatePolice.CreatePoliceViewController;
 import client.view.Salesman.ManageCustomer.ManageCustomerViewController;
 import client.view.Salesman.Policies.PoliciesViewController;
+import client.view.Salesman.SEditPolicy.SEditPolicyViewController;
 import client.view.Salesman.SalesmanView.SalesmanViewController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -42,6 +43,7 @@ public class ViewHandler extends Application
   private ManageCustomerViewController manageCustomerViewController;
   private PoliciesViewController policiesViewController;
   private SalesmanViewController salesmanViewController;
+  private SEditPolicyViewController sEditPolicyViewController;
 
   public ViewHandler(ViewModelFactory vmf)
   {
@@ -105,10 +107,15 @@ public class ViewHandler extends Application
       case "Salesman":
         root = loadSalesmanView("../view/Salesman/SalesmanView/SalesmanView.fxml");
         break;
+      case "SEditPolice":
+        root = loadSEditPolicyView("../view/Salesman/SEditPolicy/SEditPoliceView.fxml");
+        break;
 
     }
-    currentScene.setRoot(root);
-
+    if (root != null)
+    {
+      currentScene = new Scene(root);
+    }
     String title = "";
     if (root.getUserData() != null)
     {
@@ -374,6 +381,24 @@ public class ViewHandler extends Application
       }
     }
     return createDamageViewController.getRoot();
+  }
+
+  private Region loadSEditPolicyView(String fxmlFile)
+  {
+    if (sEditPolicyViewController == null)
+    {
+      try{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        Region root = loader.load();
+        sEditPolicyViewController = loader.getController();
+       sEditPolicyViewController.init(this, vmf, root);
+      }catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+    return sEditPolicyViewController.getRoot();
   }
 
 

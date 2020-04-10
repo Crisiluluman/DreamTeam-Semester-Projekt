@@ -27,4 +27,13 @@ public class PoliciesViewController implements viewController
   public Region getRoot() {
     return root;
   }
+
+  public void onBack()
+  {
+    vh.openView("ManageCustomer");
+  }
+  public void onCreatePolicy()
+  {
+    vh.openView("CreatePolice");
+  }
 }

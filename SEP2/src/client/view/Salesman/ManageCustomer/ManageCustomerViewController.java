@@ -35,4 +35,12 @@ public class ManageCustomerViewController implements viewController
     return root;
   }
 
+  public void onBack()
+  {
+    vh.openView("Salesman");
+  }
+  public void onPolicies()
+  {
+    vh.openView("Policies");
+  }
 }

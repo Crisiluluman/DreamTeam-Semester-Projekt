@@ -30,7 +30,7 @@
             <Text layoutX="113.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search for customer" />
             <TextField fx:id="searchTextField" layoutX="231.0" layoutY="14.0" prefHeight="25.0" prefWidth="203.0" promptText="insert cpr or name" />
             <Button fx:id="searchButton" layoutX="433.0" layoutY="14.0" mnemonicParsing="false" text="Search" />
-            <Button fx:id="selectButton" layoutX="525.0" layoutY="265.0" mnemonicParsing="false" text="Select" />
+            <Button fx:id="selectButton" layoutX="525.0" layoutY="265.0" mnemonicParsing="false" onAction="#onSelect" text="Select" />
             <Button fx:id="deleteButton" layoutX="458.0" layoutY="265.0" mnemonicParsing="false" text="Delete" />
          </children>
       </Pane>
@@ -38,8 +38,8 @@
    <bottom>
       <Pane prefHeight="49.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="logoutButton" layoutX="14.0" layoutY="12.0" mnemonicParsing="false" text="Log out" />
-            <Button fx:id="createCustomerButton" layoutX="481.0" layoutY="12.0" mnemonicParsing="false" text="Create Customer" />
+            <Button fx:id="logoutButton" layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#onLogOut" text="Log out" />
+            <Button fx:id="createCustomerButton" layoutX="481.0" layoutY="12.0" mnemonicParsing="false" onAction="#onCreateCustomer" text="Create Customer" />
          </children>
       </Pane>
    </bottom>

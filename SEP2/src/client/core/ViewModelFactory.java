@@ -14,6 +14,7 @@ import client.view.Salesman.CreateCustomer.CreateCustomerViewModel;
 import client.view.Salesman.CreatePolice.CreatePoliceViewModel;
 import client.view.Salesman.ManageCustomer.ManageCustomerViewModel;
 import client.view.Salesman.Policies.PoliciesViewModel;
+import client.view.Salesman.SEditPolicy.SEditPolicyViewModel;
 import client.view.Salesman.SalesmanView.SalesmanViewModel;
 
 public class ViewModelFactory
@@ -40,6 +41,7 @@ public class ViewModelFactory
   private CreateEmployeeViewModel cev;
   private EditEmployeeViewModel eev;
   private ManageEmployeeViewModel mevm;
+  private SEditPolicyViewModel spev;
 
   public CreatePoliceViewModel getCreatePoliceViewModel()
   {
@@ -176,4 +178,12 @@ public class ViewModelFactory
     return eev;
   }
 
+  public SEditPolicyViewModel getSEditPolicyViewModel()
+  {
+    if(spev == null)
+    {
+      spev = new SEditPolicyViewModel(modelFactory.getModel());
+    }
+    return spev;
+  }
 }
