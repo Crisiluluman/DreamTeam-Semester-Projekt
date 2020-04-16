@@ -5,6 +5,7 @@ import client.model.Police.Police;
 public class Damage {
   private Police police;
   private int expenses;
+  private int damageNo;
   private String info;
 
   private Damage(Police police, int expenses, String info)
@@ -29,6 +30,16 @@ public class Damage {
   public void setPolice(Police police)
   {
     this.police = police;
+  }
+
+  public int getDamageNo()
+  {
+    return damageNo;
+  }
+
+  public void setDamageNo(int damageNo)
+  {
+    this.damageNo = damageNo;
   }
 
   public void setExpenses(int expenses)

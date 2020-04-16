@@ -12,6 +12,7 @@ import javafx.scene.layout.Region;
 
 public class CreateDamageViewController implements viewController {
 
+    public TextField DamageNoTextField;
     private ViewHandler vh;
     private CreateDamageViewModel cdv;
     private Region root;

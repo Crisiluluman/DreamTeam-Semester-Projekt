@@ -22,16 +22,18 @@
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Text layoutX="151.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+            <Text layoutX="135.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
             <TextField fx:id="nameTextfield" layoutX="216.0" layoutY="48.0" prefHeight="25.0" prefWidth="232.0" />
-            <Text layoutX="151.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
+            <Text layoutX="135.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
             <TextField fx:id="addressTextfield" layoutX="216.0" layoutY="79.0" prefHeight="25.0" prefWidth="232.0" />
-            <Text layoutX="151.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Postcode" />
+            <Text layoutX="135.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Postcode" />
             <TextField fx:id="postcodeTextField" layoutX="216.0" layoutY="112.0" prefHeight="25.0" prefWidth="232.0" />
-            <Text layoutX="151.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPR-nr" />
+            <Text layoutX="135.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPR-nr" />
             <TextField fx:id="cprnrTextfield" layoutX="216.0" layoutY="143.0" prefHeight="25.0" prefWidth="232.0" />
-            <Text layoutX="151.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Household" />
+            <Text layoutX="135.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Household" />
             <TextField fx:id="householdTextfield" layoutX="217.0" layoutY="176.0" prefHeight="25.0" prefWidth="232.0" />
+            <Text layoutX="135.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer No." />
+            <TextField fx:id="CustomerNoTextField" layoutX="217.0" layoutY="210.0" prefHeight="25.0" prefWidth="232.0" />
          </children>
       </Pane>
    </center>

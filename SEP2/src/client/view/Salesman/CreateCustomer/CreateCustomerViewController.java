@@ -15,7 +15,7 @@ public class CreateCustomerViewController implements viewController
   @FXML public TextField postcodeTextField;
   @FXML public TextField cprnrTextfield;
   @FXML public TextField householdTextfield;
-
+  @FXML public TextField CustomerNoTextField;
 
   private ViewHandler vh;
   private CreateCustomerViewModel ccv;

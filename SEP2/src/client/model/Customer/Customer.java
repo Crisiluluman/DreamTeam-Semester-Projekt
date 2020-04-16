@@ -4,15 +4,15 @@ public class Customer
 {
   private String name;
   private String address;
-  private int age;
+  private int costumerNo;
   private int cprNr; // primary key
   private String household = null;
 
-  public Customer(String name,String address,int age,int cprNr,String household)
+  public Customer(String name,String address,int costumerNo,int cprNr,String household)
   {
     this.name=name;
     this.address=address;
-    this.age=age;
+    this.costumerNo = costumerNo;
     this.cprNr =cprNr;
     this.household = household;
   }
@@ -20,7 +20,7 @@ public class Customer
   {
 this.name=name;
 this.address=address;
-this.age=age;
+this.costumerNo = costumerNo;
 this.cprNr =cprNr;
   }
 
@@ -46,12 +46,12 @@ this.cprNr =cprNr;
 
   public int getAge()
   {
-    return age;
+    return costumerNo;
   }
 
-  public void setAge(int age)
+  public void setAge(int costumerNo)
   {
-    this.age = age;
+    this.costumerNo = costumerNo;
   }
 
   public int getCprNr()
@@ -77,7 +77,7 @@ this.cprNr =cprNr;
   @Override public String toString()
   {
     return "Customer{" + "name='" + name + '\'' + ", address='" + address + '\''
-        + ", age=" + age + ", cprNr=" + cprNr + ", household='" + household
+        + ", CustomerNo=" + costumerNo + ", cprNr=" + cprNr + ", household='" + household
         + '\'' + '}';
   }
 }
