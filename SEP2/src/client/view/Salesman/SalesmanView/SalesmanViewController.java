@@ -33,5 +33,17 @@ public void init( ViewHandler vh, ViewModelFactory vmf, Region root)
     return root;
   }
 
-
+public void onCreateCustomer()
+{
+  vh.openView("CreateCustomer");
+}
+public void onLogOut()
+{
+  vh.openView("Login");
+}
+public void onSelect()
+{
+  //work in progress
+  vh.openView("ManageCustomer");
+}
 }

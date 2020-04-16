@@ -33,6 +33,14 @@ public class CreateCustomerViewController implements viewController
     return root;
   }
 
+  public void onCreateCustomer()
+  {
+    vh.openView("Salesman");
+  }
+  public void onCancel()
+  {
+    vh.openView("Salesman");
+  }
 
 }
 
