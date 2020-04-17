@@ -112,18 +112,25 @@ public class ViewHandler extends Application
         break;
 
     }
+
     if (root != null)
     {
-      currentScene = new Scene(root);
+      currentScene.setRoot(root);
+
     }
+
     String title = "";
     if (root.getUserData() != null)
     {
       title += root.getUserData();
     }
+
     primaryStage.setTitle(title);
     primaryStage.setScene(currentScene);
+    primaryStage.setWidth(600);
+    primaryStage.setHeight(600);
     primaryStage.show();
+
   }
 
   private Region loadSalesmanView(String fxmlFile) {

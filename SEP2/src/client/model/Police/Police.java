@@ -5,18 +5,22 @@ import client.model.Customer.Customer;
 public class Police
 {
   private int policeNo;
+  private String policeType;
   private int price;
   private int deductible;
   private String coverage;
   private Customer customer;
 
-  public Police(int policeNo, int price, int deductible, String coverage, Customer customer)
+
+
+  public Police(int policeNo,String policeType, int price, int deductible, String coverage/* Customer customer*/)
   {
     this.policeNo = policeNo;
+    this.policeType=policeType;
     this.price = price;
     this.deductible = deductible;
     this.coverage = coverage;
-    this.customer = customer;
+
   }
 
   public int getPoliceNo()
@@ -39,9 +43,10 @@ public class Police
     return coverage;
   }
 
-  public Customer getCustomer()
+
+  public String getPoliceType()
   {
-    return customer;
+    return policeType;
   }
 
   public void setPoliceNo(int policeNo)
@@ -62,6 +67,7 @@ public class Police
   @Override public String toString()
   {
     return "Police number: " + getPoliceNo() + " \n" +
+        "Police Type: " + getPoliceType() + " \n" +
         "Price: " + getPrice() + "\n" +
         "Deductible's: " + getDeductible() + "\n" +
         "Coverage: " + getCoverage() + "\n" +
