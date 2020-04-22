@@ -33,9 +33,10 @@ private ChoiceBox policyType;
 
   ObservableList<String> options =
       FXCollections.observableArrayList(
-          "Option 1",
-          "Option 2",
-          "Option 3"
+          "House",
+          "Home",
+          "Car",
+          "Accidents"
       );
 
   @Override public void init(ViewHandler vh, ViewModelFactory vmf, Region root)
