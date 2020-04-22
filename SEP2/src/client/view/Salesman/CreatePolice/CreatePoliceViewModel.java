@@ -6,6 +6,9 @@ import javafx.beans.property.*;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 
 public class CreatePoliceViewModel implements PropertyChangeListener
 {
@@ -16,6 +19,7 @@ public class CreatePoliceViewModel implements PropertyChangeListener
   private StringProperty deductible;
   private StringProperty coverage;
   private StringProperty customer;
+  private Police police;
 
 
 
@@ -32,11 +36,38 @@ public class CreatePoliceViewModel implements PropertyChangeListener
   }
 public void createPolicy(String policeType)
 {
-  Police police = new Police(Integer.parseInt(policyNr.getValue()),String.valueOf(policeType),
-      Integer.parseInt(price.getValue()),Integer.parseInt(deductible.getValue()), String.valueOf(coverage.getValue()));
-model.createPolice(police);
-System.out.println(model.getPolice().getPoliceInfo());
 
+  police = new Police(Integer.parseInt(policyNr.getValue()),String.valueOf(policeType),
+      Integer.parseInt(price.getValue()),Integer.parseInt(deductible.getValue()), String.valueOf(coverage.getValue()));
+
+
+saveToDB();
+}
+public void saveToDB()
+{
+  Connection c = null;
+  Statement stmt = null;
+  try
+  {
+    Class.forName("org.postgresql.Driver");
+    c = DriverManager
+        .getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","1122");
+
+    System.out.println("The database is open");
+
+    stmt = c.createStatement();
+    String sql = "INSERT INTO \"createpolicy\".PoliceList values("+ police.getPoliceNo() +
+        "," + "'"+police.getPoliceType()+"'"+","+police.getPrice()+","+police.getDeductible()+"," +"'"+police.getCoverage()+"');";
+    stmt.executeUpdate(sql);
+
+
+
+    stmt.close();
+    c.close();
+  } catch (Exception e)
+  {
+    e.printStackTrace();
+  }
 }
 
   public StringProperty coverageProperty()

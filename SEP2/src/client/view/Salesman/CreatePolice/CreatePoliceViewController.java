@@ -65,5 +65,6 @@ private ChoiceBox policyType;
     public void onCreate()
     {
       cpv.createPolicy((String) policyType.getValue());
+      vh.openView("Policies");
     }
 }

@@ -75,8 +75,6 @@ public class CreateCustomerViewModel
       connection = DriverManager
           .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres",
               "1234");
-      System.out.println("Database ok");
-      System.out.println(customer.getName());
       statement = connection.createStatement();
       String sql = "INSERT INTO \"Customer\".customer values(" + customer.getCostumerNo() + "," + "'" + customer.getName() + "'" + ","
           + "'" + customer.getAddress() + "'" + "," + customer.getPostcode() + "," + customer.getCprNr() + ");";
