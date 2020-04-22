@@ -14,7 +14,6 @@ public class CreateCustomerViewController implements viewController
   @FXML public TextField addressTextfield;
   @FXML public TextField postcodeTextField;
   @FXML public TextField cprnrTextfield;
-  @FXML public TextField householdTextfield;
   @FXML public TextField CustomerNoTextField;
 
   private ViewHandler vh;
@@ -26,6 +25,11 @@ public class CreateCustomerViewController implements viewController
   this.vh = vh;
   ccv = vmf.getCreateCustomerViewModel();
   this.root = root;
+  nameTextfield.textProperty().bindBidirectional(ccv.getNameTextfield());
+  addressTextfield.textProperty().bindBidirectional(ccv.getAddressTextfield());
+  postcodeTextField.textProperty().bindBidirectional(ccv.getPostcodeTextField());
+  cprnrTextfield.textProperty().bindBidirectional(ccv.getCprnrTextfield());
+  CustomerNoTextField.textProperty().bindBidirectional(ccv.getCustomerNoTextField());
 }
 
   @Override
@@ -35,6 +39,7 @@ public class CreateCustomerViewController implements viewController
 
   public void onCreateCustomer()
   {
+    ccv.onClick();
     vh.openView("Salesman");
   }
   public void onCancel()
