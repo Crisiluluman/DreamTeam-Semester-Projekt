@@ -30,10 +30,8 @@
             <TextField fx:id="postcodeTextField" layoutX="216.0" layoutY="112.0" prefHeight="25.0" prefWidth="232.0" />
             <Text layoutX="135.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPR-nr" />
             <TextField fx:id="cprnrTextfield" layoutX="216.0" layoutY="143.0" prefHeight="25.0" prefWidth="232.0" />
-            <Text layoutX="135.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Household" />
-            <TextField fx:id="householdTextfield" layoutX="217.0" layoutY="176.0" prefHeight="25.0" prefWidth="232.0" />
-            <Text layoutX="135.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer No." />
-            <TextField fx:id="CustomerNoTextField" layoutX="217.0" layoutY="210.0" prefHeight="25.0" prefWidth="232.0" />
+            <Text layoutX="135.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer No." />
+            <TextField fx:id="CustomerNoTextField" layoutX="217.0" layoutY="176.0" prefHeight="25.0" prefWidth="232.0" />
          </children>
       </Pane>
    </center>

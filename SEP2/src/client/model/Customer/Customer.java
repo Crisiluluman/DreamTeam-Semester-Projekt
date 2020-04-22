@@ -4,24 +4,37 @@ public class Customer
 {
   private String name;
   private String address;
+  private int postcode;
   private int costumerNo;
   private int cprNr; // primary key
-  private String household = null;
 
-  public Customer(String name,String address,int costumerNo,int cprNr,String household)
+  public Customer(String name,String address, int postcode, int costumerNo,int cprNr)
   {
     this.name=name;
     this.address=address;
     this.costumerNo = costumerNo;
     this.cprNr =cprNr;
-    this.household = household;
+    this.postcode = postcode;
   }
-  public Customer(String name,String address,int age,int cprNr)
+
+  public int getPostcode()
   {
-this.name=name;
-this.address=address;
-this.costumerNo = costumerNo;
-this.cprNr =cprNr;
+    return postcode;
+  }
+
+  public void setPostcode(int postcode)
+  {
+    this.postcode = postcode;
+  }
+
+  public int getCostumerNo()
+  {
+    return costumerNo;
+  }
+
+  public void setCostumerNo(int costumerNo)
+  {
+    this.costumerNo = costumerNo;
   }
 
   public String getName()
@@ -44,16 +57,6 @@ this.cprNr =cprNr;
     this.address = address;
   }
 
-  public int getAge()
-  {
-    return costumerNo;
-  }
-
-  public void setAge(int costumerNo)
-  {
-    this.costumerNo = costumerNo;
-  }
-
   public int getCprNr()
   {
     return cprNr;
@@ -64,20 +67,11 @@ this.cprNr =cprNr;
     this.cprNr = cprNr;
   }
 
-  public String getHousehold()
-  {
-    return household;
-  }
-
-  public void setHousehold(String household)
-  {
-    this.household = household;
-  }
 
   @Override public String toString()
   {
     return "Customer{" + "name='" + name + '\'' + ", address='" + address + '\''
-        + ", CustomerNo=" + costumerNo + ", cprNr=" + cprNr + ", household='" + household
-        + '\'' + '}';
+        + ", postcode=" + postcode + ", costumerNo=" + costumerNo + ", cprNr="
+        + cprNr + '}';
   }
 }
