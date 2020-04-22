@@ -78,8 +78,9 @@ public class CreateCustomerViewModel
       System.out.println("Database ok");
       System.out.println(customer.getName());
       statement = connection.createStatement();
-      String sql = "INSERT INTO \"Customer\".customer values(" + customer.getCostumerNo() + "," + "'" + customer.getName() + "'" + "," + "'" + customer.getAddress() + "'" + "," + customer.getPostcode() + "," + customer.getCprNr() + ");";
-//      String sql = "INSERT INTO \"Customer\".customer VALUES (" + customer.getCostumerNo() + ", " + "'" + customer.getName() + "'" + "," + "'" + customer.getAddress() + "'" + "," + customer.getPostcode() + "," + customer.getCprNr() + ")";
+      String sql = "INSERT INTO \"Customer\".customer values(" + customer.getCostumerNo() + "," + "'" + customer.getName() + "'" + ","
+          + "'" + customer.getAddress() + "'" + "," + customer.getPostcode() + "," + customer.getCprNr() + ");";
+
 
       statement.executeUpdate(sql);
       statement.close();
