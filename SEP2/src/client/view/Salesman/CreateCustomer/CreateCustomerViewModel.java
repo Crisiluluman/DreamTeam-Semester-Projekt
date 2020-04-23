@@ -1,5 +1,6 @@
 package client.view.Salesman.CreateCustomer;
 
+import client.core.ViewHandler;
 import client.model.Customer.Customer;
 import client.model.Model;
 import javafx.beans.property.SimpleStringProperty;
@@ -8,17 +9,23 @@ import javafx.beans.property.StringProperty;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
-
+import java.util.regex.Pattern;
 
 public class CreateCustomerViewModel
 {
   private Model model;
+  private boolean flag = true;
   public StringProperty nameTextfield;
   public StringProperty addressTextfield;
   public StringProperty postcodeTextField;
-  public StringProperty cprnrTextfield;
+  public StringProperty cprnoTextfield;
   public StringProperty customerNoTextField;
   private Customer customer;
+  public StringProperty nameLabel;
+  public StringProperty addressLabel;
+  public StringProperty postcodeLabel;
+  public StringProperty cprnoLabel;
+  public StringProperty customernoLabel;
 
   public CreateCustomerViewModel(Model model)
   {
@@ -26,8 +33,40 @@ public class CreateCustomerViewModel
     nameTextfield = new SimpleStringProperty();
     addressTextfield = new SimpleStringProperty();
     postcodeTextField = new SimpleStringProperty();
-    cprnrTextfield = new SimpleStringProperty();
+    cprnoTextfield = new SimpleStringProperty();
     customerNoTextField = new SimpleStringProperty();
+    nameLabel = new SimpleStringProperty();
+    addressLabel = new SimpleStringProperty();
+    postcodeLabel = new SimpleStringProperty();
+    cprnoLabel = new SimpleStringProperty();
+    customernoLabel = new SimpleStringProperty();
+
+
+  }
+
+  public StringProperty getnameLabelProperty()
+  {
+    return nameLabel;
+  }
+
+  public StringProperty getaddressLabelProperty()
+  {
+    return addressLabel;
+  }
+
+  public StringProperty getpostcodeLabelProperty()
+  {
+    return postcodeLabel;
+  }
+
+  public StringProperty getcprnoLabelProperty()
+  {
+    return cprnoLabel;
+  }
+
+  public StringProperty getcustomernoLabelProperty()
+  {
+    return customernoLabel;
   }
 
   public StringProperty getNameTextfield()
@@ -45,9 +84,9 @@ public class CreateCustomerViewModel
     return postcodeTextField;
   }
 
-  public StringProperty getCprnrTextfield()
+  public StringProperty getCprnoTextfield()
   {
-    return cprnrTextfield;
+    return cprnoTextfield;
   }
 
   public StringProperty getCustomerNoTextField()
@@ -57,11 +96,48 @@ public class CreateCustomerViewModel
 
   public void onClick()
   {
+
     customer = new Customer(String.valueOf(nameTextfield.getValue()), String.valueOf(addressTextfield.getValue()),
         Integer.parseInt(postcodeTextField.getValue()), Integer.parseInt(customerNoTextField.getValue()),
-        Integer.parseInt(cprnrTextfield.getValue()));
+        Integer.parseInt(cprnoTextfield.getValue()));
 
-    saveToDB();
+    if(nameLabel.getValue() != null && Pattern.matches("[a-åA-Å] +",nameLabel.getValue()) )
+    {
+
+      nameLabel.setValue("");
+      saveToDB();
+    }
+    else if(addressLabel.getValue() != null)
+    {
+      addressLabel.setValue("");
+      saveToDB();
+    }
+
+    else if(postcodeLabel.getValue() != null && Integer.parseInt(postcodeLabel.getValue()) <= 9990 && Integer.parseInt(postcodeLabel.getValue()) >= 1000)
+    {
+      postcodeLabel.setValue("");
+      saveToDB();
+    }
+
+
+    else if(cprnoLabel.getValue() != null && Integer.parseInt(cprnoLabel.getValue()) >= 0101000001 && Integer.parseInt(cprnoLabel.getValue()) <= Long.parseLong("3112999999"))
+    {
+      
+    }
+
+
+
+    else
+    {
+      nameLabel.setValue("Invalid input - try again");
+      addressLabel.setValue("Invalid input - try again");
+      postcodeLabel.setValue("Invalid input - try again");
+      cprnoLabel.setValue("Invalid input - try again");
+      customernoLabel.setValue("Invalid input - try again");
+      System.out.println("HEj!");
+
+    }
+
   }
 
   private void saveToDB()
@@ -92,4 +168,10 @@ public class CreateCustomerViewModel
     }
     System.out.println("Insert to Database ok!");
   }
+
+  public boolean getFlag()
+  {
+    return flag;
+  }
+
 }

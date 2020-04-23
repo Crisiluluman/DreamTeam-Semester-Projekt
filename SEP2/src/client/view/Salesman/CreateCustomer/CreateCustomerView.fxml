@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
@@ -22,16 +23,21 @@
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Text layoutX="135.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
-            <TextField fx:id="nameTextfield" layoutX="216.0" layoutY="48.0" prefHeight="25.0" prefWidth="232.0" />
-            <Text layoutX="135.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
-            <TextField fx:id="addressTextfield" layoutX="216.0" layoutY="79.0" prefHeight="25.0" prefWidth="232.0" />
-            <Text layoutX="135.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Postcode" />
-            <TextField fx:id="postcodeTextField" layoutX="216.0" layoutY="112.0" prefHeight="25.0" prefWidth="232.0" />
-            <Text layoutX="135.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPR-nr" />
-            <TextField fx:id="cprnrTextfield" layoutX="216.0" layoutY="143.0" prefHeight="25.0" prefWidth="232.0" />
-            <Text layoutX="135.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer No." />
-            <TextField fx:id="CustomerNoTextField" layoutX="217.0" layoutY="176.0" prefHeight="25.0" prefWidth="232.0" />
+            <Text layoutX="110.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+            <TextField fx:id="nameTextfield" layoutX="191.0" layoutY="50.0" prefHeight="25.0" prefWidth="232.0" />
+            <Text layoutX="110.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
+            <TextField fx:id="addressTextfield" layoutX="191.0" layoutY="81.0" prefHeight="25.0" prefWidth="232.0" />
+            <Text layoutX="110.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Postcode" />
+            <TextField fx:id="postcodeTextField" layoutX="191.0" layoutY="114.0" prefHeight="25.0" prefWidth="232.0" />
+            <Text layoutX="110.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPR-nr" />
+            <TextField fx:id="cprnoTextfield" layoutX="191.0" layoutY="145.0" prefHeight="25.0" prefWidth="232.0" />
+            <Text layoutX="110.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer No." />
+            <TextField fx:id="CustomerNoTextField" layoutX="192.0" layoutY="178.0" prefHeight="25.0" prefWidth="232.0" />
+            <Label fx:id="nameLabel" layoutX="431.0" layoutY="54.0" prefHeight="17.0" prefWidth="135.0" textFill="#da0808" />
+            <Label fx:id="addressLabel" layoutX="431.0" layoutY="149.0" prefHeight="17.0" prefWidth="135.0" textFill="#da0808" />
+            <Label fx:id="postcodeLabel" layoutX="431.0" layoutY="118.0" prefHeight="17.0" prefWidth="135.0" textFill="#da0808" />
+            <Label fx:id="cprnoLabel" layoutX="431.0" layoutY="85.0" prefHeight="17.0" prefWidth="135.0" textFill="#da0808" />
+            <Label fx:id="customernoLabel" layoutX="431.0" layoutY="182.0" prefHeight="17.0" prefWidth="135.0" textFill="#da0808" />
          </children>
       </Pane>
    </center>
