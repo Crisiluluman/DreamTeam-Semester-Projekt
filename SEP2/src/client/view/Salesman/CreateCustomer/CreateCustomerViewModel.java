@@ -97,47 +97,51 @@ public class CreateCustomerViewModel
   public void onClick()
   {
 
-    customer = new Customer(String.valueOf(nameTextfield.getValue()), String.valueOf(addressTextfield.getValue()),
-        Integer.parseInt(postcodeTextField.getValue()), Integer.parseInt(customerNoTextField.getValue()),
-        Integer.parseInt(cprnoTextfield.getValue()));
-
-    if(nameLabel.getValue() != null && Pattern.matches("[a-åA-Å] +",nameLabel.getValue()) )
+    if(nameTextfield.getValue() !=null && addressTextfield.getValue() != null && postcodeTextField.getValue() != null && cprnoTextfield.getValue() != null && customerNoTextField != null)
     {
-
-      nameLabel.setValue("");
-      saveToDB();
-    }
-    else if(addressLabel.getValue() != null)
-    {
-      addressLabel.setValue("");
-      saveToDB();
+      customer = new Customer(String.valueOf(nameTextfield.getValue()), String.valueOf(addressTextfield.getValue()),
+          Integer.parseInt(postcodeTextField.getValue()), Integer.parseInt(customerNoTextField.getValue()),
+          Integer.parseInt(cprnoTextfield.getValue()));
     }
 
-    else if(postcodeLabel.getValue() != null && Integer.parseInt(postcodeLabel.getValue()) <= 9990 && Integer.parseInt(postcodeLabel.getValue()) >= 1000)
+    System.out.println(nameTextfield.getValue());
+    if(nameTextfield.getValue() == null || (Pattern.matches("[a-åA-Å] +",nameTextfield.getValue())))
     {
-      postcodeLabel.setValue("");
-      saveToDB();
+      nameLabel.setValue("Invalid input - try again");
+      flag = false;
+    }
+    else if(addressTextfield.getValue() == null)
+    {
+      addressLabel.setValue("Invalid input - try again");
+      flag = false;
     }
 
-
-    else if(cprnoLabel.getValue() != null && Integer.parseInt(cprnoLabel.getValue()) >= 0101000001 && Integer.parseInt(cprnoLabel.getValue()) <= Long.parseLong("3112999999"))
+    else if(postcodeTextField.getValue() == null || Integer.parseInt(postcodeTextField.getValue()) > 9990 || Integer.parseInt(postcodeTextField.getValue()) < 1000)
     {
-      
+      postcodeLabel.setValue("Invalid input - try again");
+      flag = false;
     }
 
+    else if(cprnoTextfield.getValue() == null || Integer.parseInt(cprnoTextfield.getValue()) < 0101000001 || Integer.parseInt(cprnoTextfield.getValue()) > Long.parseLong("3112999999"))
+    {
+      cprnoLabel.setValue("Invalid input - try again");
+      flag = false;
+    }
 
+    else if(customerNoTextField.getValue() == null || Pattern.matches("[a-åA-Å] +",customerNoTextField.getValue()))
+    {
+      customernoLabel.setValue("Invalid input - try again");
+      flag = false;
+    }
 
     else
     {
-      nameLabel.setValue("Invalid input - try again");
-      addressLabel.setValue("Invalid input - try again");
-      postcodeLabel.setValue("Invalid input - try again");
-      cprnoLabel.setValue("Invalid input - try again");
-      customernoLabel.setValue("Invalid input - try again");
-      System.out.println("HEj!");
-
+      nameLabel.setValue("");
+      addressLabel.setValue("");
+      postcodeLabel.setValue("");
+      cprnoLabel.setValue("");
+      saveToDB();
     }
-
   }
 
   private void saveToDB()
