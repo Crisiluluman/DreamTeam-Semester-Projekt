@@ -11,7 +11,7 @@ public class Salesman
 
   // private String rank;
 
-  public Salesman(String name, int CPRNo, String address, String email, int tlfNo)
+  public Salesman(String name, String address,int CPRNo, String email, int tlfNo)
   {
     this.name = name;
     this.CPRNo = CPRNo;

@@ -5,13 +5,15 @@ public class Manager {
   private int cpr;
   private int tlfnr;
   private String address;
+  private String email;
 
-  public Manager(String name, int cpr, int tlfnr, String address)
+  public Manager(String name, String address, int cpr,String email,int tlfnr)
   {
     this.name = name;
     this.cpr = cpr;
     this.tlfnr = tlfnr;
     this.address = address;
+    this.email=email;
   }
 
   public String getName() {
