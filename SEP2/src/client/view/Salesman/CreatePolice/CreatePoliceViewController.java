@@ -87,6 +87,7 @@ private ChoiceBox policyType;
        LabelErrorCoverage.textProperty().bind(cpv.labelCoverageProperty());
 
   policyType.setItems(options);
+  clearAll();
   }
 
     @Override
@@ -100,10 +101,10 @@ private ChoiceBox policyType;
       deductible.clear();
       Customer.clear();
       policyNr.clear();
-      LabelErrorPolicyNr.setText("");
-      LabelErrorCoverage.setText("");
-      LabelErrorDeductible.setText("");
-      LabelErrorPrice.setText("");
+    cpv.labelCoverageProperty().setValue("");
+    cpv.labelDeductibleProperty().setValue("");
+    cpv.labelPolicyNrProperty().setValue("");
+    cpv.labelPriceProperty().setValue("");
     }
     public void onBack()
     {
@@ -113,7 +114,7 @@ private ChoiceBox policyType;
     public void onCreate()
     {
 
-if (cpv.checker() == true)
+if (cpv.checker())
 {
 
   cpv.createPolicy((String) policyType.getValue());
