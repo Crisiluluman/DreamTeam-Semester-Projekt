@@ -6,9 +6,9 @@ public class Customer
   private String address;
   private int postcode;
   private int costumerNo;
-  private int cprNr; // primary key
+  private long cprNr; // primary key
 
-  public Customer(String name,String address, int postcode, int costumerNo,int cprNr)
+  public Customer(String name,String address, int postcode, int costumerNo,long cprNr)
   {
     this.name=name;
     this.address=address;
@@ -57,12 +57,12 @@ public class Customer
     this.address = address;
   }
 
-  public int getCprNr()
+  public long getCprNr()
   {
     return cprNr;
   }
 
-  public void setCprNr(int cprNr)
+  public void setCprNr(long cprNr)
   {
     this.cprNr = cprNr;
   }

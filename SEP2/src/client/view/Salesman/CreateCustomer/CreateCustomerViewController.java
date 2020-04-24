@@ -37,9 +37,10 @@ public class CreateCustomerViewController implements viewController
   CustomerNoTextField.textProperty().bindBidirectional(ccv.getCustomerNoTextField());
   nameLabel.textProperty().bind(ccv.getnameLabelProperty());
   addressLabel.textProperty().bind(ccv.getaddressLabelProperty());
-  postcodeLabel.textProperty().bind(ccv.getaddressLabelProperty());
-  cprnoLabel.textProperty().bind(ccv.getpostcodeLabelProperty());
+  postcodeLabel.textProperty().bind(ccv.getpostcodeLabelProperty());
+  cprnoLabel.textProperty().bind(ccv.getcprnoLabelProperty());
   customernoLabel.textProperty().bind(ccv.getcustomernoLabelProperty());
+  ccv.clearTextfields();
 }
 
   @Override
@@ -49,16 +50,20 @@ public class CreateCustomerViewController implements viewController
 
   public void onCreateCustomer()
   {
-    ccv.onClick();
-
-    if(ccv.getFlag())
+    if(ccv.checker())
     {
+      ccv.onClick();
+      ccv.clearTextfields();
+      ccv.clearLabels();
+
+
       vh.openView("Salesman");
     }
 
   }
   public void onCancel()
   {
+    ccv.clearTextfields();
     vh.openView("Salesman");
   }
 
