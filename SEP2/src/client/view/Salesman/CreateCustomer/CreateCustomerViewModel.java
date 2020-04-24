@@ -14,7 +14,6 @@ import java.util.regex.Pattern;
 public class CreateCustomerViewModel
 {
   private Model model;
-  private boolean flag = true;
   public StringProperty nameTextfield;
   public StringProperty addressTextfield;
   public StringProperty postcodeTextField;
@@ -97,52 +96,67 @@ public class CreateCustomerViewModel
   public void onClick()
   {
 
-    if(nameTextfield.getValue() !=null && addressTextfield.getValue() != null && postcodeTextField.getValue() != null && cprnoTextfield.getValue() != null && customerNoTextField != null)
-    {
-      customer = new Customer(String.valueOf(nameTextfield.getValue()), String.valueOf(addressTextfield.getValue()),
-          Integer.parseInt(postcodeTextField.getValue()), Integer.parseInt(customerNoTextField.getValue()),
-          Integer.parseInt(cprnoTextfield.getValue()));
-    }
+    customer = new Customer(String.valueOf(nameTextfield.getValue()), String.valueOf(addressTextfield.getValue()),
+        Integer.parseInt(postcodeTextField.getValue()), Integer.parseInt(customerNoTextField.getValue()),
+        Integer.parseInt(cprnoTextfield.getValue()));
+clearLabels();
 
-    System.out.println(nameTextfield.getValue());
-    if(nameTextfield.getValue() == null || (Pattern.matches("[a-åA-Å] +",nameTextfield.getValue())))
+    saveToDB();
+  }
+
+public void clearLabels()
+{
+  nameLabel.setValue("");
+  addressLabel.setValue("");
+  postcodeLabel.setValue("");
+  cprnoLabel.setValue("");
+
+}
+  public void clearTextfields()
+  {
+    nameTextfield.setValue("");
+    addressTextfield.setValue("");
+    postcodeTextField.setValue("");
+    cprnoTextfield.setValue("");
+    customerNoTextField.setValue("");
+  }
+
+
+  public boolean checker()
+  {
+    clearLabels();
+
+    if(nameTextfield.getValue().equals("") || !(Pattern.matches("[a-åA-Å]+",nameTextfield.getValue())))
     {
       nameLabel.setValue("Invalid input - try again");
-      flag = false;
+      return false;
     }
-    else if(addressTextfield.getValue() == null)
+    if(addressTextfield.getValue().equals(""))
     {
       addressLabel.setValue("Invalid input - try again");
-      flag = false;
+      return false;
     }
 
-    else if(postcodeTextField.getValue() == null || Integer.parseInt(postcodeTextField.getValue()) > 9990 || Integer.parseInt(postcodeTextField.getValue()) < 1000)
+    if(postcodeTextField.getValue().equals("") || Integer.parseInt(postcodeTextField.getValue()) > 9990 || Integer.parseInt(postcodeTextField.getValue()) < 1000)
     {
       postcodeLabel.setValue("Invalid input - try again");
-      flag = false;
+      return false;
     }
 
-    else if(cprnoTextfield.getValue() == null || Integer.parseInt(cprnoTextfield.getValue()) < 0101000001 || Integer.parseInt(cprnoTextfield.getValue()) > Long.parseLong("3112999999"))
+    if(cprnoTextfield.getValue().equals("") || Long.parseLong(cprnoTextfield.getValue()) < Long.parseLong("0101000001")  || Long.parseLong(cprnoTextfield.getValue()) > Long.parseLong("3112999999"))
     {
       cprnoLabel.setValue("Invalid input - try again");
-      flag = false;
+      return false;
     }
 
-    else if(customerNoTextField.getValue() == null || Pattern.matches("[a-åA-Å] +",customerNoTextField.getValue()))
+    if(customerNoTextField.getValue().equals("") || Pattern.matches("[a-åA-Å]+",customerNoTextField.getValue()))
     {
       customernoLabel.setValue("Invalid input - try again");
-      flag = false;
+      return false;
     }
-
-    else
-    {
-      nameLabel.setValue("");
-      addressLabel.setValue("");
-      postcodeLabel.setValue("");
-      cprnoLabel.setValue("");
-      saveToDB();
-    }
+    return true;
   }
+
 
   private void saveToDB()
   {
@@ -171,11 +185,6 @@ public class CreateCustomerViewModel
 
     }
     System.out.println("Insert to Database ok!");
-  }
-
-  public boolean getFlag()
-  {
-    return flag;
   }
 
 }
