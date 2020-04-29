@@ -4,10 +4,10 @@ public class DamageEmployee
 {
   private String name;
   private String address;
-  private int CprNr;
+  private long CprNr;
   private int PhoneNumber;
   private String email;
-  public DamageEmployee(String name,String address,int cprNr,String email,int PhoneNumber)
+  public DamageEmployee(String name,String address,long cprNr,String email,int PhoneNumber)
   {
     this.name=name;
     this.address=address;
@@ -19,6 +19,11 @@ public class DamageEmployee
   public String getName()
   {
     return name;
+  }
+
+  public String getEmail()
+  {
+    return email;
   }
 
   public void setName(String name)
@@ -36,7 +41,7 @@ public class DamageEmployee
     this.address = address;
   }
 
-  public int getCprNr()
+  public long getCprNr()
   {
     return CprNr;
   }

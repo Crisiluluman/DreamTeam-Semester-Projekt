@@ -3,7 +3,7 @@ package client.model.Salesman;
 public class Salesman
 {
   private String name;
-  private int CPRNo;
+  private long CPRNo;
   private String address;
   private String email;
   private int tlfNo;
@@ -11,7 +11,7 @@ public class Salesman
 
   // private String rank;
 
-  public Salesman(String name, String address,int CPRNo, String email, int tlfNo)
+  public Salesman(String name, String address,long CPRNo, String email, int tlfNo)
   {
     this.name = name;
     this.CPRNo = CPRNo;
@@ -25,7 +25,7 @@ public class Salesman
     return name;
   }
 
-  public int getCPRNo()
+  public long getCPRNo()
   {
     return CPRNo;
   }
@@ -50,7 +50,7 @@ public class Salesman
     this.name = name;
   }
 
-  public void setCPRNo(int CPRNo)
+  public void setCPRNo(long CPRNo)
   {
     this.CPRNo = CPRNo;
   }

@@ -2,12 +2,12 @@ package client.model.Manager;
 
 public class Manager {
   private String name;
-  private int cpr;
+  private long cpr;
   private int tlfnr;
   private String address;
   private String email;
 
-  public Manager(String name, String address, int cpr,String email,int tlfnr)
+  public Manager(String name, String address, long cpr,String email,int tlfnr)
   {
     this.name = name;
     this.cpr = cpr;
@@ -20,8 +20,13 @@ public class Manager {
     return name;
   }
 
-  public int getCpr() {
+  public long getCpr() {
     return cpr;
+  }
+
+  public String getEmail()
+  {
+    return email;
   }
 
   public int getTlfnr() {
@@ -37,7 +42,7 @@ public class Manager {
     this.name = name;
   }
 
-  public void setCpr(int cpr)
+  public void setCpr(long cpr)
   {
     this.cpr = cpr;
   }
@@ -57,10 +62,11 @@ public class Manager {
     return "name: " + name + "cpr: " + cpr + "cell: " + tlfnr + "address: " + address;
   }
 
-  public void editManager(String name, int cpr, int cellNr, String address)
+  public void editManager(String name,String address,long cpr,String email,int cellNr)
   {
     this.name = name;
     this.cpr = cpr;
+    this.email=email;
     this.tlfnr = cellNr;
     this.address = address;
   }

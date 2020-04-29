@@ -48,6 +48,11 @@ private Label LabelErrorPhone;
         CPR.textProperty().bindBidirectional(cev.CPRProperty());
         email.textProperty().bindBidirectional(cev.emailProperty());
         phone.textProperty().bindBidirectional(cev.phoneProperty());
+        LabelErrorName.textProperty().bind(cev.labelnameProperty());
+        LabelErrorAddress.textProperty().bind(cev.labeladdressProperty());
+        LabelErrorID.textProperty().bind(cev.labelCPRProperty());
+        LabelErrorEmail.textProperty().bind(cev.labelemailProperty());
+        LabelErrorPhone.textProperty().bind(cev.labelphoneProperty());
 
         position.setItems(options);
         position.setValue(options.get(0));
@@ -65,6 +70,7 @@ private Label LabelErrorPhone;
       {
         cev.onCreate((String) position.getValue());
         cev.clearTextFields();
+        cev.clearLabel();
         vh.openView("ManageEmployee");
       }
     }
