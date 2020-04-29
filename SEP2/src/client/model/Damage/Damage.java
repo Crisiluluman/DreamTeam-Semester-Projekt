@@ -4,22 +4,23 @@ import client.model.Police.Police;
 
 public class Damage {
   private Police police;
-  private int expenses;
+  private double expenses;
   private int damageNo;
   private String info;
 
-  private Damage(Police police, int expenses, String info)
+  public Damage(Police police, double expenses, int damageNo, String info)
   {
     this.police = police;
     this.expenses = expenses;
     this.info = info;
+    this.damageNo = damageNo;
   }
 
   public Police getPolice() {
     return police;
   }
 
-  public int getExpenses() {
+  public double getExpenses() {
     return expenses;
   }
 
@@ -42,7 +43,7 @@ public class Damage {
     this.damageNo = damageNo;
   }
 
-  public void setExpenses(int expenses)
+  public void setExpenses(double expenses)
   {
     this.expenses = expenses;
   }
