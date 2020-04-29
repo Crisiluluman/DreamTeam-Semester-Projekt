@@ -26,18 +26,18 @@ public class CreatePoliceViewController implements viewController
   @FXML
   private Label LabelErrorPolicyNr;
   @FXML
-private ChoiceBox policyType;
-@FXML
+  private ChoiceBox policyType;
+  @FXML
  private TextField policyNr;
-@FXML
+  @FXML
   private TextField price;
-@FXML
+  @FXML
   private TextField deductible;
-@FXML
+  @FXML
   private TextField coverage;
-@FXML
+  @FXML
   private TextField Customer;
-@FXML
+  @FXML
   private ViewHandler vh;
   private CreatePoliceViewModel cpv;
   private Region root;
@@ -106,6 +106,7 @@ private ChoiceBox policyType;
     cpv.labelPolicyNrProperty().setValue("");
     cpv.labelPriceProperty().setValue("");
     }
+
     public void onBack()
     {
       clearAll();
@@ -114,13 +115,13 @@ private ChoiceBox policyType;
     public void onCreate()
     {
 
-if (cpv.checker())
-{
+    if (cpv.checker())
+    {
 
-  cpv.createPolicy((String) policyType.getValue());
-  clearAll();
-  vh.openView("Policies");
-}
+      cpv.createPolicy((String) policyType.getValue());
+      clearAll();
+      vh.openView("Policies");
+    }
 
     }
 }

@@ -99,7 +99,7 @@ public class CreateCustomerViewModel
     customer = new Customer(String.valueOf(nameTextfield.getValue()), String.valueOf(addressTextfield.getValue()),
         Integer.parseInt(postcodeTextField.getValue()), Integer.parseInt(customerNoTextField.getValue()),
         Integer.parseInt(cprnoTextfield.getValue()));
-clearLabels();
+      clearLabels();
 
     saveToDB();
   }
