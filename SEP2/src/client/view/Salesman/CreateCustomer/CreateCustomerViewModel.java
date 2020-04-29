@@ -142,7 +142,7 @@ public void clearLabels()
       return false;
     }
 
-    if(cprnoTextfield.getValue().equals("") || Long.parseLong(cprnoTextfield.getValue()) < Long.parseLong("0101000001")  || Long.parseLong(cprnoTextfield.getValue()) > Long.parseLong("3112999999"))
+    if(cprnoTextfield.getValue().equals("") || Pattern.matches("[a-åA-Å]+",cprnoTextfield.getValue()) || Long.parseLong(cprnoTextfield.getValue()) < Long.parseLong("0101000001")  || Long.parseLong(cprnoTextfield.getValue()) > Long.parseLong("3112999999"))
     {
       cprnoLabel.setValue("Invalid input - try again");
       return false;

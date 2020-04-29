@@ -35,4 +35,8 @@ public class ManageEmployeeController implements viewController
   public Region getRoot() {
     return root;
   }
+  public void onCreateEmployee()
+  {
+    vh.openView("CreateEmployee");
+  }
 }

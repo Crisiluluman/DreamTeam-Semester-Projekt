@@ -84,7 +84,7 @@ public void saveToDB()
 public boolean checker()
 {
  clear();
-  if (policyNr.getValue().equals("") || Pattern.matches("[a-åA-å]+", policyNr.getValue()))
+  if (policyNr.getValue().equals("") || Pattern.matches("[a-åA-Å]+", policyNr.getValue()))
   {
     LabelPolicyNr.setValue("Missing Policy Nr or invalid input");
     return false;
@@ -99,7 +99,7 @@ public boolean checker()
   {
     LabelDeductible.setValue("Missing Deductible or invalid input");
     return false;
-  }if (coverage.getValue().equals("") || !Pattern.matches("[a-åA-å]+", coverage.getValue()))
+  }if (coverage.getValue().equals("") || !Pattern.matches("[a-åA-Å]+", coverage.getValue()))
   {
   LabelCoverage.setValue("Missing Coverage or invalid input");
   return false;

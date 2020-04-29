@@ -25,5 +25,10 @@ public class ManagerViewController implements viewController
   @Override
   public Region getRoot() {
     return root;
-  }
+}
+
+public void onManageEmployee()
+{
+  vh.openView("ManageEmployee");
+}
 }
