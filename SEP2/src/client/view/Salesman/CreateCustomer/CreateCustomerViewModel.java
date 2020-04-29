@@ -1,6 +1,5 @@
 package client.view.Salesman.CreateCustomer;
 
-import client.core.ViewHandler;
 import client.model.Customer.Customer;
 import client.model.Model;
 import javafx.beans.property.SimpleStringProperty;

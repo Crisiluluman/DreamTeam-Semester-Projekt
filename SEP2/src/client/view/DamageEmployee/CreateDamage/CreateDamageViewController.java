@@ -40,6 +40,7 @@ public class CreateDamageViewController implements viewController {
         this.root = root;
 
         policyDropdown.setItems(options);
+        policyDropdown.setValue(options.get(2));
         expensesTextfield.textProperty().bindBidirectional(cdv.getExpensesTextfield());
         damageNoTextfield.textProperty().bindBidirectional(cdv.getDamageNoTextfield());
         infoTextArea.textProperty().bindBidirectional(cdv.getInfoTextArea());
@@ -76,7 +77,7 @@ public class CreateDamageViewController implements viewController {
     {
         if (cdv.checker())
         {
-            cdv.onClick();
+            cdv.onClick((String) policyDropdown.getValue());
             cdv.clearTextfields();
             cdv.clearLabels();
             vh.openView("Policies");

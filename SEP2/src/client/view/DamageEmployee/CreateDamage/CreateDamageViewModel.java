@@ -71,9 +71,10 @@ public class CreateDamageViewModel {
     return damageNoLabel;
   }
 
-  public void onClick()
+  public void onClick(String policeType)
   {
-    damage = new Damage(police,Double.parseDouble(expensesTextfield.getValue()),Integer.parseInt(damageNoTextfield.getValue()), String.valueOf(infoTextArea.getValue()));
+    Police dummy = new Police(1,"Car",100,50,"kasko");
+    damage = new Damage(dummy.getPoliceNo(), policeType,Double.parseDouble(expensesTextfield.getValue()),Integer.parseInt(damageNoTextfield.getValue()), String.valueOf(infoTextArea.getValue()));
     clearLabels();
     saveToDB();
   }
@@ -119,14 +120,18 @@ public class CreateDamageViewModel {
 
     try
     {
-      Class.forName("org.postgresql.Driver");
-      connection = DriverManager
-          .getConnection("jdbc:postgresql://localhost:63320/postgres", "postgres",
-              "ybf56qka");
-      statement = connection.createStatement();
-      String sql = "INSERT INTO \"Damage\".damage values(" + police.getPoliceNo() + "," + "'" + police.getPoliceType() + "'"  + "," + damage.getExpenses() + "," + damage.getDamageNo() + "," + "'" + damage.getInfo() + "'" + ");";
 
+      Class.forName("org.postgresql.Driver");
       System.out.println("Test2");
+      connection = DriverManager
+          .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres",
+              "1234");
+      System.out.println("Test2");
+      statement = connection.createStatement();
+      System.out.println("Test2");
+      String sql = "INSERT INTO \"Damage\".damage values(" + damage.getPoliceNo() + "," + "'" + damage.getPoliceType() + "'"  + "," + damage.getExpenses() + "," + damage.getDamageNo() + "," + "'" + damage.getInfo() + "'" + ");";
+      System.out.println("Test2");
+
 
       statement.executeUpdate(sql);
       statement.close();

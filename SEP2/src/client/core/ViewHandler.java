@@ -54,7 +54,7 @@ public class ViewHandler extends Application
   public void start(Stage stage) throws Exception {
     primaryStage = stage;
     currentScene = new Scene(new Region());
-    openView("Salesman");
+    openView("CreateDamage");
   }
 
   public void openView(String id)

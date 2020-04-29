@@ -3,22 +3,27 @@ package client.model.Damage;
 import client.model.Police.Police;
 
 public class Damage {
-  private Police police;
+  private int policeNo;
+  private String policeType;
   private double expenses;
   private int damageNo;
   private String info;
 
-  public Damage(Police police, double expenses, int damageNo, String info)
+  public Damage(int policeNo, String policeType, double expenses, int damageNo, String info)
   {
-    this.police = police;
+    this.policeNo = policeNo;
+    this.policeType = policeType;
     this.expenses = expenses;
     this.info = info;
     this.damageNo = damageNo;
   }
 
-  public Police getPolice() {
-    return police;
+
+  public int getPoliceNo() {
+    return policeNo;
   }
+
+  public String getPoliceType(){return policeType;}
 
   public double getExpenses() {
     return expenses;
@@ -28,9 +33,9 @@ public class Damage {
     return info;
   }
 
-  public void setPolice(Police police)
+  public void setPoliceNo(int policeNo)
   {
-    this.police = police;
+    this.policeNo = policeNo;
   }
 
   public int getDamageNo()
@@ -55,7 +60,7 @@ public class Damage {
 
   public String toString()
   {
-    return "" + "Police:" + police + " expenses: " + expenses + " info: " + info;
+    return "" + "Police:" + policeNo + " expenses: " + expenses + " info: " + info;
   }
 
 }
