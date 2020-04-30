@@ -208,12 +208,6 @@ phone.setValue("");
     }
 
 
-    public SimpleStringProperty positionProperty()
-    {
-        return position;
-    }
-
-
     public SimpleStringProperty emailProperty()
     {
         return email;

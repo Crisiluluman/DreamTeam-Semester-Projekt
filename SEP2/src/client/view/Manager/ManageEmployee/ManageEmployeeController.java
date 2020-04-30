@@ -29,6 +29,7 @@ public class ManageEmployeeController implements viewController
     this.vh = vh;
     this.root = root;
     mevm = vmf.getManageEmployeeViewModel();
+
   }
 
   @Override
@@ -38,5 +39,9 @@ public class ManageEmployeeController implements viewController
   public void onCreateEmployee()
   {
     vh.openView("CreateEmployee");
+  }
+
+  public void onSelectEmployee(){
+    vh.openView("EditEmployee");
   }
 }

@@ -23,7 +23,7 @@
                 <Text layoutX="113.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search for employee" />
                 <TextField fx:id="searchTextField" layoutX="231.0" layoutY="14.0" prefHeight="25.0" prefWidth="203.0" promptText="By employee ID" />
                 <Button fx:id="searchButton" layoutX="443.0" layoutY="14.0" mnemonicParsing="false" text="Search" />
-                <Button fx:id="selectButton" layoutX="525.0" layoutY="265.0" mnemonicParsing="false" text="Select" />
+                <Button fx:id="selectButton" layoutX="525.0" layoutY="265.0" mnemonicParsing="false" onAction="#onSelectEmployee" text="Select" />
                 <Button fx:id="deleteButton" layoutX="458.0" layoutY="265.0" mnemonicParsing="false" text="Delete" />
             <TableView fx:id="employeeTableView" layoutX="34.0" layoutY="52.0" prefHeight="200.0" prefWidth="533.0">
               <columns>
