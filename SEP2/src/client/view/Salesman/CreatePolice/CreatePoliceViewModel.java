@@ -45,6 +45,8 @@ public class CreatePoliceViewModel implements PropertyChangeListener
     LabelDeductible = new SimpleStringProperty();
     LabelCoverage = new SimpleStringProperty();
   }
+
+
 public void createPolicy(String policeType)
 {
 

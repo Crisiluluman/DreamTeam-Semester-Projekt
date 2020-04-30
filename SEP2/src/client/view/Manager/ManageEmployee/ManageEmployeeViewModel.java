@@ -24,17 +24,17 @@ public class ManageEmployeeViewModel
         Class.forName("org.postgresql.Driver");
         c = DriverManager
                 .getConnection("jdbc:postgresql://localhost:5432/postgres",
-                        "postgres", "postgres");
+                        "postgres", "qawsedrf123");
         c.setAutoCommit(false);
         System.out.println("Opened database successfully");
 
         stmt = c.createStatement();
-        ResultSet rs = stmt.executeQuery( "SELECT * FROM \"CreateEmployee\".employees;" );
+        ResultSet rs = stmt.executeQuery( "SELECT * FROM \"createpolicy\".Employees;" );
         while ( rs.next() ) {
           String name = rs.getString("name");
           String  address = rs.getString("address");
           String  CPR = rs.getString("cpr");
-          String position = rs.getString("jobposition");
+          String position = rs.getString("position");
           String email = rs.getString("email");
           String phone = rs.getString("tlfnr");
           System.out.println( "name = " + name );
