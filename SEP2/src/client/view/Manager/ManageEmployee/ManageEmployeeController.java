@@ -5,14 +5,15 @@ import client.core.ViewModelFactory;
 import client.view.Manager.ManagerView.ManagerViewModel;
 import client.view.viewController;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 
 public class ManageEmployeeController implements viewController
 {
+  @FXML private TableColumn ColumnPosition;
+  @FXML private  TableColumn ColumnCPR;
+  @FXML private  TableColumn ColumnAddress;
+  @FXML private  TableColumn ColumnName;
   @FXML private Label loggedInLabel;
   @FXML private TextField searchTextField;
   @FXML private Button searchButton;
@@ -31,7 +32,7 @@ public class ManageEmployeeController implements viewController
     this.root = root;
     mevm = vmf.getManageEmployeeViewModel();
     mevm.getEmployeesFromDB(employeeTableView);
-
+    ColumnName.textProperty().bind(mevm.getEmployeesFromDB());
   }
 
   @Override

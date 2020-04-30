@@ -79,13 +79,8 @@ public class Salesman implements Employee
     return position;
   }
 
-  @Override public String toString()
+  public String toString()
   {
-    return "Salesman name: " + getName() + " \n" +
-        "CPR no: " + getCPR() + "\n" +
-        "Address: " + getAddress() + "\n" +
-        "Email: " + getEmail() + " \n" +
-        "Telephone no: " + getTlfNr() + " \n" +
-        "\n";
+    return "name: " + name + "cpr: " + CPR + "cell: " + tlfNr + "address: " + address + "email: " + email + "position: " + position;
   }
 }

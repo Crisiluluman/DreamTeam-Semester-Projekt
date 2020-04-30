@@ -74,7 +74,7 @@ public class Manager implements Employee {
 
   public String toString()
   {
-    return "name: " + name + "cpr: " + cpr + "cell: " + tlfnr + "address: " + address;
+    return "name: " + name + "cpr: " + cpr + "cell: " + tlfnr + "address: " + address + "email: " + email + "position: " + position;
   }
 
   public void editManager(String name,String address,long cpr,String email,int cellNr)

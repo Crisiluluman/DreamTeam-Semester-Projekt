@@ -75,8 +75,8 @@ public class DamageEmployee implements Employee
     this.tlfnr = tlfnr;
   }
 
-  @Override public String toString()
+  public String toString()
   {
-    return "Name: " +name + "\n" + "Address: " + address + "\n" + "CPR: " + CPR + "\n" + "PhoneNumber: " + tlfnr;
+    return "name: " + name + "cpr: " + CPR + "cell: " + tlfnr + "address: " + address + "email: " + email + "position: " + position;
   }
 }

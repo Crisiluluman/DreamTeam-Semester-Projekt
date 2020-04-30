@@ -105,7 +105,7 @@ public class EditEmployeeViewModel {
         {
             Class.forName("org.postgresql.Driver");
             c = DriverManager
-                    .getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","1122");
+                    .getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","qawsedrf123");
 
             System.out.println("The database is open");
 

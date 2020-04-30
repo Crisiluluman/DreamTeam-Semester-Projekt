@@ -17,6 +17,7 @@ public class ManageEmployeeViewModel
 {
   private Model model;
 
+
   public ManageEmployeeViewModel(Model model)
   {
     this.model = model;
@@ -54,7 +55,6 @@ public class ManageEmployeeViewModel
           {
             Employee employee = new Manager(name, address, Long.parseLong(CPR), email, Integer.parseInt(phone), position);
             list.add(employee);
-            System.out.println(list.get(0));
           }
           if(position.equalsIgnoreCase("salesman"))
           {

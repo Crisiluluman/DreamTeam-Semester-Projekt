@@ -27,10 +27,10 @@
                 <Button fx:id="deleteButton" layoutX="458.0" layoutY="265.0" mnemonicParsing="false" text="Delete" />
             <TableView fx:id="employeeTableView" layoutX="34.0" layoutY="52.0" prefHeight="200.0" prefWidth="533.0">
               <columns>
-                <TableColumn prefWidth="191.0" text="Name" />
-                <TableColumn prefWidth="200.0" text="Address" />
-                  <TableColumn prefWidth="44.0" text="ID" />
-                  <TableColumn prefWidth="97.0" text="Position" />
+                <TableColumn fx:id="ColumnName" prefWidth="191.0" text="Name" />
+                <TableColumn fx:id="ColumnAddress" prefWidth="200.0" text="Address" />
+                  <TableColumn fx:id="ColumnCPR" prefWidth="44.0" text="CPR" />
+                  <TableColumn fx:id="ColumnPosition" prefWidth="97.0" text="Position" />
               </columns>
             </TableView>
             </children>
