@@ -47,19 +47,19 @@ private DamageEmployee damageEmployee;
 if (position.equals("Manager"))
 {
    manager = new Manager(String.valueOf(name.getValue()),String.valueOf(address.getValue()),
-        Long.parseLong(CPR.getValue()),String.valueOf(email.getValue()),Integer.parseInt(phone.getValue()));
+        Long.parseLong(CPR.getValue()),String.valueOf(email.getValue()),Integer.parseInt(phone.getValue()), "Manager");
    saveToDB(Manager());
 }
 if (position.equals("Salesman"))
 {
    salesman = new Salesman(String.valueOf(name.getValue()),String.valueOf(address.getValue()),
-        Long.parseLong(CPR.getValue()),String.valueOf(email.getValue()),Integer.parseInt(phone.getValue()));
+        Long.parseLong(CPR.getValue()),String.valueOf(email.getValue()),Integer.parseInt(phone.getValue()), "Salesman");
    saveToDB(SalesMan());
 }
 if (position.equals("DamageEmployee"))
 {
     damageEmployee = new DamageEmployee(String.valueOf(name.getValue()),String.valueOf(address.getValue()),
-        Long.parseLong(CPR.getValue()),String.valueOf(email.getValue()),Integer.parseInt(phone.getValue()));
+        Long.parseLong(CPR.getValue()),String.valueOf(email.getValue()),Integer.parseInt(phone.getValue()), "DamageEmployee");
     saveToDB(DamageEmployee());
 }
     }
@@ -93,20 +93,20 @@ if (position.equals("DamageEmployee"))
     public String Manager()
     {
         String sql = "INSERT INTO \"createpolicy\".employees values("+ "'"+ manager.getName()+"'"+
-            "," +"'"+ manager.getAddress()+"'"+","+"'"+manager.getCpr()+"'"+","+"'"+manager.getEmail()+"'"+"," +"'"+manager.getTlfnr()+"'"+",'Manager');";
+            "," +"'"+ manager.getAddress()+"'"+","+"'"+manager.getCPR()+"'"+","+"'"+manager.getEmail()+"'"+"," +"'"+manager.getTlfNr()+"'"+",'Manager');";
         return sql;
     }
     public String SalesMan()
     {
         String sql = "INSERT INTO \"createpolicy\".employees values("+ "'"+ salesman.getName()+"'"+
-            "," +"'"+ salesman.getAddress()+"'"+","+"'"+salesman.getCPRNo()+"'"+","+"'"+salesman.getEmail()+"'"+"," +"'"+salesman.getTlfNo()+"'"+",'Salesman');";
+            "," +"'"+ salesman.getAddress()+"'"+","+"'"+salesman.getCPR()+"'"+","+"'"+salesman.getEmail()+"'"+"," +"'"+salesman.getTlfNr()+"'"+",'Salesman');";
         return sql;
     }
 
     public String DamageEmployee()
     {
         String sql = "INSERT INTO \"createpolicy\".employees values("+ "'"+ damageEmployee.getName()+"'"+
-            "," +"'"+ damageEmployee.getAddress()+"'"+","+"'"+damageEmployee.getCprNr()+"'"+","+"'"+damageEmployee.getEmail()+"'"+"," +"'"+damageEmployee.getPhoneNumber()+"'"+",'Damage-employee');";
+            "," +"'"+ damageEmployee.getAddress()+"'"+","+"'"+damageEmployee.getCPR()+"'"+","+"'"+damageEmployee.getEmail()+"'"+"," +"'"+damageEmployee.getTlfNr()+"'"+",'Damage-employee');";
         return sql;
     }
     public boolean checker()

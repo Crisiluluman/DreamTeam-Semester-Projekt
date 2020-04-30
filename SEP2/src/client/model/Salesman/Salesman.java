@@ -1,82 +1,91 @@
 package client.model.Salesman;
 
-public class Salesman
+import client.model.Employee;
+
+public class Salesman implements Employee
 {
   private String name;
-  private long CPRNo;
+  private long CPR;
   private String address;
   private String email;
-  private int tlfNo;
+  private int tlfNr;
+  private String position;
 
 
   // private String rank;
 
-  public Salesman(String name, String address,long CPRNo, String email, int tlfNo)
+  public Salesman(String name, String address,long CPRNo, String email, int tlfNo, String position)
   {
     this.name = name;
-    this.CPRNo = CPRNo;
+    this.CPR = CPRNo;
     this.address = address;
     this.email = email;
-    this.tlfNo = tlfNo;
+    this.tlfNr = tlfNo;
+    this.position = position;
   }
-
+  @Override
   public String getName()
   {
     return name;
   }
-
-  public long getCPRNo()
+  @Override
+  public long getCPR()
   {
-    return CPRNo;
+    return CPR;
   }
-
+  @Override
   public String getAddress()
   {
     return address;
   }
-
+  @Override
   public String getEmail()
   {
     return email;
   }
-
-  public int getTlfNo()
+  @Override
+  public int getTlfNr()
   {
-    return tlfNo;
+    return tlfNr;
   }
-
+  @Override
   public void setName(String name)
   {
     this.name = name;
   }
-
-  public void setCPRNo(long CPRNo)
+  @Override
+  public void setCPR(long CPR)
   {
-    this.CPRNo = CPRNo;
+    this.CPR = CPR;
   }
-
+  @Override
   public void setAddress(String address)
   {
     this.address = address;
   }
-
+  @Override
   public void setEmail(String email)
   {
     this.email = email;
   }
-
-  public void setTlfNo(int tlfNo)
+  @Override
+  public void setTlfNr(int tlfNr)
   {
-    this.tlfNo = tlfNo;
+    this.tlfNr = tlfNr;
+  }
+
+  @Override
+  public String getPosition() {
+    return position;
   }
 
   @Override public String toString()
   {
     return "Salesman name: " + getName() + " \n" +
-        "CPR no: " + getCPRNo() + "\n" +
+        "CPR no: " + getCPR() + "\n" +
         "Address: " + getAddress() + "\n" +
         "Email: " + getEmail() + " \n" +
-        "Telephone no: " + getTlfNo() + " \n" +
+        "Telephone no: " + getTlfNr() + " \n" +
         "\n";
   }
 }

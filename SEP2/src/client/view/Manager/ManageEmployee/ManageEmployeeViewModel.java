@@ -1,6 +1,12 @@
 package client.view.Manager.ManageEmployee;
 
+import client.model.Employee;
+import client.model.Manager.Manager;
 import client.model.Model;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,8 +22,9 @@ public class ManageEmployeeViewModel
     this.model = model;
   }
 
-  public void getEmployeesFromDB()
+  public void getEmployeesFromDB(TableView TV)
   {
+    ObservableList<Employee> list = FXCollections.observableArrayList();
       Connection c = null;
       Statement stmt = null;
       try {
@@ -43,7 +50,23 @@ public class ManageEmployeeViewModel
           System.out.println( "position = " + position );
           System.out.println( "email = " + email );
           System.out.println( "phone = " + phone );
-          System.out.println();
+          if(position.equalsIgnoreCase("manager"))
+          {
+            Employee employee = new Manager(name, address, Long.parseLong(CPR), email, Integer.parseInt(phone), position);
+            list.add(employee);
+            System.out.println(list.get(0));
+          }
+          if(position.equalsIgnoreCase("salesman"))
+          {
+            Employee employee = new Manager(name, address, Long.parseLong(CPR), email, Integer.parseInt(phone), position);
+            list.add(employee);
+          }
+          if(position.equalsIgnoreCase("damageemployee"))
+          {
+            Employee employee = new Manager(name, address, Long.parseLong(CPR), email, Integer.parseInt(phone), position);
+            list.add(employee);
+          }
+
         }
         rs.close();
         stmt.close();

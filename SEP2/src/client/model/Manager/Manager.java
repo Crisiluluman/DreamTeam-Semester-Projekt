@@ -1,60 +1,75 @@
 package client.model.Manager;
 
-public class Manager {
+import client.model.Employee;
+
+public class Manager implements Employee {
   private String name;
   private long cpr;
   private int tlfnr;
   private String address;
   private String email;
+  private String position;
 
-  public Manager(String name, String address, long cpr,String email,int tlfnr)
+  public Manager(String name, String address, long cpr,String email,int tlfnr, String position)
   {
     this.name = name;
     this.cpr = cpr;
     this.tlfnr = tlfnr;
     this.address = address;
     this.email=email;
+    this.position = position;
   }
-
+  @Override
   public String getName() {
     return name;
   }
-
-  public long getCpr() {
+  @Override
+  public long getCPR() {
     return cpr;
   }
-
+  @Override
   public String getEmail()
   {
     return email;
   }
-
-  public int getTlfnr() {
+  @Override
+  public int getTlfNr() {
     return tlfnr;
   }
-
+  @Override
   public String getAddress() {
     return address;
   }
-
+  @Override
   public void setName(String name)
   {
     this.name = name;
   }
-
-  public void setCpr(long cpr)
+  @Override
+  public void setCPR(long cpr)
   {
     this.cpr = cpr;
   }
-
-  public void setTlfnr(int tlfnr)
+  @Override
+  public void setTlfNr(int tlfnr)
   {
     this.tlfnr = tlfnr;
   }
 
+  @Override
+  public String getPosition() {
+    return position;
+  }
+
+  @Override
   public void setAddress(String address)
   {
     this.address = address;
+  }
+
+  @Override
+  public void setEmail(String email) {
+    this.email = email;
   }
 
   public String toString()

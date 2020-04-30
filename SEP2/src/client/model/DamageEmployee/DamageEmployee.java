@@ -1,68 +1,82 @@
 package client.model.DamageEmployee;
 
-public class DamageEmployee
+import client.model.Employee;
+
+public class DamageEmployee implements Employee
 {
   private String name;
   private String address;
-  private long CprNr;
-  private int PhoneNumber;
+  private long CPR;
+  private int tlfnr;
   private String email;
-  public DamageEmployee(String name,String address,long cprNr,String email,int PhoneNumber)
+  private String position;
+  public DamageEmployee(String name,String address,long cprNr,String email,int PhoneNumber, String position)
   {
     this.name=name;
     this.address=address;
-    this.CprNr=cprNr;
-    this.PhoneNumber = PhoneNumber;
+    this.CPR =cprNr;
+    this.tlfnr = PhoneNumber;
     this.email=email;
+    this.position = position;
   }
-
+  @Override
   public String getName()
   {
     return name;
   }
-
+  @Override
   public String getEmail()
   {
     return email;
   }
-
+  @Override
   public void setName(String name)
   {
     this.name = name;
   }
-
+  @Override
   public String getAddress()
   {
     return address;
   }
-
+  @Override
   public void setAddress(String address)
   {
     this.address = address;
   }
 
-  public long getCprNr()
-  {
-    return CprNr;
+  @Override
+  public void setEmail(String email) {
+    this.email = email;
   }
 
-  public void setCprNr(int cprNr)
-  {
-    CprNr = cprNr;
+  @Override
+  public String getPosition() {
+    return position;
   }
-
-  public int getPhoneNumber()
+  @Override
+  public long getCPR()
   {
-    return PhoneNumber;
+    return CPR;
   }
-
-  public void setPhoneNumber(int phoneNumber)
+  @Override
+  public void setCPR(long CPR)
   {
-    PhoneNumber = phoneNumber;
+    this.CPR = CPR;
+  }
+  @Override
+  public int getTlfNr()
+  {
+    return tlfnr;
+  }
+  @Override
+  public void setTlfNr(int tlfnr)
+  {
+    this.tlfnr = tlfnr;
   }
 
   @Override public String toString()
   {
-    return "Name: " +name + "\n" + "Address: " + address + "\n" + "CPR: " + CprNr + "\n" + "PhoneNumber: " + PhoneNumber;
+    return "Name: " +name + "\n" + "Address: " + address + "\n" + "CPR: " + CPR + "\n" + "PhoneNumber: " + tlfnr;
   }
 }

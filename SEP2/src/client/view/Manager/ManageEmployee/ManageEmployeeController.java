@@ -4,6 +4,7 @@ import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.view.Manager.ManagerView.ManagerViewModel;
 import client.view.viewController;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
@@ -12,14 +13,14 @@ import javafx.scene.layout.Region;
 
 public class ManageEmployeeController implements viewController
 {
-  public Label loggedInLabel;
-  public TextField searchTextField;
-  public Button searchButton;
-  public Button selectButton;
-  public TableView employeeTableView;
-  public Button deleteButton;
-  public Button backButton;
-  public Button createEmployeeButton;
+  @FXML private Label loggedInLabel;
+  @FXML private TextField searchTextField;
+  @FXML private Button searchButton;
+  @FXML private Button selectButton;
+  @FXML private TableView employeeTableView;
+  @FXML private Button deleteButton;
+  @FXML private Button backButton;
+  @FXML private Button createEmployeeButton;
   private ViewHandler vh;
   private ManageEmployeeViewModel mevm;
   private Region root;
@@ -29,7 +30,7 @@ public class ManageEmployeeController implements viewController
     this.vh = vh;
     this.root = root;
     mevm = vmf.getManageEmployeeViewModel();
-    mevm.getEmployeesFromDB();
+    mevm.getEmployeesFromDB(employeeTableView);
 
   }
 
