@@ -31,8 +31,7 @@ public class ManageEmployeeController implements viewController
     this.vh = vh;
     this.root = root;
     mevm = vmf.getManageEmployeeViewModel();
-    mevm.getEmployeesFromDB(employeeTableView);
-    ColumnName.textProperty().bind(mevm.getEmployeesFromDB());
+    mevm.getEmployeesFromDB(employeeTableView, ColumnName, ColumnAddress, ColumnCPR, ColumnPosition);
   }
 
   @Override

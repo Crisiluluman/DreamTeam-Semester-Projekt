@@ -3,10 +3,13 @@ package client.view.Manager.ManageEmployee;
 import client.model.Employee;
 import client.model.Manager.Manager;
 import client.model.Model;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -23,7 +26,7 @@ public class ManageEmployeeViewModel
     this.model = model;
   }
 
-  public void getEmployeesFromDB(TableView TV)
+  public void getEmployeesFromDB(TableView TV, TableColumn<Employee, String> ColumnName, TableColumn<Employee, String> ColumnAddress, TableColumn<Employee, String> ColumnCPR, TableColumn<Employee, String> ColumnPosition)
   {
     ObservableList<Employee> list = FXCollections.observableArrayList();
       Connection c = null;
@@ -66,7 +69,7 @@ public class ManageEmployeeViewModel
             Employee employee = new Manager(name, address, Long.parseLong(CPR), email, Integer.parseInt(phone), position);
             list.add(employee);
           }
-
+            ColumnName.setCellFactory(new PropertyValueFactory("name"));
         }
         rs.close();
         stmt.close();
