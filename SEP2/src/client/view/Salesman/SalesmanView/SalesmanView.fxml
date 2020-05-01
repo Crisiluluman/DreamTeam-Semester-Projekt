@@ -21,12 +21,9 @@
       <Pane prefHeight="299.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <TableView fx:id="customerTableView" layoutX="13.0" layoutY="55.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="202.0" prefWidth="572.0">
-              <columns>
-                <TableColumn prefWidth="171.0" text="Name" />
-                <TableColumn prefWidth="280.0" text="Address" />
-                  <TableColumn prefWidth="119.0" text="CPR-nr" />
-              </columns>
-            </TableView>
+               <columns>
+                  <TableColumn fx:id="customerNoColumn" prefWidth="75.0" text="CustomerNo" />
+               </columns></TableView>
             <Text layoutX="113.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search for customer" />
             <TextField fx:id="searchTextField" layoutX="231.0" layoutY="14.0" prefHeight="25.0" prefWidth="203.0" promptText="insert cpr or name" />
             <Button fx:id="searchButton" layoutX="433.0" layoutY="14.0" mnemonicParsing="false" text="Search" />

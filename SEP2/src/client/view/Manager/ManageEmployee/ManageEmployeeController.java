@@ -10,10 +10,6 @@ import javafx.scene.layout.Region;
 
 public class ManageEmployeeController implements viewController
 {
-  @FXML private TableColumn ColumnPosition;
-  @FXML private  TableColumn ColumnCPR;
-  @FXML private  TableColumn ColumnAddress;
-  @FXML private  TableColumn ColumnName;
   @FXML private Label loggedInLabel;
   @FXML private TextField searchTextField;
   @FXML private Button searchButton;
@@ -31,7 +27,7 @@ public class ManageEmployeeController implements viewController
     this.vh = vh;
     this.root = root;
     mevm = vmf.getManageEmployeeViewModel();
-    mevm.getEmployeesFromDB(employeeTableView, ColumnName, ColumnAddress, ColumnCPR, ColumnPosition);
+    mevm.getEmployeesFromDB(employeeTableView);
   }
 
   @Override
@@ -44,6 +40,10 @@ public class ManageEmployeeController implements viewController
   }
 
   public void onSelectEmployee(){
-    vh.openView("EditEmployee");
+    if (mevm.editSelect(employeeTableView))
+    {
+
+      vh.openView("EditEmployee");
+    }
   }
 }

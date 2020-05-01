@@ -1,11 +1,13 @@
 package client.view.Manager.EditEmployee;
 
 import client.model.DamageEmployee.DamageEmployee;
+import client.model.Employee;
 import client.model.Manager.Manager;
 import client.model.Model;
 import client.model.Salesman.Salesman;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.ObservableList;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -212,6 +214,19 @@ public class EditEmployeeViewModel {
         positionLabel.setValue("");
         emailLabel.setValue("");
         phoneLabel.setValue("");
+    }
+    public void setFields(ObservableList<String> list)
+    {
+        String name = list.get(0);
+        nameTextField.setValue(list.get(0));
+        System.out.println(nameTextField.getValue());
+        System.out.println(list.get(0));
+        addressLabel.setValue(list.get(1));
+        System.out.println(list.get(1));
+        CPRTextField.setValue(String.valueOf(list.get(2)));
+        positionTextField.setValue(list.get(5));
+        emailTextField.setValue(list.get(3));
+        phoneTextField.setValue(String.valueOf(list.get(4)));
     }
 }
 

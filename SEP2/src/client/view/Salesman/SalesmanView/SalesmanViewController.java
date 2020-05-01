@@ -2,18 +2,22 @@ package client.view.Salesman.SalesmanView;
 
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
+import client.model.Customer.Customer;
 import client.view.viewController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 
 public class SalesmanViewController implements viewController
 {
-  @FXML public Label loggedInLabel;
-  @FXML public TableView customerTableView;
-  @FXML public TextField searchTextField;
+  @FXML private Label loggedInLabel;
+  @FXML private TableView customerTableView;
+  @FXML private TextField searchTextField;
+  @FXML
+  public TableColumn customerNoColumn;
 
   private ViewHandler vh;
   private SalesmanViewModel svm;
@@ -43,6 +47,7 @@ public void onLogOut()
 }
 public void onSelect()
 {
+  svm.GetCustomers();
   //work in progress
   vh.openView("ManageCustomer");
 }

@@ -166,11 +166,11 @@ public void clearLabels()
     {
       Class.forName("org.postgresql.Driver");
       connection = DriverManager
-          .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres",
-              "1234");
+          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres",
+              "1122");
       statement = connection.createStatement();
-      String sql = "INSERT INTO \"Customer\".customer values(" + customer.getCostumerNo() + "," + "'" + customer.getName() + "'" + ","
-          + "'" + customer.getAddress() + "'" + "," + customer.getPostcode() + "," + customer.getCprNr() + ");";
+      String sql = "INSERT INTO \"createpolicy\".Customer values(" +"'"+ customer.getCostumerNo()+"'" + "," + "'" + customer.getName() + "'" + ","
+          + "'" + customer.getAddress() + "'" + "," +"'"+ customer.getPostcode()+"'" + "," +"'"+ customer.getCprNr() +"'"+ ");";
 
 
       statement.executeUpdate(sql);

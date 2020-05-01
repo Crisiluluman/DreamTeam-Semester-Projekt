@@ -53,7 +53,8 @@ public class EditEmployeeViewController implements viewController {
         phoneLabel.textProperty().bind(eev.getPhoneLabelProperty());
         position.setItems(options);
         position.setValue(options.get(0));
-        eev.clearTextFields();
+        name.setText(eev.getNameTextFieldProperty().getValue());
+
     }
 
     public void onSave()
