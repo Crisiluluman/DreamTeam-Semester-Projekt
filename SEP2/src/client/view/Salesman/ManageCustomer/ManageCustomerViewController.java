@@ -24,10 +24,15 @@ public class ManageCustomerViewController implements viewController
 
   public void init( ViewHandler vh, ViewModelFactory vmf, Region root)
   {
+
     this.vh = vh;
     mcv = vmf.getManageCustomerViewModel();
     this.root = root;
-
+    manageCustomerTextfield.textProperty().bindBidirectional(mcv.getNameTextfield());
+    manageCustomerAddress.textProperty().bindBidirectional(mcv.getAddressTextfield());
+    manageCustomerPostcode.textProperty().bindBidirectional(mcv.getPostcodeTextField());
+    manageCustomerCPR.textProperty().bindBidirectional(mcv.getCprnoTextfield());
+    manageCustomerHousehold.textProperty().bindBidirectional(mcv.getCustomerNoTextField());
   }
 
   @Override

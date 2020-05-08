@@ -1,13 +1,63 @@
 package client.view.Salesman.ManageCustomer;
 
 import client.model.Model;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.collections.ObservableList;
 
 public class ManageCustomerViewModel
 {
   private Model model;
+  public StringProperty nameTextfield;
+  public StringProperty addressTextfield;
+  public StringProperty postcodeTextField;
+  public StringProperty cprnoTextfield;
+  public StringProperty customerNoTextField;
 
   public ManageCustomerViewModel(Model model)
   {
+    nameTextfield = new SimpleStringProperty();
+    addressTextfield = new SimpleStringProperty();
+    postcodeTextField = new SimpleStringProperty();
+    cprnoTextfield = new SimpleStringProperty();
+    customerNoTextField = new SimpleStringProperty();
     this.model = model;
+  }
+
+public void setFields(ObservableList<String> list)
+{
+
+}
+
+  public StringProperty getNameTextfield()
+  {
+    return nameTextfield;
+  }
+
+
+
+  public StringProperty getAddressTextfield()
+  {
+    return addressTextfield;
+  }
+
+
+
+  public StringProperty getPostcodeTextField()
+  {
+    return postcodeTextField;
+  }
+
+
+  public StringProperty getCprnoTextfield()
+  {
+    return cprnoTextfield;
+  }
+
+
+
+  public StringProperty getCustomerNoTextField()
+  {
+    return customerNoTextField;
   }
 }

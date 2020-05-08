@@ -2,6 +2,7 @@ package client.view.Manager.EditEmployee;
 
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
+import client.view.Manager.ManageEmployee.ManageEmployeeViewModel;
 import client.view.viewController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,6 +23,7 @@ public class EditEmployeeViewController implements viewController {
     private ViewHandler vh;
     private EditEmployeeViewModel eev;
     private Region root;
+    ManageEmployeeViewModel employeeViewModel;
     @FXML private TextField name;
     @FXML private TextField address;
     @FXML private TextField CPR;
@@ -40,6 +42,7 @@ public class EditEmployeeViewController implements viewController {
         this.vh = vh;
         eev = vmf.getEditEmployeeViewModel();
         this.root = root;
+        employeeViewModel = new ManageEmployeeViewModel(eev.getModel());
         name.textProperty().bindBidirectional(eev.getNameTextFieldProperty());
         address.textProperty().bindBidirectional(eev.getAddressTextFieldProperty());
         CPR.textProperty().bindBidirectional(eev.getCPRTextFieldProperty());
@@ -53,7 +56,7 @@ public class EditEmployeeViewController implements viewController {
         phoneLabel.textProperty().bind(eev.getPhoneLabelProperty());
         position.setItems(options);
         position.setValue(options.get(0));
-        name.setText(eev.getNameTextFieldProperty().getValue());
+        name.setText(""+eev.getNameTextFieldProperty().getValue());
 
     }
 

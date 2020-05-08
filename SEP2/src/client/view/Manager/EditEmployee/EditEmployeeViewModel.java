@@ -63,6 +63,11 @@ public class EditEmployeeViewModel {
         return CPRTextField;
     }
 
+    public Model getModel()
+    {
+        return model;
+    }
+
     public StringProperty getEmailTextFieldProperty() {
         return emailTextField;
     }
@@ -218,11 +223,10 @@ public class EditEmployeeViewModel {
     public void setFields(ObservableList<String> list)
     {
         String name = list.get(0);
-        nameTextField.setValue(list.get(0));
+
+        nameTextField.setValue(name);
         System.out.println(nameTextField.getValue());
-        System.out.println(list.get(0));
-        addressLabel.setValue(list.get(1));
-        System.out.println(list.get(1));
+        addressTextField.setValue(list.get(1));
         CPRTextField.setValue(String.valueOf(list.get(2)));
         positionTextField.setValue(list.get(5));
         emailTextField.setValue(list.get(3));

@@ -24,10 +24,18 @@ public class DEMainViewController implements viewController {
         this.vh = vh;
         dmv = vmf.getDEMainViewModel();
         this.root = root;
+        dmv.getEmployeesFromDB(view);
     }
     @Override
     public Region getRoot() {
         return root;
+    }
+    public void onSelect()
+    {
+        if (dmv.editSelect(view))
+        {
+            vh.openView("DEPolicies");
+        }
     }
 
 

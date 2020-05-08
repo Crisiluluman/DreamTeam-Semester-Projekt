@@ -98,7 +98,7 @@
     <bottom>
         <Pane prefHeight="57.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <children>
-                <Button layoutX="14.0" layoutY="16.0" mnemonicParsing="false" text="Back" />
+                <Button layoutX="14.0" layoutY="16.0" mnemonicParsing="false" onAction="#onBack" text="Back" />
                 <Button layoutX="534.0" layoutY="16.0" mnemonicParsing="false" text="Save" />
             </children>
         </Pane>

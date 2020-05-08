@@ -28,7 +28,7 @@ public void init( ViewHandler vh, ViewModelFactory vmf, Region root)
   this.vh = vh;
   svm = vmf.getSalesmanViewModel();
   this.root = root;
-
+svm.getCustomersFromDB(customerTableView);
 
 }
 
@@ -47,8 +47,9 @@ public void onLogOut()
 }
 public void onSelect()
 {
-  svm.GetCustomers();
-  //work in progress
+if (svm.editSelect(customerTableView))
+{
   vh.openView("ManageCustomer");
+}
 }
 }
