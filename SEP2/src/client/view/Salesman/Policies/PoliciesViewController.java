@@ -47,4 +47,9 @@ public class PoliciesViewController implements viewController
   vh.openEditSEditPolice(data);
 }
   }
+
+  public void onDelete()
+  {
+    pvm.Delete(tableview);
+  }
 }

@@ -18,7 +18,7 @@ public class SalesmanViewController implements viewController
   @FXML private TableView customerTableView;
   @FXML private TextField searchTextField;
   @FXML
-  public TableColumn customerNoColumn;
+
 
   private ViewHandler vh;
   private SalesmanViewModel svm;
@@ -53,5 +53,10 @@ public void onSelect()
 {
   vh.openEditManageCustomer(Data);
 }
+}
+
+public void onDelete()
+{
+  svm.Delete(customerTableView);
 }
 }

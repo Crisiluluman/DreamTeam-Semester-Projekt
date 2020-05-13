@@ -6,6 +6,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.util.Callback;
@@ -14,6 +16,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Optional;
 
 public class DEMainViewModel {
 
@@ -35,7 +38,7 @@ public class DEMainViewModel {
         {
             Class.forName("org.postgresql.Driver");
             c = DriverManager
-                .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1122");
+                .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1234");
             c.setAutoCommit(false);
             System.out.println("Opened database successfully");
 
@@ -94,4 +97,5 @@ public class DEMainViewModel {
         }
         return false;
     }
+
 }

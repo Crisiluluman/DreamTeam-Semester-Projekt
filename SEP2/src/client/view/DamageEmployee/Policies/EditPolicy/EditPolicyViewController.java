@@ -50,6 +50,6 @@ public class EditPolicyViewController implements viewController {
     }
     public void onBack()
     {
-        vh.openView("DEPolices");
+        vh.openView("DEPolicies");
     }
 }

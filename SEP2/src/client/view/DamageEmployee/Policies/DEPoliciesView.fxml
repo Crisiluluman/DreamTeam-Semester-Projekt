@@ -71,7 +71,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="316.0">
                <children>
-                  <Button mnemonicParsing="false" text="Create Damages">
+                  <Button mnemonicParsing="false" onAction="#onCreateDamage" text="Create Damages">
                      <HBox.margin>
                         <Insets right="30.0" />
                      </HBox.margin>

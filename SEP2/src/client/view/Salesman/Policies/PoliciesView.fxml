@@ -47,7 +47,7 @@
             </VBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="600.0">
                <children>
-                  <Button mnemonicParsing="false" text="Delete">
+                  <Button mnemonicParsing="false" onAction="#onDelete" text="Delete">
                      <HBox.margin>
                         <Insets right="15.0" />
                      </HBox.margin>

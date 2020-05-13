@@ -55,7 +55,7 @@ public class ViewHandler extends Application
   public void start(Stage stage) throws Exception {
     primaryStage = stage;
     currentScene = new Scene(new Region());
-    openView("ManageEmployee");
+    openView("Salesman");
   }
 public void openEditSEditPolice(ObservableList list)
 {
@@ -78,6 +78,12 @@ public void openEditSEditPolice(ObservableList list)
   {
     vmf.getEditPolicyViewModel().setFields(list);
    openView("EditPolicy");
+  }
+
+  public void openCreateDamage(ObservableList list)
+  {
+    vmf.getCreateDamageViewModel().setFields(list);
+    openView("CreateDamage");
   }
 
   public void openView(String id)

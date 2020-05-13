@@ -5,6 +5,8 @@ import client.model.Model;
 import client.model.Police.Police;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ChoiceBox;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,7 +16,6 @@ import java.util.regex.Pattern;
 public class CreateDamageViewModel {
 
     private Model model;
-    private CreateDamageViewController cdvc;
     private Damage damage;
     private Police police;
 
@@ -146,5 +147,14 @@ public class CreateDamageViewModel {
     System.out.println("Insert to Database ok!");
   }
 
+  public void setFields(ObservableList list)
+  {
+    policyTypeDropdown.setValue(String.valueOf(list.get(1)));
+  }
+
+  public void choicebox(ChoiceBox box)
+  {
+    box.setValue(policyTypeDropdown.getValue());
+  }
 
 }

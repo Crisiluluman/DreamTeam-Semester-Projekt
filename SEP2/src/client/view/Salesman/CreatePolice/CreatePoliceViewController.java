@@ -87,6 +87,7 @@ public class CreatePoliceViewController implements viewController
        LabelErrorCoverage.textProperty().bind(cpv.labelCoverageProperty());
 
   policyType.setItems(options);
+  policyType.setValue(options.get(0));
   clearAll();
   }
 

@@ -47,4 +47,9 @@ public class ManageEmployeeController implements viewController
       vh.openEditEditEmployee(data);
     }
   }
+
+  public void onDelete()
+  {
+    mevm.Delete(employeeTableView);
+  }
 }

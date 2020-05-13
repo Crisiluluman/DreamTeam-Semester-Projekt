@@ -40,7 +40,6 @@ public class CreateDamageViewController implements viewController {
         this.root = root;
 
         policyDropdown.setItems(options);
-        policyDropdown.setValue(options.get(2));
         expensesTextfield.textProperty().bindBidirectional(cdv.getExpensesTextfield());
         damageNoTextfield.textProperty().bindBidirectional(cdv.getDamageNoTextfield());
         infoTextArea.textProperty().bindBidirectional(cdv.getInfoTextArea());
@@ -49,6 +48,7 @@ public class CreateDamageViewController implements viewController {
         damageNoLabel.textProperty().bind(cdv.getDamageNoLabel());
 
         cdv.clearTextfields();
+        cdv.choicebox(policyDropdown);
     }
     @Override
     public Region getRoot() {
@@ -70,7 +70,7 @@ public class CreateDamageViewController implements viewController {
     public void onBack()
     {
         clearAll();
-        vh.openView("Policies");
+        vh.openView("DEPolicies");
     }
 
     public void onCreate()
@@ -80,7 +80,7 @@ public class CreateDamageViewController implements viewController {
             cdv.onClick((String) policyDropdown.getValue());
             cdv.clearTextfields();
             cdv.clearLabels();
-            vh.openView("Policies");
+            vh.openView("DEPolicies");
         }
     }
 
