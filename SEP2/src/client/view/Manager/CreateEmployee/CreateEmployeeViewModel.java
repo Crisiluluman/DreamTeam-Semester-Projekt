@@ -66,7 +66,6 @@ if (position.equals("DamageEmployee"))
 
     public void saveToDB(String sql)
     {
-
         Connection c = null;
         Statement stmt = null;
         try

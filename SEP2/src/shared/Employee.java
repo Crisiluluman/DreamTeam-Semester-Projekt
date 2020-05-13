@@ -1,7 +1,10 @@
-package client.model;
+package shared;
 
-public interface Employee
+import java.io.Serializable;
+
+public interface Employee extends Serializable
 {
+    // Insert flyweight design pattern
     String getName();
     long getCPR();
     String getAddress();

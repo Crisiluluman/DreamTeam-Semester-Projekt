@@ -1,6 +1,6 @@
 package client.model.Manager;
 
-import client.model.Employee;
+import shared.Employee;
 
 public class Manager implements Employee {
   private String name;

@@ -1,23 +1,15 @@
 package client.view.Manager.ManageEmployee;
 
-import client.core.ViewHandler;
-import client.model.DamageEmployee.DamageEmployee;
-import client.model.Employee;
-import client.model.Manager.Manager;
 import client.model.Model;
-import client.model.Salesman.Salesman;
 import client.view.Manager.EditEmployee.EditEmployeeViewModel;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
 
-import javax.naming.Name;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;

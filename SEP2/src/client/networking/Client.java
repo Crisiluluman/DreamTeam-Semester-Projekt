@@ -5,5 +5,4 @@ import shared.Subject;
 public interface Client extends Subject
 {
   void startClient();
-
 }

@@ -1,7 +1,6 @@
 package client.view.Manager.EditEmployee;
 
 import client.model.DamageEmployee.DamageEmployee;
-import client.model.Employee;
 import client.model.Manager.Manager;
 import client.model.Model;
 import client.model.Salesman.Salesman;

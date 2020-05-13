@@ -13,7 +13,7 @@ public class Modelmanager implements Model
     this.client = client;
     policeList = new PoliceList();
   }
-
+/**/
   @Override public void createPolice(Police police)
   {
     policeList.addPolicy(police);

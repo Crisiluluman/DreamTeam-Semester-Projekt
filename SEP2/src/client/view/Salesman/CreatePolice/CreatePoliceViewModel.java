@@ -55,27 +55,27 @@ public void createPolicy(String policeType)
 
 
 saveToDB();
-}
-public void saveToDB()
-{
-  Connection c = null;
-  Statement stmt = null;
-  try
+  }
+  public void saveToDB()
   {
-    Class.forName("org.postgresql.Driver");
-    c = DriverManager
-        .getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","1122");
+    Connection c = null;
+    Statement stmt = null;
+    try
+    {
+      Class.forName("org.postgresql.Driver");
+      c = DriverManager
+          .getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","1122");
 
-    System.out.println("The database is open");
+      System.out.println("The database is open");
 
-    stmt = c.createStatement();
-    String sql = "INSERT INTO \"createpolicy\".PoliceList values("+ police.getPoliceNo() +
-        "," + "'"+police.getPoliceType()+"'"+","+police.getPrice()+","+police.getDeductible()+"," +"'"+police.getCoverage()+"');";
-    stmt.executeUpdate(sql);
+      stmt = c.createStatement();
+      String sql = "INSERT INTO \"createpolicy\".PoliceList values("+ police.getPoliceNo() +
+          "," + "'"+police.getPoliceType()+"'"+","+police.getPrice()+","+police.getDeductible()+"," +"'"+police.getCoverage()+"');";
+      stmt.executeUpdate(sql);
 
 
 
-    stmt.close();
+      stmt.close();
     c.close();
   } catch (Exception e)
   {
