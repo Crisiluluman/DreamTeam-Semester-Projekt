@@ -18,6 +18,7 @@ import client.view.Salesman.Policies.PoliciesViewController;
 import client.view.Salesman.SEditPolicy.SEditPolicyViewController;
 import client.view.Salesman.SalesmanView.SalesmanViewController;
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
@@ -54,7 +55,29 @@ public class ViewHandler extends Application
   public void start(Stage stage) throws Exception {
     primaryStage = stage;
     currentScene = new Scene(new Region());
-    openView("DEMain");
+    openView("ManageEmployee");
+  }
+public void openEditSEditPolice(ObservableList list)
+{
+  vmf.getSEditPolicyViewModel().setFields(list);
+  openView("SEditPolice");
+}
+
+  public void openEditManageCustomer(ObservableList list)
+  {
+    vmf.getManageCustomerViewModel().setFields(list);
+    openView("ManageCustomer");
+  }
+
+  public void openEditEditEmployee(ObservableList list)
+  {
+    vmf.getEditEmployeeViewModel().setFields(list);
+    openView("EditEmployee");
+  }
+  public void openEditDEEditPolice(ObservableList list)
+  {
+    vmf.getEditPolicyViewModel().setFields(list);
+   openView("EditPolicy");
   }
 
   public void openView(String id)

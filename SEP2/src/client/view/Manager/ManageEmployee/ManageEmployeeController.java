@@ -4,6 +4,7 @@ import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.view.Manager.ManagerView.ManagerViewModel;
 import client.view.viewController;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
@@ -40,10 +41,10 @@ public class ManageEmployeeController implements viewController
   }
 
   public void onSelectEmployee(){
-    if (mevm.editSelect(employeeTableView))
+    ObservableList data = mevm.editSelect(employeeTableView);
+    if (data != null)
     {
-
-      vh.openView("EditEmployee");
+      vh.openEditEditEmployee(data);
     }
   }
 }

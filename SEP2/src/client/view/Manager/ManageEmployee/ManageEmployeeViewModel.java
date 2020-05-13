@@ -1,6 +1,7 @@
 package client.view.Manager.ManageEmployee;
 
 import client.core.ViewHandler;
+import client.core.ViewModelFactory;
 import client.model.DamageEmployee.DamageEmployee;
 import client.model.Employee;
 import client.model.Manager.Manager;
@@ -26,18 +27,19 @@ import java.sql.Statement;
 public class ManageEmployeeViewModel
 {
   private Model model;
- private EditEmployeeViewModel e;
+  private EditEmployeeViewModel e;
   ObservableList<ObservableList> list;
   ObservableList<String> row;
+  ViewModelFactory viewModelFactory;
+
   public ManageEmployeeViewModel(Model model)
   {
     this.model = model;
-    e = new EditEmployeeViewModel(this.model);
   }
 
   public void getEmployeesFromDB(TableView TV)
   {
-   list = FXCollections.observableArrayList();
+    list = FXCollections.observableArrayList();
     Connection c = null;
     Statement stmt = null;
     try
@@ -71,7 +73,7 @@ public class ManageEmployeeViewModel
       while (rs.next())
       {
         //Iterate Row
-         row = FXCollections.observableArrayList();
+        row = FXCollections.observableArrayList();
         for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++)
         {
           //Iterate Column
@@ -79,7 +81,6 @@ public class ManageEmployeeViewModel
         }
         System.out.println("Row [1] added " + row);
         list.add(row);
-
 
       }
 
@@ -92,19 +93,17 @@ public class ManageEmployeeViewModel
       System.out.println("Error on Building Data");
     }
 
-
   }
 
-  public boolean editSelect(TableView TV)
+  public ObservableList editSelect(TableView TV)
   {
     int selected = TV.getSelectionModel().getFocusedIndex();
     if (selected != 0)
     {
-      e.setFields(list.get(selected));
-      return true;
+      return list.get(0);
     }
-    return false;
-  }
+    return null;
 
+  }
 }
 

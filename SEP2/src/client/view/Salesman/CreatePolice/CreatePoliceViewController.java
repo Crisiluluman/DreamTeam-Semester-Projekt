@@ -44,12 +44,12 @@ public class CreatePoliceViewController implements viewController
 
 
   ObservableList<String> options =
-      FXCollections.observableArrayList(
-          "House",
-          "Home",
-          "Car",
-          "Accidents"
-      );
+    FXCollections.observableArrayList(
+        "House",
+        "Home",
+        "Car",
+        "Accidents"
+    );
 
   public Label getLabelErrorPrice()
   {

@@ -1,5 +1,6 @@
 package client.view.DamageEmployee.DEMain;
 
+import client.core.ViewModelFactory;
 import client.model.Model;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
@@ -19,6 +20,7 @@ public class DEMainViewModel {
     private Model model;
     ObservableList<ObservableList> list;
     ObservableList<String> row;
+    ViewModelFactory viewModelFactory;
 
     public DEMainViewModel(Model model)
     {
@@ -86,7 +88,7 @@ public class DEMainViewModel {
     public boolean editSelect(TableView TV)
     {
         int selected = TV.getSelectionModel().getFocusedIndex();
-        if (selected != 0)
+        if (selected != -1)
         {
             return true;
         }

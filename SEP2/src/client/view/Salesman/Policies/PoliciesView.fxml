@@ -52,7 +52,7 @@
                         <Insets right="15.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" text="Select">
+                  <Button mnemonicParsing="false" onAction="#onSelect" text="Select">
                      <HBox.margin>
                         <Insets right="30.0" />
                      </HBox.margin>

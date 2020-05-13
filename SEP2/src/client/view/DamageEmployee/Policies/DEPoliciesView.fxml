@@ -47,7 +47,7 @@
             </VBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="600.0">
                <children>
-                  <Button mnemonicParsing="false" text="Select">
+                  <Button mnemonicParsing="false" onAction="#onSelect" text="Select">
                      <HBox.margin>
                         <Insets right="30.0" />
                      </HBox.margin>

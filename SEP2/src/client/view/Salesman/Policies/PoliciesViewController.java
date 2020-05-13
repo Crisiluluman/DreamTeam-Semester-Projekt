@@ -3,6 +3,7 @@ package client.view.Salesman.Policies;
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.view.viewController;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Region;
@@ -40,5 +41,10 @@ public class PoliciesViewController implements viewController
   public void onSelect()
   {
 
+    ObservableList data = pvm.editSelect(tableview);
+    if (data != null)
+{
+  vh.openEditSEditPolice(data);
+}
   }
 }

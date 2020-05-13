@@ -4,6 +4,7 @@ import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.model.Customer.Customer;
 import client.view.viewController;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -47,9 +48,10 @@ public void onLogOut()
 }
 public void onSelect()
 {
-if (svm.editSelect(customerTableView))
+  ObservableList Data = svm.editSelect(customerTableView);
+  if (Data != null)
 {
-  vh.openView("ManageCustomer");
+  vh.openEditManageCustomer(Data);
 }
 }
 }

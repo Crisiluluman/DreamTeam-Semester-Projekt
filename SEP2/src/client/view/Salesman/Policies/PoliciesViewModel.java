@@ -1,5 +1,6 @@
 package client.view.Salesman.Policies;
 
+import client.core.ViewModelFactory;
 import client.model.Model;
 import client.view.Salesman.SEditPolicy.SEditPolicyViewModel;
 import javafx.beans.property.SimpleStringProperty;
@@ -20,12 +21,12 @@ public class PoliciesViewModel
   private Model model;
   ObservableList<ObservableList> list;
   ObservableList<String> row;
-  SEditPolicyViewModel sEditPolicyViewModel;
+
 
   public PoliciesViewModel(Model model)
   {
     this.model = model;
-    sEditPolicyViewModel = new SEditPolicyViewModel(model);
+
   }
   public void getPoliciesFromDB(TableView TV)
   {
@@ -86,14 +87,14 @@ public class PoliciesViewModel
 
 
   }
-  public boolean editSelect(TableView TV)
+  public ObservableList editSelect(TableView TV)
   {
     int selected = TV.getSelectionModel().getFocusedIndex();
-    if (selected != 0)
+    if (selected != -1)
     {
-      sEditPolicyViewModel.setFields(list.get(selected));
-      return true;
+
+      return list.get(selected);
     }
-    return false;
+    return null;
   }
 }

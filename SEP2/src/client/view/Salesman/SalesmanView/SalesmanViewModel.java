@@ -1,7 +1,7 @@
 package client.view.Salesman.SalesmanView;
 
+import client.core.ViewModelFactory;
 import client.model.Model;
-import client.view.Salesman.ManageCustomer.ManageCustomerViewModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
@@ -22,13 +22,12 @@ public class SalesmanViewModel
   private StringProperty searchField;
   ObservableList<ObservableList> list;
   ObservableList<String> row;
-  ManageCustomerViewModel manageCustomerViewModel;
+  private ViewModelFactory viewModelFactory;
 
   public SalesmanViewModel(Model model)
   {
     this.model = model;
     searchField = new SimpleStringProperty();
-    manageCustomerViewModel = new ManageCustomerViewModel(model);
   }
 
 
@@ -91,14 +90,13 @@ public class SalesmanViewModel
 
 
   }
-  public boolean editSelect(TableView TV)
+  public ObservableList editSelect(TableView TV)
   {
-    int selected = TV.getSelectionModel().getFocusedIndex();
-    if (selected != 0)
+    int selected = TV.getSelectionModel().getSelectedIndex();
+    if (selected != -1)
     {
-      manageCustomerViewModel.setFields(list.get(selected));
-      return true;
+      return list.get(selected);
     }
-    return false;
+    return null;
   }
 }
