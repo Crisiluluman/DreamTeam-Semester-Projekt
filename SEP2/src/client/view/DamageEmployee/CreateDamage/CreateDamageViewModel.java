@@ -2,7 +2,7 @@ package client.view.DamageEmployee.CreateDamage;
 
 import client.model.Damage.Damage;
 import client.model.Model;
-import client.model.Police.Policy;
+import client.model.Policy.Policy;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;

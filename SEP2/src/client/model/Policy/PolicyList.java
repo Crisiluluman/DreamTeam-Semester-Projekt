@@ -1,13 +1,13 @@
-package client.model.Police;
+package client.model.Policy;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PoliceList
+public class PolicyList
 {
   private List<Policy> policies;
 
-  public PoliceList()
+  public PolicyList()
   {
     this.policies = new ArrayList<Policy>();
   }

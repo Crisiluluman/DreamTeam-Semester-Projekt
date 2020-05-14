@@ -1,4 +1,4 @@
-package client.model.Police;
+package client.model.Policy;
 
 import client.model.Customer.Customer;
 

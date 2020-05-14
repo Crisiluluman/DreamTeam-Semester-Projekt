@@ -1,13 +1,13 @@
 package client.model;
 
-import client.model.Police.Policy;
+import client.model.Policy.Policy;
 import client.core.ViewModelFactory;
 
-import client.model.Police.PoliceList;
+import client.model.Policy.PolicyList;
 
 public interface Model
 {
 void createPolice(Policy policy);
-PoliceList getPolice();
+PolicyList getPolice();
 ViewModelFactory getViewModelFactory();
 }
