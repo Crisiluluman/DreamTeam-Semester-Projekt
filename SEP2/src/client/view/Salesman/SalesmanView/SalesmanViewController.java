@@ -4,6 +4,7 @@ import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.model.Customer.Customer;
 import client.view.viewController;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -17,7 +18,7 @@ public class SalesmanViewController implements viewController
   @FXML private TableView customerTableView;
   @FXML private TextField searchTextField;
   @FXML
-  public TableColumn customerNoColumn;
+
 
   private ViewHandler vh;
   private SalesmanViewModel svm;
@@ -47,9 +48,15 @@ public void onLogOut()
 }
 public void onSelect()
 {
-if (svm.editSelect(customerTableView))
+  ObservableList Data = svm.editSelect(customerTableView);
+  if (Data != null)
 {
-  vh.openView("ManageCustomer");
+  vh.openEditManageCustomer(Data);
 }
+}
+
+public void onDelete()
+{
+  svm.Delete(customerTableView);
 }
 }

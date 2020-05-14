@@ -18,6 +18,7 @@ import client.view.Salesman.Policies.PoliciesViewController;
 import client.view.Salesman.SEditPolicy.SEditPolicyViewController;
 import client.view.Salesman.SalesmanView.SalesmanViewController;
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;

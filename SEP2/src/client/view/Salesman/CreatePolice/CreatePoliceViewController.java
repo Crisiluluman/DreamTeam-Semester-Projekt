@@ -44,12 +44,12 @@ public class CreatePoliceViewController implements viewController
 
 
   ObservableList<String> options =
-      FXCollections.observableArrayList(
-          "House",
-          "Home",
-          "Car",
-          "Accidents"
-      );
+    FXCollections.observableArrayList(
+        "House",
+        "Home",
+        "Car",
+        "Accidents"
+    );
 
   public Label getLabelErrorPrice()
   {
@@ -87,6 +87,7 @@ public class CreatePoliceViewController implements viewController
        LabelErrorCoverage.textProperty().bind(cpv.labelCoverageProperty());
 
   policyType.setItems(options);
+  policyType.setValue(options.get(0));
   clearAll();
   }
 

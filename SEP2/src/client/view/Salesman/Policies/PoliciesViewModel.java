@@ -1,11 +1,14 @@
 package client.view.Salesman.Policies;
 
+import client.core.ViewModelFactory;
 import client.model.Model;
 import client.view.Salesman.SEditPolicy.SEditPolicyViewModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.util.Callback;
@@ -14,18 +17,19 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Optional;
 
 public class PoliciesViewModel
 {
   private Model model;
   ObservableList<ObservableList> list;
   ObservableList<String> row;
-  SEditPolicyViewModel sEditPolicyViewModel;
+
 
   public PoliciesViewModel(Model model)
   {
     this.model = model;
-    sEditPolicyViewModel = new SEditPolicyViewModel(model);
+
   }
   public void getPoliciesFromDB(TableView TV)
   {
@@ -36,7 +40,7 @@ public class PoliciesViewModel
     {
       Class.forName("org.postgresql.Driver");
       c = DriverManager
-          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1122");
+          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1234");
       c.setAutoCommit(false);
       System.out.println("Opened database successfully");
 
@@ -86,14 +90,33 @@ public class PoliciesViewModel
 
 
   }
-  public boolean editSelect(TableView TV)
+  public ObservableList editSelect(TableView TV)
   {
     int selected = TV.getSelectionModel().getFocusedIndex();
-    if (selected != 0)
+    if (selected != -1)
     {
-      sEditPolicyViewModel.setFields(list.get(selected));
-      return true;
+
+      return list.get(selected);
     }
-    return false;
+    return null;
+  }
+
+  public void Delete(TableView TV)
+  {
+    int selected = TV.getSelectionModel().getSelectedIndex();
+    if (selected != -1)
+    {
+      Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+      alert.setTitle("Confirmation Dialog");
+      alert.setHeaderText("Deletion of a policy");
+      alert.setContentText("Are you sure you want to delete this policy?");
+
+      Optional<ButtonType> result = alert.showAndWait();
+      if (result.get() == ButtonType.OK){
+        //her kalder vi på metoden som sletter policy fra databasen
+      } else {
+        //gør ingenting
+      }
+    }
   }
 }

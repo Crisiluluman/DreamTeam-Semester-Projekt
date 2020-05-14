@@ -1,6 +1,8 @@
 package client.view.DamageEmployee.Policies;
 
+import client.core.ViewModelFactory;
 import client.model.Model;
+import javafx.beans.Observable;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -23,6 +25,7 @@ public class DEPoliciesViewModel
     public DEPoliciesViewModel(Model model)
     {
         this.model = model;
+
     }
 
     public void getEmployeesFromDB(TableView TV)
@@ -34,7 +37,7 @@ public class DEPoliciesViewModel
         {
             Class.forName("org.postgresql.Driver");
             c = DriverManager
-                .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1122");
+                .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1234");
             c.setAutoCommit(false);
             System.out.println("Opened database successfully");
 
@@ -83,5 +86,14 @@ public class DEPoliciesViewModel
         }
 
 
+    }
+    public ObservableList editSelect(TableView TV)
+    {
+        int selected = TV.getSelectionModel().getFocusedIndex();
+        if (selected != -1)
+        {
+            return list.get(selected);
+        }
+        return null;
     }
 }

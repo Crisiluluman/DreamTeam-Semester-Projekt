@@ -54,19 +54,19 @@ if (position.equals("Manager"))
 {
    manager = new Manager(String.valueOf(name.getValue()),String.valueOf(address.getValue()),
         Long.parseLong(CPR.getValue()),String.valueOf(email.getValue()),Integer.parseInt(phone.getValue()), "Manager");
-   handler.addEmployeeData(manager);
+   saveToDB(Manager());
 }
 if (position.equals("Salesman"))
 {
    salesman = new Salesman(String.valueOf(name.getValue()),String.valueOf(address.getValue()),
         Long.parseLong(CPR.getValue()),String.valueOf(email.getValue()),Integer.parseInt(phone.getValue()), "Salesman");
-    handler.addEmployeeData(salesman);
+   saveToDB(SalesMan());
 }
 if (position.equals("DamageEmployee"))
 {
     damageEmployee = new DamageEmployee(String.valueOf(name.getValue()),String.valueOf(address.getValue()),
         Long.parseLong(CPR.getValue()),String.valueOf(email.getValue()),Integer.parseInt(phone.getValue()), "DamageEmployee");
-    handler.addEmployeeData(damageEmployee);
+    saveToDB(DamageEmployee());
 }
     }
 

@@ -3,6 +3,8 @@ package client.view.Salesman.SEditPolicy;
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.view.viewController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
@@ -21,11 +23,25 @@ public class SEditPolicyViewController implements viewController {
     @FXML TextField Customer;
     @FXML ChoiceBox policyType;
 
+    ObservableList<String> options =
+        FXCollections.observableArrayList(
+            "House",
+            "Home",
+            "Car",
+            "Accidents"
+        );
+
     @Override
     public void init(ViewHandler vh, ViewModelFactory vmf, Region root) {
         this.vh = vh;
         epv = vmf.getSEditPolicyViewModel();
         this.root = root;
+        policyNr.textProperty().bindBidirectional(epv.policeNoProperty());
+        price.textProperty().bindBidirectional(epv.priceProperty());
+        deductible.textProperty().bindBidirectional(epv.deductibleProperty());
+        coverage.textProperty().bindBidirectional(epv.coverageProperty());
+      policyType.setItems(options);
+      epv.setChoiceBox(policyType);
 
     }
     @Override

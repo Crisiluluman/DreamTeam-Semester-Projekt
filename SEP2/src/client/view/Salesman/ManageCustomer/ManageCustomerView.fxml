@@ -26,7 +26,7 @@
             <Text layoutX="73.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
             <Text layoutX="73.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Postcode" />
             <Text layoutX="73.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPR-nr" />
-            <Text layoutX="73.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Household" />
+            <Text layoutX="73.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer No" />
             <TextField fx:id="manageCustomerTextfield" layoutX="147.0" layoutY="42.0" prefHeight="25.0" prefWidth="210.0" />
             <TextField fx:id="manageCustomerAddress" layoutX="147.0" layoutY="83.0" prefHeight="25.0" prefWidth="210.0" />
             <TextField fx:id="manageCustomerPostcode" layoutX="147.0" layoutY="126.0" prefHeight="25.0" prefWidth="210.0" />

@@ -1,11 +1,18 @@
 package client.view.Manager.ManageEmployee;
 
+import client.core.ViewHandler;
+import client.core.ViewModelFactory;
+import client.model.DamageEmployee.DamageEmployee;
+import client.model.Employee;
+import client.model.Manager.Manager;
 import client.model.Model;
 import client.view.Manager.EditEmployee.EditEmployeeViewModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.util.Callback;
@@ -14,29 +21,31 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Optional;
 
 public class ManageEmployeeViewModel
 {
   private Model model;
- private EditEmployeeViewModel e;
+  private EditEmployeeViewModel e;
   ObservableList<ObservableList> list;
   ObservableList<String> row;
+  ViewModelFactory viewModelFactory;
+
   public ManageEmployeeViewModel(Model model)
   {
     this.model = model;
-    e = new EditEmployeeViewModel(this.model);
   }
 
   public void getEmployeesFromDB(TableView TV)
   {
-   list = FXCollections.observableArrayList();
+    list = FXCollections.observableArrayList();
     Connection c = null;
     Statement stmt = null;
     try
     {
       Class.forName("org.postgresql.Driver");
       c = DriverManager
-          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1122");
+          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1234");
       c.setAutoCommit(false);
       System.out.println("Opened database successfully");
 
@@ -63,7 +72,7 @@ public class ManageEmployeeViewModel
       while (rs.next())
       {
         //Iterate Row
-         row = FXCollections.observableArrayList();
+        row = FXCollections.observableArrayList();
         for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++)
         {
           //Iterate Column
@@ -71,7 +80,6 @@ public class ManageEmployeeViewModel
         }
         System.out.println("Row [1] added " + row);
         list.add(row);
-
 
       }
 
@@ -84,19 +92,35 @@ public class ManageEmployeeViewModel
       System.out.println("Error on Building Data");
     }
 
-
   }
 
-  public boolean editSelect(TableView TV)
+  public ObservableList editSelect(TableView TV)
   {
     int selected = TV.getSelectionModel().getFocusedIndex();
-    if (selected != 0)
+    if (selected != -1)
     {
-      e.setFields(list.get(selected));
-      return true;
+      return list.get(selected);
     }
-    return false;
-  }
+    return null;
 
+  }
+  public void Delete(TableView TV)
+  {
+    int selected = TV.getSelectionModel().getSelectedIndex();
+    if (selected != -1)
+    {
+      Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+      alert.setTitle("Confirmation Dialog");
+      alert.setHeaderText("Deletion of a Employee");
+      alert.setContentText("Are you sure you want to delete this Employee?");
+
+      Optional<ButtonType> result = alert.showAndWait();
+      if (result.get() == ButtonType.OK){
+        //her kalder vi på metoden som sletter en employee fra databasen
+      } else {
+        //gør ingenting
+      }
+    }
+  }
 }
 

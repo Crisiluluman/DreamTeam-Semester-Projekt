@@ -24,7 +24,7 @@
             <TextField fx:id="searchTextField" layoutX="231.0" layoutY="14.0" prefHeight="25.0" prefWidth="203.0" promptText="insert cpr or name" />
             <Button fx:id="searchButton" layoutX="433.0" layoutY="14.0" mnemonicParsing="false" text="Search" />
             <Button fx:id="selectButton" layoutX="525.0" layoutY="265.0" mnemonicParsing="false" onAction="#onSelect" text="Select" />
-            <Button fx:id="deleteButton" layoutX="458.0" layoutY="265.0" mnemonicParsing="false" text="Delete" />
+            <Button fx:id="deleteButton" layoutX="458.0" layoutY="265.0" mnemonicParsing="false" onAction="#onDelete" text="Delete" />
          </children>
       </Pane>
    </center>

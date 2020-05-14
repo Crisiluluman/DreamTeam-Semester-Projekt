@@ -23,7 +23,7 @@ public class EditEmployeeViewController implements viewController {
     private ViewHandler vh;
     private EditEmployeeViewModel eev;
     private Region root;
-    ManageEmployeeViewModel employeeViewModel;
+
     @FXML private TextField name;
     @FXML private TextField address;
     @FXML private TextField CPR;
@@ -42,7 +42,6 @@ public class EditEmployeeViewController implements viewController {
         this.vh = vh;
         eev = vmf.getEditEmployeeViewModel();
         this.root = root;
-        employeeViewModel = new ManageEmployeeViewModel(eev.getModel());
         name.textProperty().bindBidirectional(eev.getNameTextFieldProperty());
         address.textProperty().bindBidirectional(eev.getAddressTextFieldProperty());
         CPR.textProperty().bindBidirectional(eev.getCPRTextFieldProperty());
