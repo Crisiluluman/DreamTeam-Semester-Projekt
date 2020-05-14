@@ -167,7 +167,7 @@ public void clearLabels()
       Class.forName("org.postgresql.Driver");
       connection = DriverManager
           .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres",
-              "1234");
+              "qawsedrf123");
       statement = connection.createStatement();
       String sql = "INSERT INTO \"createpolicy\".Customer values(" +"'"+ customer.getCostumerNo()+"'" + "," + "'" + customer.getName() + "'" + ","
           + "'" + customer.getAddress() + "'" + "," +"'"+ customer.getPostcode()+"'" + "," +"'"+ customer.getCprNr() +"'"+ ");";

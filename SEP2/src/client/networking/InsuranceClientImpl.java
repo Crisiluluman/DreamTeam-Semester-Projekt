@@ -1,47 +1,56 @@
 package client.networking;
 
 import shared.InsuranceClient;
+import shared.InsuranceServer;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
 
 public class InsuranceClientImpl implements InsuranceClient, Client
 {
 
-  @Override public void startClient()
-  {
+  private InsuranceServer server;
+  private PropertyChangeSupport property;
 
+  public InsuranceClientImpl()
+  {
+    this.property = new PropertyChangeSupport(this);
+  }
+
+  @Override public void start() throws RemoteException, NotBoundException
+  {
+    UnicastRemoteObject.exportObject(this,0);
+    Registry registry = LocateRegistry.getRegistry("localhost", 1099);
+    this.server = (InsuranceServer) registry.lookup("Server");
+    server.registerClient(this);
+    System.out.println("Client connected to server ");
+  }
+
+  @Override public void update()
+  {
+    property.firePropertyChange("update", null,null);
   }
 
   @Override public void addListener(String eventname,
       PropertyChangeListener listener)
   {
-
+    this.property.addPropertyChangeListener(eventname, listener);
   }
 
-  @Override public void addListener(PropertyChangeListener listener)
-  {
-
-  }
 
   @Override public void removeListener(String eventname,
       PropertyChangeListener listener)
   {
+    this.property.removePropertyChangeListener(eventname, listener);
 
   }
 
-  @Override public void removeListener(PropertyChangeListener listener)
-  {
 
-  }
 
-  @Override public void propertyChange(PropertyChangeEvent evt)
-  {
-
-  }
-
-  @Override public void update()
-  {
-
-  }
 }

@@ -126,7 +126,7 @@ public class CreateDamageViewModel {
       System.out.println("Test2");
       connection = DriverManager
           .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres",
-              "1234");
+              "qawsedrf123");
       System.out.println("Test2");
       statement = connection.createStatement();
       System.out.println("Test2");

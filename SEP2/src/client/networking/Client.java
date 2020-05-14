@@ -2,8 +2,10 @@ package client.networking;
 
 import shared.Subject;
 
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+
 public interface Client extends Subject
 {
-  void startClient();
-
+  void start() throws RemoteException, NotBoundException;
 }
