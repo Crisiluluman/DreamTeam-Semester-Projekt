@@ -1,7 +1,7 @@
 package client.view.Salesman.CreatePolice;
 
 import client.model.Model;
-import client.model.Police.Police;
+import client.model.Policy.Policy;
 import javafx.beans.property.*;
 
 import java.beans.PropertyChangeEvent;
@@ -26,7 +26,7 @@ public class CreatePoliceViewModel implements PropertyChangeListener
   private StringProperty LabelDeductible;
   private StringProperty LabelCoverage;
 
-  private Police police;
+  private Policy policy;
 
 
 
@@ -50,7 +50,7 @@ public class CreatePoliceViewModel implements PropertyChangeListener
 public void createPolicy(String policeType)
 {
 
-  police = new Police(Integer.parseInt(policyNr.getValue()),String.valueOf(policeType),
+  policy = new Policy(Integer.parseInt(policyNr.getValue()),String.valueOf(policeType),
       Integer.parseInt(price.getValue()),Integer.parseInt(deductible.getValue()), String.valueOf(coverage.getValue()));
 
 

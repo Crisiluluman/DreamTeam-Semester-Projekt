@@ -1,6 +1,6 @@
 package client.model.DamageEmployee;
 
-import client.model.Employee;
+import shared.Employee;
 
 public class DamageEmployee implements Employee
 {

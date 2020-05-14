@@ -73,7 +73,7 @@ if (position.equals("DamageEmployee"))
         {
             Class.forName("org.postgresql.Driver");
             c = DriverManager
-                .getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","qawsedrf123");
+                .getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","1234");
 
             System.out.println("The database is open");
 

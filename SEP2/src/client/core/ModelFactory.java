@@ -2,8 +2,6 @@ package client.core;
 
 import client.model.Model;
 import client.model.Modelmanager;
-import client.networking.InsuranceClientImpl;
-import shared.InsuranceClient;
 
 public class ModelFactory
 {

@@ -1,8 +1,8 @@
 package client.model;
 
 import client.core.ViewModelFactory;
-import client.model.Police.Police;
-import client.model.Police.PoliceList;
+import client.model.Policy.Policy;
+import client.model.Policy.PolicyList;
 import client.networking.Client;
 
 import java.rmi.NotBoundException;
@@ -11,24 +11,23 @@ import java.rmi.RemoteException;
 public class Modelmanager implements Model
 {
   private Client client;
-  private PoliceList policeList;
-
-  public Modelmanager(Client client) throws RemoteException, NotBoundException
+  private PolicyList policyList;
+  public Modelmanager(Client client)
   {
     this.client = client;
-    policeList = new PoliceList();
+    policyList = new PolicyList();
     client.start();
     client.addListener("update", null);
   }
 
-  @Override public void createPolice(Police police)
+  @Override public void createPolicy(Policy policy)
   {
-    policeList.addPolicy(police);
+    policeList.addPolicy(policy);
   }
 
-  @Override public PoliceList getPolice()
+  @Override public PolicyList getPolice()
   {
-    return policeList;
+    return policyList;
   }
 
   @Override public ViewModelFactory getViewModelFactory()
