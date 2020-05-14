@@ -12,6 +12,7 @@ public class Modelmanager implements Model
 {
   private Client client;
   private PolicyList policyList;
+
   public Modelmanager(Client client)
   {
     this.client = client;
@@ -22,10 +23,10 @@ public class Modelmanager implements Model
 
   @Override public void createPolicy(Policy policy)
   {
-    policeList.addPolicy(policy);
+    policyList.addPolicy(policy);
   }
 
-  @Override public PolicyList getPolice()
+  @Override public PolicyList getPolicy()
   {
     return policyList;
   }

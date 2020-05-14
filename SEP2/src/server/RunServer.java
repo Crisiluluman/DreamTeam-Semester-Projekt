@@ -1,17 +1,16 @@
 package server;
 
 import server.networking.InsuranceServerImpl;
-import shared.InsuranceServer;
+import shared.Networking.InsuranceServer;
 
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
 
 public class RunServer
 {
-  public static void main(String[] args)
-      throws RemoteException, AlreadyBoundException
+  public static void main(String[] args) throws RemoteException, AlreadyBoundException
   {
-    InsuranceServer server = new InsuranceServerImpl();
+    InsuranceServerImpl server = new InsuranceServerImpl();
     server.start();
   }
 }

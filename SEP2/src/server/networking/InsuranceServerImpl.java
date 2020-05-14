@@ -1,7 +1,7 @@
 package server.networking;
 
 import shared.InsuranceClient;
-import shared.InsuranceServer;
+import shared.Networking.InsuranceServer;
 
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
@@ -17,7 +17,7 @@ public class InsuranceServerImpl implements InsuranceServer
     UnicastRemoteObject.exportObject(this,0);
   }
 
-  @Override public void start() throws RemoteException, AlreadyBoundException
+  public void start() throws RemoteException, AlreadyBoundException
   {
     Registry registry = LocateRegistry.createRegistry(1099);
     registry.bind("Server", this);

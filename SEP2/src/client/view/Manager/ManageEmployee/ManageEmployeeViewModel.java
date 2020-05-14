@@ -3,7 +3,7 @@ package client.view.Manager.ManageEmployee;
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.model.DamageEmployee.DamageEmployee;
-import client.model.Employee;
+import shared.Employee;
 import client.model.Manager.Manager;
 import client.model.Model;
 import client.view.Manager.EditEmployee.EditEmployeeViewModel;

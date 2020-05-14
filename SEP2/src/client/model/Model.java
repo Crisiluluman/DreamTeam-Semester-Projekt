@@ -7,7 +7,7 @@ import client.model.Policy.PolicyList;
 
 public interface Model
 {
-void createPolice(Policy policy);
-PolicyList getPolice();
+void createPolicy(Policy policy);
+PolicyList getPolicy();
 ViewModelFactory getViewModelFactory();
 }

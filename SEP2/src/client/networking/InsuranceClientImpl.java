@@ -1,9 +1,8 @@
 package client.networking;
 
 import shared.InsuranceClient;
-import shared.InsuranceServer;
+import shared.Networking.InsuranceServer;
 
-import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.rmi.NotBoundException;
@@ -23,13 +22,24 @@ public class InsuranceClientImpl implements InsuranceClient, Client
     this.property = new PropertyChangeSupport(this);
   }
 
-  @Override public void start() throws RemoteException, NotBoundException
+  @Override public void start()
   {
-    UnicastRemoteObject.exportObject(this,0);
-    Registry registry = LocateRegistry.getRegistry("localhost", 1099);
-    this.server = (InsuranceServer) registry.lookup("Server");
-    server.registerClient(this);
-    System.out.println("Client connected to server ");
+    try
+    {
+      UnicastRemoteObject.exportObject(this,0);
+      Registry registry = LocateRegistry.getRegistry("localhost", 1099);
+      this.server = (InsuranceServer) registry.lookup("Server");
+      server.registerClient(this);
+      System.out.println("Client connected to server ");
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+    catch (NotBoundException e)
+    {
+      e.printStackTrace();
+    }
   }
 
   @Override public void update()

@@ -58,6 +58,35 @@ public class ViewHandler extends Application
     openView("CreateEmployee");
   }
 
+  public void openEditSEditPolice(ObservableList list)
+{
+  vmf.getSEditPolicyViewModel().setFields(list);
+  openView("SEditPolice");
+}
+
+  public void openEditManageCustomer(ObservableList list)
+  {
+    vmf.getManageCustomerViewModel().setFields(list);
+    openView("ManageCustomer");
+  }
+
+  public void openEditEditEmployee(ObservableList list)
+  {
+    vmf.getEditEmployeeViewModel().setFields(list);
+    openView("EditEmployee");
+  }
+  public void openEditDEEditPolice(ObservableList list)
+  {
+    vmf.getEditPolicyViewModel().setFields(list);
+    openView("EditPolicy");
+  }
+
+  public void openCreateDamage(ObservableList list)
+  {
+    vmf.getCreateDamageViewModel().setFields(list);
+    openView("CreateDamage");
+  }
+
   public void openView(String id)
   {
     Region root = null;

@@ -69,8 +69,8 @@ public void saveToDB()
     System.out.println("The database is open");
 
     stmt = c.createStatement();
-    String sql = "INSERT INTO \"createpolicy\".PoliceList values("+ police.getPoliceNo() +
-        "," + "'"+police.getPoliceType()+"'"+","+police.getPrice()+","+police.getDeductible()+"," +"'"+police.getCoverage()+"');";
+    String sql = "INSERT INTO \"createpolicy\".PoliceList values("+ policy.getPoliceNo() +
+        "," + "'"+policy.getPoliceType()+"'"+","+policy.getPrice()+","+policy.getDeductible()+"," +"'"+policy.getCoverage()+"');";
     stmt.executeUpdate(sql);
 
 
