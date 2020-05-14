@@ -1,6 +1,8 @@
 package server.DBSConnection.DamagesDBS;
 
+import client.model.Damage.Damage;
+
 public interface DamageData
 {
-  void saveToDBS(String sql);
+  void addDamageData(Damage damage);
 }

@@ -5,31 +5,31 @@ import java.util.List;
 
 public class PoliceList
 {
-  private List<Police> policies;
+  private List<Policy> policies;
 
   public PoliceList()
   {
-    this.policies = new ArrayList<Police>();
+    this.policies = new ArrayList<Policy>();
   }
 
   // Create a police
-  public void addPolicy(Police police)
+  public void addPolicy(Policy policy)
   {
-    policies.add(police);
+    policies.add(policy);
   }
 
   // Delete a police
-  public void removePolicy(Police police)
+  public void removePolicy(Policy policy)
   {
-    policies.remove(police);
+    policies.remove(policy);
   }
 
   public String getPoliceInfo()
   {
     String info = "";
-    for (Police police: policies)
+    for (Policy policy : policies)
     {
-      info += police.toString();
+      info += policy.toString();
     }
     return info;
   }

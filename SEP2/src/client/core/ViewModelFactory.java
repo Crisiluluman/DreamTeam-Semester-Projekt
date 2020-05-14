@@ -16,6 +16,7 @@ import client.view.Salesman.ManageCustomer.ManageCustomerViewModel;
 import client.view.Salesman.Policies.PoliciesViewModel;
 import client.view.Salesman.SEditPolicy.SEditPolicyViewModel;
 import client.view.Salesman.SalesmanView.SalesmanViewModel;
+import server.DBSConnection.EmployeeDBS.EmployeeHandler;
 
 public class ViewModelFactory
 {

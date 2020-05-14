@@ -44,4 +44,14 @@ public class InsuranceClientImpl implements InsuranceClient, Client
   {
 
   }
+
+  @Override public String getUsername()
+  {
+    return null;
+  }
+
+  @Override public void notifyEmployee(String msg)
+  {
+
+  }
 }

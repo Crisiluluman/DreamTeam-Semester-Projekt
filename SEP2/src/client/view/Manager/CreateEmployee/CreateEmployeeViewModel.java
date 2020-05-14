@@ -5,6 +5,8 @@ import client.model.Manager.Manager;
 import client.model.Model;
 import client.model.Salesman.Salesman;
 import javafx.beans.property.SimpleStringProperty;
+import server.DBSConnection.DBSConnections;
+import server.DBSConnection.EmployeeDBS.EmployeeHandler;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -28,6 +30,8 @@ private Manager manager;
 private Salesman salesman;
 private DamageEmployee damageEmployee;
 
+private EmployeeHandler handler;
+
     public CreateEmployeeViewModel(Model model) {
         this.model = model;
         name = new SimpleStringProperty();
@@ -41,6 +45,8 @@ private DamageEmployee damageEmployee;
         LabelCPR = new SimpleStringProperty();
         Labelemail = new SimpleStringProperty();
         Labelphone = new SimpleStringProperty();
+        handler = new EmployeeHandler();
+
     }
     public void onCreate(String position)
     {
@@ -48,66 +54,66 @@ if (position.equals("Manager"))
 {
    manager = new Manager(String.valueOf(name.getValue()),String.valueOf(address.getValue()),
         Long.parseLong(CPR.getValue()),String.valueOf(email.getValue()),Integer.parseInt(phone.getValue()), "Manager");
-   saveToDB(Manager());
+   handler.addEmployeeData(manager);
 }
 if (position.equals("Salesman"))
 {
    salesman = new Salesman(String.valueOf(name.getValue()),String.valueOf(address.getValue()),
         Long.parseLong(CPR.getValue()),String.valueOf(email.getValue()),Integer.parseInt(phone.getValue()), "Salesman");
-   saveToDB(SalesMan());
+    handler.addEmployeeData(salesman);
 }
 if (position.equals("DamageEmployee"))
 {
     damageEmployee = new DamageEmployee(String.valueOf(name.getValue()),String.valueOf(address.getValue()),
         Long.parseLong(CPR.getValue()),String.valueOf(email.getValue()),Integer.parseInt(phone.getValue()), "DamageEmployee");
-    saveToDB(DamageEmployee());
+    handler.addEmployeeData(damageEmployee);
 }
     }
 
-    public void saveToDB(String sql)
-    {
-        Connection c = null;
-        Statement stmt = null;
-        try
-        {
-            Class.forName("org.postgresql.Driver");
-            c = DriverManager
-                .getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","1122");
+//    public void saveToDB(String sql)
+//    {
+//        Connection c = null;
+//        Statement stmt = null;
+//        try
+//        {
+//            Class.forName("org.postgresql.Driver");
+//            c = DriverManager
+//                .getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","1122");
+//
+//            System.out.println("The database is open");
+//
+//            stmt = c.createStatement();
+//            stmt.executeUpdate(sql);
+//
+//
+//
+//            stmt.close();
+//            c.close();
+//        } catch (Exception e)
+//        {
+//            e.printStackTrace();
+//        }
+//    }
 
-            System.out.println("The database is open");
-
-            stmt = c.createStatement();
-            stmt.executeUpdate(sql);
-
-
-
-            stmt.close();
-            c.close();
-        } catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-    }
-
-    public String Manager()
-    {
-        String sql = "INSERT INTO \"createpolicy\".employees values("+ "'"+ manager.getName()+"'"+
-            "," +"'"+ manager.getAddress()+"'"+","+"'"+manager.getCPR()+"'"+","+"'"+manager.getEmail()+"'"+"," +"'"+manager.getTlfNr()+"'"+",'Manager');";
-        return sql;
-    }
-    public String SalesMan()
-    {
-        String sql = "INSERT INTO \"createpolicy\".employees values("+ "'"+ salesman.getName()+"'"+
-            "," +"'"+ salesman.getAddress()+"'"+","+"'"+salesman.getCPR()+"'"+","+"'"+salesman.getEmail()+"'"+"," +"'"+salesman.getTlfNr()+"'"+",'Salesman');";
-        return sql;
-    }
-
-    public String DamageEmployee()
-    {
-        String sql = "INSERT INTO \"createpolicy\".employees values("+ "'"+ damageEmployee.getName()+"'"+
-            "," +"'"+ damageEmployee.getAddress()+"'"+","+"'"+damageEmployee.getCPR()+"'"+","+"'"+damageEmployee.getEmail()+"'"+"," +"'"+damageEmployee.getTlfNr()+"'"+",'Damage-employee');";
-        return sql;
-    }
+//    public String Manager()
+//    {
+//        String sql = "INSERT INTO \"createpolicy\".employees values("+ "'"+ manager.getName()+"'"+
+//            "," +"'"+ manager.getAddress()+"'"+","+"'"+manager.getCPR()+"'"+","+"'"+manager.getEmail()+"'"+"," +"'"+manager.getTlfNr()+"'"+",'Manager');";
+//        return sql;
+//    }
+//    public String SalesMan()
+//    {
+//        String sql = "INSERT INTO \"createpolicy\".employees values("+ "'"+ salesman.getName()+"'"+
+//            "," +"'"+ salesman.getAddress()+"'"+","+"'"+salesman.getCPR()+"'"+","+"'"+salesman.getEmail()+"'"+"," +"'"+salesman.getTlfNr()+"'"+",'Salesman');";
+//        return sql;
+//    }
+//
+//    public String DamageEmployee()
+//    {
+//        String sql = "INSERT INTO \"createpolicy\".employees values("+ "'"+ damageEmployee.getName()+"'"+
+//            "," +"'"+ damageEmployee.getAddress()+"'"+","+"'"+damageEmployee.getCPR()+"'"+","+"'"+damageEmployee.getEmail()+"'"+"," +"'"+damageEmployee.getTlfNr()+"'"+",'Damage-employee');";
+//        return sql;
+//    }
     public boolean checker()
     {
         clearLabel();

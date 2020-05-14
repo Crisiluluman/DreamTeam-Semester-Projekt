@@ -2,7 +2,7 @@ package client.view.DamageEmployee.CreateDamage;
 
 import client.model.Damage.Damage;
 import client.model.Model;
-import client.model.Police.Police;
+import client.model.Police.Policy;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -16,7 +16,7 @@ public class CreateDamageViewModel {
     private Model model;
     private CreateDamageViewController cdvc;
     private Damage damage;
-    private Police police;
+    private Policy policy;
 
     private StringProperty policyTypeDropdown;
     private StringProperty expensesTextfield;
@@ -73,7 +73,7 @@ public class CreateDamageViewModel {
 
   public void onClick(String policeType)
   {
-    Police dummy = new Police(1,"Car",100,50,"kasko");
+    Policy dummy = new Policy(1,"Car",100,50,"kasko");
     damage = new Damage(dummy.getPoliceNo(), policeType,Double.parseDouble(expensesTextfield.getValue()),Integer.parseInt(damageNoTextfield.getValue()), String.valueOf(infoTextArea.getValue()));
     clearLabels();
     saveToDB();

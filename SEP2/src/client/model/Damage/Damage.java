@@ -1,7 +1,5 @@
 package client.model.Damage;
 
-import client.model.Police.Police;
-
 public class Damage {
   private int policeNo;
   private String policeType;

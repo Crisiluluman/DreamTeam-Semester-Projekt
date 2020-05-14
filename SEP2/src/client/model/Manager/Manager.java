@@ -16,9 +16,11 @@ public class Manager implements Employee {
     this.cpr = cpr;
     this.tlfnr = tlfnr;
     this.address = address;
-    this.email=email;
+    this.email= email;
     this.position = position;
   }
+
+
   @Override
   public String getName() {
     return name;

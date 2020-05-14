@@ -5,6 +5,7 @@ import shared.Employee;
 public interface EmployeeData
 {
 
-  void storeEmployeeData(Employee employee);
+  void addEmployeeData(Employee employee);
   void readEmployeeData(Employee employee);
+  void updateEmployeeData(Employee employee);
 }

@@ -2,15 +2,11 @@ package server.DBSConnection;
 
 import shared.Employee;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
+import java.sql.*;
 
 public class DBSConnections
 {
   // Has a lot of logic, dealing with the database
-
-
 
   public void connectToDB(String sql)
   {
@@ -25,9 +21,7 @@ public class DBSConnections
               "1122");
       statement = connection.createStatement();
 
-      /*May work */
       String toSql = sql;
-
 
       statement.executeUpdate(toSql);
       statement.close();
@@ -42,34 +36,8 @@ public class DBSConnections
     System.out.println("Insert to Database ok!");
   }
 
-  public void addData(Employee employee,String position)
-  {
-    String sql = "";
-
-    switch (position)
-    {
-      case "Manager":
-        sql = "INSERT INTO \"createpolicy\".employees values("+ "'"+ employee.getName()+"'"+
-            "," +"'"+ employee.getAddress()+"'"+","+"'"+employee.getCPR()+"'"+","+"'"+employee.getEmail()+"'"+"," +"'"+employee.getTlfNr()+"'"+",'Manager');";
-        connectToDB(sql);
-        break;
-
-      case "Salesman":
-        sql = "INSERT INTO \"createpolicy\".employees values("+ "'"+ employee.getName()+"'"+
-            "," +"'"+ employee.getAddress()+"'"+","+"'"+employee.getCPR()+"'"+","+"'"+employee.getEmail()+"'"+"," +"'"+employee.getTlfNr()+"'"+",'Salesman');";
-        connectToDB(sql);
-        break;
-
-      case "DamageEmployee":
-        sql = "INSERT INTO \"createpolicy\".employees values("+ "'"+ employee.getName()+"'"+
-            "," +"'"+ employee.getAddress()+"'"+","+"'"+employee.getCPR()+"'"+","+"'"+employee.getEmail()+"'"+"," +"'"+employee.getTlfNr()+"'"+",'Damage-employee');";
-        connectToDB(sql);
-        break;
-    }
 
 
-
-  }
 
   public void updateEmployee(){}
 

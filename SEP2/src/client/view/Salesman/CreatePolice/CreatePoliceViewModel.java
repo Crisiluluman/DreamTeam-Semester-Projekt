@@ -1,7 +1,7 @@
 package client.view.Salesman.CreatePolice;
 
 import client.model.Model;
-import client.model.Police.Police;
+import client.model.Police.Policy;
 import javafx.beans.property.*;
 
 import java.beans.PropertyChangeEvent;
@@ -26,7 +26,7 @@ public class CreatePoliceViewModel implements PropertyChangeListener
   private StringProperty LabelDeductible;
   private StringProperty LabelCoverage;
 
-  private Police police;
+  private Policy policy;
 
 
 
@@ -50,37 +50,38 @@ public class CreatePoliceViewModel implements PropertyChangeListener
 public void createPolicy(String policeType)
 {
 
-  police = new Police(Integer.parseInt(policyNr.getValue()),String.valueOf(policeType),
-      Integer.parseInt(price.getValue()),Integer.parseInt(deductible.getValue()), String.valueOf(coverage.getValue()));
+  policy = new Policy(Integer.parseInt(policyNr.getValue()), String.valueOf(policeType),
+      Integer.parseInt(price.getValue()), Integer.parseInt(deductible.getValue()),
+      String.valueOf(coverage.getValue()));
 
-
-saveToDB();
-  }
-  public void saveToDB()
-  {
-    Connection c = null;
-    Statement stmt = null;
-    try
-    {
-      Class.forName("org.postgresql.Driver");
-      c = DriverManager
-          .getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","1122");
-
-      System.out.println("The database is open");
-
-      stmt = c.createStatement();
-      String sql = "INSERT INTO \"createpolicy\".PoliceList values("+ police.getPoliceNo() +
-          "," + "'"+police.getPoliceType()+"'"+","+police.getPrice()+","+police.getDeductible()+"," +"'"+police.getCoverage()+"');";
-      stmt.executeUpdate(sql);
-
-
-
-      stmt.close();
-    c.close();
-  } catch (Exception e)
-  {
-    e.printStackTrace();
-  }
+  //saveToDB();
+  //  }
+  //  public void saveToDB()
+  //  {
+  //    Connection c = null;
+  //    Statement stmt = null;
+  //    try
+  //    {
+  //      Class.forName("org.postgresql.Driver");
+  //      c = DriverManager
+  //          .getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","1122");
+  //
+  //      System.out.println("The database is open");
+  //
+  //      stmt = c.createStatement();
+  //     String sql = "INSERT INTO \"createpolicy\".PoliceList values("+ policy.getPoliceNo() +
+  //          "," + "'"+ policy.getPoliceType()+"'"+","+ policy
+  //         .getPrice()+","+ policy.getDeductible()+"," +"'"+ policy.getCoverage()+"');";
+  //      stmt.executeUpdate(sql);
+  //
+  //
+  //
+  //      stmt.close();
+  //    c.close();
+  //  } catch (Exception e)
+  //  {
+  //    e.printStackTrace();
+  //  }
 }
 
 public boolean checker()
