@@ -1,6 +1,5 @@
 package shared.Networking;
 
-import shared.InsuranceClient;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 

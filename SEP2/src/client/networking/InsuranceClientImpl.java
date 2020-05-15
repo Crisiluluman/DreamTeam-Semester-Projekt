@@ -1,6 +1,6 @@
 package client.networking;
 
-import shared.InsuranceClient;
+import shared.Networking.InsuranceClient;
 import shared.Networking.InsuranceServer;
 
 import java.beans.PropertyChangeListener;

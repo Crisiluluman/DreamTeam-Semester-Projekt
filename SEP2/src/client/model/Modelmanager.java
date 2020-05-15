@@ -10,19 +10,13 @@ import java.rmi.RemoteException;
 public class Modelmanager implements Model
 {
   private Client client;
-  private PolicyList policyList;
 
   public Modelmanager(Client client)
   {
     this.client = client;
-    policyList = new PolicyList();
     client.start();
     client.addListener("update", null);
   }
 
 
-  @Override public ViewModelFactory getViewModelFactory()
-  {
-    return null;
-  }
 }
