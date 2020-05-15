@@ -99,7 +99,7 @@ public class CreateCustomerViewModel
   {
 
     customer = new Customer(String.valueOf(nameTextfield.getValue()), String.valueOf(addressTextfield.getValue()),
-        Integer.parseInt(postcodeTextField.getValue()), Integer.parseInt(customerNoTextField.getValue()),
+        Integer.parseInt(postcodeTextField.getValue()), /* Integer.parseInt(customerNoTextField.getValue()),*/
         Integer.parseInt(cprnoTextfield.getValue()));
       clearLabels();
 
@@ -151,11 +151,11 @@ public void clearLabels()
       return false;
     }
 
-    if(customerNoTextField.getValue().equals("") || Pattern.matches("[a-åA-Å]+",customerNoTextField.getValue()))
+    /*if(customerNoTextField.getValue().equals("") || Pattern.matches("[a-åA-Å]+",customerNoTextField.getValue()))
     {
       customernoLabel.setValue("Invalid input - try again");
       return false;
-    }
+    }*/
     return true;
   }
 
