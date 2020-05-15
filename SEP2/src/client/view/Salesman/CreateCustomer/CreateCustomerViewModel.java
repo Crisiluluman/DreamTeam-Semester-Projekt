@@ -4,7 +4,6 @@ import client.model.Customer.Customer;
 import client.model.Model;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import server.DBConnection.CustomerDB.CustomerHandler;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -25,8 +24,6 @@ public class CreateCustomerViewModel
   public StringProperty postcodeLabel;
   public StringProperty cprnoLabel;
   public StringProperty customernoLabel;
-
-  private CustomerHandler handler; //TODO: FIx this to make a call through the system
 
   public CreateCustomerViewModel(Model model)
   {
@@ -92,18 +89,18 @@ public class CreateCustomerViewModel
 
   public StringProperty getCustomerNoTextField()
   {
-    return customerNoTextField; //TODO: Don't do this, no number?
+    return customerNoTextField;
   }
 
   public void onClick()
   {
 
     customer = new Customer(String.valueOf(nameTextfield.getValue()), String.valueOf(addressTextfield.getValue()),
-        Integer.parseInt(postcodeTextField.getValue()), /* Integer.parseInt(customerNoTextField.getValue()),*/
+        Integer.parseInt(postcodeTextField.getValue()), Integer.parseInt(customerNoTextField.getValue()),
         Integer.parseInt(cprnoTextfield.getValue()));
       clearLabels();
 
-    handler.addCustomerData(customer);
+    saveToDB();
   }
 
 public void clearLabels()
@@ -151,15 +148,15 @@ public void clearLabels()
       return false;
     }
 
-    /*if(customerNoTextField.getValue().equals("") || Pattern.matches("[a-åA-Å]+",customerNoTextField.getValue()))
+    if(customerNoTextField.getValue().equals("") || Pattern.matches("[a-åA-Å]+",customerNoTextField.getValue()))
     {
       customernoLabel.setValue("Invalid input - try again");
       return false;
-    }*/
+    }
     return true;
   }
 
-/*
+
   private void saveToDB()
   {
     Connection connection = null;
@@ -188,6 +185,5 @@ public void clearLabels()
     }
     System.out.println("Insert to Database ok!");
   }
-*/
 
 }

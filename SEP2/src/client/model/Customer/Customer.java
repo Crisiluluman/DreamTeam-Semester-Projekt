@@ -5,14 +5,14 @@ public class Customer
   private String name;
   private String address;
   private int postcode;
- // private int costumerNo;
+  private int costumerNo;
   private long cprNr; // primary key
 
-  public Customer(String name,String address, int postcode,/* int costumerNo,*/long cprNr)
+  public Customer(String name,String address, int postcode, int costumerNo,long cprNr)
   {
     this.name=name;
     this.address=address;
-   // this.costumerNo = costumerNo;
+    this.costumerNo = costumerNo;
     this.cprNr =cprNr;
     this.postcode = postcode;
   }
@@ -26,18 +26,17 @@ public class Customer
   {
     this.postcode = postcode;
   }
-/*
+
   public int getCostumerNo()
   {
     return costumerNo;
   }
-*/
 
- /* public void setCostumerNo(int costumerNo)
+  public void setCostumerNo(int costumerNo)
   {
     this.costumerNo = costumerNo;
   }
-*/
+
   public String getName()
   {
     return name;
@@ -72,7 +71,7 @@ public class Customer
   @Override public String toString()
   {
     return "Customer{" + "name='" + name + '\'' + ", address='" + address + '\''
-        + ", postcode=" + postcode + ", costumerNo=" +/* costumerNo +*/ ", cprNr="
+        + ", postcode=" + postcode + ", costumerNo=" + costumerNo + ", cprNr="
         + cprNr + '}';
   }
 }
