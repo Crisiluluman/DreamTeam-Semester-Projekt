@@ -1,10 +1,9 @@
 package shared.Networking;
 
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 
 public interface InsuranceClient extends Remote
 {
-  void update();
-  String getUsername();
-  void notifyEmployee(String msg);
+  void update() throws RemoteException;
 }

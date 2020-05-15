@@ -36,7 +36,7 @@ public class ManageEmployeeViewModel
     {
       Class.forName("org.postgresql.Driver");
       c = DriverManager
-          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1122");
+          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "ybf56qka");
       c.setAutoCommit(false);
       System.out.println("Opened database successfully");
 

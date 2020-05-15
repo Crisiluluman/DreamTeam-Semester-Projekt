@@ -4,6 +4,7 @@ import client.model.Customer.Customer;
 import client.model.Model;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import server.DBConnection.CustomerDB.CustomerHandler;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -24,6 +25,8 @@ public class CreateCustomerViewModel
   public StringProperty postcodeLabel;
   public StringProperty cprnoLabel;
   public StringProperty customernoLabel;
+
+  private CustomerHandler handler; //TODO: FIx this to make a call through the system
 
   public CreateCustomerViewModel(Model model)
   {
@@ -89,7 +92,7 @@ public class CreateCustomerViewModel
 
   public StringProperty getCustomerNoTextField()
   {
-    return customerNoTextField;
+    return customerNoTextField; //TODO: Don't do this, no number?
   }
 
   public void onClick()
@@ -100,7 +103,7 @@ public class CreateCustomerViewModel
         Integer.parseInt(cprnoTextfield.getValue()));
       clearLabels();
 
-    saveToDB();
+    handler.addCustomerData(customer);
   }
 
 public void clearLabels()
@@ -156,7 +159,7 @@ public void clearLabels()
     return true;
   }
 
-
+/*
   private void saveToDB()
   {
     Connection connection = null;
@@ -185,5 +188,6 @@ public void clearLabels()
     }
     System.out.println("Insert to Database ok!");
   }
+*/
 
 }
