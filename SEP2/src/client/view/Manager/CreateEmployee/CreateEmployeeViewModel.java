@@ -61,7 +61,7 @@ private EmployeeHandler handler; // TODO MVVM = skal ligge i model (eller?)
         {
         damageEmployee = new DamageEmployee(String.valueOf(name.getValue()),String.valueOf(address.getValue()),
         Long.parseLong(CPR.getValue()),String.valueOf(email.getValue()),Integer.parseInt(phone.getValue()), "DamageEmployee");
-        handler.addEmployeeData(damageEmployee), ;
+        handler.addEmployeeData(damageEmployee);
         }
     }
 

@@ -4,8 +4,6 @@ import client.model.Damage.Damage;
 import client.model.Policy.Policy;
 import server.DBConnection.DBConnections;
 
-import java.security.Policy;
-
 public class DamageHandler implements DamageData
 {
   private DBConnections connection;

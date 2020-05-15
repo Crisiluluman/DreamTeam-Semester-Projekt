@@ -1,4 +1,4 @@
-package server.model;
+package server.Model;
 
 import client.model.Customer.Customer;
 import server.DBConnection.CustomerDB.CustomerHandler;
@@ -24,7 +24,7 @@ public class ServerModel
 
   public void updateEmployee(Employee employee)
   {
-    employeehandler.updateEmployeeData(employee);
+   // employeehandler.updateEmployeeData(employee); TODO: Fix this
   }
 
   public void readEmployee(Employee employee)
