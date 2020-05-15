@@ -1,5 +1,7 @@
 package server;
 
+import server.Model.InsuranceServerModel;
+import server.Model.ServerModel;
 import server.networking.InsuranceServerImpl;
 import shared.Networking.InsuranceServer;
 
@@ -10,7 +12,7 @@ public class RunServer
 {
   public static void main(String[] args) throws RemoteException, AlreadyBoundException
   {
-    InsuranceServerImpl server = new InsuranceServerImpl();
+    InsuranceServerModel server = new InsuranceServerImpl(new ServerModel());
     server.start();
   }
 }

@@ -1,6 +1,7 @@
 package server.DBConnection.CustomerDB;
 
 import client.model.Customer.Customer;
+import javafx.scene.control.TableView;
 import server.DBConnection.DBConnections;
 
 public class CustomerHandler implements CustomerData
@@ -35,8 +36,9 @@ public class CustomerHandler implements CustomerData
 
   }
 
-  @Override public void readCustomerData(Customer customer)
+  @Override public void readCustomerData(TableView TV)
   {
-
+    String sql = "SELECT * FROM \"createpolicy\".Customer;";
+    connection.fillTableDB(TV, sql);
   }
 }

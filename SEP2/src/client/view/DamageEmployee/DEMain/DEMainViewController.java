@@ -24,7 +24,7 @@ public class DEMainViewController implements viewController {
         this.vh = vh;
         dmv = vmf.getDEMainViewModel();
         this.root = root;
-        dmv.getEmployeesFromDB(view);
+        dmv.readCustomer(view);
     }
     @Override
     public Region getRoot() {

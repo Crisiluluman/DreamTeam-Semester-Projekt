@@ -1,5 +1,7 @@
 package client.networking;
 
+import javafx.scene.control.TableView;
+import server.Model.InsuranceServerModel;
 import shared.Networking.InsuranceClient;
 import shared.Networking.InsuranceServer;
 
@@ -16,6 +18,7 @@ public class InsuranceClientImpl implements InsuranceClient, Client
 
   private InsuranceServer server;
   private PropertyChangeSupport property;
+  private InsuranceServerModel insuranceServerModel;
 
   public InsuranceClientImpl()
   {
@@ -61,6 +64,17 @@ public class InsuranceClientImpl implements InsuranceClient, Client
 
   }
 
-
+  @Override
+  public void readCustomer(TableView TV)
+  {
+    try
+    {
+      insuranceServerModel.readCustomer(TV);
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+  }
 
 }

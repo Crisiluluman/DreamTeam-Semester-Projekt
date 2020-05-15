@@ -2,6 +2,8 @@ package server.DBConnection.DamagesDB;
 
 import client.model.Damage.Damage;
 import client.model.Policy.Policy;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TableView;
 import server.DBConnection.DBConnections;
 
 public class DamageHandler implements DamageData
@@ -24,9 +26,8 @@ public class DamageHandler implements DamageData
 
   }
 
-  @Override public void readDamageData(Damage damage)
+  @Override public void readDamageData(TableView TV)
   {
-
   }
 
   @Override public void deleteDamageData(Damage damage)

@@ -3,6 +3,7 @@ package client.model;
 import client.model.Policy.Policy;
 import client.model.Policy.PoliceList;
 import client.networking.Client;
+import javafx.scene.control.TableView;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -18,5 +19,9 @@ public class Modelmanager implements Model
     client.addListener("update", null);
   }
 
+  @Override
+  public void readCustomer(TableView TV){
+    client.readCustomer(TV);
+  }
 
 }
