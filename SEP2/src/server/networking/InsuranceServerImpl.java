@@ -1,7 +1,6 @@
 package server.networking;
 
-import server.DBConnection.EmployeeDB.EmployeeHandler;
-import shared.Employee;
+import shared.InsuranceClient;
 import shared.Networking.InsuranceServer;
 
 import java.rmi.AlreadyBoundException;
@@ -10,17 +9,12 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
-
 public class InsuranceServerImpl implements InsuranceServer
 {
 
-  private ServerModel serverModel;
-
-  public InsuranceServerImpl(ServerModel serverModel) throws RemoteException
+  public InsuranceServerImpl() throws RemoteException
   {
-    this.serverModel = serverModel;
     UnicastRemoteObject.exportObject(this,0);
-
   }
 
   public void start() throws RemoteException, AlreadyBoundException
@@ -33,10 +27,5 @@ public class InsuranceServerImpl implements InsuranceServer
   @Override public void registerClient(InsuranceClient client) throws RemoteException
   {
 
-  }
-
-  @Override public void addEmployee(Employee employee) throws RemoteException
-  {
-    serverModel.addEmployee(employee);
   }
 }
