@@ -2,85 +2,74 @@ package client.model.Salesman;
 
 import shared.Employee;
 
-public class Salesman implements Employee
+public class Salesman extends Employee
 {
-  private String name;
-  private long CPR;
-  private String address;
-  private String email;
-  private int tlfNr;
-  private String position;
 
 
   // private String rank;
 
-  public Salesman(String name, String address,long CPRNo, String email, int tlfNo, String position)
+  public Salesman(String name, String address,long cpr, String email, int tlf, String position)
   {
-    this.name = name;
-    this.CPR = CPRNo;
-    this.address = address;
-    this.email = email;
-    this.tlfNr = tlfNo;
-    this.position = position;
+    super(name,address,cpr,tlf,email,position);
   }
   @Override
   public String getName()
   {
-    return name;
+    return super.getName();
   }
   @Override
   public long getCPR()
   {
-    return CPR;
+    return super.getCPR();
   }
   @Override
   public String getAddress()
   {
-    return address;
+    return super.getAddress();
   }
   @Override
   public String getEmail()
   {
-    return email;
+    return super.getEmail();
   }
   @Override
   public int getTlfNr()
   {
-    return tlfNr;
+    return super.getTlfNr();
   }
   @Override
   public void setName(String name)
   {
-    this.name = name;
+    super.setName(name);
   }
   @Override
-  public void setCPR(long CPR)
+  public void setCPR(long cpr)
   {
-    this.CPR = CPR;
+    super.setCPR(cpr);
   }
   @Override
   public void setAddress(String address)
   {
-    this.address = address;
+    super.setAddress(address);
   }
   @Override
   public void setEmail(String email)
   {
-    this.email = email;
+    super.setEmail(email);
   }
   @Override
-  public void setTlfNr(int tlfNr)
+  public void setTlfNr(int tlf)
   {
-    this.tlfNr = tlfNr;
+    super.setTlfNr(tlf);
   }
 
   @Override
   public String getPosition() {
-    return position;
+    return super.getPosition();
   }
 
   public String toString()
   {
-    return "name: " + name + "cpr: " + CPR + "cell: " + tlfNr + "address: " + address + "email: " + email + "position: " + position;
+    return "name: " + super.getName() + "cpr: " + super.getCPR() + "tlf: " + super.getTlfNr() + "address: " + super.getAddress() + "email: " + super.getEmail() + "position: " + super.getPosition();
   }
 }

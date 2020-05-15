@@ -2,87 +2,80 @@ package client.model.Manager;
 
 import shared.Employee;
 
-public class Manager implements Employee {
-  private String name;
-  private long cpr;
-  private int tlfnr;
-  private String address;
-  private String email;
-  private String position;
+public class Manager extends Employee
+{
 
   public Manager(String name, String address, long cpr,String email,int tlfnr, String position)
   {
-    this.name = name;
-    this.cpr = cpr;
-    this.tlfnr = tlfnr;
-    this.address = address;
-    this.email=email;
-    this.position = position;
+    super(name, address, cpr, tlfnr,email,position);
+
   }
+
+
   @Override
   public String getName() {
-    return name;
+    return super.getName();
   }
   @Override
   public long getCPR() {
-    return cpr;
+    return super.getCPR();
   }
   @Override
   public String getEmail()
   {
-    return email;
+    return super.getEmail();
   }
   @Override
   public int getTlfNr() {
-    return tlfnr;
+    return super.getTlfNr();
   }
   @Override
   public String getAddress() {
-    return address;
+    return super.getAddress();
   }
   @Override
   public void setName(String name)
   {
-    this.name = name;
+    super.setName(name);
   }
   @Override
   public void setCPR(long cpr)
   {
-    this.cpr = cpr;
+    super.setCPR(cpr);
   }
   @Override
   public void setTlfNr(int tlfnr)
   {
-    this.tlfnr = tlfnr;
+    super.setTlfNr(tlfnr);
   }
 
   @Override
   public String getPosition() {
-    return position;
+    return super.getPosition();
   }
 
   @Override
   public void setAddress(String address)
   {
-    this.address = address;
+    super.setAddress(address);
   }
 
   @Override
   public void setEmail(String email) {
-    this.email = email;
+    super.setEmail(email);
   }
 
   public String toString()
   {
-    return "name: " + name + "cpr: " + cpr + "cell: " + tlfnr + "address: " + address + "email: " + email + "position: " + position;
+    return  "name: " + super.getName() + "cpr: " + super.getCPR() + "tlfnr: " + super.getTlfNr() + "address: " + super.getAddress() + "email: " + super.getEmail() + "position: " + super.getPosition();
   }
 
-  public void editManager(String name,String address,long cpr,String email,int cellNr)
+  public void editManager(String name,String address,long cpr,String email,int tlfnr)
   {
-    this.name = name;
-    this.cpr = cpr;
-    this.email=email;
-    this.tlfnr = cellNr;
-    this.address = address;
+    super.setName(name);
+    super.setAddress(address);
+    super.setCPR(cpr);
+    super.setEmail(email);
+    super.setTlfNr(tlfnr);
   }
 }

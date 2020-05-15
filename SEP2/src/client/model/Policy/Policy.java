@@ -1,19 +1,18 @@
-package client.model.Police;
+package client.model.Policy;
 
 import client.model.Customer.Customer;
 
-public class Police
+public class Policy
 {
   private int policeNo;
   private String policeType;
   private int price;
   private int deductible;
   private String coverage;
-  private Customer customer;
+  private Customer customer; //todo insert customerno?
 
 
-
-  public Police(int policeNo,String policeType, int price, int deductible, String coverage/* Customer customer*/)
+  public Policy(int policeNo,String policeType, int price, int deductible, String coverage/* Customer customer*/)
   {
     this.policeNo = policeNo;
     this.policeType=policeType;
@@ -42,7 +41,6 @@ public class Police
   {
     return coverage;
   }
-
 
   public String getPoliceType()
   {

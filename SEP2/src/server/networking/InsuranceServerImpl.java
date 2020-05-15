@@ -1,25 +1,42 @@
 package server.networking;
 
-import client.networking.Client;
+import server.DBConnection.EmployeeDB.EmployeeHandler;
+import shared.Employee;
 import shared.Networking.InsuranceServer;
 
+import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.ArrayList;
 
-public class InsuranceServerImpl // implements InsuranceServer
+
+public class InsuranceServerImpl implements InsuranceServer
 {
-  public InsuranceServerImpl(/*ServerModel serverModel*/) throws RemoteException
+
+  private ServerModel serverModel;
+
+  public InsuranceServerImpl(ServerModel serverModel) throws RemoteException
   {
-    //UnicastRemoteObject.exportObject(this,0);
-
-
-
-
+    this.serverModel = serverModel;
+    UnicastRemoteObject.exportObject(this,0);
 
   }
 
+  public void start() throws RemoteException, AlreadyBoundException
+  {
+    Registry registry = LocateRegistry.createRegistry(1099);
+    registry.bind("Server", this);
+    System.out.println("Server started");
+  }
 
+  @Override public void registerClient(InsuranceClient client) throws RemoteException
+  {
 
+  }
 
+  @Override public void addEmployee(Employee employee) throws RemoteException
+  {
+    serverModel.addEmployee(employee);
+  }
 }

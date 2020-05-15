@@ -1,7 +1,7 @@
 package client.model;
 
-import client.model.Police.Police;
-import client.model.Police.PoliceList;
+import client.model.Policy.Policy;
+import client.model.Policy.PoliceList;
 import client.networking.Client;
 
 public class Modelmanager implements Model
@@ -14,9 +14,9 @@ public class Modelmanager implements Model
     policeList = new PoliceList();
   }
 /**/
-  @Override public void createPolice(Police police)
+  @Override public void createPolice(Policy policy)
   {
-    policeList.addPolicy(police);
+    policeList.addPolicy(policy);
   }
 
   @Override public PoliceList getPolice()

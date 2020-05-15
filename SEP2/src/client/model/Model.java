@@ -1,10 +1,10 @@
 package client.model;
 
-import client.model.Police.Police;
-import client.model.Police.PoliceList;
+import client.model.Policy.Policy;
+import client.model.Policy.PoliceList;
 
 public interface Model
 {
-void createPolice(Police police);
+void createPolice(Policy policy);
 PoliceList getPolice();
 }
