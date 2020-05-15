@@ -1,6 +1,6 @@
 package server.networking;
 
-import shared.InsuranceClient;
+import shared.Networking.InsuranceClient;
 import shared.Networking.InsuranceServer;
 
 import java.rmi.AlreadyBoundException;

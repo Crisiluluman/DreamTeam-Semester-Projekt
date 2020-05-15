@@ -1,8 +1,7 @@
 package client.model;
 
-import client.core.ViewModelFactory;
 import client.model.Policy.Policy;
-import client.model.Policy.PolicyList;
+import client.model.Policy.PoliceList;
 import client.networking.Client;
 
 import java.rmi.NotBoundException;
@@ -21,15 +20,6 @@ public class Modelmanager implements Model
     client.addListener("update", null);
   }
 
-  @Override public void createPolicy(Policy policy)
-  {
-    policyList.addPolicy(policy);
-  }
-
-  @Override public PolicyList getPolicy()
-  {
-    return policyList;
-  }
 
   @Override public ViewModelFactory getViewModelFactory()
   {

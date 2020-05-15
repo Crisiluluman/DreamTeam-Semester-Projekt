@@ -53,34 +53,6 @@ public void createPolicy(String policeType)
   policy = new Policy(Integer.parseInt(policyNr.getValue()),String.valueOf(policeType),
       Integer.parseInt(price.getValue()),Integer.parseInt(deductible.getValue()), String.valueOf(coverage.getValue()));
 
-
-saveToDB();
-}
-public void saveToDB()
-{
-  Connection c = null;
-  Statement stmt = null;
-  try
-  {
-    Class.forName("org.postgresql.Driver");
-    c = DriverManager
-        .getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","qawsedrf123");
-
-    System.out.println("The database is open");
-
-    stmt = c.createStatement();
-    String sql = "INSERT INTO \"createpolicy\".PoliceList values("+ policy.getPoliceNo() +
-        "," + "'"+policy.getPoliceType()+"'"+","+policy.getPrice()+","+policy.getDeductible()+"," +"'"+policy.getCoverage()+"');";
-    stmt.executeUpdate(sql);
-
-
-
-    stmt.close();
-    c.close();
-  } catch (Exception e)
-  {
-    e.printStackTrace();
-  }
 }
 
 public boolean checker()

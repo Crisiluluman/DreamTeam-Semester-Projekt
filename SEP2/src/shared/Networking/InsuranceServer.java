@@ -8,5 +8,5 @@ public interface InsuranceServer extends Remote
 {
 
   void registerClient(InsuranceClient client) throws RemoteException;
-
+ // void addEmployee(Employee employee) throws RemoteException; TODO: Fix this?
 }

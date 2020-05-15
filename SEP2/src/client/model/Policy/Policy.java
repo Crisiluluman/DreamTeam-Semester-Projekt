@@ -9,8 +9,7 @@ public class Policy
   private int price;
   private int deductible;
   private String coverage;
-  private Customer customer;
-
+  private Customer customer; //todo insert customerno?
 
 
   public Policy(int policeNo,String policeType, int price, int deductible, String coverage/* Customer customer*/)
@@ -42,7 +41,6 @@ public class Policy
   {
     return coverage;
   }
-
 
   public String getPoliceType()
   {
