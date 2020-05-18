@@ -1,16 +1,18 @@
 package server.DBConnection.CustomerDB;
 
-import client.model.Customer.Customer;
+import shared.Customer;
 import javafx.scene.control.TableView;
 import server.DBConnection.DBConnections;
+
+import java.util.List;
 
 public class CustomerHandler implements CustomerData
 {
   private DBConnections connection;
 
-  public CustomerHandler(DBConnections connection)
+  public CustomerHandler()
   {
-    this.connection = connection;
+    connection = new DBConnections();
   }
 
   @Override public void addCustomerData(Customer customer)
@@ -36,9 +38,9 @@ public class CustomerHandler implements CustomerData
 
   }
 
-  @Override public void readCustomerData(TableView TV)
+  @Override public List<Customer> readCustomerData()
   {
-    String sql = "SELECT * FROM \"createpolicy\".customer;";
-    connection.fillTableDB(TV, sql);
+    String sql = "SELECT * FROM \"insurance\".customer;";
+    return connection.fillTableDB(sql);
   }
 }

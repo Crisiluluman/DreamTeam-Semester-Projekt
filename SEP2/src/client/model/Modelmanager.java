@@ -4,9 +4,11 @@ import client.model.Policy.Policy;
 import client.model.Policy.PoliceList;
 import client.networking.Client;
 import javafx.scene.control.TableView;
+import shared.Customer;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.util.List;
 
 public class Modelmanager implements Model
 {
@@ -20,8 +22,8 @@ public class Modelmanager implements Model
   }
 
   @Override
-  public void readCustomer(TableView TV){
-    client.readCustomer(TV);
+  public List<Customer> readCustomer(){
+    return client.readCustomer();
   }
 
 }

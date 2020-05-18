@@ -1,11 +1,13 @@
 package server.Model;
 
-import client.model.Customer.Customer;
 import javafx.scene.control.TableView;
 import server.DBConnection.CustomerDB.CustomerHandler;
 import server.DBConnection.DamagesDB.DamageHandler;
 import server.DBConnection.EmployeeDB.EmployeeHandler;
+import shared.Customer;
 import shared.Employee;
+
+import java.util.List;
 
 public class ServerModel implements ServerModelInterface
 {
@@ -16,6 +18,7 @@ public class ServerModel implements ServerModelInterface
   public ServerModel()
   {
     employeehandler = new EmployeeHandler();
+    customerhandler = new CustomerHandler();
   }
 
   // Employees
@@ -52,14 +55,14 @@ public class ServerModel implements ServerModelInterface
     customerhandler.updateCustomerData(customer, customerOld);
   }
 
-  public void readCustomer(TableView TV)
+  public List<Customer> readCustomers()
   {
-    customerhandler.readCustomerData(TV);
+    return customerhandler.readCustomerData();
   }
 
   public void deleteCustomer(Customer customer)
   {
-    customerhandler.removeCustomerData(customer);
+   customerhandler.removeCustomerData(customer);
   }
 
 }

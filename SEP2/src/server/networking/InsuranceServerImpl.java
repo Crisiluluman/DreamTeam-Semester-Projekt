@@ -4,6 +4,8 @@ import javafx.scene.control.TableView;
 import server.Model.InsuranceServerModel;
 import server.Model.ServerModel;
 import server.Model.ServerModelInterface;
+import shared.Customer;
+import shared.Employee;
 import shared.Networking.InsuranceClient;
 import shared.Networking.InsuranceServer;
 
@@ -12,6 +14,8 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
+import java.util.List;
 
 public class InsuranceServerImpl implements InsuranceServerModel, InsuranceServer
 {
@@ -30,13 +34,19 @@ public class InsuranceServerImpl implements InsuranceServerModel, InsuranceServe
     System.out.println("Server started");
   }
 
+
   @Override public void registerClient(InsuranceClient client)
   {
 
   }
+//
+//  @Override public void addEmployee(Employee employee) throws RemoteException
+//  {
+//
+//  }
 
   @Override
-  public void readCustomer(TableView TV) {
-    serverModel.readCustomer(TV);
+  public List<Customer> readCustomers() {
+    return serverModel.readCustomers();
   }
 }
