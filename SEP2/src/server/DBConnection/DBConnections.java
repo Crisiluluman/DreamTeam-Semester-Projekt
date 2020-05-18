@@ -93,7 +93,7 @@ public class DBConnections
     {
       Class.forName("org.postgresql.Driver");
       c = DriverManager
-          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "qawsedrf123");
+          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1122");
       c.setAutoCommit(false);
       System.out.println("Opened database successfully");
 
@@ -105,7 +105,7 @@ public class DBConnections
         String name = rs.getString("name");
         String address = rs.getString("address");
         int postcode = rs.getInt("postcode");
-        int costumerNo = rs.getInt("costumerno");
+        int costumerNo = rs.getInt("customerNo");
         long cprNr = rs.getLong("cpr");
 
         Customer customer = new Customer(name, address, postcode, costumerNo, cprNr);

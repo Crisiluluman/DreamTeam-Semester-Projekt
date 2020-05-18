@@ -1,8 +1,8 @@
 package server.networking;
 
 import javafx.scene.control.TableView;
+
 import server.Model.InsuranceServerModel;
-import server.Model.ServerModel;
 import server.Model.ServerModelInterface;
 import shared.Customer;
 import shared.Employee;

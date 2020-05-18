@@ -70,7 +70,9 @@ public class InsuranceClientImpl implements InsuranceClient, Client
   {
     try
     {
+      System.out.println(server.readCustomers());
       return server.readCustomers();
+
     }
     catch (RemoteException e)
     {
