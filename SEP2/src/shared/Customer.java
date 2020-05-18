@@ -29,12 +29,12 @@ public class Customer implements Serializable
     this.postcode = postcode;
   }
 
-  public int getCostumerNo()
+  public int getCustomerNo()
   {
     return costumerNo;
   }
 
-  public void setCostumerNo(int costumerNo)
+  public void setCustomerNo(int customerNo)
   {
     this.costumerNo = costumerNo;
   }

@@ -2,23 +2,17 @@ package client.view.DamageEmployee.DEMain;
 
 import client.core.ViewModelFactory;
 import client.model.Model;
-import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.util.Callback;
 import shared.Customer;
+import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.List;
-import java.util.Optional;
 
 public class DEMainViewModel
 {
@@ -48,11 +42,11 @@ public class DEMainViewModel
       ObservableList<ObservableList> rows = FXCollections.observableArrayList();
 
 
-      setUpColumn(TV, "name");
-      setUpColumn(TV, "address");
-      setUpColumn(TV, "postcode");
-      setUpColumn(TV, "cpr");
-      setUpColumn(TV, "customerno");
+      setUpColumn(TV, "name",0);
+      setUpColumn(TV, "address",1);
+      setUpColumn(TV, "postcode",2);
+      setUpColumn(TV, "cpr",3);
+      setUpColumn(TV, "customerno",4);
 
 
        for (int i = 0; i < customers.size()  ; i++)
@@ -62,7 +56,7 @@ public class DEMainViewModel
           row.add(customers.get(i).getAddress());
           row.add(String.valueOf(customers.get(i).getPostcode()));
           row.add(String.valueOf(customers.get(i).getCprNr()));
-          row.add(String.valueOf(customers.get(i).getCostumerNo()));
+          row.add(String.valueOf(customers.get(i).getCustomerNo()));
           rows.add(row);
       }
      TV.setItems(rows);
@@ -79,19 +73,17 @@ public class DEMainViewModel
 //    }
   }
 
-    private void setUpColumn(TableView TV, String ColumnName)
+    private void setUpColumn(TableView TV, String ColumnName,int index)
     {
         TableColumn col = new TableColumn(ColumnName);
 
-//        col.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ObservableList, String>, ObservableValue<String>>()
-//            {
-//                public ObservableValue<String> call(
-//                    TableColumn.CellDataFeatures<ObservableList, String> param)
-//                {
-//                    return new SimpleStringProperty(
-//                        param.getValue().get(j).toString());
-//                }
-//            });
+      col.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ObservableList<String>, String>, ObservableValue<String>>() {
+        public ObservableValue<String> call(
+            TableColumn.CellDataFeatures<ObservableList<String>, String> p) {
+          // p.getValue() returns the Person instance for a particular TableView row
+          return new ReadOnlyObjectWrapper(p.getValue().get(index));
+        }
+      });
 
         TV.getColumns().addAll(col);
     }
