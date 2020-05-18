@@ -38,7 +38,7 @@ public class CustomerHandler implements CustomerData
 
   @Override public void readCustomerData(TableView TV)
   {
-    String sql = "SELECT * FROM \"createpolicy\".Customer;";
+    String sql = "SELECT * FROM \"createpolicy\".customer;";
     connection.fillTableDB(TV, sql);
   }
 }

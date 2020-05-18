@@ -55,7 +55,7 @@ public class ViewHandler extends Application
   public void start(Stage stage) throws Exception {
     primaryStage = stage;
     currentScene = new Scene(new Region());
-    openView("CreateEmployee");
+    openView("DEMain");
   }
 
   public void openEditSEditPolice(ObservableList list)
