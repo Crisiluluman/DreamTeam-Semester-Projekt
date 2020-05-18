@@ -12,7 +12,7 @@ public class RunServer
 {
   public static void main(String[] args) throws RemoteException, AlreadyBoundException
   {
-    InsuranceServerModel server = new InsuranceServerImpl(new ServerModel());
+    InsuranceServerImpl server = new InsuranceServerImpl(new ServerModel());
     server.start();
   }
 }

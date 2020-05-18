@@ -21,7 +21,7 @@ public class InsuranceClientImpl implements InsuranceClient, Client
 
   private InsuranceServer server;
   private PropertyChangeSupport property;
-  private InsuranceServerModel insuranceServerModel;
+
 
   public InsuranceClientImpl()
   {

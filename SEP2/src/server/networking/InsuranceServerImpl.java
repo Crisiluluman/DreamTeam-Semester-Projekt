@@ -17,7 +17,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InsuranceServerImpl implements InsuranceServerModel, InsuranceServer
+public class InsuranceServerImpl implements InsuranceServer
 {
   private ServerModelInterface serverModel;
 

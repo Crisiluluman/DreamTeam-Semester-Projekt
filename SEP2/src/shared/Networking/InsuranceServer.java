@@ -11,6 +11,7 @@ import java.util.List;
 
 public interface InsuranceServer extends Remote
 {
+  void start() throws RemoteException, AlreadyBoundException;
   void registerClient(InsuranceClient client) throws RemoteException;
 //  void addEmployee(Employee employee) throws RemoteException;
   List<Customer> readCustomers() throws RemoteException;
