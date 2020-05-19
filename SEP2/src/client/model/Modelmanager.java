@@ -6,6 +6,7 @@ import shared.Policy;
 import client.networking.Client;
 import shared.Customer;
 
+import java.rmi.RemoteException;
 import java.util.List;
 
 public class Modelmanager implements Model

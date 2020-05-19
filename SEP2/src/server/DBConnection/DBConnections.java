@@ -60,7 +60,7 @@ public class DBConnections
     {
       Class.forName("org.postgresql.Driver");
       c = DriverManager
-          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "ybf56qka");
+          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1122");
       c.setAutoCommit(false);
       System.out.println("Opened database successfully");
 
