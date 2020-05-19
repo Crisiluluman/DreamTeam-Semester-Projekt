@@ -103,14 +103,13 @@ public class CreateCustomerViewModel
       model.createCustomer(customer);
   }
 
-public void clearLabels()
-{
+  public void clearLabels()
+  {
   nameLabel.setValue("");
   addressLabel.setValue("");
   postcodeLabel.setValue("");
   cprnoLabel.setValue("");
-
-}
+  }
 
 
 
