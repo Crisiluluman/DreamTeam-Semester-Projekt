@@ -49,9 +49,9 @@ public class ViewHandler extends Application
   private ManageDamageViewController manageDamageViewController;
 
 
-  public ViewHandler(ViewModelFactory viewModelFactory)
+  public ViewHandler(ViewModelFactory vmf)
   {
-    vmf = viewModelFactory;
+    this.vmf = vmf;
   }
   @Override public void start(Stage stage)
   {

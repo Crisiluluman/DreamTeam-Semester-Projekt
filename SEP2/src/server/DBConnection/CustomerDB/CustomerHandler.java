@@ -15,7 +15,7 @@ public class CustomerHandler implements CustomerData
   }
 
   @Override public void addCustomerData(Customer customer)
-  { //todo lave database ens
+  {
     String sql = "INSERT INTO \"insurance\".customer(name, address, postcode, cpr) values("+"'" + customer.getName() + "'" + ","
         + "'" + customer.getAddress() + "'" + "," +"'"+ customer.getPostcode()+"'" + "," +"'"+ customer.getCprNr() +"'"+ ");";
     connection.AddToDB(sql);

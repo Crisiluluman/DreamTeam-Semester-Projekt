@@ -48,6 +48,18 @@ public class InsuranceClientImpl implements InsuranceClient, Client
     }
   }
 
+  @Override public void createCustomer(Customer customer)
+  {
+    try
+    {
+      server.addCustomer(customer);
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
   @Override public void update()
   {
     property.firePropertyChange("update", null, null);

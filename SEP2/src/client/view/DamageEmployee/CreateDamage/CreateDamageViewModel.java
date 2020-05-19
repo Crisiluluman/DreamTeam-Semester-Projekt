@@ -77,7 +77,6 @@ public class CreateDamageViewModel {
     Policy dummy = new Policy(1,"Car",100,50,"kasko");
     damage = new Damage(dummy.getPoliceNo(), policeType,Double.parseDouble(expensesTextfield.getValue()),Integer.parseInt(damageNoTextfield.getValue()), String.valueOf(infoTextArea.getValue()));
     clearLabels();
-    saveToDB();
   }
 
   public void clearLabels()

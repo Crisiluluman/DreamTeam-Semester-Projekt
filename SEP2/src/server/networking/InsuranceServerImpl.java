@@ -37,11 +37,12 @@ public class InsuranceServerImpl implements InsuranceServer
   {
 
   }
-//
-//  @Override public void addEmployee(Employee employee) throws RemoteException
-//  {
-//
-//  }
+
+  @Override public void addCustomer(Customer customer) throws RemoteException
+  {
+    serverModel.addCustomer(customer);
+  }
+
 
   @Override
   public List<Customer> readCustomers() {

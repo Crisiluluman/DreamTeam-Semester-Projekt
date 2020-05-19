@@ -18,13 +18,20 @@ public class DamageHandler implements DamageData
 
   @Override public void addDamageData(Policy policy, Damage damage)
   {
-    String sql = "INSERT INTO \"insurance\".damage values("+ damage.getPoliceType() + "," + "'" + damage.getPoliceType() + "'"  + "," + damage.getExpenses() + "," + damage.getDamageNo() + "," + "'" + damage.getInfo() + "'" + ");";
+    String sql =
+        "INSERT INTO \"insurance\".damage values(" + damage.getPoliceType() + "," + "'" + damage.getPoliceType() + "'"
+            + "," + damage.getExpenses() + "," + damage.getDamageNo() + "," + "'" + damage
+            .getInfo() + "'" + ");";
     connection.AddToDB(sql);
   }
 
   @Override public void updateDamageData(Damage damage, Damage damageOld)
   {
-
+    // you need a goddam policyno in here
+    String sql = "Update \"insurance\".damage set type =" + "'" + damage.getPoliceType() + "'" + ","
+        + "expenses =" + damage.getExpenses() + "," + "info =" + "'" + damage.getInfo() + "'" + ","
+        + "dPolicyType =" + "'" + damage.getPoliceType() + "'" + " where damageNo =" + damageOld.getDamageNo() + ";";
+    connection.AddToDB(sql);
   }
 
   @Override public List<Damage> readDamageData(int policeno)

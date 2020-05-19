@@ -18,39 +18,6 @@ public class DBConnections
 
   // Has a lot of logic, dealing with the database
 
-/*
-  public void AddToDB(String sql)
-  {
-    Connection connection = null;
-    Statement statement = null;
-
-    try
-    {
-      Class.forName("org.postgresql.Driver");
-      System.out.println("før");
-      connection = DriverManager
-
-          .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres",
-              "1234");
-      System.out.println("efter");
-      statement = connection.createStatement();
-
-      String toSql = sql;
-
-      statement.executeUpdate(toSql);
-      statement.close();
-      connection.close();
-    }
-    catch (Exception e)
-    {
-      System.err.println(e.getClass().getName() + ": " + e.getMessage());
-      System.exit(0);
-
-    }
-    System.out.println("Insert to Database ok!");
-  }
-*/
-
   public void AddToDB(String sql)
   {
     Connection connection = null;
@@ -63,7 +30,7 @@ public class DBConnections
       connection = DriverManager
 
           .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres",
-              "qawsedrf123");
+              "ybf56qka");
       System.out.println("efter");
       statement = connection.createStatement();
 
@@ -93,7 +60,7 @@ public class DBConnections
     {
       Class.forName("org.postgresql.Driver");
       c = DriverManager
-          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1122");
+          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "ybf56qka");
       c.setAutoCommit(false);
       System.out.println("Opened database successfully");
 

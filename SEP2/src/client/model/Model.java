@@ -9,6 +9,7 @@ import java.util.List;
 
 public interface Model
 {
+  void createCustomer(Customer customer);
   List<Customer> readCustomer();
   List<Policy> readPolicy();
   List<Employee> readEmployee();
