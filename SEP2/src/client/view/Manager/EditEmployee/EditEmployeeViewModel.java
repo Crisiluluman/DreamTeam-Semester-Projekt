@@ -105,7 +105,7 @@ public class EditEmployeeViewModel {
     }
 
 
-    public void onSaveClicked(String position) throws RemoteException
+    public void onSaveClicked(String position)
     {
         if (position.equals("Manager")) {
             manager = new Manager(String.valueOf(nameTextField.getValue()), String.valueOf(addressTextField.getValue()),

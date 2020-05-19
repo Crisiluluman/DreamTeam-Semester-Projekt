@@ -1,13 +1,7 @@
 package server.networking;
 
-
-
-import shared.Damage;
-import shared.Policy;
-import server.Model.InsuranceServerModel;
+import shared.*;
 import server.Model.ServerModelInterface;
-import shared.Customer;
-import shared.Employee;
 import shared.Networking.InsuranceClient;
 import shared.Networking.InsuranceServer;
 
@@ -80,7 +74,6 @@ public class InsuranceServerImpl implements InsuranceServer
   {
     return serverModel.readDamage(policeno);
   }
-}
 
   @Override public void deleteCustomer(Customer customer) throws RemoteException
   {

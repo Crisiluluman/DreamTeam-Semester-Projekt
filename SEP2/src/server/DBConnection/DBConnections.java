@@ -1,13 +1,8 @@
 package server.DBConnection;
 
-import client.model.Damage.Damage;
-import client.model.DamageEmployee.DamageEmployee;
-import client.model.Manager.Manager;
+import shared.*;
 import client.model.Salesman.Salesman;
-import shared.Employee;
-import shared.Policy;
 import javafx.collections.ObservableList;
-import shared.Customer;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -60,7 +55,7 @@ public class DBConnections
     {
       Class.forName("org.postgresql.Driver");
       c = DriverManager
-          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1122");
+          .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres", "1234");
       c.setAutoCommit(false);
       System.out.println("Opened database successfully");
 
@@ -100,7 +95,7 @@ public class DBConnections
     {
       Class.forName("org.postgresql.Driver");
       c = DriverManager
-          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1122");
+          .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres", "1234");
       c.setAutoCommit(false);
       System.out.println("Opened database successfully");
 
@@ -139,7 +134,7 @@ public class DBConnections
   {
     Class.forName("org.postgresql.Driver");
     c = DriverManager
-        .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1122");
+        .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres", "1234");
     c.setAutoCommit(false);
     System.out.println("Opened database successfully");
 
@@ -182,7 +177,7 @@ public class DBConnections
     {
       Class.forName("org.postgresql.Driver");
       c = DriverManager
-          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1122");
+          .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres", "1234");
       c.setAutoCommit(false);
       System.out.println("Opened database successfully");
 

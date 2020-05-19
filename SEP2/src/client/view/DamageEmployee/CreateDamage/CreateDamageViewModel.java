@@ -70,7 +70,7 @@ public class CreateDamageViewModel {
     return damageNoLabel;
   }
 
-  public void onClick(String policeType) throws RemoteException
+  public void onClick(String policeType)
   {
     Policy policy = new Policy(1,"Car",100,50,"kasko");
     damage = new Damage(policy.getPoliceNo(), policeType,Double.parseDouble(expensesTextfield.getValue()),Integer.parseInt(damageNoTextfield.getValue()), String.valueOf(infoTextArea.getValue()));
