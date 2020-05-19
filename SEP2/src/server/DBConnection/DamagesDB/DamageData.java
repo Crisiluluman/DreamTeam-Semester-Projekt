@@ -8,6 +8,6 @@ public interface DamageData
 {
   void addDamageData(Policy policy, Damage damage);
   void updateDamageData(Damage damage, Damage damageOld);
-  void readDamageData(TableView TV);
-  void deleteDamageData(Damage damage);
+  //void readDamageData();
+ // void deleteDamageData(Damage damage);
 }
