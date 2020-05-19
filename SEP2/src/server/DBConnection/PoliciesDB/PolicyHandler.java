@@ -1,6 +1,6 @@
 package server.DBConnection.PoliciesDB;
 
-import client.model.Policy.Policy;
+import shared.Policy;
 import server.DBConnection.DBConnections;
 
 public class PolicyHandler implements PolicyData
@@ -35,6 +35,7 @@ public class PolicyHandler implements PolicyData
 
   @Override public void deletePolicyData(Policy policy)
   {
-
+    String sql = "Delete from \"insurance\".policy where customerno =" + "'" + policy.getPoliceNo() + "'" +";";
+    connection.AddToDB(sql);
   }
 }

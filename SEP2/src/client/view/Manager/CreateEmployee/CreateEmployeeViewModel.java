@@ -26,7 +26,7 @@ private Manager manager;
 private Salesman salesman;
 private DamageEmployee damageEmployee;
 
-private EmployeeHandler handler; // TODO MVVM = skal ligge i model (eller?)
+private EmployeeHandler handler;
 
     public CreateEmployeeViewModel(Model model) {
         this.model = model;

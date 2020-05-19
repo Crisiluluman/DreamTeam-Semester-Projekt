@@ -1,9 +1,11 @@
 package server.Model;
 
-import javafx.scene.control.TableView;
+import shared.Damage;
+import shared.Policy;
 import server.DBConnection.CustomerDB.CustomerHandler;
 import server.DBConnection.DamagesDB.DamageHandler;
 import server.DBConnection.EmployeeDB.EmployeeHandler;
+import server.DBConnection.PoliciesDB.PolicyHandler;
 import shared.Customer;
 import shared.Employee;
 
@@ -13,7 +15,8 @@ public class ServerModel implements ServerModelInterface
 {
  private EmployeeHandler employeehandler;
  private CustomerHandler customerhandler;
- private DamageHandler damageHandler;
+  private PolicyHandler policyHandler;
+  private DamageHandler damageHandler;
 
   public ServerModel()
   {
@@ -21,48 +24,58 @@ public class ServerModel implements ServerModelInterface
     customerhandler = new CustomerHandler();
   }
 
-  // Employees
 
-  public void addEmployee(Employee employee)
+  // Employees
+  @Override public void addEmployee(Employee employee)
   {
     employeehandler.addEmployeeData(employee);
   }
 
-  public void updateEmployee(Employee employee)
-  {
-   // employeehandler.updateEmployeeData(employee); TODO: Fix this
-  }
 
-  public void readEmployee(Employee employee)
-  {
-    employeehandler.readEmployeeData(employee);
-  }
-
-  public void deleteEmployee(Employee employee)
+  @Override public void deleteEmployee(Employee employee)
   {
     employeehandler.deleteEmployeeData(employee);
   }
 
-  // Customers
 
-  public void addCustomer(Customer customer)
+  // Customers
+  @Override public void addCustomer(Customer customer)
   {
     customerhandler.addCustomerData(customer);
   }
 
-  public void updateCustomer(Customer customer, Customer customerOld)
-  {
-    customerhandler.updateCustomerData(customer, customerOld);
-  }
-
-  public List<Customer> readCustomers()
+  @Override public List<Customer> readCustomers()
   {
     return customerhandler.readCustomerData();
   }
 
-  public void deleteCustomer(Customer customer)
+  @Override public void deleteCustomer(Customer customer)
   {
-   customerhandler.removeCustomerData(customer);
+   customerhandler.deleteCustomerData(customer);
   }
 
+
+  // Policy
+  @Override public void addPolicy(Policy policy)
+  {
+
+    policyHandler.addPolicyData(policy);
+  }
+
+  @Override public void deletePolicy(Policy policy)
+  {
+    policyHandler.deletePolicyData(policy);
+  }
+
+  // Damage
+
+  @Override public void addDamage(Policy policy, Damage damage)
+  {
+    damageHandler.addDamageData(policy, damage);
+  }
+
+  @Override public void deleteDamage(Damage damage)
+  {
+    damageHandler.deleteDamageData(damage);
+  }
 }

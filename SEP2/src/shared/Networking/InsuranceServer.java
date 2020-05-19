@@ -1,6 +1,7 @@
 package shared.Networking;
 
-import javafx.scene.control.TableView;
+import shared.Damage;
+import shared.Policy;
 import shared.Customer;
 import shared.Employee;
 
@@ -13,7 +14,13 @@ public interface InsuranceServer extends Remote
 {
   void start() throws RemoteException, AlreadyBoundException;
   void registerClient(InsuranceClient client) throws RemoteException;
+  void addEmployee(Employee employee) throws RemoteException;
+  void deleteEmployee(Employee employee) throws RemoteException;
   void addCustomer(Customer customer) throws RemoteException;
-//  void addEmployee(Employee employee) throws RemoteException;
   List<Customer> readCustomers() throws RemoteException;
+  void deleteCustomer(Customer customer) throws RemoteException;
+  void addPolicy(Policy policy) throws RemoteException;
+  void deletePolicy(Policy Policy) throws RemoteException;
+  void addDamage(Policy policy, Damage damage) throws RemoteException;
+  void deleteDamage(Damage damage) throws RemoteException;
 }

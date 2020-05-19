@@ -114,6 +114,7 @@ public class EmployeeHandler implements EmployeeData
 
   @Override public void deleteEmployeeData(Employee employee)
   {
-
+    String sql = "Delete from \"insurance\".employee where cpr =" + "'" + employee.getCPR() + "'" +";";
+    connection.AddToDB(sql);
   }
 }

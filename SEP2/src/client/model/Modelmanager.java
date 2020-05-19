@@ -1,13 +1,10 @@
 package client.model;
 
-import client.model.Policy.Policy;
-import client.model.Policy.PoliceList;
+import shared.Damage;
+import shared.Employee;
+import shared.Policy;
 import client.networking.Client;
-import javafx.scene.control.TableView;
 import shared.Customer;
-
-import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
 import java.util.List;
 
 public class Modelmanager implements Model
@@ -21,21 +18,48 @@ public class Modelmanager implements Model
     client.addListener("update", null);
   }
 
-  @Override public void createCustomer(Customer customer)
+  @Override public void addEmployee(Employee employee)
   {
-    try
-    {
-      client.createCustomer(customer);
-    }
-    catch (RemoteException e)
-    {
-      e.printStackTrace();
-    }
+    client.addEmployee(employee);
+  }
+
+  @Override public void deleteEmployee(Employee employee)
+  {
+    client.deleteEmployee(employee);
+  }
+
+  @Override public void addCustomer(Customer customer)
+  {
+    client.addCustomer(customer);
+  }
+
+  @Override public void deleteCustomer(Customer customer)
+  {
+    client.deleteCustomer(customer);
+  }
+
+  @Override public void addPolicy(Policy policy)
+  {
+    client.addPolicy(policy);
+  }
+
+  @Override public void deletePolicy(Policy policy)
+  {
+    client.deletePolicy(policy);
+  }
+
+  @Override public void addDamage(Policy policy, Damage damage)
+  {
+    client.addDamage(policy, damage);
+  }
+
+  @Override public void deleteDamage(Damage damage)
+  {
+    client.deleteDamage(damage);
   }
 
   @Override
   public List<Customer> readCustomer(){
     return client.readCustomer();
   }
-
 }

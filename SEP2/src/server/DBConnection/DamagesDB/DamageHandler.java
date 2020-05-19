@@ -1,7 +1,7 @@
 package server.DBConnection.DamagesDB;
 
-import client.model.Damage.Damage;
-import client.model.Policy.Policy;
+import shared.Damage;
+import shared.Policy;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TableView;
 import server.DBConnection.DBConnections;
@@ -33,5 +33,11 @@ public class DamageHandler implements DamageData
           + "dPolicyType =" + "'" + damage.getPoliceType() + "'" + " where damageNo =" + damageOld.getDamageNo() + ";";
       connection.AddToDB(sql);
     }
+  }
+
+  @Override public void deleteDamageData(Damage damage)
+  {
+    String sql = "Delete from \"insurance\".damage where damageno =" + "'" + damage.getDamageNo() + "'" +";";
+    connection.AddToDB(sql);
   }
 }

@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 
+import java.rmi.RemoteException;
 import java.util.regex.Pattern;
 
 public class CreatePoliceViewController implements viewController
@@ -115,14 +116,12 @@ public class CreatePoliceViewController implements viewController
     }
     public void onCreate()
     {
-
-    if (cpv.checker())
-    {
-
-      cpv.createPolicy((String) policyType.getValue());
-      clearAll();
-      vh.openView("Policies");
-    }
+      if (cpv.checker())
+      {
+        cpv.createPolicy((String) policyType.getValue());
+        clearAll();
+        vh.openView("Policies");
+      }
 
     }
 }

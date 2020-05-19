@@ -1,9 +1,9 @@
 package client.networking;
 
-import javafx.scene.control.TableView;
-import server.Model.InsuranceServerModel;
-import server.Model.ServerModel;
+import shared.Employee;
+import shared.Policy;
 import shared.Customer;
+import shared.Damage;
 import shared.Networking.InsuranceClient;
 import shared.Networking.InsuranceServer;
 
@@ -38,21 +38,116 @@ public class InsuranceClientImpl implements InsuranceClient, Client
       server.registerClient(this);
       System.out.println("Client connected to server ");
     }
-    catch (RemoteException e)
-    {
-      e.printStackTrace();
-    }
-    catch (NotBoundException e)
+    catch (RemoteException | NotBoundException e)
     {
       e.printStackTrace();
     }
   }
 
-  @Override public void createCustomer(Customer customer)
+  @Override public void addEmployee(Employee employee)
+  {
+    try
+    {
+      server.addEmployee(employee);
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
+  @Override public void deleteEmployee(Employee employee)
+  {
+    try
+    {
+      server.deleteEmployee(employee);
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
+  @Override public void addCustomer(Customer customer)
   {
     try
     {
       server.addCustomer(customer);
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
+  @Override public List<Customer> readCustomer()
+  {
+    try
+    {
+      System.out.println(server.readCustomers());
+      return server.readCustomers();
+
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+    return null;
+  }
+
+  @Override public void deleteCustomer(Customer customer)
+  {
+    try
+    {
+      server.deleteCustomer(customer);
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
+  @Override public void addPolicy(Policy policy)
+  {
+    try
+    {
+      server.addPolicy(policy);
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
+  @Override public void deletePolicy(Policy policy)
+  {
+    try
+    {
+      server.deletePolicy(policy);
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
+  @Override public void addDamage(Policy policy, Damage damage)
+  {
+    try
+    {
+      server.addDamage(policy,damage);
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
+  @Override public void deleteDamage(Damage damage)
+  {
+    try
+    {
+      server.deleteDamage(damage);
     }
     catch (RemoteException e)
     {
@@ -76,21 +171,6 @@ public class InsuranceClientImpl implements InsuranceClient, Client
   {
     this.property.removePropertyChangeListener(eventname, listener);
 
-  }
-
-  @Override public List<Customer> readCustomer()
-  {
-    try
-    {
-      System.out.println(server.readCustomers());
-      return server.readCustomers();
-
-    }
-    catch (RemoteException e)
-    {
-      e.printStackTrace();
-    }
-    return null;
   }
 }
 

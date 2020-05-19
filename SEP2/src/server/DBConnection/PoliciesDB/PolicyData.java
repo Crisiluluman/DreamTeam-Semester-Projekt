@@ -1,6 +1,6 @@
 package server.DBConnection.PoliciesDB;
 
-import client.model.Policy.Policy;
+import shared.Policy;
 
 public interface PolicyData
 {

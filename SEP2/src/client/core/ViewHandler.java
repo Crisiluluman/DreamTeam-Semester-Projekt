@@ -55,7 +55,7 @@ public class ViewHandler extends Application
   public void start(Stage stage) throws Exception {
     primaryStage = stage;
     currentScene = new Scene(new Region());
-    openView("CreateCustomer");
+    openView("DEMain");
   }
 
   public void openEditSEditPolice(ObservableList list)
@@ -125,7 +125,7 @@ public class ViewHandler extends Application
       case "CreateCustomer":
         root = loadCreateCustomerView("../view/Salesman/CreateCustomer/CreateCustomerView.fxml");
         break;
-      case "CreatePolice":
+      case "CreatePolicy":
         root = loadCreatePoliceView("../view/Salesman/CreatePolice/CreatePoliceView.fxml");
         break;
       case "ManageCustomer":

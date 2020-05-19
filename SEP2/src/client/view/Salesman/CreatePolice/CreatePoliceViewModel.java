@@ -1,11 +1,12 @@
 package client.view.Salesman.CreatePolice;
 
 import client.model.Model;
-import client.model.Policy.Policy;
+import shared.Policy;
 import javafx.beans.property.*;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -52,7 +53,7 @@ public void createPolicy(String policeType)
 
   policy = new Policy(Integer.parseInt(policyNr.getValue()),String.valueOf(policeType),
       Integer.parseInt(price.getValue()),Integer.parseInt(deductible.getValue()), String.valueOf(coverage.getValue()));
-
+  model.addPolicy(policy);
 }
 
 public boolean checker()
