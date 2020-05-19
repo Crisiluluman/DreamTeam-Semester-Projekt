@@ -172,6 +172,59 @@ public class InsuranceClientImpl implements InsuranceClient, Client
     this.property.removePropertyChangeListener(eventname, listener);
 
   }
+
+  @Override public List<Customer> readCustomer()
+  {
+    try
+    {
+      return server.readCustomers();
+
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+    return null;
+  }
+
+  @Override public List<Policy> readPolicy()
+  {
+    try
+    {
+      return server.readPolicy();
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+    return null;
+  }
+
+  @Override public List<Employee> readEmployee()
+  {
+    try
+    {
+      return server.readEmployee();
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+    return null;
+  }
+
+  @Override public List<Damage> readDamage(int policeno)
+  {
+    try
+    {
+      return server.readDamage(policeno);
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+    return null;
+  }
 }
 
 

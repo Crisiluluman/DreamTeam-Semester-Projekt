@@ -29,7 +29,7 @@ public void init( ViewHandler vh, ViewModelFactory vmf, Region root)
   this.vh = vh;
   svm = vmf.getSalesmanViewModel();
   this.root = root;
-
+svm.readCustomer(customerTableView);
 
 }
 

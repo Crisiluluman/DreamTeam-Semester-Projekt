@@ -21,7 +21,7 @@ public class PoliciesViewController implements viewController
     this.vh = vh;
     pvm = vmf.getPoliciesViewModel();
     this.root = root;
-    pvm.getPoliciesFromDB(tableview);
+   pvm.readPolicy(tableview);
 
   }
 

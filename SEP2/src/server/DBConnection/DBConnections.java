@@ -1,12 +1,12 @@
 package server.DBConnection;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
+import client.model.Damage.Damage;
+import client.model.DamageEmployee.DamageEmployee;
+import client.model.Manager.Manager;
+import client.model.Salesman.Salesman;
+import shared.Employee;
+import shared.Policy;
 import javafx.collections.ObservableList;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.util.Callback;
 import shared.Customer;
 
 import java.sql.*;
@@ -29,8 +29,8 @@ public class DBConnections
       System.out.println("før");
       connection = DriverManager
 
-          .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres",
-              "1234");
+          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres",
+              "ybf56qka");
       System.out.println("efter");
       statement = connection.createStatement();
 
@@ -49,7 +49,7 @@ public class DBConnections
     System.out.println("Insert to Database ok!");
   }
 
-  public List<Customer> fillTableDB(String sql)
+  public List<Customer> fillCustomerTableDB(String sql)
   {
     ArrayList<Customer> list = new ArrayList<>();
     ObservableList<String> row;
@@ -60,53 +60,148 @@ public class DBConnections
     {
       Class.forName("org.postgresql.Driver");
       c = DriverManager
-          .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres", "1234");
+          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1122");
       c.setAutoCommit(false);
       System.out.println("Opened database successfully");
 
       stmt = c.createStatement();
       ResultSet rs = stmt.executeQuery(sql);
 
-      while(rs.next()){
+      while(rs.next())
+      {
         //We are using non property style for making dynamic table
         String name = rs.getString("name");
         String address = rs.getString("address");
         int postcode = rs.getInt("postcode");
-        int costumerNo = rs.getInt("customerNo");
+        int customerNo = rs.getInt("customerNo");
         long cprNr = rs.getLong("cpr");
 
-        Customer customer = new Customer(name, address, postcode, costumerNo, cprNr);
+        Customer customer = new Customer(name, address, postcode, customerNo,
+            cprNr);
         list.add(customer);
-//
-//        TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
-//        col.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ObservableList, String>, ObservableValue<String>>()
-//        {
-//          public ObservableValue<String> call(TableColumn.CellDataFeatures<ObservableList, String> param)
-//          {
-//            return new SimpleStringProperty(param.getValue().get(j).toString());
-//          }
-//        });
-
-     //   TV.getColumns().addAll(col);
-        //System.out.println("Column [" + i + "] ");
       }
+    }
+    catch (Exception e)
+    {
+      e.printStackTrace();
+      System.out.println("Error on Building Data");
+    }
+    System.out.println(list);
+    return list;
+  }
+  public List<Policy> fillPolicyTableDB(String sql)
+  {
+    ArrayList<Policy> list = new ArrayList<>();
+    ObservableList<String> row;
 
-//      while (rs.next())
-//      {
-//        //Iterate Row
-//        row = FXCollections.observableArrayList();
-//        for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++)
-//        {
-//          //Iterate Column
-//          row.add(rs.getString(i));
-//        }
-//        System.out.println("Row [1] added " + row);
-//        list.add(row);
-//
-//      }
+    Connection c = null;
+    Statement stmt = null;
+    try
+    {
+      Class.forName("org.postgresql.Driver");
+      c = DriverManager
+          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1122");
+      c.setAutoCommit(false);
+      System.out.println("Opened database successfully");
 
-      //FINALLY ADDED TO TableView
- //     TV.setItems(list);
+      stmt = c.createStatement();
+      ResultSet rs = stmt.executeQuery(sql);
+
+      while(rs.next())
+      {
+        //We are using non property style for making dynamic table
+        int policyNo = rs.getInt("policyNo");
+        String type = rs.getString("type");
+        int price = rs.getInt("price");
+        int deductible = rs.getInt("deductible");
+        String coverage = rs.getString("coverage");
+
+       Policy policy = new Policy(policyNo,type,price,deductible,coverage);
+        list.add(policy);
+      }
+    }
+    catch (Exception e)
+    {
+      e.printStackTrace();
+      System.out.println("Error on Building Data");
+    }
+    System.out.println(list);
+    return list;
+  }
+  public List<Employee> fillEmployeeTableDB(String sql)
+{
+  ArrayList<Employee> list = new ArrayList<>();
+  ObservableList<String> row;
+
+  Connection c = null;
+  Statement stmt = null;
+  try
+  {
+    Class.forName("org.postgresql.Driver");
+    c = DriverManager
+        .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1122");
+    c.setAutoCommit(false);
+    System.out.println("Opened database successfully");
+
+    stmt = c.createStatement();
+    ResultSet rs = stmt.executeQuery(sql);
+
+    while(rs.next())
+    {
+      Employee employee = null;
+      //We are using non property style for making dynamic table
+      String name = rs.getString("name");
+      String address = rs.getString("address");
+      int cpr = rs.getInt("cpr");
+      int tlfnr = rs.getInt("tlfnr");
+      String email = rs.getString("email");
+      String position = rs.getString("position");
+
+      employee = new Salesman(name,address,cpr,email,tlfnr,position);
+
+      list.add(employee);
+    }
+  }
+  catch (Exception e)
+  {
+    e.printStackTrace();
+    System.out.println("Error on Building Data");
+  }
+  System.out.println(list);
+  return list;
+}
+
+  public List<Damage> fillDamageTableDB(String sql,int policeno)
+  {
+    ArrayList<Damage> list = new ArrayList<>();
+    ObservableList<String> row;
+
+    Connection c = null;
+    Statement stmt = null;
+    try
+    {
+      Class.forName("org.postgresql.Driver");
+      c = DriverManager
+          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1122");
+      c.setAutoCommit(false);
+      System.out.println("Opened database successfully");
+
+      stmt = c.createStatement();
+      ResultSet rs = stmt.executeQuery(sql);
+
+      while(rs.next())
+      {
+        Employee employee = null;
+        //We are using non property style for making dynamic table
+        int damageNo = rs.getInt("damageNo");
+        double expenses = rs.getDouble("expenses");
+        String info = rs.getString("info");
+        String dpolicytype = rs.getString("dpolicytype");
+
+        Damage damage = new Damage(policeno,dpolicytype,expenses,damageNo,info);
+
+        list.add(damage);
+      }
     }
     catch (Exception e)
     {

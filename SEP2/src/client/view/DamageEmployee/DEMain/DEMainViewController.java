@@ -3,6 +3,7 @@ package client.view.DamageEmployee.DEMain;
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.view.viewController;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -32,7 +33,8 @@ public class DEMainViewController implements viewController {
     }
     public void onSelect()
     {
-        if (dmv.editSelect(view))
+        ObservableList data = dmv.editSelect(view);
+        if (data != null)
         {
             vh.openView("DEPolicies");
         }

@@ -1,6 +1,9 @@
 package client.model.Damage;
 
-public class Damage {
+import java.io.Serializable;
+
+public class Damage implements Serializable
+{
   private int policeNo;
   private String policeType;
   private double expenses;

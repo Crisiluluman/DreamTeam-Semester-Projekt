@@ -19,5 +19,7 @@ public interface ServerModelInterface
    void deleteDamage(Damage damage);
 
    List<Customer> readCustomers();
-
+   List<Policy> readPolicy();
+   List<Employee> readEmployee();
+   List<Damage> readDamage(int policeno);
 }

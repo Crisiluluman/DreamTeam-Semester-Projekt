@@ -1,5 +1,7 @@
 package client.model.Policy;
 
+import shared.Policy;
+
 import java.util.ArrayList;
 import java.util.List;
 

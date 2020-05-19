@@ -3,6 +3,8 @@ package server.DBConnection.EmployeeDB;
 import server.DBConnection.DBConnections;
 import shared.Employee;
 
+import java.util.List;
+
 public class EmployeeHandler implements EmployeeData
 {
   // Calls methods in the Connections and has SQL strings
@@ -49,9 +51,10 @@ public class EmployeeHandler implements EmployeeData
 
 
 
-  @Override public void readEmployeeData(Employee employee)
+  @Override public List<Employee> readEmployeeData()
   {
-
+    String sql = "SELECT * FROM \"insurance\".Employee;";
+    return connection.fillEmployeeTableDB(sql);
   }
 
 

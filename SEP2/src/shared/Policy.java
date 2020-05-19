@@ -1,5 +1,7 @@
 package shared;
 
+
+
 import java.io.Serializable;
 
 public class Policy implements Serializable

@@ -6,10 +6,6 @@ import javafx.beans.property.*;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.rmi.RemoteException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
 import java.util.regex.Pattern;
 
 public class CreatePoliceViewModel implements PropertyChangeListener

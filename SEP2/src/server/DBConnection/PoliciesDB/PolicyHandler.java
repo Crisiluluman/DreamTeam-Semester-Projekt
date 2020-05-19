@@ -3,9 +3,16 @@ package server.DBConnection.PoliciesDB;
 import shared.Policy;
 import server.DBConnection.DBConnections;
 
+import java.util.List;
+
 public class PolicyHandler implements PolicyData
 {
   private DBConnections connection;
+
+  public PolicyHandler()
+  {
+    connection = new DBConnections();
+  }
 
   @Override public void addPolicyData(Policy policy)
   {
@@ -28,9 +35,10 @@ public class PolicyHandler implements PolicyData
     connection.AddToDB(sql);
   }
 
-  @Override public void readPolicyData(Policy policy)
+  @Override public List<Policy> readPolicyData()
   {
-
+    String sql = "SELECT * FROM \"insurance\".Policy;";
+    return connection.fillPolicyTableDB(sql);
   }
 
   @Override public void deletePolicyData(Policy policy)

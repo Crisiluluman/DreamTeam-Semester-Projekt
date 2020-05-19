@@ -21,4 +21,7 @@ public interface Model
   void addDamage(Policy policy, Damage damage);
   void deleteDamage(Damage damage);
   List<Customer> readCustomer();
+  List<Policy> readPolicy();
+  List<Employee> readEmployee();
+  List<Damage> readDamage(int policeno);
 }

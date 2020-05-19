@@ -16,7 +16,6 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-
 import java.util.List;
 
 public class InsuranceServerImpl implements InsuranceServer
@@ -66,6 +65,22 @@ public class InsuranceServerImpl implements InsuranceServer
   {
     return serverModel.readCustomers();
   }
+
+  @Override public List<Policy> readPolicy() throws RemoteException
+  {
+    return serverModel.readPolicy();
+  }
+
+  @Override public List<Employee> readEmployee() throws RemoteException
+  {
+    return serverModel.readEmployee();
+  }
+
+  @Override public List<Damage> readDamage(int policeno) throws RemoteException
+  {
+    return serverModel.readDamage(policeno);
+  }
+}
 
   @Override public void deleteCustomer(Customer customer) throws RemoteException
   {
