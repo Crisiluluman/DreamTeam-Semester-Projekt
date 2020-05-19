@@ -1,11 +1,13 @@
 package server.DBConnection.PoliciesDB;
 
-import client.model.Policy.Policy;
+import shared.Policy;
+
+import java.util.List;
 
 public interface PolicyData
 {
   void addPolicyData(Policy policy);
   void updatePolicyData(Policy policy, Policy policyOld);
-  void readPolicyData(Policy policy);
+  List<Policy> readPolicyData();
   void deletePolicyData(Policy policy);
 }

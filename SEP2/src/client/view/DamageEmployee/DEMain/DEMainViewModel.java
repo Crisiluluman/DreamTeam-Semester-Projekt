@@ -19,27 +19,28 @@ public class DEMainViewModel
 
   private Model model;
   ViewModelFactory viewModelFactory;
+  ObservableList<ObservableList> rows;
 
   public DEMainViewModel(Model model)
   {
     this.model = model;
   }
 
-  public boolean editSelect(TableView TV)
+  public ObservableList editSelect(TableView TV)
   {
     int selected = TV.getSelectionModel().getFocusedIndex();
     if (selected != -1)
     {
-      return true;
+      return rows.get(selected);
     }
-    return false;
+    return null;
   }
 
   public void readCustomer(TableView TV)
   {
     List<Customer> customers = model.readCustomer();
       ObservableList<String> row;
-      ObservableList<ObservableList> rows = FXCollections.observableArrayList();
+       rows = FXCollections.observableArrayList();
 
 
       setUpColumn(TV, "name",0);
@@ -60,17 +61,6 @@ public class DEMainViewModel
           rows.add(row);
       }
      TV.setItems(rows);
-      //Iterate Row
-//        row = FXCollections.observableArrayList();
-//      for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++)
-//      {
-//        //Iterate Column
-//        row.add(rs.getString(i));
-//      }
-//      System.out.println("Row [1] added " + row);
-//      list.add(row);
-//
-//    }
   }
 
     private void setUpColumn(TableView TV, String ColumnName,int index)

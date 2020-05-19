@@ -23,7 +23,7 @@ public class DEPoliciesViewController implements viewController {
         this.vh = vh;
         pvm = vmf.getDEPoliciesViewModel();
         this.root = root;
-        pvm.getEmployeesFromDB(view);
+        pvm.readPolicy(view);
     }
     @Override
     public Region getRoot() {
@@ -45,6 +45,14 @@ public class DEPoliciesViewController implements viewController {
         if (data != null)
         {
             vh.openCreateDamage(data);
+        }
+    }
+    public void onManageDamage()
+    {
+        ObservableList data = pvm.editSelect(view);
+        if (data != null)
+        {
+            vh.openManageDamage(data);
         }
     }
 }

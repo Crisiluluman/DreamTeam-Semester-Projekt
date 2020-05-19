@@ -1,11 +1,10 @@
 package server.networking;
 
-import javafx.scene.control.TableView;
-
-import server.Model.InsuranceServerModel;
+import client.model.Damage.Damage;
+import shared.Employee;
+import shared.Policy;
 import server.Model.ServerModelInterface;
 import shared.Customer;
-import shared.Employee;
 import shared.Networking.InsuranceClient;
 import shared.Networking.InsuranceServer;
 
@@ -14,7 +13,6 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.ArrayList;
 import java.util.List;
 
 public class InsuranceServerImpl implements InsuranceServer
@@ -48,5 +46,20 @@ public class InsuranceServerImpl implements InsuranceServer
   @Override
   public List<Customer> readCustomers() {
     return serverModel.readCustomers();
+  }
+
+  @Override public List<Policy> readPolicy() throws RemoteException
+  {
+    return serverModel.readPolicy();
+  }
+
+  @Override public List<Employee> readEmployee() throws RemoteException
+  {
+    return serverModel.readEmployee();
+  }
+
+  @Override public List<Damage> readDamage(int policeno) throws RemoteException
+  {
+    return serverModel.readDamage(policeno);
   }
 }

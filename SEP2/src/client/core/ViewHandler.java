@@ -3,6 +3,7 @@ package client.core;
 
 import client.view.DamageEmployee.CreateDamage.CreateDamageViewController;
 import client.view.DamageEmployee.DEMain.DEMainViewController;
+import client.view.DamageEmployee.ManageDamages.ManageDamageViewController;
 import client.view.DamageEmployee.Policies.DEPoliciesViewController;
 import client.view.DamageEmployee.Policies.EditPolicy.EditPolicyViewController;
 import client.view.Login.LoginViewController;
@@ -45,19 +46,19 @@ public class ViewHandler extends Application
   private PoliciesViewController policiesViewController;
   private SalesmanViewController salesmanViewController;
   private SEditPolicyViewController sEditPolicyViewController;
+  private ManageDamageViewController manageDamageViewController;
 
-  public ViewHandler(ViewModelFactory vmf)
+
+  public ViewHandler(ViewModelFactory viewModelFactory)
   {
-    this.vmf = vmf;
+    vmf = viewModelFactory;
   }
-
-  @Override
-  public void start(Stage stage) throws Exception {
-    primaryStage = stage;
-    currentScene = new Scene(new Region());
-    openView("DEMain");
+  @Override public void start(Stage stage)
+  {
+primaryStage = stage;
+currentScene = new Scene(new Region());
+openView("Salesman");
   }
-
   public void openEditSEditPolice(ObservableList list)
 {
   vmf.getSEditPolicyViewModel().setFields(list);
@@ -85,6 +86,11 @@ public class ViewHandler extends Application
   {
     vmf.getCreateDamageViewModel().setFields(list);
     openView("CreateDamage");
+  }
+  public void openManageDamage(ObservableList list)
+  {
+    vmf.getDamageViewModel().setPoliceNo(list);
+    openView("ManageDamage");
   }
 
   public void openView(String id)
@@ -115,6 +121,9 @@ public class ViewHandler extends Application
         break;
       case "ManageBusiness":
         root = loadManageBusinessView("../view/Manager/ManageBusiness/ManageBusinessView.fxml");
+        break;
+      case "ManageDamage":
+        root = loadManageDamageView("../view/DamageEmployee/ManageDamages/ManageDamageView.fxml");
         break;
       case "ManageEmployee":
         root = loadManageEmployeeView("../view/Manager/ManageEmployee/ManageEmployeeView.fxml");
@@ -436,6 +445,23 @@ public class ViewHandler extends Application
       }
     }
     return sEditPolicyViewController.getRoot();
+  }
+  private Region loadManageDamageView(String fxmlFile)
+  {
+    if (manageDamageViewController == null)
+    {
+      try{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        Region root = loader.load();
+        manageDamageViewController = loader.getController();
+        manageDamageViewController.init(this, vmf, root);
+      }catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+    return manageDamageViewController.getRoot();
   }
 
 

@@ -1,8 +1,8 @@
 package client.networking;
 
-import javafx.scene.control.TableView;
-import server.Model.InsuranceServerModel;
-import server.Model.ServerModel;
+import client.model.Damage.Damage;
+import shared.Employee;
+import shared.Policy;
 import shared.Customer;
 import shared.Networking.InsuranceClient;
 import shared.Networking.InsuranceServer;
@@ -70,9 +70,47 @@ public class InsuranceClientImpl implements InsuranceClient, Client
   {
     try
     {
-      System.out.println(server.readCustomers());
       return server.readCustomers();
 
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+    return null;
+  }
+
+  @Override public List<Policy> readPolicy()
+  {
+    try
+    {
+      return server.readPolicy();
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+    return null;
+  }
+
+  @Override public List<Employee> readEmployee()
+  {
+    try
+    {
+      return server.readEmployee();
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+    return null;
+  }
+
+  @Override public List<Damage> readDamage(int policeno)
+  {
+    try
+    {
+      return server.readDamage(policeno);
     }
     catch (RemoteException e)
     {

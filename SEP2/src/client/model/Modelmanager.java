@@ -1,13 +1,11 @@
 package client.model;
 
-import client.model.Policy.Policy;
-import client.model.Policy.PoliceList;
+import client.model.Damage.Damage;
+import shared.Employee;
+import shared.Policy;
 import client.networking.Client;
-import javafx.scene.control.TableView;
 import shared.Customer;
 
-import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
 import java.util.List;
 
 public class Modelmanager implements Model
@@ -24,6 +22,21 @@ public class Modelmanager implements Model
   @Override
   public List<Customer> readCustomer(){
     return client.readCustomer();
+  }
+
+  @Override public List<Policy> readPolicy()
+  {
+    return client.readPolicy();
+  }
+
+  @Override public List<Employee> readEmployee()
+  {
+    return client.readEmployee();
+  }
+
+  @Override public List<Damage> readDamage(int policeno)
+  {
+    return client.readDamage(policeno);
   }
 
 }

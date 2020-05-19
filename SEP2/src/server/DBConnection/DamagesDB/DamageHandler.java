@@ -1,18 +1,19 @@
 package server.DBConnection.DamagesDB;
 
 import client.model.Damage.Damage;
-import client.model.Policy.Policy;
-import javafx.scene.control.Tab;
+import shared.Policy;
 import javafx.scene.control.TableView;
 import server.DBConnection.DBConnections;
+
+import java.util.List;
 
 public class DamageHandler implements DamageData
 {
   private DBConnections connection;
 
-  public DamageHandler(DBConnections connection)
+  public DamageHandler()
   {
-    this.connection = connection;
+    connection = new DBConnections();
   }
 
   @Override public void addDamageData(Policy policy, Damage damage)
@@ -26,8 +27,10 @@ public class DamageHandler implements DamageData
 
   }
 
-  @Override public void readDamageData(TableView TV)
+  @Override public List<Damage> readDamageData(int policeno)
   {
+    String sql = "SELECT * FROM \"insurance\".damage where policyno='"+policeno+"';";
+    return connection.fillDamageTableDB(sql,policeno);
   }
 
   @Override public void deleteDamageData(Damage damage)

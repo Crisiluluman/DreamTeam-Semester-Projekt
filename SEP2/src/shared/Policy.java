@@ -1,8 +1,10 @@
-package client.model.Policy;
+package shared;
 
 import client.model.Customer.Customer;
 
-public class Policy
+import java.io.Serializable;
+
+public class Policy implements Serializable
 {
   private int policeNo;
   private String policeType;

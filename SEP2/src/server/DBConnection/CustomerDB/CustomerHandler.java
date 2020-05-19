@@ -1,7 +1,6 @@
 package server.DBConnection.CustomerDB;
 
 import shared.Customer;
-import javafx.scene.control.TableView;
 import server.DBConnection.DBConnections;
 
 import java.util.List;
@@ -41,6 +40,6 @@ public class CustomerHandler implements CustomerData
   @Override public List<Customer> readCustomerData()
   {
     String sql = "SELECT * FROM \"insurance\".customer;";
-    return connection.fillTableDB(sql);
+    return connection.fillCustomerTableDB(sql);
   }
 }

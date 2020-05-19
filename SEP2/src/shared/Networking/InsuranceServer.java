@@ -1,8 +1,9 @@
 package shared.Networking;
 
-import javafx.scene.control.TableView;
-import shared.Customer;
+import client.model.Damage.Damage;
 import shared.Employee;
+import shared.Policy;
+import shared.Customer;
 
 import java.rmi.AlreadyBoundException;
 import java.rmi.Remote;
@@ -15,4 +16,7 @@ public interface InsuranceServer extends Remote
   void registerClient(InsuranceClient client) throws RemoteException;
 //  void addEmployee(Employee employee) throws RemoteException;
   List<Customer> readCustomers() throws RemoteException;
+  List<Policy> readPolicy() throws RemoteException;
+  List<Employee> readEmployee() throws RemoteException;
+  List<Damage> readDamage(int policeno) throws RemoteException;
 }

@@ -1,14 +1,11 @@
 package client.view.Salesman.CreatePolice;
 
 import client.model.Model;
-import client.model.Policy.Policy;
+import shared.Policy;
 import javafx.beans.property.*;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
 import java.util.regex.Pattern;
 
 public class CreatePoliceViewModel implements PropertyChangeListener

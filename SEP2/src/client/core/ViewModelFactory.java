@@ -2,6 +2,7 @@ package client.core;
 
 import client.view.DamageEmployee.CreateDamage.CreateDamageViewModel;
 import client.view.DamageEmployee.DEMain.DEMainViewModel;
+import client.view.DamageEmployee.ManageDamages.ManageDamageViewModel;
 import client.view.DamageEmployee.Policies.EditPolicy.EditPolicyViewModel;
 import client.view.DamageEmployee.Policies.DEPoliciesViewModel;
 import client.view.Login.LoginViewModel;
@@ -42,6 +43,7 @@ public class ViewModelFactory
   private EditEmployeeViewModel eev;
   private ManageEmployeeViewModel mevm;
   private SEditPolicyViewModel spev;
+  private ManageDamageViewModel mdvm;
 
   public CreatePoliceViewModel getCreatePoliceViewModel()
   {
@@ -52,7 +54,14 @@ public class ViewModelFactory
     return cpv;
   }
 
-
+public ManageDamageViewModel getDamageViewModel()
+{
+  if (mdvm == null)
+  {
+    mdvm = new ManageDamageViewModel(modelFactory.getModel());
+  }
+  return mdvm;
+}
 
   public LoginViewModel getLoginViewModel()
   {

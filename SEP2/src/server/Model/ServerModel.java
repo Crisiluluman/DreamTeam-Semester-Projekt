@@ -1,9 +1,11 @@
 package server.Model;
 
-import javafx.scene.control.TableView;
+import client.model.Damage.Damage;
+import shared.Policy;
 import server.DBConnection.CustomerDB.CustomerHandler;
 import server.DBConnection.DamagesDB.DamageHandler;
 import server.DBConnection.EmployeeDB.EmployeeHandler;
+import server.DBConnection.PoliciesDB.PolicyHandler;
 import shared.Customer;
 import shared.Employee;
 
@@ -14,11 +16,14 @@ public class ServerModel implements ServerModelInterface
  private EmployeeHandler employeehandler;
  private CustomerHandler customerhandler;
  private DamageHandler damageHandler;
+ private PolicyHandler policyHandler;
 
   public ServerModel()
   {
     employeehandler = new EmployeeHandler();
     customerhandler = new CustomerHandler();
+    damageHandler = new DamageHandler();
+    policyHandler = new PolicyHandler();
   }
 
   // Employees
@@ -31,11 +36,6 @@ public class ServerModel implements ServerModelInterface
   public void updateEmployee(Employee employee)
   {
    // employeehandler.updateEmployeeData(employee); TODO: Fix this
-  }
-
-  public void readEmployee(Employee employee)
-  {
-    employeehandler.readEmployeeData(employee);
   }
 
   public void deleteEmployee(Employee employee)
@@ -58,6 +58,21 @@ public class ServerModel implements ServerModelInterface
   public List<Customer> readCustomers()
   {
     return customerhandler.readCustomerData();
+  }
+
+  @Override public List<Policy> readPolicy()
+  {
+    return policyHandler.readPolicyData();
+  }
+
+  @Override public List<Employee> readEmployee()
+  {
+    return employeehandler.readEmployeeData();
+  }
+
+  @Override public List<Damage> readDamage(int policeno)
+  {
+    return damageHandler.readDamageData(policeno);
   }
 
   public void deleteCustomer(Customer customer)
