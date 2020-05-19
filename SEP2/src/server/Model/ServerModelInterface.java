@@ -7,5 +7,7 @@ import java.util.List;
 
 public interface ServerModelInterface
 {
+   void addCustomer(Customer customer);
    List<Customer> readCustomers();
+
 }

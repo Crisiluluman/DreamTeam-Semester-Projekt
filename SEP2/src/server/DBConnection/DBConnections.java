@@ -62,8 +62,8 @@ public class DBConnections
       System.out.println("før");
       connection = DriverManager
 
-          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres",
-              "qawsedrf123");
+          .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres",
+              "1234");
       System.out.println("efter");
       statement = connection.createStatement();
 
@@ -93,7 +93,7 @@ public class DBConnections
     {
       Class.forName("org.postgresql.Driver");
       c = DriverManager
-          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1122");
+          .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres", "1234");
       c.setAutoCommit(false);
       System.out.println("Opened database successfully");
 

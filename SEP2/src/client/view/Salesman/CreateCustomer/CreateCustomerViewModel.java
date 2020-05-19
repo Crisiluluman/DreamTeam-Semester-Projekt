@@ -19,7 +19,7 @@ public class CreateCustomerViewModel
   public StringProperty postcodeTextField;
   public StringProperty cprnoTextfield;
   public StringProperty customerNoTextField;
-  private Customer customer;
+  private shared.Customer customer;
   public StringProperty nameLabel;
   public StringProperty addressLabel;
   public StringProperty postcodeLabel;
@@ -96,12 +96,11 @@ public class CreateCustomerViewModel
   public void onClick()
   {
 
-    customer = new Customer(String.valueOf(nameTextfield.getValue()), String.valueOf(addressTextfield.getValue()),
+    customer = new shared.Customer(String.valueOf(nameTextfield.getValue()), String.valueOf(addressTextfield.getValue()),
         Integer.parseInt(postcodeTextField.getValue()), Integer.parseInt(customerNoTextField.getValue()),
         Long.parseLong(cprnoTextfield.getValue()));
       clearLabels();
-
-    saveToDB();
+      model.createCustomer(customer);
   }
 
 public void clearLabels()
@@ -112,6 +111,9 @@ public void clearLabels()
   cprnoLabel.setValue("");
 
 }
+
+
+
   public void clearTextfields()
   {
     nameTextfield.setValue("");
@@ -156,36 +158,4 @@ public void clearLabels()
     }
     return true;
   }
-
-
-  private void saveToDB()
-  {
-
-    Connection connection = null;
-    Statement statement = null;
-
-    try
-    {
-      Class.forName("org.postgresql.Driver");
-      connection = DriverManager
-          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres",
-              "qawsedrf123");
-      statement = connection.createStatement();
-      String sql = "INSERT INTO \"createpolicy\".Customer values(" +"'"+ customer.getCostumerNo()+"'" + "," + "'" + customer.getName() + "'" + ","
-          + "'" + customer.getAddress() + "'" + "," +"'"+ customer.getPostcode()+"'" + "," +"'"+ customer.getCprNr() +"'"+ ");";
-
-
-      statement.executeUpdate(sql);
-      statement.close();
-      connection.close();
-    }
-    catch (Exception e)
-    {
-      System.err.println(e.getClass().getName() + ": " + e.getMessage());
-      System.exit(0);
-
-    }
-    System.out.println("Insert to Database ok!");
-  }
-
 }

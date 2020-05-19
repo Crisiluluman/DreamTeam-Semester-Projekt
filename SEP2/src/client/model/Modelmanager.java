@@ -21,6 +21,18 @@ public class Modelmanager implements Model
     client.addListener("update", null);
   }
 
+  @Override public void createCustomer(Customer customer)
+  {
+    try
+    {
+      client.createCustomer(customer);
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
   @Override
   public List<Customer> readCustomer(){
     return client.readCustomer();
