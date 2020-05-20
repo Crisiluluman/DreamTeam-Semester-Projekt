@@ -10,5 +10,5 @@ public interface EmployeeData
   void addEmployeeData(Employee employee);
   List<Employee> readEmployeeData();
   void updateEmployeeData(Employee employee, Employee employeeOld);
-  void deleteEmployeeData(Employee employee);
+  void deleteEmployeeData(int cpr);
 }

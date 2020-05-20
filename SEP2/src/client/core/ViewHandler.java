@@ -58,8 +58,9 @@ public class ViewHandler extends Application
   {
 primaryStage = stage;
 currentScene = new Scene(new Region());
-openView("Salesman");
+openView("DEMain");
   }
+
   public void openEditSEditPolice(ObservableList list)
 {
   vmf.getSEditPolicyViewModel().setFields(list);
@@ -146,7 +147,7 @@ public void openDEPolicies(ObservableList list)
       case "CreateCustomer":
         root = loadCreateCustomerView("../view/Salesman/CreateCustomer/CreateCustomerView.fxml");
         break;
-      case "CreatePolice":
+      case "CreatePolicy":
         root = loadCreatePoliceView("../view/Salesman/CreatePolice/CreatePoliceView.fxml");
         break;
       case "ManageCustomer":

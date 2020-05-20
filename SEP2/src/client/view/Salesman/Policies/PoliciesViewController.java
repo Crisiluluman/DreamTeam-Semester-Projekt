@@ -32,7 +32,7 @@ public class PoliciesViewController implements viewController
 
   public void onBack()
   {
-    vh.openView("ManageCustomer");
+    vh.openView("Salesman");
   }
   public void onCreatePolicy()
   {

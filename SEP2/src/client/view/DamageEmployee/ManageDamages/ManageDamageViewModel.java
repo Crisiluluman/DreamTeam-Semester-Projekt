@@ -1,8 +1,7 @@
 package client.view.DamageEmployee.ManageDamages;
 
-import client.model.Damage.Damage;
+import shared.*;
 import client.model.Model;
-import javafx.beans.Observable;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -10,7 +9,6 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.util.Callback;
-import shared.Policy;
 
 import java.util.List;
 

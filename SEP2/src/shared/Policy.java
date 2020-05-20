@@ -1,6 +1,6 @@
 package shared;
 
-import client.model.Customer.Customer;
+
 
 import java.io.Serializable;
 

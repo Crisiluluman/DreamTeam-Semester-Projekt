@@ -1,9 +1,7 @@
 package server.DBConnection.DamagesDB;
 
-import client.model.Damage.Damage;
+import shared.Damage;
 import shared.Policy;
-import javafx.scene.control.TableView;
-
 import java.util.List;
 
 public interface DamageData

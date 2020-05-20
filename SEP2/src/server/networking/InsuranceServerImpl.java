@@ -1,10 +1,7 @@
 package server.networking;
 
-import client.model.Damage.Damage;
-import shared.Employee;
-import shared.Policy;
+import shared.*;
 import server.Model.ServerModelInterface;
-import shared.Customer;
 import shared.Networking.InsuranceClient;
 import shared.Networking.InsuranceServer;
 
@@ -38,14 +35,28 @@ public class InsuranceServerImpl implements InsuranceServer
 
   }
 
+  // employee
+
+  @Override public void addEmployee(Employee employee) throws RemoteException
+  {
+    serverModel.addEmployee(employee);
+  }
+
+  @Override public void deleteEmployee(int cpr) throws RemoteException
+  {
+    serverModel.deleteEmployee(cpr);
+  }
+
+
+  // Customer
   @Override public void addCustomer(Customer customer) throws RemoteException
   {
     serverModel.addCustomer(customer);
   }
 
-
   @Override
-  public List<Customer> readCustomers() {
+  public List<Customer> readCustomers()
+  {
     return serverModel.readCustomers();
   }
 
@@ -63,4 +74,37 @@ public class InsuranceServerImpl implements InsuranceServer
   {
     return serverModel.readDamage(policeno);
   }
+
+  @Override public void deleteCustomer(int customerNo) throws RemoteException
+  {
+    serverModel.deleteCustomer(customerNo);
+  }
+
+  // policy
+
+  @Override public void addPolicy(Policy policy) throws RemoteException
+  {
+    serverModel.addPolicy(policy);
+  }
+
+  @Override public void deletePolicy(Policy policy) throws RemoteException
+  {
+    serverModel.deletePolicy(policy);
+  }
+
+  // damage
+
+  @Override public void addDamage(Policy policy, Damage damage)
+      throws RemoteException
+  {
+    serverModel.addDamage(policy, damage);
+  }
+
+  @Override public void deleteDamage(Damage damage) throws RemoteException
+  {
+    serverModel.deleteDamage(damage);
+  }
 }
+
+
+

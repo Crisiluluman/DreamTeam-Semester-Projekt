@@ -100,7 +100,7 @@ public class CreateCustomerViewModel
         Integer.parseInt(postcodeTextField.getValue()), Integer.parseInt(customerNoTextField.getValue()),
         Long.parseLong(cprnoTextfield.getValue()));
       clearLabels();
-      model.createCustomer(customer);
+      model.addCustomer(customer);
   }
 
   public void clearLabels()

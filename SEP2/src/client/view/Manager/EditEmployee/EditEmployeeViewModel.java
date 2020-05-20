@@ -7,7 +7,9 @@ import client.model.Salesman.Salesman;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
+import shared.Employee;
 
+import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -102,47 +104,23 @@ public class EditEmployeeViewModel {
         return phoneLabel;
     }
 
-    public void saveToDB(String sql)
+
+    public void onSaveClicked(String position)
     {
-
-        Connection c = null;
-        Statement stmt = null;
-        try
-        {
-            Class.forName("org.postgresql.Driver");
-            c = DriverManager
-                    .getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","qawsedrf123");
-
-            System.out.println("The database is open");
-
-            stmt = c.createStatement();
-            stmt.executeUpdate(sql);
-
-
-
-            stmt.close();
-            c.close();
-        } catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-    }
-
-    public void onSaveClicked(String position) {
         if (position.equals("Manager")) {
             manager = new Manager(String.valueOf(nameTextField.getValue()), String.valueOf(addressTextField.getValue()),
                     Long.parseLong(CPRTextField.getValue()), String.valueOf(emailTextField.getValue()), Integer.parseInt(phoneTextField.getValue()), "Manager");
-            saveToDB(Manager());
+            model.addEmployee(manager);
         }
         if (position.equals("Salesman")) {
             salesman = new Salesman(String.valueOf(nameTextField.getValue()), String.valueOf(addressTextField.getValue()),
                     Long.parseLong(CPRTextField.getValue()), String.valueOf(emailTextField.getValue()), Integer.parseInt(phoneTextField.getValue()), "Salesman");
-            saveToDB(SalesMan());
+            model.addEmployee(salesman);
         }
         if (position.equals("DamageEmployee")) {
             damageEmployee = new DamageEmployee(String.valueOf(nameTextField.getValue()), String.valueOf(addressTextField.getValue()),
                     Long.parseLong(CPRTextField.getValue()), String.valueOf(emailTextField.getValue()), Integer.parseInt(phoneTextField.getValue()), "DamageEmployee");
-            saveToDB(DamageEmployee());
+
         }
     }
 

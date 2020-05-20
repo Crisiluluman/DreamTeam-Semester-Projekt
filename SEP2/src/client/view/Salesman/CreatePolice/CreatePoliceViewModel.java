@@ -51,11 +51,11 @@ public void createPolicy(String policeType)
 
   policy = new Policy(Integer.parseInt(policyNr.getValue()),String.valueOf(policeType),
       Integer.parseInt(price.getValue()),Integer.parseInt(deductible.getValue()), String.valueOf(coverage.getValue()),customerNo);
-
+  model.addPolicy(policy);
 }
 public void setCustomerNo(ObservableList list)
 {
-  customerNo = Integer.parseInt((String)list.get(5));
+  customerNo = Integer.parseInt((String)list.get(4));
 }
 public boolean checker()
 {

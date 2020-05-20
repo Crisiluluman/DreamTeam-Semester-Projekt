@@ -1,6 +1,6 @@
 package client.view.DamageEmployee.CreateDamage;
 
-import client.model.Damage.Damage;
+import shared.Damage;
 import client.model.Model;
 import shared.Policy;
 import javafx.beans.property.SimpleStringProperty;
@@ -8,9 +8,7 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ChoiceBox;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
+import java.rmi.RemoteException;
 import java.util.regex.Pattern;
 
 public class CreateDamageViewModel {
@@ -74,6 +72,10 @@ public class CreateDamageViewModel {
 
   public void onClick(String policeType)
   {
+
+    damage = new Damage(policy.getPoliceNo(), policeType,Double.parseDouble(expensesTextfield.getValue()),Integer.parseInt(damageNoTextfield.getValue()), String.valueOf(infoTextArea.getValue()));
+    clearLabels();
+    model.addDamage(policy,damage);
   }
 
   public void clearLabels()
@@ -105,42 +107,6 @@ public class CreateDamageViewModel {
     }
 
     return true;
-  }
-
-  public void saveToDB()
-  {
-
-    Connection connection = null;
-    Statement statement = null;
-
-    System.out.println("Test 1");
-
-    try
-    {
-
-      Class.forName("org.postgresql.Driver");
-      System.out.println("Test2");
-      connection = DriverManager
-          .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres",
-              "qawsedrf123");
-      System.out.println("Test2");
-      statement = connection.createStatement();
-      System.out.println("Test2");
-      String sql = "INSERT INTO \"Damage\".damage values(" + damage.getPoliceNo() + "," + "'" + damage.getPoliceType() + "'"  + "," + damage.getExpenses() + "," + damage.getDamageNo() + "," + "'" + damage.getInfo() + "'" + ");";
-      System.out.println("Test2");
-
-
-      statement.executeUpdate(sql);
-      statement.close();
-      connection.close();
-    }
-    catch (Exception e)
-    {
-      System.err.println(e.getClass().getName() + ": " + e.getMessage());
-      System.exit(0);
-
-    }
-    System.out.println("Insert to Database ok!");
   }
 
   public void setFields(ObservableList list)

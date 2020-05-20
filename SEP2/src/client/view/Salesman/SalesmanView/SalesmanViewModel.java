@@ -5,13 +5,13 @@ import client.model.Model;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.beans.value.ObservableValue;
+import javafx.scene.control.TableColumn;
 import javafx.util.Callback;
 import shared.Customer;
 
@@ -89,6 +89,7 @@ public class SalesmanViewModel
   public void Delete(TableView TV)
   {
     int selected = TV.getSelectionModel().getSelectedIndex();
+    ObservableList list = rows.get(selected);
     if (selected != -1)
     {
       Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -98,7 +99,7 @@ public class SalesmanViewModel
 
       Optional<ButtonType> result = alert.showAndWait();
       if (result.get() == ButtonType.OK){
-        //her kalder vi på metoden som sletter customer fra databasen
+       model.deleteCustomer(Integer.parseInt((String) list.get(3)));
       } else {
         //gør ingenting
       }

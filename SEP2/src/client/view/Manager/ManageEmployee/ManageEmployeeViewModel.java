@@ -96,7 +96,9 @@ public class ManageEmployeeViewModel
   }
   public void Delete(TableView TV)
   {
+
     int selected = TV.getSelectionModel().getSelectedIndex();
+    ObservableList list = rows.get(selected);
     if (selected != -1)
     {
       Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -104,9 +106,11 @@ public class ManageEmployeeViewModel
       alert.setHeaderText("Deletion of a Employee");
       alert.setContentText("Are you sure you want to delete this Employee?");
 
+
       Optional<ButtonType> result = alert.showAndWait();
       if (result.get() == ButtonType.OK){
         //her kalder vi på metoden som sletter en employee fra databasen
+        model.deleteEmployee(Integer.parseInt((String) list.get(2)));
       } else {
         //gør ingenting
       }

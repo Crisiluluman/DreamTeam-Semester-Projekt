@@ -43,6 +43,7 @@ public class PolicyHandler implements PolicyData
 
   @Override public void deletePolicyData(Policy policy)
   {
-
+    String sql = "Delete from \"insurance\".policy where customerno =" + "'" + policy.getPoliceNo() + "'" +";";
+    connection.AddToDB(sql);
   }
 }

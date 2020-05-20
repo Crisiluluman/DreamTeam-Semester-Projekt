@@ -34,7 +34,7 @@ public class DEPoliciesViewModel
 
     public void setCustomerNo(ObservableList list)
     {
-        customerNo = Integer.parseInt((String) list.get(5));
+        customerNo = Integer.parseInt((String) list.get(4));
     }
     public void readPolicy(TableView TV,int customerNo)
     {

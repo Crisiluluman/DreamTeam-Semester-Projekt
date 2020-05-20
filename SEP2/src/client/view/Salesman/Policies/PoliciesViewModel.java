@@ -31,7 +31,7 @@ public class PoliciesViewModel
   }
 public void setCustomerNo(ObservableList list)
 {
-  customerNo = Integer.parseInt((String) list.get(0));
+  customerNo = Integer.parseInt((String) list.get(4));
 }
 public int getCustomerNo()
 {

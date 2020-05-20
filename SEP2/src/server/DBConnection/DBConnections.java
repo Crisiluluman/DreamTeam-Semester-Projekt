@@ -1,13 +1,8 @@
 package server.DBConnection;
 
-import client.model.Damage.Damage;
-import client.model.DamageEmployee.DamageEmployee;
-import client.model.Manager.Manager;
+import shared.*;
 import client.model.Salesman.Salesman;
-import shared.Employee;
-import shared.Policy;
 import javafx.collections.ObservableList;
-import shared.Customer;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -29,8 +24,8 @@ public class DBConnections
       System.out.println("før");
       connection = DriverManager
 
-          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres",
-              "ybf56qka");
+          .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres",
+              "1234");
       System.out.println("efter");
       statement = connection.createStatement();
 
@@ -212,6 +207,7 @@ public class DBConnections
     System.out.println(list);
     return list;
   }
+
 
   public void updateEmployee(){}
 
