@@ -11,16 +11,17 @@ public class Policy implements Serializable
   private int price;
   private int deductible;
   private String coverage;
-  private Customer customer; //todo insert customerno?
+  private int customerNo;
 
 
-  public Policy(int policeNo,String policeType, int price, int deductible, String coverage/* Customer customer*/)
+  public Policy(int policeNo,String policeType, int price, int deductible, String coverage,int customerNo)
   {
     this.policeNo = policeNo;
     this.policeType=policeType;
     this.price = price;
     this.deductible = deductible;
     this.coverage = coverage;
+    this.customerNo=customerNo;
 
   }
 
@@ -37,6 +38,11 @@ public class Policy implements Serializable
   public int getDeductible()
   {
     return deductible;
+  }
+
+  public int getCustomerNo()
+  {
+    return customerNo;
   }
 
   public String getCoverage()

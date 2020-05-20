@@ -14,7 +14,7 @@ public interface Client extends Subject
   void start();
   void createCustomer(Customer customer) throws RemoteException;
   List<Customer> readCustomer();
-  List<Policy> readPolicy();
+  List<Policy> readPolicy(int customerNo);
   List<Employee> readEmployee();
   List<Damage> readDamage(int policeno);
 }

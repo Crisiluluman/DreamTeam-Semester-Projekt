@@ -11,7 +11,7 @@ public interface ServerModelInterface
 {
    void addCustomer(Customer customer);
    List<Customer> readCustomers();
-   List<Policy> readPolicy();
+   List<Policy> readPolicy(int custonerNo);
    List<Employee> readEmployee();
    List<Damage> readDamage(int policeno);
 }

@@ -54,6 +54,14 @@ public void onSelect()
   vh.openEditManageCustomer(Data);
 }
 }
+public void onPolicies()
+{
+  ObservableList Data = svm.editSelect(customerTableView);
+  if (Data != null)
+  {
+    vh.openSPolicies(Data);
+  }
+}
 
 public void onDelete()
 {

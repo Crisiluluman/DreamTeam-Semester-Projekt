@@ -25,6 +25,7 @@
             <Button fx:id="searchButton" layoutX="433.0" layoutY="14.0" mnemonicParsing="false" text="Search" />
             <Button fx:id="selectButton" layoutX="525.0" layoutY="265.0" mnemonicParsing="false" onAction="#onSelect" text="Select" />
             <Button fx:id="deleteButton" layoutX="458.0" layoutY="265.0" mnemonicParsing="false" onAction="#onDelete" text="Delete" />
+            <Button layoutX="386.0" layoutY="265.0" mnemonicParsing="false" onAction="#onPolicies" text="Policies" />
          </children>
       </Pane>
    </center>

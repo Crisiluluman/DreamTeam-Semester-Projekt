@@ -92,11 +92,11 @@ public class InsuranceClientImpl implements InsuranceClient, Client
     return null;
   }
 
-  @Override public List<Policy> readPolicy()
+  @Override public List<Policy> readPolicy(int customerNo)
   {
     try
     {
-      return server.readPolicy();
+      return server.readPolicy(customerNo);
     }
     catch (RemoteException e)
     {

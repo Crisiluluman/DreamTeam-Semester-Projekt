@@ -11,7 +11,7 @@ public interface Model
 {
   void createCustomer(Customer customer);
   List<Customer> readCustomer();
-  List<Policy> readPolicy();
+  List<Policy> readPolicy(int customerNo);
   List<Employee> readEmployee();
   List<Damage> readDamage(int policeno);
 }

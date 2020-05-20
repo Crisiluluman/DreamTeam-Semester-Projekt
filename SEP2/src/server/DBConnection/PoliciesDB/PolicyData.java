@@ -8,6 +8,6 @@ public interface PolicyData
 {
   void addPolicyData(Policy policy);
   void updatePolicyData(Policy policy, Policy policyOld);
-  List<Policy> readPolicyData();
+  List<Policy> readPolicyData(int customerNo);
   void deletePolicyData(Policy policy);
 }

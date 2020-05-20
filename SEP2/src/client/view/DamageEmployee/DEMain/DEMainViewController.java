@@ -36,7 +36,7 @@ public class DEMainViewController implements viewController {
         ObservableList data = dmv.editSelect(view);
         if (data != null)
         {
-            vh.openView("DEPolicies");
+            vh.openDEPolicies(data);
         }
     }
 

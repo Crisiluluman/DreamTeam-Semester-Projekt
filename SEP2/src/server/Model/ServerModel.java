@@ -60,9 +60,9 @@ public class ServerModel implements ServerModelInterface
     return customerhandler.readCustomerData();
   }
 
-  @Override public List<Policy> readPolicy()
+  @Override public List<Policy> readPolicy(int customerNo)
   {
-    return policyHandler.readPolicyData();
+    return policyHandler.readPolicyData(customerNo);
   }
 
   @Override public List<Employee> readEmployee()

@@ -17,7 +17,7 @@ public interface InsuranceServer extends Remote
   void addCustomer(Customer customer) throws RemoteException;
 //  void addEmployee(Employee employee) throws RemoteException;
   List<Customer> readCustomers() throws RemoteException;
-  List<Policy> readPolicy() throws RemoteException;
+  List<Policy> readPolicy(int customerNo) throws RemoteException;
   List<Employee> readEmployee() throws RemoteException;
   List<Damage> readDamage(int policeno) throws RemoteException;
 }

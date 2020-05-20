@@ -115,8 +115,9 @@ public class DBConnections
         int price = rs.getInt("price");
         int deductible = rs.getInt("deductible");
         String coverage = rs.getString("coverage");
+        int customerNo = rs.getInt("customerno");
 
-       Policy policy = new Policy(policyNo,type,price,deductible,coverage);
+       Policy policy = new Policy(policyNo,type,price,deductible,coverage,customerNo);
         list.add(policy);
       }
     }
