@@ -77,6 +77,6 @@ public class Policy implements Serializable
         "Price: " + getPrice() + "\n" +
         "Deductible's: " + getDeductible() + "\n" +
         "Coverage: " + getCoverage() + "\n" +
-        "\n";
+        "Customer number: " + getCustomerNo() + "\n";
   }
 }

@@ -94,10 +94,10 @@ public class InsuranceServerImpl implements InsuranceServer
 
   // damage
 
-  @Override public void addDamage(Policy policy, Damage damage)
+  @Override public void addDamage(Damage damage)
       throws RemoteException
   {
-    serverModel.addDamage(policy, damage);
+    serverModel.addDamage(damage);
   }
 
   @Override public void deleteDamage(int damageno) throws RemoteException

@@ -75,9 +75,9 @@ public class ServerModel implements ServerModelInterface
 
   // Damage
 
-  @Override public void addDamage(Policy policy, Damage damage)
+  @Override public void addDamage(Damage damage)
   {
-    damageHandler.addDamageData(policy, damage);
+    damageHandler.addDamageData(damage);
   }
   // Policy
   @Override public void addPolicy(Policy policy)

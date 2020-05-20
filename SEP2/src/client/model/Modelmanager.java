@@ -6,7 +6,6 @@ import shared.Policy;
 import client.networking.Client;
 import shared.Customer;
 
-import java.rmi.RemoteException;
 import java.util.List;
 
 public class Modelmanager implements Model
@@ -50,9 +49,9 @@ public class Modelmanager implements Model
     client.deletePolicy(policyno);
   }
 
-  @Override public void addDamage(Policy policy, Damage damage)
+  @Override public void addDamage(Damage damage)
   {
-    client.addDamage(policy, damage);
+    client.addDamage(damage);
   }
 
   @Override public void deleteDamage(int damageno)

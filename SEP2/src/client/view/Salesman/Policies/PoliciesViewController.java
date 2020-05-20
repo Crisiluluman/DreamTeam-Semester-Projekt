@@ -36,11 +36,8 @@ public class PoliciesViewController implements viewController
   }
   public void onCreatePolicy()
   {
-    ObservableList data = pvm.editSelect(tableview);
-    if (data != null)
-    {
-      vh.openEditSEditPolice(data);
-    }
+    vh.openView("CreatePolicy");
+
   }
   public void onSelect()
   {

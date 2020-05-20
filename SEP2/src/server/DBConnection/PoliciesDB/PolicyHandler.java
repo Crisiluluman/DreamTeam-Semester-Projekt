@@ -16,10 +16,13 @@ public class PolicyHandler implements PolicyData
 
   @Override public void addPolicyData(Policy policy)
   {
-    String sql = "INSERT INTO \"insurance\".policy (type, price, deductible, coverage) values(" + "'"+ policy.getPoliceType() +"'"+ ","
+    System.out.println(policy.getCustomerNo());
+    String sql = "INSERT INTO \"insurance\".policy (type, price, deductible, coverage, customerno) values(" + "'"+ policy.getPoliceType() +"'"+ ","
         + policy.getPrice()+","
         + policy.getDeductible()+","
-        +"'"+ policy.getCoverage()+"'" +");";
+        +"'"+ policy.getCoverage()+"'" + ","
+        +policy.getCustomerNo() +
+        ");";
     connection.AddToDB(sql);
   }
 

@@ -77,7 +77,7 @@ public class CreateDamageViewController implements viewController {
     {
         if (cdv.checker())
         {
-            cdv.onClick((String) policyDropdown.getValue());
+            cdv.onClick();
             cdv.clearTextfields();
             cdv.clearLabels();
             vh.openView("DEPolicies");

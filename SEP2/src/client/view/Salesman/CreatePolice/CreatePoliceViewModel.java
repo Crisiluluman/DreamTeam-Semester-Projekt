@@ -52,6 +52,7 @@ public void createPolicy(String policeType)
   policy = new Policy(Integer.parseInt(policyNr.getValue()),String.valueOf(policeType),
       Integer.parseInt(price.getValue()),Integer.parseInt(deductible.getValue()), String.valueOf(coverage.getValue()),customerNo);
   model.addPolicy(policy);
+  System.out.println(policy + "Det er den!");
 }
 public void setCustomerNo(ObservableList list)
 {

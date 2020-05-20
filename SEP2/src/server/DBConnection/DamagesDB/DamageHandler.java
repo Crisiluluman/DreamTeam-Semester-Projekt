@@ -1,9 +1,6 @@
 package server.DBConnection.DamagesDB;
 
 import shared.Damage;
-import shared.Policy;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TableView;
 import server.DBConnection.DBConnections;
 
 import java.util.List;
@@ -17,13 +14,14 @@ public class DamageHandler implements DamageData
     connection = new DBConnections();
   }
 
-  @Override public void addDamageData(Policy policy, Damage damage)
+  @Override public void addDamageData(Damage damage)
   {
-    String sql = "INSERT INTO \"insurance\".damage (policyNo, expenses, info, dPolicyType) values(" + policy.getPoliceNo() + ","
+    System.out.println(damage);
+    String sql = "INSERT INTO \"insurance\".damage (policyNo, expenses, info, dPolicyType) values(" + damage.getPoliceNo() + ","
 
-        + policy.getPrice()+","
-        + policy.getDeductible()+","
-        +"'"+ policy.getCoverage()+"'" +");";
+        + damage.getExpenses()+","
+        + damage.getInfo()+","
+        +"'"+ damage.getPoliceType()+"'" +");";
     connection.AddToDB(sql);
   }
 

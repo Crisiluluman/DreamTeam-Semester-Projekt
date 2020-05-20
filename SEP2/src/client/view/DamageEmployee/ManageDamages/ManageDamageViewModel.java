@@ -77,6 +77,16 @@ public void setPoliceNo(ObservableList list)
     TV.setItems(rows);
   }
 
+  public ObservableList editSelect(TableView TV)
+  {
+    int selected = TV.getSelectionModel().getFocusedIndex();
+    if (selected != -1)
+    {
+      return rows.get(selected);
+    }
+    return null;
+  }
+
   public void Delete(TableView TV)
   {
 

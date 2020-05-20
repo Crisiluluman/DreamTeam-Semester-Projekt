@@ -15,7 +15,7 @@ public interface ServerModelInterface
    void deleteCustomer(int customerNo);
    void addPolicy(Policy policy);
    void deletePolicy(int policyno);
-   void addDamage(Policy policy, Damage damage);
+   void addDamage(Damage damage);
    void deleteDamage(int damageno);
 
    List<Customer> readCustomers();

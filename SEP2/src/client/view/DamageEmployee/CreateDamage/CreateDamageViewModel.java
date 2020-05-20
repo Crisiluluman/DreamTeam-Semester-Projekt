@@ -8,14 +8,14 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ChoiceBox;
 
-import java.rmi.RemoteException;
 import java.util.regex.Pattern;
 
 public class CreateDamageViewModel {
 
     private Model model;
     private Damage damage;
-    private Policy policy;
+    private String type;
+    private int polno;
 
     private StringProperty policyTypeDropdown;
     private StringProperty expensesTextfield;
@@ -70,12 +70,19 @@ public class CreateDamageViewModel {
     return damageNoLabel;
   }
 
-  public void onClick(String policeType)
+  public void setOnClick(ObservableList list)
+  {
+    type = (String) list.get(1);
+    polno = Integer.parseInt((String) list.get(0));
+
+  }
+
+  public void onClick()
   {
 
-    damage = new Damage(policy.getPoliceNo(), policeType,Double.parseDouble(expensesTextfield.getValue()),Integer.parseInt(damageNoTextfield.getValue()), String.valueOf(infoTextArea.getValue()));
+    damage = new Damage( polno, type,Double.parseDouble(expensesTextfield.getValue()),Integer.parseInt(damageNoTextfield.getValue()), String.valueOf(infoTextArea.getValue()));
     clearLabels();
-    model.addDamage(policy,damage);
+    model.addDamage(damage);
   }
 
   public void clearLabels()

@@ -61,6 +61,7 @@ currentScene = new Scene(new Region());
 openView("DEMain");
   }
 
+
   public void openEditSEditPolice(ObservableList list)
 {
   vmf.getSEditPolicyViewModel().setFields(list);
@@ -87,6 +88,7 @@ openView("DEMain");
   public void openCreateDamage(ObservableList list)
   {
     vmf.getCreateDamageViewModel().setFields(list);
+    vmf.getCreateDamageViewModel().setOnClick(list);
     openView("CreateDamage");
   }
   public void openManageDamage(ObservableList list)

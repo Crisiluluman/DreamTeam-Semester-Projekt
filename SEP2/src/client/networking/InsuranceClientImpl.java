@@ -161,11 +161,11 @@ public class InsuranceClientImpl implements InsuranceClient, Client
     }
   }
 
-  @Override public void addDamage(Policy policy, Damage damage)
+  @Override public void addDamage(Damage damage)
   {
     try
     {
-      server.addDamage(policy,damage);
+      server.addDamage(damage);
     }
     catch (RemoteException e)
     {

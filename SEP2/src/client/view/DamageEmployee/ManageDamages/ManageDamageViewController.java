@@ -4,6 +4,7 @@ import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.view.Manager.ManageEmployee.ManageEmployeeViewModel;
 import client.view.viewController;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Region;
@@ -32,5 +33,14 @@ ManageDamageViewModel mdvm;
   public void onBack()
   {
     vh.openView("DEPolicies");
+  }
+
+  public void onCreate()
+  {
+    ObservableList data = mdvm.editSelect(view);
+    if (data != null)
+    {
+      vh.openCreateDamage(data);
+    }
   }
 }
