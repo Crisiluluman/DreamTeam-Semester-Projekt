@@ -35,9 +35,9 @@ public class PolicyHandler implements PolicyData
     connection.AddToDB(sql);
   }
 
-  @Override public List<Policy> readPolicyData()
+  @Override public List<Policy> readPolicyData(int customerNo)
   {
-    String sql = "SELECT * FROM \"insurance\".Policy;";
+    String sql = "SELECT * FROM \"insurance\".Policy where customerno='"+customerNo+"';";
     return connection.fillPolicyTableDB(sql);
   }
 

@@ -55,7 +55,7 @@ public class DBConnections
     {
       Class.forName("org.postgresql.Driver");
       c = DriverManager
-          .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres", "1234");
+          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1122");
       c.setAutoCommit(false);
       System.out.println("Opened database successfully");
 
@@ -95,7 +95,7 @@ public class DBConnections
     {
       Class.forName("org.postgresql.Driver");
       c = DriverManager
-          .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres", "1234");
+          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1122");
       c.setAutoCommit(false);
       System.out.println("Opened database successfully");
 
@@ -110,8 +110,9 @@ public class DBConnections
         int price = rs.getInt("price");
         int deductible = rs.getInt("deductible");
         String coverage = rs.getString("coverage");
+        int customerNo = rs.getInt("customerno");
 
-       Policy policy = new Policy(policyNo,type,price,deductible,coverage);
+       Policy policy = new Policy(policyNo,type,price,deductible,coverage,customerNo);
         list.add(policy);
       }
     }
@@ -134,7 +135,7 @@ public class DBConnections
   {
     Class.forName("org.postgresql.Driver");
     c = DriverManager
-        .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres", "1234");
+        .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1122");
     c.setAutoCommit(false);
     System.out.println("Opened database successfully");
 
@@ -177,7 +178,7 @@ public class DBConnections
     {
       Class.forName("org.postgresql.Driver");
       c = DriverManager
-          .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres", "1234");
+          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1122");
       c.setAutoCommit(false);
       System.out.println("Opened database successfully");
 

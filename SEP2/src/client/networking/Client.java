@@ -19,7 +19,7 @@ public interface Client extends Subject
   void deleteDamage(int damageno);
 
   List<Customer> readCustomer();
-  List<Policy> readPolicy();
+  List<Policy> readPolicy(int customerNo);
   List<Employee> readEmployee();
   List<Damage> readDamage(int policeno);
 }

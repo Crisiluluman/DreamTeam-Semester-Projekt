@@ -101,7 +101,6 @@ public class InsuranceClientImpl implements InsuranceClient, Client
   {
     try
     {
-      System.out.println(server.readCustomers());
       return server.readCustomers();
 
     }
@@ -111,7 +110,6 @@ public class InsuranceClientImpl implements InsuranceClient, Client
     }
     return null;
   }
-
   @Override public void deleteCustomer(int customerNo)
   {
     try
@@ -138,12 +136,11 @@ public class InsuranceClientImpl implements InsuranceClient, Client
       e.printStackTrace();
     }
   }
-
-  @Override public List<Policy> readPolicy()
+  @Override public List<Policy> readPolicy(int customerNo)
   {
     try
     {
-      return server.readPolicy();
+      return server.readPolicy(customerNo);
     }
     catch (RemoteException e)
     {
@@ -175,7 +172,6 @@ public class InsuranceClientImpl implements InsuranceClient, Client
       e.printStackTrace();
     }
   }
-
   @Override public List<Damage> readDamage(int policeno)
   {
     try

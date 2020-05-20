@@ -21,7 +21,7 @@ public class PoliciesViewController implements viewController
     this.vh = vh;
     pvm = vmf.getPoliciesViewModel();
     this.root = root;
-   pvm.readPolicy(tableview);
+   pvm.readPolicy(tableview,pvm.getCustomerNo());
 
   }
 
@@ -32,11 +32,15 @@ public class PoliciesViewController implements viewController
 
   public void onBack()
   {
-    vh.openView("ManageCustomer");
+    vh.openView("Salesman");
   }
   public void onCreatePolicy()
   {
-    vh.openView("CreatePolicy");
+    ObservableList data = pvm.editSelect(tableview);
+    if (data != null)
+    {
+      vh.openEditSEditPolice(data);
+    }
   }
   public void onSelect()
   {

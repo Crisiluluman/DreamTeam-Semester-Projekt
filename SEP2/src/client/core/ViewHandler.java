@@ -19,6 +19,7 @@ import client.view.Salesman.Policies.PoliciesViewController;
 import client.view.Salesman.SEditPolicy.SEditPolicyViewController;
 import client.view.Salesman.SalesmanView.SalesmanViewController;
 import javafx.application.Application;
+import javafx.beans.Observable;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -93,6 +94,17 @@ openView("DEMain");
     vmf.getDamageViewModel().setPoliceNo(list);
     openView("ManageDamage");
   }
+  public void openSPolicies(ObservableList list)
+  {
+    vmf.getPoliciesViewModel().setCustomerNo(list);
+    vmf.getCreatePoliceViewModel().setCustomerNo(list);
+    openView("Policies");
+  }
+public void openDEPolicies(ObservableList list)
+{
+  vmf.getDEPoliciesViewModel().setCustomerNo(list);
+  openView("DEPolicies");
+}
 
   public void openView(String id)
   {

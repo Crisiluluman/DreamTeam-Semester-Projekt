@@ -48,4 +48,9 @@ public class SEditPolicyViewController implements viewController {
     public Region getRoot() {
         return root;
     }
+
+    public void onBack()
+    {
+        vh.openView("Policies");
+    }
 }

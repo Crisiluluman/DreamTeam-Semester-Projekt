@@ -33,7 +33,6 @@
             <TextField fx:id="manageCustomerCPR" layoutX="147.0" layoutY="167.0" prefHeight="25.0" prefWidth="210.0" />
             <TextField fx:id="manageCustomerHousehold" layoutX="147.0" layoutY="206.0" prefHeight="25.0" prefWidth="210.0" />
             <Button fx:id="manageCustomerSaveButton" layoutX="307.0" layoutY="242.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0" text="Save" />
-            <Button fx:id="manageCustomerPolicesButton" layoutX="147.0" layoutY="242.0" mnemonicParsing="false" onAction="#onPolicies" text="Policies" />
          </children>
       </Pane>
    </center>

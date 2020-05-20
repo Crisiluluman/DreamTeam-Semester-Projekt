@@ -1,6 +1,7 @@
 package client.view.Salesman.Policies;
 
 import client.model.Model;
+import javafx.beans.Observable;
 import shared.Policy;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ObservableValue;
@@ -20,6 +21,7 @@ public class PoliciesViewModel
   private Model model;
   ObservableList<ObservableList> rows;
   ObservableList<String> row;
+  private int customerNo;
 
 
   public PoliciesViewModel(Model model)
@@ -27,7 +29,14 @@ public class PoliciesViewModel
     this.model = model;
 
   }
-
+public void setCustomerNo(ObservableList list)
+{
+  customerNo = Integer.parseInt((String) list.get(4));
+}
+public int getCustomerNo()
+{
+  return customerNo;
+}
 
   public ObservableList editSelect(TableView TV)
   {
@@ -54,9 +63,9 @@ public class PoliciesViewModel
     TV.getColumns().addAll(col);
   }
 
-  public void readPolicy(TableView TV)
+  public void readPolicy(TableView TV,int customerNo)
   {
-    List<Policy> policies = model.readPolicy();
+    List<Policy> policies = model.readPolicy(customerNo);
     ObservableList<String> row;
     rows = FXCollections.observableArrayList();
 
@@ -66,6 +75,7 @@ public class PoliciesViewModel
     setUpColumn(TV, "price",2);
     setUpColumn(TV, "deductible",3);
     setUpColumn(TV, "coverage",4);
+    setUpColumn(TV,"customerNo",5);
 
 
     for (int i = 0; i < policies.size()  ; i++)
@@ -76,6 +86,7 @@ public class PoliciesViewModel
       row.add(String.valueOf(policies.get(i).getPrice()));
       row.add(String.valueOf(policies.get(i).getDeductible()));
       row.add(policies.get(i).getCoverage());
+      row.add(String.valueOf(policies.get(i).getCustomerNo()));
       rows.add(row);
     }
     TV.setItems(rows);

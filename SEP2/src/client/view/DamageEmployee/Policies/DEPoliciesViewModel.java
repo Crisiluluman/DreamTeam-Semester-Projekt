@@ -24,15 +24,21 @@ public class DEPoliciesViewModel
     private Model model;
     ObservableList<ObservableList> rows;
     ObservableList<String> row;
+    private int customerNo;
 
     public DEPoliciesViewModel(Model model)
     {
         this.model = model;
 
     }
-    public void readPolicy(TableView TV)
+
+    public void setCustomerNo(ObservableList list)
     {
-        List<Policy> policies = model.readPolicy();
+        customerNo = Integer.parseInt((String) list.get(4));
+    }
+    public void readPolicy(TableView TV,int customerNo)
+    {
+        List<Policy> policies = model.readPolicy(customerNo);
         ObservableList<String> row;
         rows = FXCollections.observableArrayList();
 
@@ -42,6 +48,7 @@ public class DEPoliciesViewModel
         setUpColumn(TV, "price",2);
         setUpColumn(TV, "deductible",3);
         setUpColumn(TV, "coverage",4);
+        setUpColumn(TV,"customerNo",5);
 
 
         for (int i = 0; i < policies.size()  ; i++)
@@ -52,6 +59,7 @@ public class DEPoliciesViewModel
             row.add(String.valueOf(policies.get(i).getPrice()));
             row.add(String.valueOf(policies.get(i).getDeductible()));
             row.add(policies.get(i).getCoverage());
+            row.add(String.valueOf(policies.get(i).getCustomerNo()));
             rows.add(row);
         }
         TV.setItems(rows);
@@ -78,5 +86,10 @@ public class DEPoliciesViewModel
             return rows.get(selected);
         }
         return null;
+    }
+
+    public int getCustomerNo()
+    {
+        return customerNo;
     }
 }

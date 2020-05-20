@@ -33,9 +33,9 @@ public class ServerModel implements ServerModelInterface
     employeehandler.addEmployeeData(employee);
   }
 
-  @Override public List<Employee> readEmployee()
+  public void updateEmployee(Employee employee)
   {
-    return employeehandler.readEmployeeData();
+   // employeehandler.updateEmployeeData(employee); TODO: Fix this
   }
 
   @Override public void deleteEmployee(int cpr)
@@ -54,21 +54,18 @@ public class ServerModel implements ServerModelInterface
     return customerhandler.readCustomerData();
   }
 
+  @Override public List<Policy> readPolicy(int customerNo)
+  {
+    return policyHandler.readPolicyData(customerNo);
+  }
+
+  @Override public List<Employee> readEmployee()
+  {
+    return employeehandler.readEmployeeData();
+  }
   @Override public void deleteCustomer(int customerNo)
   {
-   customerhandler.deleteCustomerData(customerNo);
-  }
-
-
-  // Policy
-  @Override public void addPolicy(Policy policy)
-  {
-
-    policyHandler.addPolicyData(policy);
-  }
-  @Override public List<Policy> readPolicy()
-  {
-    return policyHandler.readPolicyData();
+    customerhandler.deleteCustomerData(customerNo);
   }
 
   @Override public void deletePolicy(int policyno)
@@ -82,7 +79,12 @@ public class ServerModel implements ServerModelInterface
   {
     damageHandler.addDamageData(policy, damage);
   }
+  // Policy
+  @Override public void addPolicy(Policy policy)
+  {
 
+    policyHandler.addPolicyData(policy);
+  }
   @Override public List<Damage> readDamage(int policeno)
   {
     return damageHandler.readDamageData(policeno);

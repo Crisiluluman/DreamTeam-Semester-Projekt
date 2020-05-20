@@ -1,6 +1,7 @@
 package client.view.Salesman.CreatePolice;
 
 import client.model.Model;
+import javafx.collections.ObservableList;
 import shared.Policy;
 import javafx.beans.property.*;
 
@@ -24,7 +25,7 @@ public class CreatePoliceViewModel implements PropertyChangeListener
   private StringProperty LabelCoverage;
 
   private Policy policy;
-
+  private int customerNo;
 
 
   public CreatePoliceViewModel(Model model)
@@ -41,6 +42,7 @@ public class CreatePoliceViewModel implements PropertyChangeListener
     LabelPrice = new SimpleStringProperty();
     LabelDeductible = new SimpleStringProperty();
     LabelCoverage = new SimpleStringProperty();
+
   }
 
 
@@ -48,10 +50,13 @@ public void createPolicy(String policeType)
 {
 
   policy = new Policy(Integer.parseInt(policyNr.getValue()),String.valueOf(policeType),
-      Integer.parseInt(price.getValue()),Integer.parseInt(deductible.getValue()), String.valueOf(coverage.getValue()));
+      Integer.parseInt(price.getValue()),Integer.parseInt(deductible.getValue()), String.valueOf(coverage.getValue()),customerNo);
   model.addPolicy(policy);
 }
-
+public void setCustomerNo(ObservableList list)
+{
+  customerNo = Integer.parseInt((String)list.get(4));
+}
 public boolean checker()
 {
  clear();

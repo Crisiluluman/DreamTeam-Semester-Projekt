@@ -60,9 +60,9 @@ public class InsuranceServerImpl implements InsuranceServer
     return serverModel.readCustomers();
   }
 
-  @Override public List<Policy> readPolicy() throws RemoteException
+  @Override public List<Policy> readPolicy(int customerNo) throws RemoteException
   {
-    return serverModel.readPolicy();
+    return serverModel.readPolicy(customerNo);
   }
 
   @Override public List<Employee> readEmployee() throws RemoteException

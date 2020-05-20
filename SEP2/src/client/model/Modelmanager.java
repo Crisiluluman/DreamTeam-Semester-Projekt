@@ -65,9 +65,9 @@ public class Modelmanager implements Model
     return client.readCustomer();
   }
 
-  @Override public List<Policy> readPolicy()
+  @Override public List<Policy> readPolicy(int customerNo)
   {
-    return client.readPolicy();
+    return client.readPolicy(customerNo);
   }
 
   @Override public List<Employee> readEmployee()
