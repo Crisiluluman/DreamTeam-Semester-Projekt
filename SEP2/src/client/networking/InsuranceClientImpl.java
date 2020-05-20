@@ -71,11 +71,11 @@ public class InsuranceClientImpl implements InsuranceClient, Client
     return null;
   }
 
-  @Override public void deleteEmployee(Employee employee)
+  @Override public void deleteEmployee(int cpr)
   {
     try
     {
-      server.deleteEmployee(employee);
+      server.deleteEmployee(cpr);
     }
     catch (RemoteException e)
     {

@@ -115,9 +115,9 @@ public class EmployeeHandler implements EmployeeData
    // }
   }
 
-  @Override public void deleteEmployeeData(Employee employee)
+  @Override public void deleteEmployeeData(int cpr)
   {
-    String sql = "Delete from \"insurance\".employee where cpr =" + "'" + employee.getCPR() + "'" +";";
+    String sql = "Delete from \"insurance\".employee where cpr =" + "'" + cpr + "'" +";";
     connection.AddToDB(sql);
   }
 }

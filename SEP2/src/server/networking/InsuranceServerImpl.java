@@ -42,9 +42,9 @@ public class InsuranceServerImpl implements InsuranceServer
     serverModel.addEmployee(employee);
   }
 
-  @Override public void deleteEmployee(Employee employee) throws RemoteException
+  @Override public void deleteEmployee(int cpr) throws RemoteException
   {
-    serverModel.deleteEmployee(employee);
+    serverModel.deleteEmployee(cpr);
   }
 
 

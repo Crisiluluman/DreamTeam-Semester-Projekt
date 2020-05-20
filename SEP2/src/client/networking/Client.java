@@ -10,7 +10,7 @@ public interface Client extends Subject
   void start();
 
   void addEmployee(Employee employee);
-  void deleteEmployee(Employee employee);
+  void deleteEmployee(int cpr);
   void addCustomer(Customer customer);
   void deleteCustomer(Customer customer);
   void addPolicy(Policy policy);

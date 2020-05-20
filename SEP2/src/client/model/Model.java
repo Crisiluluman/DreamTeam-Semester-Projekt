@@ -13,7 +13,7 @@ import java.util.List;
 public interface Model
 {
   void addEmployee(Employee employee);
-  void deleteEmployee(Employee employee);
+  void deleteEmployee(int employee);
   void addCustomer(Customer customer);
   void deleteCustomer(Customer customer);
   void addPolicy(Policy policy);

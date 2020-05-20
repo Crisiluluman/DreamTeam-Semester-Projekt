@@ -24,8 +24,8 @@ public class DBConnections
       System.out.println("før");
       connection = DriverManager
 
-          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres",
-              "ybf56qka");
+          .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres",
+              "1234");
       System.out.println("efter");
       statement = connection.createStatement();
 

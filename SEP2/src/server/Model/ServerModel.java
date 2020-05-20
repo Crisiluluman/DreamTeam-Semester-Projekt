@@ -38,9 +38,9 @@ public class ServerModel implements ServerModelInterface
     return employeehandler.readEmployeeData();
   }
 
-  @Override public void deleteEmployee(Employee employee)
+  @Override public void deleteEmployee(int cpr)
   {
-    employeehandler.deleteEmployeeData(employee);
+    employeehandler.deleteEmployeeData(cpr);
   }
 
   // Customers
