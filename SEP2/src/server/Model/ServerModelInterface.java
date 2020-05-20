@@ -12,7 +12,7 @@ public interface ServerModelInterface
    void addEmployee(Employee employee);
    void deleteEmployee(int cpr);
    void addCustomer(Customer customer);
-   void deleteCustomer(Customer customer);
+   void deleteCustomer(int customerNo);
    void addPolicy(Policy policy);
    void deletePolicy(Policy policy);
    void addDamage(Policy policy, Damage damage);

@@ -9,7 +9,7 @@ public interface CustomerData
 {
   void addCustomerData(Customer customer);
   void updateCustomerData(Customer customer, Customer customerOld);
-  void deleteCustomerData(Customer customer);
+  void deleteCustomerData(int customerNo);
   List<Customer> readCustomerData();
 
 }

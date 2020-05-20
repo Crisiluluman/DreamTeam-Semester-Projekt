@@ -89,6 +89,7 @@ public class SalesmanViewModel
   public void Delete(TableView TV)
   {
     int selected = TV.getSelectionModel().getSelectedIndex();
+    ObservableList list = rows.get(selected);
     if (selected != -1)
     {
       Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -98,7 +99,7 @@ public class SalesmanViewModel
 
       Optional<ButtonType> result = alert.showAndWait();
       if (result.get() == ButtonType.OK){
-        //her kalder vi på metoden som sletter customer fra databasen
+       model.deleteCustomer(Integer.parseInt((String) list.get(3)));
       } else {
         //gør ingenting
       }

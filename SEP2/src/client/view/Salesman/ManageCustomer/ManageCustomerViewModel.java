@@ -24,14 +24,16 @@ public class ManageCustomerViewModel
     this.model = model;
   }
 
-public void setFields(ObservableList<String> list)
-{
-  customerNoTextField.setValue(String.valueOf(list.get(4)));
-  nameTextfield.setValue(list.get(0));
-  addressTextfield.setValue(list.get(1));
-  postcodeTextField.setValue(String.valueOf(list.get(2)));
-  cprnoTextfield.setValue(String.valueOf(list.get(3)));
-}
+  public void setFields(ObservableList<String> list)
+  {
+    customerNoTextField.setValue(String.valueOf(list.get(4)));
+    nameTextfield.setValue(list.get(0));
+    addressTextfield.setValue(list.get(1));
+    postcodeTextField.setValue(String.valueOf(list.get(2)));
+    cprnoTextfield.setValue(String.valueOf(list.get(3)));
+  }
+
+
 
   public StringProperty getNameTextfield()
   {

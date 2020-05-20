@@ -35,9 +35,9 @@ public class Modelmanager implements Model
     client.addCustomer(customer);
   }
 
-  @Override public void deleteCustomer(Customer customer)
+  @Override public void deleteCustomer(int customerNo)
   {
-    client.deleteCustomer(customer);
+    client.deleteCustomer(customerNo);
   }
 
   @Override public void addPolicy(Policy policy)

@@ -54,9 +54,9 @@ public class ServerModel implements ServerModelInterface
     return customerhandler.readCustomerData();
   }
 
-  @Override public void deleteCustomer(Customer customer)
+  @Override public void deleteCustomer(int customerNo)
   {
-   customerhandler.deleteCustomerData(customer);
+   customerhandler.deleteCustomerData(customerNo);
   }
 
 

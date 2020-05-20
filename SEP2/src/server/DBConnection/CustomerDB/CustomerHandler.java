@@ -32,9 +32,9 @@ public class CustomerHandler implements CustomerData
     connection.AddToDB(sql);
   }
 
-  @Override public void deleteCustomerData(Customer customer)
+  @Override public void deleteCustomerData(int customerNo)
   {
-    String sql = "Delete from \"insurance\".customer where customerno =" + "'" + customer.getCustomerNo() + "'" +";";
+    String sql = "Delete from \"insurance\".customer where customerno =" + "'" + customerNo + "'" +";";
     connection.AddToDB(sql);
   }
 
