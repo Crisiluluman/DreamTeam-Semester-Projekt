@@ -68,9 +68,9 @@ public class ServerModel implements ServerModelInterface
     customerhandler.deleteCustomerData(customerNo);
   }
 
-  @Override public void deletePolicy(Policy policy)
+  @Override public void deletePolicy(int policyno)
   {
-    policyHandler.deletePolicyData(policy);
+    policyHandler.deletePolicyData(policyno);
   }
 
   // Damage
@@ -90,8 +90,8 @@ public class ServerModel implements ServerModelInterface
     return damageHandler.readDamageData(policeno);
   }
 
-  @Override public void deleteDamage(Damage damage)
+  @Override public void deleteDamage(int damageno)
   {
-    damageHandler.deleteDamageData(damage);
+    damageHandler.deleteDamageData(damageno);
   }
 }

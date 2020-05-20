@@ -45,9 +45,9 @@ public class Modelmanager implements Model
     client.addPolicy(policy);
   }
 
-  @Override public void deletePolicy(Policy policy)
+  @Override public void deletePolicy(int policyno)
   {
-    client.deletePolicy(policy);
+    client.deletePolicy(policyno);
   }
 
   @Override public void addDamage(Policy policy, Damage damage)
@@ -55,9 +55,9 @@ public class Modelmanager implements Model
     client.addDamage(policy, damage);
   }
 
-  @Override public void deleteDamage(Damage damage)
+  @Override public void deleteDamage(int damageno)
   {
-    client.deleteDamage(damage);
+    client.deleteDamage(damageno);
   }
 
   @Override

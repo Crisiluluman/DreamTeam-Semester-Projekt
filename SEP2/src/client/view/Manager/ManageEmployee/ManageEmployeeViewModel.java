@@ -111,6 +111,7 @@ public class ManageEmployeeViewModel
       if (result.get() == ButtonType.OK){
         //her kalder vi på metoden som sletter en employee fra databasen
         model.deleteEmployee(Integer.parseInt((String) list.get(2)));
+        System.out.println("Employee deleted");
       } else {
         //gør ingenting
       }
