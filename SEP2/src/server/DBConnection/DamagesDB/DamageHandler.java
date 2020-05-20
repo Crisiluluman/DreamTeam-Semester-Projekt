@@ -18,9 +18,8 @@ public class DamageHandler implements DamageData
   {
     System.out.println(damage);
     String sql = "INSERT INTO \"insurance\".damage (policyNo, expenses, info, dPolicyType) values(" + damage.getPoliceNo() + ","
-
         + damage.getExpenses()+","
-        + damage.getInfo()+","
+        + "'" + damage.getInfo()+ "'" + ","
         +"'"+ damage.getPoliceType()+"'" +");";
     connection.AddToDB(sql);
   }
