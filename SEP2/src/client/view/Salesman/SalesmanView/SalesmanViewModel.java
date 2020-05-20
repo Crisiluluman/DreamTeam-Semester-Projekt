@@ -99,8 +99,8 @@ public class SalesmanViewModel
 
       Optional<ButtonType> result = alert.showAndWait();
       if (result.get() == ButtonType.OK){
-       model.deleteCustomer(Integer.parseInt((String) list.get(3)));
-        System.out.println("Customer deleted");
+       model.deleteCustomer(Integer.parseInt((String) list.get(4)));
+        System.out.println("deleted" + list.get(4));
       } else {
         //gør ingenting
       }

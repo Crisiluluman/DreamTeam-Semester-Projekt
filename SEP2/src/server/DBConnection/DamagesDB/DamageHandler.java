@@ -19,10 +19,11 @@ public class DamageHandler implements DamageData
 
   @Override public void addDamageData(Policy policy, Damage damage)
   {
-    String sql =
-        "INSERT INTO \"insurance\".damage values(" + damage.getPoliceType() + "," + "'" + damage.getPoliceType() + "'"
-            + "," + damage.getExpenses() + "," + damage.getDamageNo() + "," + "'" + damage
-            .getInfo() + "'" + ");";
+    String sql = "INSERT INTO \"insurance\".damage (policyNo, expenses, info, dPolicyType) values(" + policy.getPoliceNo() + ","
+
+        + policy.getPrice()+","
+        + policy.getDeductible()+","
+        +"'"+ policy.getCoverage()+"'" +");";
     connection.AddToDB(sql);
   }
 

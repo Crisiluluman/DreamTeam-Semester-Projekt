@@ -57,7 +57,7 @@ public class ViewHandler extends Application
   {
 primaryStage = stage;
 currentScene = new Scene(new Region());
-openView("Policies");
+openView("DEMain");
   }
 
   public void openEditSEditPolice(ObservableList list)

@@ -36,7 +36,7 @@ public class PoliciesViewController implements viewController
   }
   public void onCreatePolicy()
   {
-    vh.openView("CreatePolice");
+    vh.openView("CreatePolicy");
   }
   public void onSelect()
   {
