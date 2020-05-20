@@ -84,6 +84,7 @@ public class PoliciesViewModel
   public void Delete(TableView TV)
   {
     int selected = TV.getSelectionModel().getSelectedIndex();
+    ObservableList list = rows.get(selected);
     if (selected != -1)
     {
       Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -94,6 +95,8 @@ public class PoliciesViewModel
       Optional<ButtonType> result = alert.showAndWait();
       if (result.get() == ButtonType.OK){
         //her kalder vi på metoden som sletter policy fra databasen
+        model.deletePolicy(Integer.parseInt((String) list.get(0)));
+        System.out.println("Policy deleted");
       } else {
         //gør ingenting
       }

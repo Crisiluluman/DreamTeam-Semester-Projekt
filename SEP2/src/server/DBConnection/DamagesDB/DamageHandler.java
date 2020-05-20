@@ -41,9 +41,9 @@ public class DamageHandler implements DamageData
     return connection.fillDamageTableDB(sql,policeno);
   }
 
-  @Override public void deleteDamageData(Damage damage)
+  @Override public void deleteDamageData(int damageno)
   {
-    String sql = "Delete from \"insurance\".damage where damageno =" + "'" + damage.getDamageNo() + "'" +";";
+    String sql = "Delete from \"insurance\".damage where damageno =" + "'" + damageno + "'" +";";
     connection.AddToDB(sql);
   }
 }

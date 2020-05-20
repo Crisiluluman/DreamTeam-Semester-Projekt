@@ -9,5 +9,5 @@ public interface DamageData
   void addDamageData(Policy policy, Damage damage);
   void updateDamageData(Damage damage, Damage damageOld);
   List<Damage> readDamageData(int policeno);
-  void deleteDamageData(Damage damage);
+  void deleteDamageData(int damageno);
 }

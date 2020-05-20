@@ -1,5 +1,7 @@
 package client.view.DamageEmployee.ManageDamages;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import shared.*;
 import client.model.Model;
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -11,6 +13,7 @@ import javafx.scene.control.TableView;
 import javafx.util.Callback;
 
 import java.util.List;
+import java.util.Optional;
 
 public class ManageDamageViewModel
 {
@@ -72,6 +75,30 @@ public void setPoliceNo(ObservableList list)
       rows.add(row);
     }
     TV.setItems(rows);
+  }
+
+  public void Delete(TableView TV)
+  {
+
+    int selected = TV.getSelectionModel().getSelectedIndex();
+    ObservableList list = rows.get(selected);
+    if (selected != -1)
+    {
+      Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+      alert.setTitle("Confirmation Dialog");
+      alert.setHeaderText("Deletion of a Employee");
+      alert.setContentText("Are you sure you want to delete this Employee?");
+
+
+      Optional<ButtonType> result = alert.showAndWait();
+      if (result.get() == ButtonType.OK){
+        //her kalder vi på metoden som sletter en employee fra databasen
+        model.deleteDamage(Integer.parseInt((String) list.get(1)));
+        System.out.println("Damage deleted");
+      } else {
+        //gør ingenting
+      }
+    }
   }
 
 }

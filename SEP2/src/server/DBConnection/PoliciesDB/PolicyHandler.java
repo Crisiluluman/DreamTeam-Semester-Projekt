@@ -41,9 +41,9 @@ public class PolicyHandler implements PolicyData
     return connection.fillPolicyTableDB(sql);
   }
 
-  @Override public void deletePolicyData(Policy policy)
+  @Override public void deletePolicyData(int policyno)
   {
-    String sql = "Delete from \"insurance\".policy where customerno =" + "'" + policy.getPoliceNo() + "'" +";";
+    String sql = "Delete from \"insurance\".policy where policyNo =" + "'" + policyno + "'" +";";
     connection.AddToDB(sql);
   }
 }

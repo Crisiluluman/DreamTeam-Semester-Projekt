@@ -14,9 +14,9 @@ public interface Client extends Subject
   void addCustomer(Customer customer);
   void deleteCustomer(int customerNo);
   void addPolicy(Policy policy);
-  void deletePolicy(Policy policy);
+  void deletePolicy(int policyno);
   void addDamage(Policy policy, Damage damage);
-  void deleteDamage(Damage damage);
+  void deleteDamage(int damageno);
 
   List<Customer> readCustomer();
   List<Policy> readPolicy();

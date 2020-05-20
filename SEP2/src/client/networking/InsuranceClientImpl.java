@@ -152,11 +152,11 @@ public class InsuranceClientImpl implements InsuranceClient, Client
     return null;
   }
 
-  @Override public void deletePolicy(Policy policy)
+  @Override public void deletePolicy(int policyno)
   {
     try
     {
-      server.deletePolicy(policy);
+      server.deletePolicy(policyno);
     }
     catch (RemoteException e)
     {
@@ -189,11 +189,11 @@ public class InsuranceClientImpl implements InsuranceClient, Client
     return null;
   }
 
-  @Override public void deleteDamage(Damage damage)
+  @Override public void deleteDamage(int damageno)
   {
     try
     {
-      server.deleteDamage(damage);
+      server.deleteDamage(damageno);
     }
     catch (RemoteException e)
     {

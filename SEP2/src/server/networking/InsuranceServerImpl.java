@@ -87,9 +87,9 @@ public class InsuranceServerImpl implements InsuranceServer
     serverModel.addPolicy(policy);
   }
 
-  @Override public void deletePolicy(Policy policy) throws RemoteException
+  @Override public void deletePolicy(int policyno) throws RemoteException
   {
-    serverModel.deletePolicy(policy);
+    serverModel.deletePolicy(policyno);
   }
 
   // damage
@@ -100,9 +100,9 @@ public class InsuranceServerImpl implements InsuranceServer
     serverModel.addDamage(policy, damage);
   }
 
-  @Override public void deleteDamage(Damage damage) throws RemoteException
+  @Override public void deleteDamage(int damageno) throws RemoteException
   {
-    serverModel.deleteDamage(damage);
+    serverModel.deleteDamage(damageno);
   }
 }
 
