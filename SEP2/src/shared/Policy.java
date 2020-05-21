@@ -14,9 +14,8 @@ public class Policy implements Serializable
   private int customerNo;
 
 
-  public Policy(int policeNo,String policeType, int price, int deductible, String coverage,int customerNo)
+  public Policy(String policeType, int price, int deductible, String coverage,int customerNo)
   {
-    this.policeNo = policeNo;
     this.policeType=policeType;
     this.price = price;
     this.deductible = deductible;

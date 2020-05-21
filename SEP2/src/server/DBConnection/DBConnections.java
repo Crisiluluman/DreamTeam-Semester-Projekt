@@ -24,8 +24,8 @@ public class DBConnections
       System.out.println("før");
       connection = DriverManager
 
-          .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres",
-              "1234");
+          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres",
+              "1122");
       System.out.println("efter");
       statement = connection.createStatement();
 
@@ -55,7 +55,7 @@ public class DBConnections
     {
       Class.forName("org.postgresql.Driver");
       c = DriverManager
-          .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres", "1234");
+          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1122");
       c.setAutoCommit(false);
       System.out.println("Opened database successfully");
 
@@ -71,8 +71,9 @@ public class DBConnections
         int customerNo = rs.getInt("customerNo");
         long cprNr = rs.getLong("cpr");
 
-        Customer customer = new Customer(name, address, postcode, customerNo,
+        Customer customer = new Customer(name, address, postcode,
             cprNr);
+        customer.setCustomerNo(customerNo);
         list.add(customer);
       }
     }
@@ -95,7 +96,7 @@ public class DBConnections
     {
       Class.forName("org.postgresql.Driver");
       c = DriverManager
-          .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres", "1234");
+          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1122");
       c.setAutoCommit(false);
       System.out.println("Opened database successfully");
 
@@ -112,7 +113,8 @@ public class DBConnections
         String coverage = rs.getString("coverage");
         int customerNo = rs.getInt("customerno");
 
-       Policy policy = new Policy(policyNo,type,price,deductible,coverage,customerNo);
+       Policy policy = new Policy(type,price,deductible,coverage,customerNo);
+       policy.setPoliceNo(policyNo);
         list.add(policy);
       }
     }
@@ -135,7 +137,7 @@ public class DBConnections
   {
     Class.forName("org.postgresql.Driver");
     c = DriverManager
-        .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres", "1234");
+        .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1122");
     c.setAutoCommit(false);
     System.out.println("Opened database successfully");
 
@@ -146,6 +148,7 @@ public class DBConnections
     {
       Employee employee = null;
       //We are using non property style for making dynamic table
+      int employeeNo = rs.getInt("employeeno");
       String name = rs.getString("name");
       String address = rs.getString("address");
       int cpr = rs.getInt("cpr");
@@ -154,7 +157,7 @@ public class DBConnections
       String position = rs.getString("position");
 
       employee = new Salesman(name,address,cpr,email,tlfnr,position);
-
+      employee.setEmployeeNo(employeeNo);
       list.add(employee);
     }
   }
@@ -178,7 +181,7 @@ public class DBConnections
     {
       Class.forName("org.postgresql.Driver");
       c = DriverManager
-          .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres", "1234");
+          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "1122");
       c.setAutoCommit(false);
       System.out.println("Opened database successfully");
 
@@ -194,8 +197,8 @@ public class DBConnections
         String info = rs.getString("info");
         String dpolicytype = rs.getString("dpolicytype");
 
-        Damage damage = new Damage(policeno,dpolicytype,expenses,damageNo,info);
-
+        Damage damage = new Damage(policeno,dpolicytype,expenses,info);
+damage.setDamageNo(damageNo);
         list.add(damage);
       }
     }

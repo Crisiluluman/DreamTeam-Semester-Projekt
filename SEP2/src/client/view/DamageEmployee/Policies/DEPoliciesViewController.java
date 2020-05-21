@@ -39,14 +39,7 @@ public class DEPoliciesViewController implements viewController {
         }
     }
 
-    public void onCreateDamage()
-    {
-        ObservableList data = pvm.editSelect(view);
-        if (data != null)
-        {
-            vh.openCreateDamage(data);
-        }
-    }
+
     public void onManageDamage()
     {
         ObservableList data = pvm.editSelect(view);

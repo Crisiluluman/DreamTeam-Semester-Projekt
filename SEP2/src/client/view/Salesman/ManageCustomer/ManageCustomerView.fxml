@@ -19,23 +19,6 @@
          </children>
       </Pane>
    </top>
-   <center>
-      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <Text layoutX="73.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
-            <Text layoutX="73.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
-            <Text layoutX="73.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Postcode" />
-            <Text layoutX="73.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPR-nr" />
-            <Text layoutX="73.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer No" />
-            <TextField fx:id="manageCustomerTextfield" layoutX="147.0" layoutY="42.0" prefHeight="25.0" prefWidth="210.0" />
-            <TextField fx:id="manageCustomerAddress" layoutX="147.0" layoutY="83.0" prefHeight="25.0" prefWidth="210.0" />
-            <TextField fx:id="manageCustomerPostcode" layoutX="147.0" layoutY="126.0" prefHeight="25.0" prefWidth="210.0" />
-            <TextField fx:id="manageCustomerCPR" layoutX="147.0" layoutY="167.0" prefHeight="25.0" prefWidth="210.0" />
-            <TextField fx:id="manageCustomerHousehold" layoutX="147.0" layoutY="206.0" prefHeight="25.0" prefWidth="210.0" />
-            <Button fx:id="manageCustomerSaveButton" layoutX="307.0" layoutY="242.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0" text="Save" />
-         </children>
-      </Pane>
-   </center>
    <bottom>
       <Pane prefHeight="72.0" prefWidth="603.0" BorderPane.alignment="CENTER">
          <children>
@@ -43,4 +26,19 @@
          </children>
       </Pane>
    </bottom>
+   <left>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text layoutX="73.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+            <Text layoutX="73.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
+            <Text layoutX="73.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Postcode" />
+            <Text layoutX="73.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPR-nr" />
+            <TextField fx:id="manageCustomerTextfield" layoutX="147.0" layoutY="42.0" prefHeight="25.0" prefWidth="210.0" />
+            <TextField fx:id="manageCustomerAddress" layoutX="147.0" layoutY="83.0" prefHeight="25.0" prefWidth="210.0" />
+            <TextField fx:id="manageCustomerPostcode" layoutX="147.0" layoutY="126.0" prefHeight="25.0" prefWidth="210.0" />
+            <TextField fx:id="manageCustomerCPR" layoutX="147.0" layoutY="167.0" prefHeight="25.0" prefWidth="210.0" />
+            <Button fx:id="manageCustomerSaveButton" layoutX="307.0" layoutY="242.0" mnemonicParsing="false" onAction="#onSave" prefHeight="25.0" prefWidth="50.0" text="Save" />
+         </children>
+      </Pane>
+   </left>
 </BorderPane>

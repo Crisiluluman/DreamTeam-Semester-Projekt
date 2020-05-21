@@ -80,7 +80,7 @@ public class CreateDamageViewModel {
   public void onClick()
   {
 
-    damage = new Damage( polno, type,Double.parseDouble(expensesTextfield.getValue()),Integer.parseInt(damageNoTextfield.getValue()), String.valueOf(infoTextArea.getValue()));
+    damage = new Damage( polno, type,Double.parseDouble(expensesTextfield.getValue()), String.valueOf(infoTextArea.getValue()));
     clearLabels();
     model.addDamage(damage);
   }
@@ -105,11 +105,6 @@ public class CreateDamageViewModel {
     if(expensesTextfield.getValue().equals("") || Pattern.matches("[a-åA-Å]+",expensesTextfield.getValue()))
     {
       expensesLabel.setValue("Invalid input - try again");
-      return false;
-    }
-    if(damageNoTextfield.getValue().equals("") || Pattern.matches("[a-åA-Å]+",damageNoTextfield.getValue()))
-    {
-      damageNoLabel.setValue("Invalid input - try again");
       return false;
     }
 

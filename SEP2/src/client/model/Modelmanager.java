@@ -24,6 +24,11 @@ public class Modelmanager implements Model
     client.addEmployee(employee);
   }
 
+  @Override public void updateEmployee(Employee employee, Employee oldEmployee)
+  {
+    client.updateEmployee(employee,oldEmployee);
+  }
+
   @Override public void deleteEmployee(int cpr)
   {
     client.deleteEmployee(cpr);
@@ -32,6 +37,11 @@ public class Modelmanager implements Model
   @Override public void addCustomer(Customer customer)
   {
     client.addCustomer(customer);
+  }
+
+  @Override public void updateCustomer(Customer customer)
+  {
+    client.updateCustomer(customer);
   }
 
   @Override public void deleteCustomer(int customerNo)
@@ -52,6 +62,11 @@ public class Modelmanager implements Model
   @Override public void addDamage(Damage damage)
   {
     client.addDamage(damage);
+  }
+
+  @Override public void updateDamage(Damage damage)
+  {
+    client.updateDamage(damage);
   }
 
   @Override public void deleteDamage(int damageno)

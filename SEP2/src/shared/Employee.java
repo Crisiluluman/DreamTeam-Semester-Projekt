@@ -10,6 +10,7 @@ public abstract class Employee implements Serializable
     private int tlfnr;
     private String email;
     private String position;
+    private int employeeNo;
 
     public Employee(String name, String address, long CPR, int tlfnr,
         String email, String position)
@@ -22,6 +23,15 @@ public abstract class Employee implements Serializable
         this.position = position;
     }
 
+    public int getEmployeeNo()
+    {
+        return employeeNo;
+    }
+
+    public void setEmployeeNo(int employeeNo)
+    {
+        this.employeeNo=employeeNo;
+    }
     public String getName()
 {
   return name;

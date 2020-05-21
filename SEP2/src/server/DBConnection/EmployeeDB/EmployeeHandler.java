@@ -59,7 +59,7 @@ public class EmployeeHandler implements EmployeeData
 
 
 
-  @Override public void updateEmployeeData(Employee employee, Employee employeeOld)
+  @Override public void updateEmployeeData(Employee employee, Employee oldEmployee)
   {
 
     String sql =
@@ -69,7 +69,7 @@ public class EmployeeHandler implements EmployeeData
             + "email =" + "'" + employee.getEmail() + "'" + ","
             + "tlfnr =" + "'" + employee.getTlfNr() + "'" + ","
             + "position =" + "'" + employee.getPosition() + "'"
-            + " where cpr =" + "'" + employeeOld.getCPR() + "'" +";";
+            + " where cpr =" + "'" + oldEmployee.getCPR() + "'" +";";
     connection.AddToDB(sql);
 
 //

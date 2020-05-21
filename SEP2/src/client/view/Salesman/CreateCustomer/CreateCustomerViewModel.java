@@ -1,7 +1,7 @@
 package client.view.Salesman.CreateCustomer;
 
 import client.core.ViewHandler;
-import client.model.Customer.Customer;
+import shared.Customer;
 import client.model.Model;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -96,8 +96,8 @@ public class CreateCustomerViewModel
   public void onClick()
   {
 
-    customer = new shared.Customer(String.valueOf(nameTextfield.getValue()), String.valueOf(addressTextfield.getValue()),
-        Integer.parseInt(postcodeTextField.getValue()), Integer.parseInt(customerNoTextField.getValue()),
+    customer = new Customer(String.valueOf(nameTextfield.getValue()), String.valueOf(addressTextfield.getValue()),
+        Integer.parseInt(postcodeTextField.getValue()),
         Long.parseLong(cprnoTextfield.getValue()));
       clearLabels();
       model.addCustomer(customer);
@@ -149,12 +149,7 @@ public class CreateCustomerViewModel
       cprnoLabel.setValue("Invalid input - try again");
       return false;
     }
-
-    if(customerNoTextField.getValue().equals("") || Pattern.matches("[a-åA-Å]+",customerNoTextField.getValue()))
-    {
-      customernoLabel.setValue("Invalid input - try again");
-      return false;
-    }
+    
     return true;
   }
 }

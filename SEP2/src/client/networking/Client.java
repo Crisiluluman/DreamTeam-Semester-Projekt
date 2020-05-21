@@ -10,12 +10,15 @@ public interface Client extends Subject
   void start();
 
   void addEmployee(Employee employee);
+  void updateEmployee(Employee employee,Employee oldEmployee);
   void deleteEmployee(int cpr);
   void addCustomer(Customer customer);
+  void updateCustomer(Customer customer);
   void deleteCustomer(int customerNo);
   void addPolicy(Policy policy);
   void deletePolicy(int policyno);
   void addDamage(Damage damage);
+  void updateDamage(Damage damage);
   void deleteDamage(int damageno);
 
   List<Customer> readCustomer();

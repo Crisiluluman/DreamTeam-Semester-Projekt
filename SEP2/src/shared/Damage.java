@@ -10,13 +10,13 @@ public class Damage implements Serializable
   private int damageNo;
   private String info;
 
-  public Damage(int policeNo, String policeType, double expenses, int damageNo, String info)
+  public Damage(int policeNo, String policeType, double expenses, String info)
   {
     this.policeNo = policeNo;
     this.policeType = policeType;
     this.expenses = expenses;
     this.info = info;
-    this.damageNo = damageNo;
+
   }
 
 

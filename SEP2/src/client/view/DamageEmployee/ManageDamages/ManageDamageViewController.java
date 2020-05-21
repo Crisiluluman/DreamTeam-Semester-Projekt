@@ -37,10 +37,14 @@ ManageDamageViewModel mdvm;
 
   public void onCreate()
   {
+  vh.openView("CreateDamage");
+  }
+  public void onSelect()
+  {
     ObservableList data = mdvm.editSelect(view);
     if (data != null)
     {
-      vh.openCreateDamage(data);
+      vh.openEditDamage(data);
     }
   }
 }

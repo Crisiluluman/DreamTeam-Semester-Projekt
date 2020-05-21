@@ -22,13 +22,13 @@ public class CustomerHandler implements CustomerData
 
   }
 
-  @Override public void updateCustomerData(Customer customer, Customer customerOld)
+  @Override public void updateCustomerData(Customer customer)
   {
     String sql = "Update \"insurance\".customer set name =" + "'" + customer.getName()+ "'" + ","
         + "address =" + "'" + customer.getAddress() + "'" + ","
         + "postcode =" + "'" + customer.getPostcode() + "'" + ","
         + "cpr =" + "'" + customer.getCprNr() + "' "
-        + "where cpr =" + "'" + customerOld.getCprNr() +"'" + ";";
+        + "where customerno =" + "'" + customer.getCustomerNo() +"'" + ";";
     connection.AddToDB(sql);
   }
 

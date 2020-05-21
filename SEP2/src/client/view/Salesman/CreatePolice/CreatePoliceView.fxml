@@ -54,16 +54,6 @@
             <children>
                 <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                     <children>
-                        <Label text="Policy Nr">
-                            <HBox.margin>
-                                <Insets left="160.0" right="10.0" />
-                            </HBox.margin>
-                        </Label>
-                        <TextField fx:id="policyNr">
-                            <HBox.margin>
-                                <Insets left="11.0" />
-                            </HBox.margin>
-                        </TextField>
                   <Label fx:id="LabelErrorPolicyNr" textFill="RED" />
                     </children>
                 </HBox>

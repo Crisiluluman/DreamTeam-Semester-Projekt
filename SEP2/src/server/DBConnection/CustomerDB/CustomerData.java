@@ -8,7 +8,7 @@ import java.util.List;
 public interface CustomerData
 {
   void addCustomerData(Customer customer);
-  void updateCustomerData(Customer customer, Customer customerOld);
+  void updateCustomerData(Customer customer);
   void deleteCustomerData(int customerNo);
   List<Customer> readCustomerData();
 

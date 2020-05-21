@@ -75,6 +75,23 @@ public class InsuranceServerImpl implements InsuranceServer
     return serverModel.readDamage(policeno);
   }
 
+  @Override public void updateCustomer(Customer customer) throws RemoteException
+  {
+
+    serverModel.updateCustomer(customer);
+  }
+
+  @Override public void updateDamage(Damage damage) throws RemoteException
+  {
+    serverModel.updateDamage(damage);
+  }
+
+  @Override public void updateEmployee(Employee employee, Employee oldEmployee)
+      throws RemoteException
+  {
+    serverModel.updateEmployee(employee,oldEmployee);
+  }
+
   @Override public void deleteCustomer(int customerNo) throws RemoteException
   {
     serverModel.deleteCustomer(customerNo);

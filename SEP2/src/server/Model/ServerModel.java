@@ -33,6 +33,11 @@ public class ServerModel implements ServerModelInterface
     employeehandler.addEmployeeData(employee);
   }
 
+  @Override public void updateEmployee(Employee employee, Employee oldEmployee)
+  {
+    employeehandler.updateEmployeeData(employee,oldEmployee);
+  }
+
   public void updateEmployee(Employee employee)
   {
    // employeehandler.updateEmployeeData(employee); TODO: Fix this
@@ -47,6 +52,11 @@ public class ServerModel implements ServerModelInterface
   @Override public void addCustomer(Customer customer)
   {
     customerhandler.addCustomerData(customer);
+  }
+
+  @Override public void updateCustomer(Customer customer)
+  {
+    customerhandler.updateCustomerData(customer);
   }
 
   @Override public List<Customer> readCustomers()
@@ -79,6 +89,12 @@ public class ServerModel implements ServerModelInterface
   {
     damageHandler.addDamageData(damage);
   }
+
+  @Override public void updateDamage(Damage damage)
+  {
+    damageHandler.updateDamageData(damage);
+  }
+
   // Policy
   @Override public void addPolicy(Policy policy)
   {

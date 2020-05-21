@@ -15,7 +15,7 @@ public class ManageCustomerViewController implements viewController
   @FXML TextField manageCustomerAddress;
   @FXML TextField manageCustomerPostcode;
   @FXML TextField manageCustomerCPR;
-  @FXML TextField manageCustomerHousehold;
+  @FXML TextField manageCustomerNo;
 
 
   private ViewHandler vh;
@@ -32,7 +32,7 @@ public class ManageCustomerViewController implements viewController
     manageCustomerAddress.textProperty().bindBidirectional(mcv.getAddressTextfield());
     manageCustomerPostcode.textProperty().bindBidirectional(mcv.getPostcodeTextField());
     manageCustomerCPR.textProperty().bindBidirectional(mcv.getCprnoTextfield());
-    manageCustomerHousehold.textProperty().bindBidirectional(mcv.getCustomerNoTextField());
+
   }
 
   @Override
@@ -44,8 +44,9 @@ public class ManageCustomerViewController implements viewController
   {
     vh.openView("Salesman");
   }
-  public void onPolicies()
-  {
-    vh.openView("Policies");
-  }
+public void onSave()
+{
+  mcv.onSave();
+  vh.openView("Salesman");
+}
 }

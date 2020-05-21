@@ -49,7 +49,7 @@ public class CreatePoliceViewModel implements PropertyChangeListener
 public void createPolicy(String policeType)
 {
 
-  policy = new Policy(Integer.parseInt(policyNr.getValue()),String.valueOf(policeType),
+  policy = new Policy(String.valueOf(policeType),
       Integer.parseInt(price.getValue()),Integer.parseInt(deductible.getValue()), String.valueOf(coverage.getValue()),customerNo);
   model.addPolicy(policy);
   System.out.println(policy + "Det er den!");
@@ -61,11 +61,6 @@ public void setCustomerNo(ObservableList list)
 public boolean checker()
 {
  clear();
-  if (policyNr.getValue().equals("") || Pattern.matches("[a-åA-Å]+", policyNr.getValue()))
-  {
-    LabelPolicyNr.setValue("Missing Policy Nr or invalid input");
-    return false;
-  }
 
   if (price.getValue().equals("") || Pattern.matches("[a-åA-å]+", price.getValue()))
   {

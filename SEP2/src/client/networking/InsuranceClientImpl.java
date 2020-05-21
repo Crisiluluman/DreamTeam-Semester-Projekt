@@ -58,6 +58,18 @@ public class InsuranceClientImpl implements InsuranceClient, Client
     }
   }
 
+  @Override public void updateEmployee(Employee employee, Employee oldEmployee)
+  {
+    try
+    {
+      server.updateEmployee(employee,oldEmployee);
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
   @Override public List<Employee> readEmployee()
   {
     try
@@ -90,6 +102,18 @@ public class InsuranceClientImpl implements InsuranceClient, Client
     try
     {
       server.addCustomer(customer);
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
+  @Override public void updateCustomer(Customer customer)
+  {
+    try
+    {
+      server.updateCustomer(customer);
     }
     catch (RemoteException e)
     {
@@ -172,6 +196,19 @@ public class InsuranceClientImpl implements InsuranceClient, Client
       e.printStackTrace();
     }
   }
+
+  @Override public void updateDamage(Damage damage)
+  {
+    try
+    {
+      server.updateDamage(damage);
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
   @Override public List<Damage> readDamage(int policeno)
   {
     try

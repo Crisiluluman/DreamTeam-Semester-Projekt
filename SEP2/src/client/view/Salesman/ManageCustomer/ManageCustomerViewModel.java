@@ -4,6 +4,7 @@ import client.model.Model;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
+import shared.Customer;
 
 public class ManageCustomerViewModel
 {
@@ -32,7 +33,13 @@ public class ManageCustomerViewModel
     postcodeTextField.setValue(String.valueOf(list.get(2)));
     cprnoTextfield.setValue(String.valueOf(list.get(3)));
   }
-
+public void onSave()
+{
+  Customer customer = new Customer(String.valueOf(nameTextfield.getValue()), String.valueOf(addressTextfield.getValue()),
+      Integer.parseInt(postcodeTextField.getValue()),
+      Long.parseLong(cprnoTextfield.getValue()));
+  model.updateCustomer(customer);
+}
 
 
   public StringProperty getNameTextfield()

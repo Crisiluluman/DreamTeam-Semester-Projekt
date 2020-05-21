@@ -10,11 +10,10 @@ public class Customer implements Serializable
   private int costumerNo;
   private long cprNr; // primary key
 
-  public Customer(String name,String address, int postcode, int costumerNo,long cprNr)
+  public Customer(String name,String address, int postcode,long cprNr)
   {
     this.name=name;
     this.address=address;
-    this.costumerNo = costumerNo;
     this.cprNr =cprNr;
     this.postcode = postcode;
   }
@@ -36,7 +35,7 @@ public class Customer implements Serializable
 
   public void setCustomerNo(int customerNo)
   {
-    this.costumerNo = costumerNo;
+    this.costumerNo = customerNo;
   }
 
   public String getName()

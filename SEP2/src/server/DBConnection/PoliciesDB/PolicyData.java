@@ -7,7 +7,7 @@ import java.util.List;
 public interface PolicyData
 {
   void addPolicyData(Policy policy);
-  void updatePolicyData(Policy policy, Policy policyOld);
+  void updatePolicyData(Policy policy);
   List<Policy> readPolicyData(int customerNo);
   void deletePolicyData(int policyno);
 }

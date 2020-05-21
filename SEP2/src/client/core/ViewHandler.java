@@ -3,6 +3,7 @@ package client.core;
 
 import client.view.DamageEmployee.CreateDamage.CreateDamageViewController;
 import client.view.DamageEmployee.DEMain.DEMainViewController;
+import client.view.DamageEmployee.EditDamage.EditDamageViewController;
 import client.view.DamageEmployee.ManageDamages.ManageDamageViewController;
 import client.view.DamageEmployee.Policies.DEPoliciesViewController;
 import client.view.DamageEmployee.Policies.EditPolicy.EditPolicyViewController;
@@ -48,6 +49,7 @@ public class ViewHandler extends Application
   private SalesmanViewController salesmanViewController;
   private SEditPolicyViewController sEditPolicyViewController;
   private ManageDamageViewController manageDamageViewController;
+  private EditDamageViewController editDamageViewController;
 
 
   public ViewHandler(ViewModelFactory vmf)
@@ -85,16 +87,17 @@ openView("DEMain");
     openView("EditPolicy");
   }
 
-  public void openCreateDamage(ObservableList list)
+  public void openManageDamage(ObservableList list)
   {
     vmf.getCreateDamageViewModel().setFields(list);
     vmf.getCreateDamageViewModel().setOnClick(list);
-    openView("CreateDamage");
-  }
-  public void openManageDamage(ObservableList list)
-  {
     vmf.getDamageViewModel().setPoliceNo(list);
     openView("ManageDamage");
+  }
+  public void openEditDamage(ObservableList list)
+  {
+    vmf.getEditDamage().setFields(list);
+    openView("EditDamage");
   }
   public void openSPolicies(ObservableList list)
   {
@@ -124,6 +127,9 @@ public void openDEPolicies(ObservableList list)
         break;
       case "DEPolicies":
         root = loadDEPoliciesView("../view/DamageEmployee/Policies/DEPoliciesView.fxml");
+        break;
+      case "EditDamage":
+        root = loadEditDamage("../view/DamageEmployee/EditDamage/EditDamageView.fxml");
         break;
       case "EditPolicy":
         root = loadEditPolicyView("../view/DamageEmployee/Policies/EditPolicy/EditPolicyView.fxml");
@@ -478,7 +484,23 @@ public void openDEPolicies(ObservableList list)
     }
     return manageDamageViewController.getRoot();
   }
-
+  private Region loadEditDamage(String fxmlFile)
+  {
+    if (editDamageViewController == null)
+    {
+      try{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        Region root = loader.load();
+        editDamageViewController = loader.getController();
+        editDamageViewController.init(this, vmf, root);
+      }catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+    return editDamageViewController.getRoot();
+  }
 
 }
 

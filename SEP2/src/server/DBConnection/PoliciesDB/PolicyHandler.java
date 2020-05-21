@@ -26,14 +26,14 @@ public class PolicyHandler implements PolicyData
     connection.AddToDB(sql);
   }
 
-  @Override public void updatePolicyData(Policy policy, Policy policyOld)
+  @Override public void updatePolicyData(Policy policy)
   {
     String sql =
         "Update \"insurance\".policy set type =" + "'" + policy.getPoliceType()+ "'" + ","
             + "price =" + "'" + policy.getPoliceType() + "'" + ","
             + "deductible =" + "'" + policy.getDeductible() + "'" + ","
             + "coverage =" + "'" + policy.getCoverage() + "'" + ","
-            + "customerno =" + "'" + 1 + "'" + "," //todo check policy for customerno
+            + "customerno =" + "'" + policy.getCustomerNo() + "'" + ","
             + " where policyno =" + "'" + policy.getPoliceNo() + "'" +";";
     connection.AddToDB(sql);
   }
