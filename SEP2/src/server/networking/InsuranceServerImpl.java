@@ -15,6 +15,7 @@ import java.util.List;
 public class InsuranceServerImpl implements InsuranceServer
 {
   private ServerModelInterface serverModel;
+  private InsuranceClient client;
 
   public InsuranceServerImpl(ServerModelInterface serverModel) throws RemoteException
   {
@@ -32,7 +33,7 @@ public class InsuranceServerImpl implements InsuranceServer
 
   @Override public void registerClient(InsuranceClient client)
   {
-
+    this.client=client;
   }
 
   // employee
@@ -115,11 +116,19 @@ public class InsuranceServerImpl implements InsuranceServer
       throws RemoteException
   {
     serverModel.addDamage(damage);
+    client.updateDamages();
+
   }
 
   @Override public void deleteDamage(int damageno) throws RemoteException
   {
     serverModel.deleteDamage(damageno);
+  }
+
+  @Override public void updateDamage(int row, InsuranceClient insuranceClient)
+      throws RemoteException
+  {
+
   }
 }
 

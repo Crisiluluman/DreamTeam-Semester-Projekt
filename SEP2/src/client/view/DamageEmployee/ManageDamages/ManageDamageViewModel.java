@@ -12,6 +12,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.util.Callback;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,7 +28,8 @@ public class ManageDamageViewModel
   {
     this.model=model;
   }
-public void setPoliceNo(ObservableList list)
+
+  public void setPoliceNo(ObservableList list)
 {
   policeNo = Integer.parseInt((String) list.get(0));
 }
@@ -52,30 +56,32 @@ public void setPoliceNo(ObservableList list)
 
   public void readPolicy(TableView TV,int policeno)
   {
-    List<Damage> damages = model.readDamage(policeno);
-    ObservableList<String> row;
-    rows = FXCollections.observableArrayList();
+      List<Damage> damages = model.readDamage(policeno);
+      ObservableList<String> row;
+      rows = FXCollections.observableArrayList();
 
-
-    setUpColumn(TV, "policyNo",0);
-    setUpColumn(TV, "DamageNo",1);
-    setUpColumn(TV, "expenses",2);
-    setUpColumn(TV, "info",3);
-    setUpColumn(TV, "policyType",4);
-
-
-    for (int i = 0; i < damages.size()  ; i++)
+    if (TV.getColumns().size() == 0)
     {
-      row = FXCollections.observableArrayList();
-      row.add(String.valueOf(damages.get(i).getPoliceNo()));
-      row.add(String.valueOf(damages.get(i).getDamageNo()));
-      row.add(String.valueOf(damages.get(i).getExpenses()));
-      row.add(damages.get(i).getInfo());
-      row.add(damages.get(i).getPoliceType());
-      rows.add(row);
+
+      setUpColumn(TV, "policyNo", 0);
+      setUpColumn(TV, "DamageNo", 1);
+      setUpColumn(TV, "expenses", 2);
+      setUpColumn(TV, "info", 3);
+      setUpColumn(TV, "policyType", 4);
     }
+      for (int i = 0; i < damages.size()  ; i++)
+      {
+        row = FXCollections.observableArrayList();
+        row.add(String.valueOf(damages.get(i).getPoliceNo()));
+        row.add(String.valueOf(damages.get(i).getDamageNo()));
+        row.add(String.valueOf(damages.get(i).getExpenses()));
+        row.add(damages.get(i).getInfo());
+        row.add(damages.get(i).getPoliceType());
+        rows.add(row);
+      }
     TV.setItems(rows);
-  }
+    }
+
 
   public ObservableList editSelect(TableView TV)
   {
@@ -110,5 +116,6 @@ public void setPoliceNo(ObservableList list)
       }
     }
   }
+
 
 }

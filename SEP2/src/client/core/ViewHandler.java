@@ -63,6 +63,14 @@ currentScene = new Scene(new Region());
 openView("DEMain");
   }
 
+  public boolean getUpdate()
+  {
+    boolean update = vmf.getCreateDamageViewModel().getUpdate();
+    return update;
+  }
+  public void updateDamageViews(){
+    manageDamageViewController.init(this,vmf,manageDamageViewController.getRoot());
+  }
 
   public void openEditSEditPolice(ObservableList list)
 {

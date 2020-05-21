@@ -1,5 +1,6 @@
 package client.networking;
 
+import javafx.scene.control.TableView;
 import shared.Employee;
 import shared.Policy;
 import shared.Customer;
@@ -234,7 +235,20 @@ public class InsuranceClientImpl implements InsuranceClient, Client
     }
   }
 
-  @Override public void update()
+  public void contactServer(int row)
+  {
+    try
+    {
+      server.updateDamage(row, this);
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+
+  }
+
+  @Override public void updateDamages()
   {
     property.firePropertyChange("update", null, null);
   }
@@ -250,6 +264,8 @@ public class InsuranceClientImpl implements InsuranceClient, Client
   {
     this.property.removePropertyChangeListener(eventname, listener);
   }
+
+
 }
 
 

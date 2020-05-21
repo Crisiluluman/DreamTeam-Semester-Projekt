@@ -1,13 +1,11 @@
 package client.model;
 
-import shared.Employee;
-import shared.Policy;
-import shared.Customer;
-import shared.Damage;
+import shared.*;
 
+import java.beans.PropertyChangeEvent;
 import java.util.List;
 
-public interface Model
+public interface Model extends Subject
 {
   void addEmployee(Employee employee);
   void updateEmployee(Employee employee,Employee oldEmployee);
@@ -24,4 +22,7 @@ public interface Model
   List<Policy> readPolicy(int customerNo);
   List<Employee> readEmployee();
   List<Damage> readDamage(int policeno);
+
+  //observer pattern
+  void updateDamages(PropertyChangeEvent event);
 }

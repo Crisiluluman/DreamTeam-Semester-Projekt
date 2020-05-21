@@ -8,9 +8,13 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ChoiceBox;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.regex.Pattern;
 
-public class CreateDamageViewModel {
+public class CreateDamageViewModel implements PropertyChangeListener
+{
 
     private Model model;
     private Damage damage;
@@ -25,11 +29,17 @@ public class CreateDamageViewModel {
     private StringProperty PolicyTypeDropdownLabel;
     private StringProperty expensesLabel;
     private StringProperty damageNoLabel;
+  private PropertyChangeSupport property;
+  private boolean updates;
 
 
-    public CreateDamageViewModel(Model model)
+
+  public CreateDamageViewModel(Model model)
     {
       this.model = model;
+      model.addListener("update", this);
+      this.updates=false;
+      this.property = new PropertyChangeSupport(this);
       policyTypeDropdown = new SimpleStringProperty();
       expensesTextfield = new SimpleStringProperty();
       damageNoTextfield = new SimpleStringProperty();
@@ -37,6 +47,7 @@ public class CreateDamageViewModel {
       PolicyTypeDropdownLabel = new SimpleStringProperty();
       expensesLabel = new SimpleStringProperty();
       damageNoLabel = new SimpleStringProperty();
+
     }
 
     public StringProperty getPolicyTypeDropdown()
@@ -79,7 +90,6 @@ public class CreateDamageViewModel {
 
   public void onClick()
   {
-
     damage = new Damage( polno, type,Double.parseDouble(expensesTextfield.getValue()), String.valueOf(infoTextArea.getValue()));
     clearLabels();
     model.addDamage(damage);
@@ -121,4 +131,12 @@ public class CreateDamageViewModel {
     box.setValue(policyTypeDropdown.getValue());
   }
 
+  public boolean getUpdate(){
+    return updates;
+  }
+
+  @Override public void propertyChange(PropertyChangeEvent evt)
+  {
+    updates = true;
+  }
 }

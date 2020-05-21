@@ -6,18 +6,30 @@ import shared.Policy;
 import client.networking.Client;
 import shared.Customer;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.List;
 
 public class Modelmanager implements Model
 {
   private Client client;
+  private PropertyChangeSupport property;
+
 
   public Modelmanager(Client client)
   {
     this.client = client;
     client.start();
-    client.addListener("update", null);
+    client.addListener("update", this::updateDamages);
+    this.property = new PropertyChangeSupport(this);
   }
+
+  public void updateDamages(PropertyChangeEvent event)
+  {
+    property.firePropertyChange("update",null,null);
+  }
+
 
   @Override public void addEmployee(Employee employee)
   {
@@ -94,4 +106,15 @@ public class Modelmanager implements Model
     return client.readDamage(policeno);
   }
 
+  @Override public void addListener(String eventname,
+      PropertyChangeListener listener)
+  {
+    this.property.addPropertyChangeListener(eventname, listener);
+  }
+
+  @Override public void removeListener(String eventname,
+      PropertyChangeListener listener)
+  {
+    this.property.removePropertyChangeListener(eventname, listener);
+  }
 }

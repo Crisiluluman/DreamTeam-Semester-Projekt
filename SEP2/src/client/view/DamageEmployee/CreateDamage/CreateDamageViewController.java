@@ -41,9 +41,7 @@ public class CreateDamageViewController implements viewController {
 
         policyDropdown.setItems(options);
         expensesTextfield.textProperty().bindBidirectional(cdv.getExpensesTextfield());
-        damageNoTextfield.textProperty().bindBidirectional(cdv.getDamageNoTextfield());
         infoTextArea.textProperty().bindBidirectional(cdv.getInfoTextArea());
-
         expensesLabel.textProperty().bind(cdv.getExpensesLabel());
         damageNoLabel.textProperty().bind(cdv.getDamageNoLabel());
 
@@ -58,7 +56,6 @@ public class CreateDamageViewController implements viewController {
     public void clearAll()
     {
         expensesTextfield.clear();
-        damageNoTextfield.clear();
         infoTextArea.clear();
 
         cdv.getExpensesLabel().setValue("");
@@ -69,19 +66,22 @@ public class CreateDamageViewController implements viewController {
 
     public void onBack()
     {
-        clearAll();
-        vh.openView("DEPolicies");
+         clearAll();
+        vh.openView("ManageDamage");
     }
 
     public void onCreate()
     {
-        if (cdv.checker())
+            if (cdv.checker())
+            {
+                cdv.onClick();
+                cdv.clearTextfields();
+                cdv.clearLabels();
+            }
+        if (cdv.getUpdate())
         {
-            cdv.onClick();
-            cdv.clearTextfields();
-            cdv.clearLabels();
-            vh.openView("DEPolicies");
+                vh.updateDamageViews();
+                vh.openView("ManageDamage");
         }
     }
-
 }

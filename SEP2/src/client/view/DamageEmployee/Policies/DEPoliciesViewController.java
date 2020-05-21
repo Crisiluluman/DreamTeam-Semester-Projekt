@@ -23,8 +23,9 @@ public class DEPoliciesViewController implements viewController {
         this.vh = vh;
         pvm = vmf.getDEPoliciesViewModel();
         this.root = root;
-        pvm.readPolicy(view,pvm.getCustomerNo());
-    }
+            pvm.readPolicy(view, pvm.getCustomerNo());
+            }
+
     @Override
     public Region getRoot() {
         return root;

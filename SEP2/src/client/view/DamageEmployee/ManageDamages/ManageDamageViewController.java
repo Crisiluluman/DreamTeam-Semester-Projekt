@@ -22,7 +22,14 @@ ManageDamageViewModel mdvm;
     this.vh=vh;
     mdvm=vmf.getDamageViewModel();
     this.root=root;
+    if(vh.getUpdate())
+    {
     mdvm.readPolicy(view,mdvm.getPoliceNo());
+    }
+    else {
+      mdvm.readPolicy(view,mdvm.getPoliceNo());
+    }
+
   }
 
   @Override public Region getRoot()
@@ -32,12 +39,12 @@ ManageDamageViewModel mdvm;
 
   public void onBack()
   {
-    vh.openView("DEPolicies");
+        vh.openView("DEPolicies");
   }
 
   public void onCreate()
   {
-  vh.openView("CreateDamage");
+    vh.openView("CreateDamage");
   }
   public void onSelect()
   {
