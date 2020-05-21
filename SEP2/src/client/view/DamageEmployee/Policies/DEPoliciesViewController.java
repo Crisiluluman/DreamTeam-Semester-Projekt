@@ -49,4 +49,8 @@ public class DEPoliciesViewController implements viewController {
             vh.openManageDamage(data);
         }
     }
+    public void onBack()
+    {
+        vh.openView("DEMain");
+    }
 }

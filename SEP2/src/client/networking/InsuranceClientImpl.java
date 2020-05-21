@@ -59,11 +59,11 @@ public class InsuranceClientImpl implements InsuranceClient, Client
     }
   }
 
-  @Override public void updateEmployee(Employee employee, Employee oldEmployee)
+  @Override public void updateEmployee(Employee employee)
   {
     try
     {
-      server.updateEmployee(employee,oldEmployee);
+      server.updateEmployee(employee);
     }
     catch (RemoteException e)
     {
@@ -161,6 +161,19 @@ public class InsuranceClientImpl implements InsuranceClient, Client
       e.printStackTrace();
     }
   }
+
+  @Override public void updatePolicy(Policy policy)
+  {
+    try
+    {
+      server.updatePolicy(policy);
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+  }
+
   @Override public List<Policy> readPolicy(int customerNo)
   {
     try

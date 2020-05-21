@@ -38,7 +38,6 @@ public class EditPolicyViewController implements viewController {
         this.root = root;
         policyType.setItems(options);
         epv.setChoiceBox(policyType);
-        policyNr.textProperty().bindBidirectional(epv.policyNrProperty());
         price.textProperty().bindBidirectional(epv.priceProperty());
         deductible.textProperty().bindBidirectional(epv.deductibleProperty());
         coverage.textProperty().bindBidirectional(epv.coverageProperty());
@@ -47,6 +46,11 @@ public class EditPolicyViewController implements viewController {
     @Override
     public Region getRoot() {
         return root;
+    }
+    public void onSave()
+    {
+        epv.onSave();
+        vh.openView("DEPolicies");
     }
     public void onBack()
     {

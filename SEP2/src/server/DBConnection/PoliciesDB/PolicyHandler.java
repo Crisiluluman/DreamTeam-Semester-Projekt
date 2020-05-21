@@ -30,11 +30,11 @@ public class PolicyHandler implements PolicyData
   {
     String sql =
         "Update \"insurance\".policy set type =" + "'" + policy.getPoliceType()+ "'" + ","
-            + "price =" + "'" + policy.getPoliceType() + "'" + ","
+            + "price ="  + policy.getPrice() + ","
             + "deductible =" + "'" + policy.getDeductible() + "'" + ","
             + "coverage =" + "'" + policy.getCoverage() + "'" + ","
-            + "customerno =" + "'" + policy.getCustomerNo() + "'" + ","
-            + " where policyno =" + "'" + policy.getPoliceNo() + "'" +";";
+            + "customerno ="  + policy.getCustomerNo()
+            + " where policyno ="  + policy.getPoliceNo()  +";";
     connection.AddToDB(sql);
   }
 

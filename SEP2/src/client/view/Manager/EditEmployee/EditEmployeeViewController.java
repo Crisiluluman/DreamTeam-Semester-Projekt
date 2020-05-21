@@ -54,9 +54,7 @@ public class EditEmployeeViewController implements viewController {
         emailLabel.textProperty().bind(eev.getEmailLabelProperty());
         phoneLabel.textProperty().bind(eev.getPhoneLabelProperty());
         position.setItems(options);
-        position.setValue(options.get(0));
-        name.setText(""+eev.getNameTextFieldProperty().getValue());
-
+        eev.setChoiceBox(position);
     }
 
     public void onSave()

@@ -33,15 +33,11 @@ public class ServerModel implements ServerModelInterface
     employeehandler.addEmployeeData(employee);
   }
 
-  @Override public void updateEmployee(Employee employee, Employee oldEmployee)
+  @Override public void updateEmployee(Employee employee)
   {
-    employeehandler.updateEmployeeData(employee,oldEmployee);
+    employeehandler.updateEmployeeData(employee);
   }
 
-  public void updateEmployee(Employee employee)
-  {
-   // employeehandler.updateEmployeeData(employee); TODO: Fix this
-  }
 
   @Override public void deleteEmployee(int cpr)
   {
@@ -101,6 +97,12 @@ public class ServerModel implements ServerModelInterface
 
     policyHandler.addPolicyData(policy);
   }
+
+  @Override public void updatePolicy(Policy policy)
+  {
+    policyHandler.updatePolicyData(policy);
+  }
+
   @Override public List<Damage> readDamage(int policeno)
   {
     return damageHandler.readDamageData(policeno);

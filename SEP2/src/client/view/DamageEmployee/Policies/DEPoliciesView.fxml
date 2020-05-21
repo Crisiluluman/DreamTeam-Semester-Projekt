@@ -67,7 +67,7 @@
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="284.0">
                <children>
-                  <Button mnemonicParsing="false" text="Back">
+                  <Button mnemonicParsing="false" onAction="#onBack" text="Back">
                      <HBox.margin>
                         <Insets left="30.0" />
                      </HBox.margin>

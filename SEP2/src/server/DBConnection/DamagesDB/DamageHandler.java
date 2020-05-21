@@ -27,9 +27,9 @@ public class DamageHandler implements DamageData
   @Override public void updateDamageData(Damage damage)
   {
     // you need a goddam policyno in here
-    String sql = "Update \"insurance\".damage set type =" + "'" + damage.getPoliceType() + "'" + ","
-        + "expenses =" + damage.getExpenses() + "," + "info =" + "'" + damage.getInfo() + "'" + ","
-        + "dPolicyType =" + "'" + damage.getPoliceType() + "'" + " where damageNo =" + damage.getDamageNo() + ";";
+    String sql = "Update \"insurance\".damage set dPolicyType =" + "'" + damage.getPoliceType() + "'" + ","
+        + "expenses =" + damage.getExpenses() + "," + "info =" + "'" + damage.getInfo() + "'"
+     + " where damageNo =" + damage.getDamageNo() + ";";
     connection.AddToDB(sql);
   }
 

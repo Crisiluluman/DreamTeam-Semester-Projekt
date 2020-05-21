@@ -5,6 +5,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ChoiceBox;
+import shared.Policy;
 
 public class EditPolicyViewModel {
     private Model model;
@@ -13,6 +14,7 @@ public class EditPolicyViewModel {
     private StringProperty price;
     private StringProperty deductible;
     private StringProperty coverage;
+    private ObservableList list;
 
 
     public EditPolicyViewModel(Model model)
@@ -25,8 +27,18 @@ public class EditPolicyViewModel {
         coverage = new SimpleStringProperty();
     }
 
+
+    public void onSave()
+    {
+        Policy policy = new Policy(String.valueOf(policeType.getValue()),Integer.parseInt(String.valueOf(price.getValue())),Integer.parseInt(String.valueOf(deductible.getValue())),String.valueOf(coverage.getValue()),Integer.parseInt(
+            (String) list.get(5)));
+        policy.setPoliceNo(Integer.parseInt(
+            (String) list.get(0)));
+        model.updatePolicy(policy);
+    }
     public void setFields(ObservableList<String> list)
     {
+        this.list=list;
 policyNr.setValue(list.get(0));
 policeType.setValue(list.get(1));
 price.setValue(list.get(2));

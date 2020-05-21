@@ -52,20 +52,7 @@
    <center>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="245.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Label text="Policy Nr">
-                     <HBox.margin>
-                        <Insets left="160.0" right="10.0" />
-                     </HBox.margin>
-                  </Label>
-                  <TextField fx:id="policyNr">
-                     <HBox.margin>
-                        <Insets left="11.0" />
-                     </HBox.margin>
-                  </TextField>
-               </children>
-            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" />
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Label text="Price">
@@ -126,7 +113,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="56.0" prefWidth="304.0">
                <children>
-                  <Button mnemonicParsing="false" text="Save">
+                  <Button mnemonicParsing="false" onAction="#onSave" text="Save">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>

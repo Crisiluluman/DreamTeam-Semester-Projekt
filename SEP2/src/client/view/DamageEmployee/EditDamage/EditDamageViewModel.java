@@ -24,7 +24,8 @@ public class EditDamageViewModel
   }
 public void onSave()
 {
-  Damage damage = new Damage(policyNo,String.valueOf(policyDropDown.getValue()),Integer.valueOf(expenses.getValue()),String.valueOf(info.getValue()));
+  Damage damage = new Damage(policyNo,String.valueOf(policyDropDown.getValue()),Double.parseDouble(expenses.getValue()),String.valueOf(info.getValue()));
+  damage.setDamageNo(damageNo);
   model.updateDamage(damage);
 }
   public void setFields(ObservableList list)

@@ -7,6 +7,7 @@ import client.model.Salesman.Salesman;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
+import javafx.scene.control.ChoiceBox;
 import shared.Employee;
 
 import java.rmi.RemoteException;
@@ -32,6 +33,7 @@ public class EditEmployeeViewModel {
     private Manager manager;
     private Salesman salesman;
     private DamageEmployee damageEmployee;
+    ObservableList list;
 
 
     public EditEmployeeViewModel(Model model) {
@@ -107,42 +109,31 @@ public class EditEmployeeViewModel {
 
     public void onSaveClicked(String position)
     {
+        System.out.println(position);
         if (position.equals("Manager")) {
             manager = new Manager(String.valueOf(nameTextField.getValue()), String.valueOf(addressTextField.getValue()),
-                    Long.parseLong(CPRTextField.getValue()), String.valueOf(emailTextField.getValue()), Integer.parseInt(phoneTextField.getValue()), "Manager");
-            model.addEmployee(manager);
+                    Long.parseLong(CPRTextField.getValue()), String.valueOf(emailTextField.getValue()), Integer.parseInt(phoneTextField.getValue()), position);
+            manager.setEmployeeNo(Integer.parseInt((String) list.get(0)));
+            model.updateEmployee(manager);
         }
         if (position.equals("Salesman")) {
             salesman = new Salesman(String.valueOf(nameTextField.getValue()), String.valueOf(addressTextField.getValue()),
-                    Long.parseLong(CPRTextField.getValue()), String.valueOf(emailTextField.getValue()), Integer.parseInt(phoneTextField.getValue()), "Salesman");
-            model.addEmployee(salesman);
+                    Long.parseLong(CPRTextField.getValue()), String.valueOf(emailTextField.getValue()), Integer.parseInt(phoneTextField.getValue()), position);
+            salesman.setEmployeeNo(Integer.parseInt((String) list.get(0)));
+            model.updateEmployee(salesman);
         }
         if (position.equals("DamageEmployee")) {
             damageEmployee = new DamageEmployee(String.valueOf(nameTextField.getValue()), String.valueOf(addressTextField.getValue()),
-                    Long.parseLong(CPRTextField.getValue()), String.valueOf(emailTextField.getValue()), Integer.parseInt(phoneTextField.getValue()), "DamageEmployee");
-
+                    Long.parseLong(CPRTextField.getValue()), String.valueOf(emailTextField.getValue()), Integer.parseInt(phoneTextField.getValue()), position);
+            damageEmployee.setEmployeeNo(Integer.parseInt((String) list.get(0)));
+            model.updateEmployee(damageEmployee);
         }
     }
-
-    public String Manager()
+    public void setChoiceBox(ChoiceBox choiceBox)
     {
-        String sql = "INSERT INTO \"createpolicy\".employees values("+ "'"+ manager.getName()+"'"+
-                "," +"'"+ manager.getAddress()+"'"+","+"'"+manager.getCPR()+"'"+","+"'"+manager.getEmail()+"'"+"," +"'"+manager.getTlfNr()+"'"+",'Manager');";
-        return sql;
-    }
-    public String SalesMan()
-    {
-        String sql = "INSERT INTO \"createpolicy\".employees values("+ "'"+ salesman.getName()+"'"+
-                "," +"'"+ salesman.getAddress()+"'"+","+"'"+salesman.getCPR()+"'"+","+"'"+salesman.getEmail()+"'"+"," +"'"+salesman.getTlfNr()+"'"+",'Salesman');";
-        return sql;
+        choiceBox.setValue(positionTextField.getValue());
     }
 
-    public String DamageEmployee()
-    {
-        String sql = "INSERT INTO \"createpolicy\".employees values("+ "'"+ damageEmployee.getName()+"'"+
-                "," +"'"+ damageEmployee.getAddress()+"'"+","+"'"+damageEmployee.getCPR()+"'"+","+"'"+damageEmployee.getEmail()+"'"+"," +"'"+damageEmployee.getTlfNr()+"'"+",'Damage-employee');";
-        return sql;
-    }
     public boolean checker()
     {
         clearLabels();
@@ -199,15 +190,13 @@ public class EditEmployeeViewModel {
     }
     public void setFields(ObservableList<String> list)
     {
-        String name = list.get(0);
-
-        nameTextField.setValue(name);
-        System.out.println(nameTextField.getValue());
-        addressTextField.setValue(list.get(1));
-        CPRTextField.setValue(String.valueOf(list.get(2)));
-        positionTextField.setValue(list.get(5));
-        emailTextField.setValue(list.get(3));
-        phoneTextField.setValue(String.valueOf(list.get(4)));
+        this.list=list;
+        nameTextField.setValue(list.get(1));
+        addressTextField.setValue(list.get(2));
+        CPRTextField.setValue(String.valueOf(list.get(3)));
+        positionTextField.setValue(list.get(6));
+        emailTextField.setValue(list.get(4));
+        phoneTextField.setValue(String.valueOf(list.get(5)));
     }
 }
 

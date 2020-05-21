@@ -36,9 +36,9 @@ public class Modelmanager implements Model
     client.addEmployee(employee);
   }
 
-  @Override public void updateEmployee(Employee employee, Employee oldEmployee)
+  @Override public void updateEmployee(Employee employee)
   {
-    client.updateEmployee(employee,oldEmployee);
+    client.updateEmployee(employee);
   }
 
   @Override public void deleteEmployee(int cpr)
@@ -64,6 +64,11 @@ public class Modelmanager implements Model
   @Override public void addPolicy(Policy policy)
   {
     client.addPolicy(policy);
+  }
+
+  @Override public void updatePolicy(Policy policy)
+  {
+    client.updatePolicy(policy);
   }
 
   @Override public void deletePolicy(int policyno)
