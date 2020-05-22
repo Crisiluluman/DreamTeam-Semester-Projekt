@@ -54,25 +54,26 @@ private EmployeeHandler handler;
     {
         return update;
     }
+
     public void onCreate(String position)
     {
         if (position.equals("Manager"))
         {
         manager = new Manager(String.valueOf(name.getValue()),String.valueOf(address.getValue()),
         Long.parseLong(CPR.getValue()),String.valueOf(email.getValue()),Integer.parseInt(phone.getValue()), "Manager");
-        handler.addEmployeeData(manager);
+        model.addEmployee(manager);
         }
         if (position.equals("Salesman"))
         {
         salesman = new Salesman(String.valueOf(name.getValue()),String.valueOf(address.getValue()),
         Long.parseLong(CPR.getValue()),String.valueOf(email.getValue()),Integer.parseInt(phone.getValue()), "Salesman");
-        handler.addEmployeeData(salesman);
+        model.addEmployee(salesman);
         }
         if (position.equals("DamageEmployee"))
         {
         damageEmployee = new DamageEmployee(String.valueOf(name.getValue()),String.valueOf(address.getValue()),
         Long.parseLong(CPR.getValue()),String.valueOf(email.getValue()),Integer.parseInt(phone.getValue()), "DamageEmployee");
-        handler.addEmployeeData(damageEmployee);
+        model.addEmployee(damageEmployee);
         }
     }
 
