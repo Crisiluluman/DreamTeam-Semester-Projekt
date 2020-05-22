@@ -44,4 +44,10 @@ public class DamageHandler implements DamageData
     String sql = "Delete from \"insurance\".damage where damageno =" + "'" + damageno + "'" +";";
     connection.AddToDB(sql);
   }
+
+  @Override public List totalDamages()
+  {
+    String sql = "SELECT count(damageno) as "+"total"+" from \"insurance\".damage";
+    return connection.totalFromDB(sql);
+  }
 }

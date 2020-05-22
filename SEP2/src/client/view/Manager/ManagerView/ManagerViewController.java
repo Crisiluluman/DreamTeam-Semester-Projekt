@@ -31,4 +31,8 @@ public void onManageEmployee()
 {
   vh.openView("ManageEmployee");
 }
+public void onManageBusiness()
+{
+  vh.openView("ManageBusiness");
+}
 }

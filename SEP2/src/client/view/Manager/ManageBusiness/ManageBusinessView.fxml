@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="974.0" prefWidth="1070.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="974.0" prefWidth="1070.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.Manager.ManageBusiness.ManageBusinessController">
    <top>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Manage business" BorderPane.alignment="CENTER">
          <font>
@@ -47,9 +47,9 @@
                   <Font size="15.0" />
                </font>
             </Text>
-            <TextField layoutX="229.0" layoutY="231.0" prefHeight="25.0" prefWidth="89.0" />
-            <TextField layoutX="229.0" layoutY="271.0" prefHeight="25.0" prefWidth="90.0" />
-            <TextField layoutX="229.0" layoutY="309.0" prefHeight="25.0" prefWidth="90.0" />
+            <TextField fx:id="totalEmployeesTextField" layoutX="229.0" layoutY="231.0" prefHeight="25.0" prefWidth="89.0" />
+            <TextField fx:id="totalCustomersTextField" layoutX="229.0" layoutY="271.0" prefHeight="25.0" prefWidth="90.0" />
+            <TextField fx:id="totalDamageTextField" layoutX="229.0" layoutY="309.0" prefHeight="25.0" prefWidth="90.0" />
          </children>
       </Pane>
    </center>

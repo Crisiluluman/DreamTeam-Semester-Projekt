@@ -24,8 +24,8 @@ public class DBConnections
       System.out.println("før");
       connection = DriverManager
 
-          .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres",
-              "1234");
+          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres",
+              "1122");
       System.out.println("efter");
       statement = connection.createStatement();
 
@@ -55,8 +55,8 @@ public class DBConnections
     {
       Class.forName("org.postgresql.Driver");
       c = DriverManager
-          .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres",
-              "1234");
+          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres",
+              "1122");
       c.setAutoCommit(false);
       System.out.println("Opened database successfully");
 
@@ -97,8 +97,8 @@ public class DBConnections
     {
       Class.forName("org.postgresql.Driver");
       c = DriverManager
-          .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres",
-              "1234");
+          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres",
+              "1122");
       c.setAutoCommit(false);
       System.out.println("Opened database successfully");
 
@@ -139,8 +139,8 @@ public class DBConnections
   {
     Class.forName("org.postgresql.Driver");
     c = DriverManager
-        .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres",
-            "1234");
+        .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres",
+            "1122");
     c.setAutoCommit(false);
     System.out.println("Opened database successfully");
 
@@ -184,8 +184,8 @@ public class DBConnections
     {
       Class.forName("org.postgresql.Driver");
       c = DriverManager
-          .getConnection("jdbc:postgresql://localhost:5432/Sonny", "postgres",
-              "1234");
+          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres",
+              "1122");
       c.setAutoCommit(false);
       System.out.println("Opened database successfully");
 
@@ -215,9 +215,42 @@ damage.setDamageNo(damageNo);
     return list;
   }
 
+  public List totalFromDB(String sql)
+  {
+    ArrayList<Integer> list = new ArrayList<>();
+    ObservableList<String> row;
 
-  public void updateEmployee(){}
+    Connection c = null;
+    Statement stmt = null;
+    try
+    {
+      Class.forName("org.postgresql.Driver");
+      c = DriverManager
+          .getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres",
+              "1122");
+      c.setAutoCommit(false);
+      System.out.println("Opened database successfully");
 
-  public void getEmployee(){}
+      stmt = c.createStatement();
+      ResultSet rs = stmt.executeQuery(sql);
+
+      while(rs.next())
+      {
+        //We are using non property style for making dynamic table
+
+        int total = rs.getInt("total");
+
+
+        list.add(total);
+      }
+    }
+    catch (Exception e)
+    {
+      e.printStackTrace();
+      System.out.println("Error on Building Data");
+    }
+    System.out.println(list);
+    return list;
+  }
 
 }
