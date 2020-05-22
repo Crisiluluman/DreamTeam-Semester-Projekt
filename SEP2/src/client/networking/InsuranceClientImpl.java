@@ -276,6 +276,11 @@ public class InsuranceClientImpl implements InsuranceClient, Client
     this.property.addPropertyChangeListener(eventname, listener);
   }
 
+  @Override public void addListener(PropertyChangeListener listener)
+  {
+    property.addPropertyChangeListener(listener);
+  }
+
   @Override public void removeListener(String eventname,
       PropertyChangeListener listener)
   {

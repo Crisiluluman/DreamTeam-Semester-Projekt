@@ -20,7 +20,7 @@ public class Modelmanager implements Model
   {
     this.client = client;
     client.start();
-    client.addListener("updateCustomers", this::updateAll);
+    client.addListener(this::updateAll);
     this.property = new PropertyChangeSupport(this);
   }
 
@@ -110,6 +110,11 @@ public class Modelmanager implements Model
       PropertyChangeListener listener)
   {
     this.property.addPropertyChangeListener(eventname, listener);
+  }
+
+  @Override public void addListener(PropertyChangeListener listener)
+  {
+    property.addPropertyChangeListener(listener);
   }
 
   @Override public void removeListener(String eventname,
