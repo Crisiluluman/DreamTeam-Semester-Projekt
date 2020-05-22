@@ -34,6 +34,7 @@ private EmployeeHandler handler;
 
     public CreateEmployeeViewModel(Model model) {
         this.model = model;
+        this.model.addListener(this);
         name = new SimpleStringProperty();
         address = new SimpleStringProperty();
         CPR = new SimpleStringProperty();
