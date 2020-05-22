@@ -45,14 +45,17 @@ public class ManageEmployeeViewModel
     List<Employee> employees = model.readEmployee();
     ObservableList<String> row;
     rows = FXCollections.observableArrayList();
-    setUpColumn(TV,"employeeNo",0);
-    setUpColumn(TV, "name",1);
-    setUpColumn(TV, "address",2);
-    setUpColumn(TV, "cpr",3);
-    setUpColumn(TV, "email",4);
-    setUpColumn(TV, "tlfnr",5);
-    setUpColumn(TV, "position",6);
 
+    if(TV.getColumns().size() == 0)
+    {
+      setUpColumn(TV, "employeeNo", 0);
+      setUpColumn(TV, "name", 1);
+      setUpColumn(TV, "address", 2);
+      setUpColumn(TV, "cpr", 3);
+      setUpColumn(TV, "email", 4);
+      setUpColumn(TV, "tlfnr", 5);
+      setUpColumn(TV, "position", 6);
+    }
 
 
     for (int i = 0; i < employees.size()  ; i++)

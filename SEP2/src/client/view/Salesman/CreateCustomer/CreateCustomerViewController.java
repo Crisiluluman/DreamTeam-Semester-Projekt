@@ -34,12 +34,10 @@ public class CreateCustomerViewController implements viewController
   addressTextfield.textProperty().bindBidirectional(ccv.getAddressTextfield());
   postcodeTextField.textProperty().bindBidirectional(ccv.getPostcodeTextField());
   cprnoTextfield.textProperty().bindBidirectional(ccv.getCprnoTextfield());
-  CustomerNoTextField.textProperty().bindBidirectional(ccv.getCustomerNoTextField());
   nameLabel.textProperty().bind(ccv.getnameLabelProperty());
   addressLabel.textProperty().bind(ccv.getaddressLabelProperty());
   postcodeLabel.textProperty().bind(ccv.getpostcodeLabelProperty());
   cprnoLabel.textProperty().bind(ccv.getcprnoLabelProperty());
-  customernoLabel.textProperty().bind(ccv.getcustomernoLabelProperty());
   ccv.clearTextfields();
 }
 
@@ -55,11 +53,14 @@ public class CreateCustomerViewController implements viewController
       ccv.onClick();
       ccv.clearTextfields();
       ccv.clearLabels();
-
-
-      vh.openView("Salesman");
     }
 
+    if(ccv.getUpdate())
+    {
+      vh.updateCustomerViews();
+      vh.openView("Salesman");
+
+    }
   }
   public void onCancel()
   {

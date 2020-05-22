@@ -1,4 +1,4 @@
-package client.view.Salesman.CreatePolice;
+package client.view.Salesman.CreatePolicy;
 
 import client.model.Model;
 import javafx.collections.ObservableList;
@@ -23,7 +23,7 @@ public class CreatePoliceViewModel implements PropertyChangeListener
   private StringProperty LabelPrice;
   private StringProperty LabelDeductible;
   private StringProperty LabelCoverage;
-
+  private boolean update;
   private Policy policy;
   private int customerNo;
 
@@ -42,6 +42,7 @@ public class CreatePoliceViewModel implements PropertyChangeListener
     LabelPrice = new SimpleStringProperty();
     LabelDeductible = new SimpleStringProperty();
     LabelCoverage = new SimpleStringProperty();
+    update = false;
 
   }
 
@@ -144,6 +145,11 @@ public void clear()
 
   @Override public void propertyChange(PropertyChangeEvent evt)
   {
+    update = true;
+  }
 
+  public boolean getUpdate()
+  {
+    return update;
   }
 }

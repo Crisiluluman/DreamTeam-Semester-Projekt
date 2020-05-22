@@ -16,20 +16,13 @@ public class Modelmanager implements Model
   private Client client;
   private PropertyChangeSupport property;
 
-
   public Modelmanager(Client client)
   {
     this.client = client;
     client.start();
-    client.addListener("update", this::updateDamages);
+    client.addListener("updateCustomers", this::updateAll);
     this.property = new PropertyChangeSupport(this);
   }
-
-  public void updateDamages(PropertyChangeEvent event)
-  {
-    property.firePropertyChange("update",null,null);
-  }
-
 
   @Override public void addEmployee(Employee employee)
   {
@@ -45,6 +38,8 @@ public class Modelmanager implements Model
   {
     client.deleteEmployee(cpr);
   }
+
+  // customer
 
   @Override public void addCustomer(Customer customer)
   {
@@ -91,8 +86,8 @@ public class Modelmanager implements Model
     client.deleteDamage(damageno);
   }
 
-  @Override
-  public List<Customer> readCustomer(){
+  @Override public List<Customer> readCustomer()
+  {
     return client.readCustomer();
   }
 
@@ -121,5 +116,32 @@ public class Modelmanager implements Model
       PropertyChangeListener listener)
   {
     this.property.removePropertyChangeListener(eventname, listener);
+  }
+
+  @Override public void updateAll(PropertyChangeEvent evt)
+  {
+
+    switch (evt.getPropertyName())
+    {
+      case "updateDamages":
+        property.firePropertyChange("updateDamages", null, null);
+        break;
+
+      case "updateEmployees":
+        property.firePropertyChange("updateEmployees", null, null);
+        break;
+
+      case "updateCustomers":
+        property.firePropertyChange("updateCustomers", null, null);
+        break;
+
+      case "updatePolicies":
+        property.firePropertyChange("updatePolicies", null, null);
+        break;
+
+      default:
+        break;
+
+    }
   }
 }

@@ -7,6 +7,8 @@ import javafx.scene.layout.Region;
 
 public interface viewController
 {
+
+
   void init(ViewHandler vh, ViewModelFactory vmf, Region root);
   Region getRoot();
 

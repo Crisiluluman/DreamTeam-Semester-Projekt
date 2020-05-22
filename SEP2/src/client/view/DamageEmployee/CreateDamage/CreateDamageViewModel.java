@@ -29,7 +29,6 @@ public class CreateDamageViewModel implements PropertyChangeListener
     private StringProperty PolicyTypeDropdownLabel;
     private StringProperty expensesLabel;
     private StringProperty damageNoLabel;
-  private PropertyChangeSupport property;
   private boolean updates;
 
 
@@ -37,9 +36,8 @@ public class CreateDamageViewModel implements PropertyChangeListener
   public CreateDamageViewModel(Model model)
     {
       this.model = model;
-      model.addListener("update", this);
+      model.addListener("updateDamages", this);
       this.updates=false;
-      this.property = new PropertyChangeSupport(this);
       policyTypeDropdown = new SimpleStringProperty();
       expensesTextfield = new SimpleStringProperty();
       damageNoTextfield = new SimpleStringProperty();

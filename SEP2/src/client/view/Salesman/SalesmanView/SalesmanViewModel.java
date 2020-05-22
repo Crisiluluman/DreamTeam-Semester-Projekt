@@ -15,6 +15,8 @@ import javafx.scene.control.TableColumn;
 import javafx.util.Callback;
 import shared.Customer;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -42,13 +44,14 @@ public class SalesmanViewModel
     ObservableList<String> row;
     rows = FXCollections.observableArrayList();
 
-
-    setUpColumn(TV, "name",0);
-    setUpColumn(TV, "address",1);
-    setUpColumn(TV, "postcode",2);
-    setUpColumn(TV, "cpr",3);
-    setUpColumn(TV, "customerno",4);
-
+    if(TV.getColumns().size() == 0)
+    {
+      setUpColumn(TV, "name", 0);
+      setUpColumn(TV, "address", 1);
+      setUpColumn(TV, "postcode", 2);
+      setUpColumn(TV, "cpr", 3);
+      setUpColumn(TV, "customerno", 4);
+    }
 
     for (int i = 0; i < customers.size()  ; i++)
     {
@@ -106,4 +109,5 @@ public class SalesmanViewModel
       }
     }
   }
+
 }

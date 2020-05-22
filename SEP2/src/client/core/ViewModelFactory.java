@@ -13,7 +13,7 @@ import client.view.Manager.ManageBusiness.ManageBusinessViewModel;
 import client.view.Manager.ManageEmployee.ManageEmployeeViewModel;
 import client.view.Manager.ManagerView.ManagerViewModel;
 import client.view.Salesman.CreateCustomer.CreateCustomerViewModel;
-import client.view.Salesman.CreatePolice.CreatePoliceViewModel;
+import client.view.Salesman.CreatePolicy.CreatePoliceViewModel;
 import client.view.Salesman.ManageCustomer.ManageCustomerViewModel;
 import client.view.Salesman.Policies.PoliciesViewModel;
 import client.view.Salesman.SEditPolicy.SEditPolicyViewModel;

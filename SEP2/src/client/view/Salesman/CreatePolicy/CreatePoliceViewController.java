@@ -1,9 +1,8 @@
-package client.view.Salesman.CreatePolice;
+package client.view.Salesman.CreatePolicy;
 
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.view.viewController;
-import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -11,10 +10,6 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
-import javafx.scene.paint.Color;
-
-import java.rmi.RemoteException;
-import java.util.regex.Pattern;
 
 public class CreatePoliceViewController implements viewController
 {
@@ -120,6 +115,11 @@ public class CreatePoliceViewController implements viewController
       {
         cpv.createPolicy((String) policyType.getValue());
         clearAll();
+      }
+
+      if(cpv.getUpdate())
+      {
+        vh.updatePolicyViews();
         vh.openView("Policies");
       }
 

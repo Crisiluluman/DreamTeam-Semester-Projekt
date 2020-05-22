@@ -71,8 +71,15 @@ private Label LabelErrorPhone;
         cev.onCreate((String) position.getValue());
         cev.clearTextFields();
         cev.clearLabel();
+      }
+
+      if (cev.getUpdate())
+      {
+        vh.updateEmployeeViews();
         vh.openView("ManageEmployee");
       }
+
+
     }
 
     public void onBack()

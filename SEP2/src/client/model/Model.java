@@ -23,7 +23,6 @@ public interface Model extends Subject
   List<Policy> readPolicy(int customerNo);
   List<Employee> readEmployee();
   List<Damage> readDamage(int policeno);
+void updateAll(PropertyChangeEvent evt);
 
-  //observer pattern
-  void updateDamages(PropertyChangeEvent event);
 }

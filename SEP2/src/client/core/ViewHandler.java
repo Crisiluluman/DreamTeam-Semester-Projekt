@@ -14,13 +14,12 @@ import client.view.Manager.ManageBusiness.ManageBusinessController;
 import client.view.Manager.ManageEmployee.ManageEmployeeController;
 import client.view.Manager.ManagerView.ManagerViewController;
 import client.view.Salesman.CreateCustomer.CreateCustomerViewController;
-import client.view.Salesman.CreatePolice.CreatePoliceViewController;
+import client.view.Salesman.CreatePolicy.CreatePoliceViewController;
 import client.view.Salesman.ManageCustomer.ManageCustomerViewController;
 import client.view.Salesman.Policies.PoliciesViewController;
 import client.view.Salesman.SEditPolicy.SEditPolicyViewController;
 import client.view.Salesman.SalesmanView.SalesmanViewController;
 import javafx.application.Application;
-import javafx.beans.Observable;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -60,14 +59,25 @@ public class ViewHandler extends Application
   {
 primaryStage = stage;
 currentScene = new Scene(new Region());
-openView("DEMain");
+openView("Salesman");
   }
 
-  public boolean getUpdate()
+
+  public void updateEmployeeViews()
   {
-    boolean update = vmf.getCreateDamageViewModel().getUpdate();
-    return update;
+    manageEmployeeController.init(this,vmf,manageEmployeeController.getRoot());
   }
+
+  public void updateCustomerViews()
+  {
+    salesmanViewController.init(this,vmf,salesmanViewController.getRoot());
+  }
+
+  public void updatePolicyViews()
+  {
+    policiesViewController.init(this,vmf,policiesViewController.getRoot());
+  }
+
   public void updateDamageViews(){
     manageDamageViewController.init(this,vmf,manageDamageViewController.getRoot());
   }

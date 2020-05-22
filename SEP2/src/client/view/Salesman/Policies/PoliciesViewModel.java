@@ -69,14 +69,15 @@ public int getCustomerNo()
     ObservableList<String> row;
     rows = FXCollections.observableArrayList();
 
-
-    setUpColumn(TV, "policyNo",0);
-    setUpColumn(TV, "type",1);
-    setUpColumn(TV, "price",2);
-    setUpColumn(TV, "deductible",3);
-    setUpColumn(TV, "coverage",4);
-    setUpColumn(TV,"customerNo",5);
-
+if(TV.getColumns().size() == 0)
+  {
+  setUpColumn(TV, "policyNo", 0);
+  setUpColumn(TV, "type", 1);
+  setUpColumn(TV, "price", 2);
+  setUpColumn(TV, "deductible", 3);
+  setUpColumn(TV, "coverage", 4);
+  setUpColumn(TV, "customerNo", 5);
+  }
 
     for (int i = 0; i < policies.size()  ; i++)
     {

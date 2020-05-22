@@ -41,6 +41,7 @@ public class InsuranceServerImpl implements InsuranceServer
   @Override public void addEmployee(Employee employee) throws RemoteException
   {
     serverModel.addEmployee(employee);
+    client.updateEmployees();
   }
 
   @Override public void deleteEmployee(int cpr) throws RemoteException
@@ -53,6 +54,7 @@ public class InsuranceServerImpl implements InsuranceServer
   @Override public void addCustomer(Customer customer) throws RemoteException
   {
     serverModel.addCustomer(customer);
+    client.updateCustomers();
   }
 
   @Override
@@ -103,6 +105,7 @@ public class InsuranceServerImpl implements InsuranceServer
   @Override public void addPolicy(Policy policy) throws RemoteException
   {
     serverModel.addPolicy(policy);
+    client.updatePolicies();
   }
 
   @Override public void updatePolicy(Policy policy) throws RemoteException

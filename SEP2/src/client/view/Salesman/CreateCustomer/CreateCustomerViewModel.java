@@ -6,12 +6,14 @@ import client.model.Model;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import java.util.regex.Pattern;
 
-public class CreateCustomerViewModel
+public class CreateCustomerViewModel implements PropertyChangeListener
 {
   private Model model;
   public StringProperty nameTextfield;
@@ -25,6 +27,7 @@ public class CreateCustomerViewModel
   public StringProperty postcodeLabel;
   public StringProperty cprnoLabel;
   public StringProperty customernoLabel;
+  private boolean update;
 
   public CreateCustomerViewModel(Model model)
   {
@@ -39,7 +42,8 @@ public class CreateCustomerViewModel
     postcodeLabel = new SimpleStringProperty();
     cprnoLabel = new SimpleStringProperty();
     customernoLabel = new SimpleStringProperty();
-
+    update = false;
+    this.model.addListener("updateCustomers",this);
 
   }
 
@@ -101,6 +105,7 @@ public class CreateCustomerViewModel
         Long.parseLong(cprnoTextfield.getValue()));
       clearLabels();
       model.addCustomer(customer);
+
   }
 
   public void clearLabels()
@@ -151,5 +156,16 @@ public class CreateCustomerViewModel
     }
     
     return true;
+  }
+
+  public boolean getUpdate()
+  {
+    return update;
+  }
+
+  @Override public void propertyChange(PropertyChangeEvent evt)
+  {
+    System.out.println(update);
+    update = true;
   }
 }

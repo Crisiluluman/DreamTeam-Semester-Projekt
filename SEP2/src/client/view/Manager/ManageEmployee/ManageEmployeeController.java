@@ -29,6 +29,7 @@ public class ManageEmployeeController implements viewController
     this.root = root;
     mevm = vmf.getManageEmployeeViewModel();
     mevm.readEmployee(employeeTableView);
+
   }
 
   @Override

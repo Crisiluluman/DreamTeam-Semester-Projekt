@@ -11,6 +11,7 @@ import shared.Networking.InsuranceServer;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.rmi.NotBoundException;
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -248,22 +249,25 @@ public class InsuranceClientImpl implements InsuranceClient, Client
     }
   }
 
-  public void contactServer(int row)
-  {
-    try
-    {
-      server.updateDamage(row, this);
-    }
-    catch (RemoteException e)
-    {
-      e.printStackTrace();
-    }
 
+  @Override public void updateDamages() throws RemoteException
+  {
+    property.firePropertyChange("updateDamages", null, null);
   }
 
-  @Override public void updateDamages()
+  @Override public void updateCustomers() throws RemoteException
   {
-    property.firePropertyChange("update", null, null);
+    property.firePropertyChange("updateCustomers", null, null);
+  }
+
+  @Override public void updatePolicies() throws RemoteException
+  {
+    property.firePropertyChange("updatePolicies", null, null);
+  }
+
+  @Override public void updateEmployees() throws RemoteException
+  {
+    property.firePropertyChange("updateEmployees", null, null);
   }
 
   @Override public void addListener(String eventname,

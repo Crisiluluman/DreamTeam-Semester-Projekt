@@ -22,13 +22,7 @@ ManageDamageViewModel mdvm;
     this.vh=vh;
     mdvm=vmf.getDamageViewModel();
     this.root=root;
-    if(vh.getUpdate())
-    {
     mdvm.readPolicy(view,mdvm.getPoliceNo());
-    }
-    else {
-      mdvm.readPolicy(view,mdvm.getPoliceNo());
-    }
 
   }
 

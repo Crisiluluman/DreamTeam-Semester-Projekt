@@ -7,9 +7,12 @@ import client.model.Salesman.Salesman;
 import javafx.beans.property.SimpleStringProperty;
 import server.DBConnection.EmployeeDB.EmployeeHandler;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.regex.Pattern;
 
-public class CreateEmployeeViewModel {
+public class CreateEmployeeViewModel implements PropertyChangeListener
+{
     private Model model;
 private SimpleStringProperty name;
 private SimpleStringProperty address;
@@ -25,6 +28,7 @@ private SimpleStringProperty Labelphone;
 private Manager manager;
 private Salesman salesman;
 private DamageEmployee damageEmployee;
+private boolean update;
 
 private EmployeeHandler handler;
 
@@ -42,6 +46,12 @@ private EmployeeHandler handler;
         Labelemail = new SimpleStringProperty();
         Labelphone = new SimpleStringProperty();
         handler = new EmployeeHandler();
+        update = false;
+    }
+
+    public boolean getUpdate()
+    {
+        return update;
     }
     public void onCreate(String position)
     {
@@ -176,5 +186,10 @@ private EmployeeHandler handler;
     public SimpleStringProperty phoneProperty()
     {
         return phone;
+    }
+
+    @Override public void propertyChange(PropertyChangeEvent evt)
+    {
+        update = true;
     }
 }
