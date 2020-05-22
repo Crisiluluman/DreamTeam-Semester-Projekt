@@ -118,7 +118,7 @@ public class ManageEmployeeViewModel implements PropertyChangeListener
       Optional<ButtonType> result = alert.showAndWait();
       if (result.get() == ButtonType.OK){
         //her kalder vi på metoden som sletter en employee fra databasen
-        model.deleteEmployee(Integer.parseInt((String) list.get(2)));
+        model.deleteEmployee(Integer.parseInt((String) list.get(0)));
         System.out.println("Employee deleted");
       } else {
         //gør ingenting
