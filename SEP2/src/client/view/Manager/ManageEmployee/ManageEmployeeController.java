@@ -52,5 +52,9 @@ public class ManageEmployeeController implements viewController
   public void onDelete()
   {
     mevm.Delete(employeeTableView);
+    if(mevm.getUpdate())
+    {
+      vh.updateEmployeeViews();
+    }
   }
 }

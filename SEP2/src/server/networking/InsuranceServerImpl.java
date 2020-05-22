@@ -93,6 +93,7 @@ public class InsuranceServerImpl implements InsuranceServer
       throws RemoteException
   {
     serverModel.updateEmployee(employee);
+    client.updateEmployees();
   }
 
   @Override public void deleteCustomer(int customerNo) throws RemoteException

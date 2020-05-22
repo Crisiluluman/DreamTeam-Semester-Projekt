@@ -19,6 +19,8 @@ import javafx.scene.control.TableView;
 import javafx.util.Callback;
 import shared.Policy;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -26,17 +28,20 @@ import java.sql.Statement;
 import java.util.List;
 import java.util.Optional;
 
-public class ManageEmployeeViewModel
+public class ManageEmployeeViewModel implements PropertyChangeListener
 {
   private Model model;
   private EditEmployeeViewModel e;
   ObservableList<ObservableList> rows;
   ObservableList<String> row;
   ViewModelFactory viewModelFactory;
+  private boolean update;
 
   public ManageEmployeeViewModel(Model model)
   {
     this.model = model;
+    this.model.addListener(this);
+    update = false;
   }
 
 
@@ -119,6 +124,16 @@ public class ManageEmployeeViewModel
         //gør ingenting
       }
     }
+  }
+
+  public boolean getUpdate() {
+    return update;
+  }
+
+
+  @Override
+  public void propertyChange(PropertyChangeEvent evt) {
+    update = true;
   }
 }
 
