@@ -13,20 +13,25 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.util.Callback;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.List;
 import java.util.Optional;
 
-public class PoliciesViewModel
+public class PoliciesViewModel implements PropertyChangeListener
 {
   private Model model;
   ObservableList<ObservableList> rows;
   ObservableList<String> row;
   private int customerNo;
+  private boolean update;
 
 
   public PoliciesViewModel(Model model)
   {
     this.model = model;
+    this.model.addListener(this);
+    update = false;
 
   }
 public void setCustomerNo(ObservableList list)
@@ -113,5 +118,15 @@ if(TV.getColumns().size() == 0)
         //gør ingenting
       }
     }
+  }
+
+  public boolean getUpdate()
+  {
+    return update;
+  }
+
+  @Override
+  public void propertyChange(PropertyChangeEvent evt) {
+    update = true;
   }
 }

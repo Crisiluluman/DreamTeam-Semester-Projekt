@@ -52,5 +52,9 @@ public class PoliciesViewController implements viewController
   public void onDelete()
   {
     pvm.Delete(tableview);
+    if(pvm.getUpdate())
+    {
+      vh.updatePolicyViews();
+    }
   }
 }
