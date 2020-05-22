@@ -24,17 +24,21 @@ import java.sql.Statement;
 import java.util.List;
 import java.util.Optional;
 
-public class SalesmanViewModel
+public class SalesmanViewModel implements PropertyChangeListener
 {
   private Model model;
   private StringProperty searchField;
   ObservableList<ObservableList> rows;
   ObservableList<String> row;
   private ViewModelFactory viewModelFactory;
+  public boolean update;
 
   public SalesmanViewModel(Model model)
   {
     this.model = model;
+    this.model.addListener(this);
+    update = false;
+
     searchField = new SimpleStringProperty();
   }
 
@@ -103,11 +107,20 @@ public class SalesmanViewModel
       Optional<ButtonType> result = alert.showAndWait();
       if (result.get() == ButtonType.OK){
        model.deleteCustomer(Integer.parseInt((String) list.get(4)));
-        System.out.println("deleted" + list.get(4));
+       System.out.println("deleted" + list.get(4));
       } else {
         //gør ingenting
       }
     }
   }
 
+  public boolean getUpdate()
+  {
+    return update;
+  }
+
+  @Override
+  public void propertyChange(PropertyChangeEvent evt) {
+    update = true;
+  }
 }

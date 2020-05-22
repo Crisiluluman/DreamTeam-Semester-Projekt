@@ -98,6 +98,7 @@ public class InsuranceServerImpl implements InsuranceServer
   @Override public void deleteCustomer(int customerNo) throws RemoteException
   {
     serverModel.deleteCustomer(customerNo);
+    client.updateCustomers();
   }
 
   // policy

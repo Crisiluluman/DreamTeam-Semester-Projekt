@@ -48,4 +48,5 @@ ManageDamageViewModel mdvm;
       vh.openEditDamage(data);
     }
   }
+
 }
