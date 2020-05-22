@@ -39,6 +39,11 @@ public class Modelmanager implements Model
     client.deleteEmployee(cpr);
   }
 
+  @Override public List totalEmployees()
+  {
+    return client.totalEmployees();
+  }
+
   // customer
 
   @Override public void addCustomer(Customer customer)
@@ -54,6 +59,11 @@ public class Modelmanager implements Model
   @Override public void deleteCustomer(int customerNo)
   {
     client.deleteCustomer(customerNo);
+  }
+
+  @Override public List totalCustomers()
+  {
+  return client.totalCustomers();
   }
 
   @Override public void addPolicy(Policy policy)
@@ -86,8 +96,13 @@ public class Modelmanager implements Model
     client.deleteDamage(damageno);
   }
 
-  @Override public List<Customer> readCustomer()
+  @Override public List totalDamages()
   {
+    return client.totalDamages();
+  }
+
+  @Override
+  public List<Customer> readCustomer(){
     return client.readCustomer();
   }
 

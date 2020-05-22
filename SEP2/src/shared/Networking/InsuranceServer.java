@@ -32,6 +32,9 @@ public interface InsuranceServer extends Remote
   void addDamage(Damage damage) throws RemoteException;
   void deleteDamage(int damageno) throws RemoteException;
 
+  List totalCustomers() throws RemoteException;
+  List totalEmployees() throws RemoteException;
+  List totalDamages() throws RemoteException;
 
   //Callback
   void updateDamage(int row, InsuranceClient insuranceClient) throws RemoteException;

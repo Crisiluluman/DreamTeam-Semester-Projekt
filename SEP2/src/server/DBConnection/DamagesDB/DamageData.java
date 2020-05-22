@@ -10,4 +10,5 @@ public interface DamageData
   void updateDamageData(Damage damage);
   List<Damage> readDamageData(int policeno);
   void deleteDamageData(int damageno);
+  List totalDamages();
 }

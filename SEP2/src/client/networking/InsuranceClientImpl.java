@@ -16,6 +16,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 import java.util.List;
 
 public class InsuranceClientImpl implements InsuranceClient, Client
@@ -97,6 +98,20 @@ public class InsuranceClientImpl implements InsuranceClient, Client
     }
   }
 
+  @Override public List totalEmployees()
+  {
+    List<List> list = new ArrayList<>();
+    try
+    {
+      list.add(server.totalEmployees());
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+    return list.get(0);
+  }
+
   // Customer
 
   @Override public void addCustomer(Customer customer)
@@ -146,6 +161,20 @@ public class InsuranceClientImpl implements InsuranceClient, Client
     {
       e.printStackTrace();
     }
+  }
+
+  @Override public List totalCustomers()
+  {
+    List<List> list = new ArrayList<>();
+    try
+    {
+      list.add(server.totalCustomers());
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+    return list.get(0);
   }
 
   // Policy
@@ -249,12 +278,25 @@ public class InsuranceClientImpl implements InsuranceClient, Client
     }
   }
 
+  @Override public List totalDamages()
+  {
+    List<List> list = new ArrayList<>();
+    try
+    {
+      list.add(server.totalDamages());
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+    return list.get(0);
+  }
+
 
   @Override public void updateDamages() throws RemoteException
   {
     property.firePropertyChange("updateDamages", null, null);
   }
-
   @Override public void updateCustomers() throws RemoteException
   {
     property.firePropertyChange("updateCustomers", null, null);

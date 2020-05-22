@@ -38,6 +38,13 @@ public class CustomerHandler implements CustomerData
     connection.AddToDB(sql);
   }
 
+  @Override public List TotalCustomers()
+  {
+    String sql = "SELECT count(customerno) as "+"total"+" from \"insurance\".customer";
+    return connection.totalFromDB(sql);
+
+  }
+
   @Override public List<Customer> readCustomerData()
   {
     String sql = "SELECT * FROM \"insurance\".customer;";

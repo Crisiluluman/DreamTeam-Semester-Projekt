@@ -10,6 +10,7 @@ public interface CustomerData
   void addCustomerData(Customer customer);
   void updateCustomerData(Customer customer);
   void deleteCustomerData(int customerNo);
+  List TotalCustomers();
   List<Customer> readCustomerData();
 
 }

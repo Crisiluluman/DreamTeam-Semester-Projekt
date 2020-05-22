@@ -1,5 +1,6 @@
 package server.DBConnection.EmployeeDB;
 
+import javafx.beans.property.StringProperty;
 import server.DBConnection.DBConnections;
 import shared.Employee;
 
@@ -52,5 +53,11 @@ public class EmployeeHandler implements EmployeeData
   {
     String sql = "Delete from \"insurance\".employee where cpr =" + "'" + cpr + "'" +";";
     connection.AddToDB(sql);
+  }
+
+  @Override public List totalEmployees()
+  {
+    String sql = "SELECT count(employeeno) as "+"total"+" from \"insurance\".employee";
+    return connection.totalFromDB(sql);
   }
 }

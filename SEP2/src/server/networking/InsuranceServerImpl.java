@@ -135,6 +135,21 @@ public class InsuranceServerImpl implements InsuranceServer
     serverModel.deleteDamage(damageno);
   }
 
+  @Override public List totalCustomers()
+  {
+    return serverModel.totalCustomers();
+  }
+
+  @Override public List totalEmployees() throws RemoteException
+  {
+    return serverModel.totalEmployees();
+  }
+
+  @Override public List totalDamages() throws RemoteException
+  {
+    return serverModel.totalDamages();
+  }
+
   @Override public void updateDamage(int row, InsuranceClient insuranceClient)
       throws RemoteException
   {
