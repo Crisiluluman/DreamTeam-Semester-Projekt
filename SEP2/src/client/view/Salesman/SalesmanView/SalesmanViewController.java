@@ -68,7 +68,7 @@ public void onDelete()
   svm.Delete(customerTableView);
   if(svm.getUpdate())
   {
-    vh.updatePolicyViews();
+    vh.updateCustomerViews();
   }
 }
 }
