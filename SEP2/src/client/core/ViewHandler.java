@@ -59,7 +59,7 @@ public class ViewHandler extends Application
   {
 primaryStage = stage;
 currentScene = new Scene(new Region());
-openView("Salesman");
+openView("DEMain");
   }
 
 
@@ -174,7 +174,7 @@ public void openDEPolicies(ObservableList list)
         root = loadCreateCustomerView("../view/Salesman/CreateCustomer/CreateCustomerView.fxml");
         break;
       case "CreatePolicy":
-        root = loadCreatePoliceView("../view/Salesman/CreatePolice/CreatePoliceView.fxml");
+        root = loadCreatePoliceView("../view/Salesman/CreatePolicy/CreatePoliceView.fxml");
         break;
       case "ManageCustomer":
         root = loadManageCustomerView("../view/Salesman/ManageCustomer/ManageCustomerView.fxml");

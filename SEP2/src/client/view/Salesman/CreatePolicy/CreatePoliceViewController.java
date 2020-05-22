@@ -72,7 +72,6 @@ public class CreatePoliceViewController implements viewController
        this.vh = vh;
        cpv = vmf.getCreatePoliceViewModel();
        this.root = root;
-       policyNr.textProperty().bindBidirectional(cpv.policyNrProperty());
        price.textProperty().bindBidirectional(cpv.priceProperty());
        deductible.textProperty().bindBidirectional(cpv.deductibleProperty());
        coverage.textProperty().bindBidirectional(cpv.coverageProperty());
@@ -97,7 +96,6 @@ public class CreatePoliceViewController implements viewController
       price.clear();
       deductible.clear();
       Customer.clear();
-      policyNr.clear();
     cpv.labelCoverageProperty().setValue("");
     cpv.labelDeductibleProperty().setValue("");
     cpv.labelPolicyNrProperty().setValue("");
