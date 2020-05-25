@@ -49,4 +49,17 @@ public class PolicyHandler implements PolicyData
     String sql = "Delete from \"insurance\".policy where policyNo =" + "'" + policyno + "'" +";";
     connection.AddToDB(sql);
   }
+
+  @Override public List getIncome()
+  {
+    String sql = "SELECT sum(price) as "+"total"+" from \"insurance\".policy";
+    return connection.totalFromDB(sql);
+  }
+
+  @Override public List getExpenses()
+  {
+    String sql = "SELECT sum(expenses) as "+"total"+" from \"insurance\".damage";
+    return connection.totalFromDB(sql);
+  }
+
 }

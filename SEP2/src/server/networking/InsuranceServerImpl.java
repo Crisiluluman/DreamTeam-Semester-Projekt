@@ -122,6 +122,11 @@ public class InsuranceServerImpl implements InsuranceServer
     client.updatePolicies();
   }
 
+  @Override public List getIncome() throws RemoteException
+  {
+    return serverModel.getIncome();
+  }
+
   // damage
 
   @Override public void addDamage(Damage damage)
@@ -135,6 +140,11 @@ public class InsuranceServerImpl implements InsuranceServer
   @Override public void deleteDamage(int damageno) throws RemoteException
   {
     serverModel.deleteDamage(damageno);
+  }
+
+  @Override public List getExpenses() throws RemoteException
+  {
+    return serverModel.getExpenses();
   }
 
   @Override public List totalCustomers()

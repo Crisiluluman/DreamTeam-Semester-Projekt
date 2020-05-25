@@ -229,6 +229,20 @@ public class InsuranceClientImpl implements InsuranceClient, Client
     }
   }
 
+  @Override public List getIncome()
+  {
+    List<List> list = new ArrayList<>();
+    try
+    {
+      list.add(server.getIncome());
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+    return list.get(0);
+  }
+
   @Override public void addDamage(Damage damage)
   {
     try
@@ -292,6 +306,19 @@ public class InsuranceClientImpl implements InsuranceClient, Client
     return list.get(0);
   }
 
+  @Override public List getExpenses()
+  {
+    List<List> list = new ArrayList<>();
+    try
+    {
+      list.add(server.getExpenses());
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+    return list.get(0);
+  }
 
   @Override public void updateDamages() throws RemoteException
   {

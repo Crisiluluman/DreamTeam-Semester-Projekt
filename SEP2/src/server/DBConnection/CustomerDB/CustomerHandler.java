@@ -42,8 +42,10 @@ public class CustomerHandler implements CustomerData
   {
     String sql = "SELECT count(customerno) as "+"total"+" from \"insurance\".customer";
     return connection.totalFromDB(sql);
-
   }
+
+
+
 
   @Override public List<Customer> readCustomerData()
   {

@@ -11,17 +11,23 @@ public interface Model extends Subject
   void updateEmployee(Employee employee);
   void deleteEmployee(int employee);
   List totalEmployees();
+
   void addCustomer(Customer customer);
   void updateCustomer(Customer customer);
   void deleteCustomer(int customerNo);
   List totalCustomers();
+
   void addPolicy(Policy policy);
   void updatePolicy(Policy policy);
   void deletePolicy(int policyno);
+  List getIncome();
+
   void addDamage(Damage damage);
   void updateDamage(Damage damage);
   void deleteDamage(int damageno);
   List totalDamages();
+  List getExpenses();
+
   List<Customer> readCustomer();
   List<Policy> readPolicy(int customerNo);
   List<Employee> readEmployee();

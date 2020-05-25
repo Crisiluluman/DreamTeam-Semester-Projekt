@@ -10,4 +10,6 @@ public interface PolicyData
   void updatePolicyData(Policy policy);
   List<Policy> readPolicyData(int customerNo);
   void deletePolicyData(int policyno);
+  List getIncome();
+  List getExpenses();
 }

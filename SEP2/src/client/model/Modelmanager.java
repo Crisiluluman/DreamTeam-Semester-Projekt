@@ -81,6 +81,11 @@ public class Modelmanager implements Model
     client.deletePolicy(policyno);
   }
 
+  @Override public List getIncome()
+  {
+   return client.getIncome();
+  }
+
   @Override public void addDamage(Damage damage)
   {
     client.addDamage(damage);
@@ -99,6 +104,11 @@ public class Modelmanager implements Model
   @Override public List totalDamages()
   {
     return client.totalDamages();
+  }
+
+  @Override public List getExpenses()
+  {
+    return client.getExpenses();
   }
 
   @Override

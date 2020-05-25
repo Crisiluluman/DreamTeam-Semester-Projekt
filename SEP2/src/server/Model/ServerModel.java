@@ -89,6 +89,16 @@ public class ServerModel implements ServerModelInterface
     policyHandler.deletePolicyData(policyno);
   }
 
+  @Override public List getIncome()
+  {
+    return policyHandler.getIncome();
+  }
+
+  @Override public List getExpenses()
+  {
+    return policyHandler.getExpenses();
+  }
+
   // Damage
 
   @Override public void addDamage(Damage damage)

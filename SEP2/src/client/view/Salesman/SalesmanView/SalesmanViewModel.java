@@ -55,6 +55,7 @@ public class SalesmanViewModel implements PropertyChangeListener
       setUpColumn(TV, "postcode", 2);
       setUpColumn(TV, "cpr", 3);
       setUpColumn(TV, "customerno", 4);
+      setUpColumn(TV,"combined ratio",5);
     }
 
     for (int i = 0; i < customers.size()  ; i++)
@@ -65,6 +66,7 @@ public class SalesmanViewModel implements PropertyChangeListener
       row.add(String.valueOf(customers.get(i).getPostcode()));
       row.add(String.valueOf(customers.get(i).getCprNr()));
       row.add(String.valueOf(customers.get(i).getCustomerNo()));
+      row.add(String.valueOf(model.readDamage(model.readPolicy(customers.get(i).getCustomerNo()).get(i).getPoliceNo())));
       rows.add(row);
     }
     TV.setItems(rows);
