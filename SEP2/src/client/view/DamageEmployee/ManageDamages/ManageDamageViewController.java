@@ -14,8 +14,8 @@ public class ManageDamageViewController implements viewController
   @FXML
   public TableView view;
   ViewHandler vh;
-Region root;
-ManageDamageViewModel mdvm;
+  Region root;
+  ManageDamageViewModel mdvm;
 
   @Override public void init(ViewHandler vh, ViewModelFactory vmf, Region root)
   {
@@ -46,6 +46,15 @@ ManageDamageViewModel mdvm;
     if (data != null)
     {
       vh.openEditDamage(data);
+    }
+  }
+
+  public void onDelete()
+  {
+    mdvm.Delete(view);
+    if (mdvm.getUpdate())
+    {
+      vh.updateDamageViews();
     }
   }
 
