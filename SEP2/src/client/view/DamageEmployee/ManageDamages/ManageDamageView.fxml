@@ -47,6 +47,11 @@
                 </VBox>
                 <HBox fx:id="Table" alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="600.0">
                     <children>
+                  <Button mnemonicParsing="false" onAction="#onDelete" text="Delete">
+                     <HBox.margin>
+                        <Insets right="9.0" />
+                     </HBox.margin>
+                  </Button>
                         <Button mnemonicParsing="false" onAction="#onSelect" text="Select">
                             <HBox.margin>
                                 <Insets right="30.0" />

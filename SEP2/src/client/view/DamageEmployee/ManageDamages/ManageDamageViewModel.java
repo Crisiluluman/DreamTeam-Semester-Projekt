@@ -18,15 +18,18 @@ import java.beans.PropertyChangeSupport;
 import java.util.List;
 import java.util.Optional;
 
-public class ManageDamageViewModel
+public class ManageDamageViewModel implements PropertyChangeListener
 {
   Model model;
   ObservableList<ObservableList> rows;
   int policeNo;
+  private boolean update;
 
   public ManageDamageViewModel(Model model)
   {
-    this.model=model;
+    this.model = model;
+    this.model.addListener(this);
+    update = false;
   }
 
   public void setPoliceNo(ObservableList list)
@@ -117,5 +120,14 @@ public class ManageDamageViewModel
     }
   }
 
+  public boolean getUpdate()
+  {
+    return update;
+  }
+
+  @Override
+  public void propertyChange(PropertyChangeEvent evt) {
+    update = true;
+  }
 
 }
