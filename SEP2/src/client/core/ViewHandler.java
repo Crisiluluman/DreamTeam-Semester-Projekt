@@ -59,7 +59,7 @@ public class ViewHandler extends Application
   {
 primaryStage = stage;
 currentScene = new Scene(new Region());
-openView("Salesman");
+openView("DEMain");
   }
 
 
@@ -71,6 +71,11 @@ openView("Salesman");
   public void updateCustomerViews()
   {
     salesmanViewController.init(this,vmf,salesmanViewController.getRoot());
+  }
+
+  public void updateDEMainViews()
+  {
+    deMainViewController.init(this,vmf,deMainViewController.getRoot());
   }
 
   public void updatePolicyViews()

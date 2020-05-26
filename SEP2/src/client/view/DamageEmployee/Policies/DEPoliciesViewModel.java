@@ -13,6 +13,8 @@ import javafx.scene.control.TableView;
 import javafx.util.Callback;
 import shared.Policy;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -25,6 +27,7 @@ public class DEPoliciesViewModel
     ObservableList<ObservableList> rows;
     ObservableList<String> row;
     private int customerNo;
+
 
     public DEPoliciesViewModel(Model model)
     {
@@ -95,4 +98,5 @@ public class DEPoliciesViewModel
     {
         return customerNo;
     }
+
 }

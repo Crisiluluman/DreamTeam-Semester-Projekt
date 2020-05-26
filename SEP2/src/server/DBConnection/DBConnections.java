@@ -62,6 +62,7 @@ public class DBConnections
       stmt = c.createStatement();
       ResultSet rs = stmt.executeQuery(sql);
 
+
       while(rs.next())
       {
         //We are using non property style for making dynamic table
@@ -75,7 +76,10 @@ public class DBConnections
             cprNr);
         customer.setCustomerNo(customerNo);
         list.add(customer);
+
       }
+      stmt.close();
+      c.close();
     }
     catch (Exception e)
     {
@@ -104,6 +108,7 @@ public class DBConnections
       stmt = c.createStatement();
       ResultSet rs = stmt.executeQuery(sql);
 
+
       while(rs.next())
       {
         //We are using non property style for making dynamic table
@@ -117,7 +122,10 @@ public class DBConnections
        Policy policy = new Policy(type,price,deductible,coverage,customerNo);
        policy.setPoliceNo(policyNo);
         list.add(policy);
+
       }
+      stmt.close();
+      c.close();
     }
     catch (Exception e)
     {
@@ -146,6 +154,7 @@ public class DBConnections
     stmt = c.createStatement();
     ResultSet rs = stmt.executeQuery(sql);
 
+
     while(rs.next())
     {
       Employee employee = null;
@@ -161,7 +170,10 @@ public class DBConnections
       employee = new Salesman(name,address,cpr,email,tlfnr,position);
       employee.setEmployeeNo(employeeNo);
       list.add(employee);
+
     }
+    stmt.close();
+    c.close();
   }
   catch (Exception e)
   {
@@ -191,6 +203,8 @@ public class DBConnections
       stmt = c.createStatement();
       ResultSet rs = stmt.executeQuery(sql);
 
+
+
       while(rs.next())
       {
         Employee employee = null;
@@ -203,7 +217,10 @@ public class DBConnections
         Damage damage = new Damage(policeno,dpolicytype,expenses,info);
 damage.setDamageNo(damageNo);
         list.add(damage);
+
       }
+      stmt.close();
+      c.close();
     }
     catch (Exception e)
     {
@@ -212,6 +229,7 @@ damage.setDamageNo(damageNo);
     }
     System.out.println(list);
     return list;
+
   }
 
   public List totalFromDB(String sql)
@@ -233,6 +251,7 @@ damage.setDamageNo(damageNo);
       stmt = c.createStatement();
       ResultSet rs = stmt.executeQuery(sql);
 
+
       while(rs.next())
       {
         //We are using non property style for making dynamic table
@@ -241,7 +260,10 @@ damage.setDamageNo(damageNo);
 
 
         list.add(total);
+
       }
+      stmt.close();
+      c.close();
     }
     catch (Exception e)
     {

@@ -14,6 +14,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TableColumn;
 import javafx.util.Callback;
 import shared.Customer;
+import shared.Damage;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -68,11 +69,16 @@ public class SalesmanViewModel implements PropertyChangeListener
 
       if(model.readPolicy(customers.get(i).getCustomerNo()).size() != 0)
       {
+
         for (int j = 0; j < model.readPolicy(customers.get(i).getCustomerNo()).size() ; j++)
         {
-          if(model.readDamage(model.readPolicy(customers.get(i).getCustomerNo()).get(j).getPoliceNo()).size() != 0 && model.readDamage(model.readPolicy(customers.get(i).getCustomerNo()).get(j).getPoliceNo()).size() > j)
+          List<Damage> list = model.readDamage(model.readPolicy(customers.get(i).getCustomerNo()).get(j).getPoliceNo());
+          if(list.size() != 0 && list.size() > j)
           {
-            expenses += model.readDamage(model.readPolicy(customers.get(i).getCustomerNo()).get(j).getPoliceNo()).get(j).getExpenses();
+            for (int k = 0; k < list.size(); k++)
+            {
+              expenses += list.get(k).getExpenses();
+            }
           }
 
           income += model.readPolicy(customers.get(i).getCustomerNo()).get(j).getPrice();
