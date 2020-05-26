@@ -9,16 +9,19 @@ import shared.Policy;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.regex.Pattern;
 
 public class SEditPolicyViewModel implements PropertyChangeListener
 {
     private ObservableList list;
     private Model model;
-    private StringProperty policeNo;
     private StringProperty policeType;
     private StringProperty price;
     private StringProperty deductible;
     private StringProperty coverage;
+    private StringProperty LabelPrice;
+    private StringProperty LabelDeductible;
+    private StringProperty LabelCoverage;
     private boolean update;
 
     public SEditPolicyViewModel(Model model)
@@ -26,29 +29,36 @@ public class SEditPolicyViewModel implements PropertyChangeListener
         this.model = model;
         this.model.addListener(this);
         update = false;
-        policeNo = new SimpleStringProperty();
         policeType = new SimpleStringProperty();
         price = new SimpleStringProperty();
         deductible = new SimpleStringProperty();
         coverage = new SimpleStringProperty();
+        LabelPrice = new SimpleStringProperty();
+        LabelDeductible = new SimpleStringProperty();
+        LabelCoverage = new SimpleStringProperty();
     }
-
-    public StringProperty policeNoProperty()
-    {
-        return policeNo;
-    }
-
-
-    public StringProperty policeTypeProperty()
-    {
-        return policeType;
-    }
-
 
 
     public StringProperty priceProperty()
     {
         return price;
+    }
+
+    public StringProperty labelPriceProperty()
+    {
+        return LabelPrice;
+    }
+
+
+    public StringProperty labelDeductibleProperty()
+    {
+        return LabelDeductible;
+    }
+
+
+    public StringProperty labelCoverageProperty()
+    {
+        return LabelCoverage;
     }
 
 
@@ -70,7 +80,6 @@ public void setChoiceBox(ChoiceBox choiceBox)
     public void setFields(ObservableList<String> list)
     {
         this.list = list;
-        policeNo.setValue(list.get(0));
         policeType.setValue(list.get(1));
         price.setValue(list.get(2));
         deductible.setValue(list.get(3));
@@ -95,4 +104,32 @@ public void setChoiceBox(ChoiceBox choiceBox)
     {
         update = true;
     }
+
+    public boolean checker()
+    {
+        clear();
+
+        if (price.getValue().equals("") || !(Pattern.matches("[0-9]+", price.getValue())))
+        {
+            LabelPrice.setValue("Missing Price or invalid input");
+            return false;
+        }
+        if (deductible.getValue().equals("") || !(Pattern.matches("[0-9]+", deductible.getValue())))
+        {
+            LabelDeductible.setValue("Missing Deductible or invalid input");
+            return false;
+        }if (coverage.getValue().equals("") || !Pattern.matches("[a-åA-Å]+", coverage.getValue()))
+    {
+        LabelCoverage.setValue("Missing Coverage or invalid input");
+        return false;
+    }
+        return true;
+    }
+    public void clear()
+    {
+        LabelCoverage.setValue("");
+        LabelDeductible.setValue("");
+        LabelPrice.setValue("");
+    }
+
 }

@@ -14,12 +14,11 @@ public class CreateCustomerViewController implements viewController
   @FXML public TextField addressTextfield;
   @FXML public TextField postcodeTextField;
   @FXML public TextField cprnoTextfield;
-  @FXML public TextField CustomerNoTextField;
   @FXML public Label nameLabel;
   @FXML public Label addressLabel;
   @FXML public Label postcodeLabel;
   @FXML public Label cprnoLabel;
-  @FXML public Label customernoLabel;
+
 
   private ViewHandler vh;
   private CreateCustomerViewModel ccv;
@@ -53,18 +52,19 @@ public class CreateCustomerViewController implements viewController
       ccv.onClick();
       ccv.clearTextfields();
       ccv.clearLabels();
+      if(ccv.getUpdate())
+      {
+        vh.updateCustomerViews();
+        vh.openView("Salesman");
+
+      }
     }
 
-    if(ccv.getUpdate())
-    {
-      vh.updateCustomerViews();
-      vh.openView("Salesman");
-
-    }
   }
   public void onCancel()
   {
     ccv.clearTextfields();
+    ccv.clearLabels();
     vh.openView("Salesman");
   }
 

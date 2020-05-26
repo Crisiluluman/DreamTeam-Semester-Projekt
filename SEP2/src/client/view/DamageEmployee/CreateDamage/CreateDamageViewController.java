@@ -77,11 +77,12 @@ public class CreateDamageViewController implements viewController {
                 cdv.onClick();
                 cdv.clearTextfields();
                 cdv.clearLabels();
+                if (cdv.getUpdate())
+                {
+                    vh.updateDamageViews();
+                    vh.openView("ManageDamage");
+                }
             }
-        if (cdv.getUpdate())
-        {
-                vh.updateDamageViews();
-                vh.openView("ManageDamage");
-        }
+
     }
 }

@@ -9,6 +9,7 @@ import shared.Policy;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.regex.Pattern;
 
 public class EditPolicyViewModel implements PropertyChangeListener
 {
@@ -19,6 +20,9 @@ public class EditPolicyViewModel implements PropertyChangeListener
     private StringProperty deductible;
     private StringProperty coverage;
     private ObservableList list;
+    private StringProperty LabelPrice;
+    private StringProperty LabelDeductible;
+    private StringProperty LabelCoverage;
     private boolean update;
 
 
@@ -32,6 +36,9 @@ public class EditPolicyViewModel implements PropertyChangeListener
         price = new SimpleStringProperty();
         deductible = new SimpleStringProperty();
         coverage = new SimpleStringProperty();
+        LabelPrice = new SimpleStringProperty();
+        LabelDeductible = new SimpleStringProperty();
+        LabelCoverage = new SimpleStringProperty();
     }
 
 
@@ -58,14 +65,6 @@ coverage.setValue(list.get(4));
     }
 
 
-    public StringProperty policeTypeProperty()
-    {
-        return policeType;
-    }
-    public StringProperty policyNrProperty()
-    {
-        return policyNr;
-    }
 
     public StringProperty priceProperty()
     {
@@ -86,6 +85,23 @@ coverage.setValue(list.get(4));
         return coverage;
     }
 
+    public StringProperty labelPriceProperty()
+    {
+        return LabelPrice;
+    }
+
+
+    public StringProperty labelDeductibleProperty()
+    {
+        return LabelDeductible;
+    }
+
+
+    public StringProperty labelCoverageProperty()
+    {
+        return LabelCoverage;
+    }
+
     public boolean getUpdate()
     {
         return update;
@@ -94,6 +110,33 @@ coverage.setValue(list.get(4));
     @Override public void propertyChange(PropertyChangeEvent evt)
     {
         update = true;
+    }
+
+    public boolean checker()
+    {
+        clear();
+
+        if (price.getValue().equals("") || !(Pattern.matches("[0-9]+", price.getValue())))
+        {
+            LabelPrice.setValue("Missing Price or invalid input");
+            return false;
+        }
+        if (deductible.getValue().equals("") || !(Pattern.matches("[0-9]+", deductible.getValue())))
+        {
+            LabelDeductible.setValue("Missing Deductible or invalid input");
+            return false;
+        }if (coverage.getValue().equals("") || !Pattern.matches("[a-åA-Å]+", coverage.getValue()))
+    {
+        LabelCoverage.setValue("Missing Coverage or invalid input");
+        return false;
+    }
+        return true;
+    }
+    public void clear()
+    {
+        LabelCoverage.setValue("");
+        LabelDeductible.setValue("");
+        LabelPrice.setValue("");
     }
 
 

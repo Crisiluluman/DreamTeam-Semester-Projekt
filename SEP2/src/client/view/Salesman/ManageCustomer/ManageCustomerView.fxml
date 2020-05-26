@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
@@ -26,8 +27,18 @@
          </children>
       </Pane>
    </bottom>
-   <left>
+   <right>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="nameLabel" layoutX="118.0" layoutY="44.0" textFill="#fc0000" />
+            <Label fx:id="cprnoLabel" layoutX="118.0" layoutY="170.0" textFill="#e10c0c" />
+            <Label fx:id="postcodeLabel" layoutX="118.0" layoutY="129.0" textFill="#f50a0a" />
+            <Label fx:id="addressLabel" layoutX="118.0" layoutY="87.0" textFill="RED" />
+         </children>
+      </Pane>
+   </right>
+   <center>
+      <Pane prefHeight="389.0" prefWidth="522.0" BorderPane.alignment="CENTER">
          <children>
             <Text layoutX="73.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
             <Text layoutX="73.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
@@ -40,5 +51,5 @@
             <Button fx:id="manageCustomerSaveButton" layoutX="307.0" layoutY="242.0" mnemonicParsing="false" onAction="#onSave" prefHeight="25.0" prefWidth="50.0" text="Save" />
          </children>
       </Pane>
-   </left>
+   </center>
 </BorderPane>

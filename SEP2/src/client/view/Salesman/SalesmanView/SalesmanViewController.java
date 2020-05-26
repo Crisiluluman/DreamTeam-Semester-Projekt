@@ -58,6 +58,7 @@ public void onPolicies()
   if (Data != null)
   {
     vh.openSPolicies(Data);
+    vh.updatePolicyViews();
   }
 }
 

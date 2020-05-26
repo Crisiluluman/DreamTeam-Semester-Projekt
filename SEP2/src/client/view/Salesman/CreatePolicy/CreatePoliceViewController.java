@@ -20,19 +20,13 @@ public class CreatePoliceViewController implements viewController
   @FXML
   private Label LabelErrorCoverage;
   @FXML
-  private Label LabelErrorPolicyNr;
-  @FXML
   private ChoiceBox policyType;
-  @FXML
- private TextField policyNr;
   @FXML
   private TextField price;
   @FXML
   private TextField deductible;
   @FXML
   private TextField coverage;
-  @FXML
-  private TextField Customer;
   @FXML
   private ViewHandler vh;
   private CreatePoliceViewModel cpv;
@@ -47,25 +41,6 @@ public class CreatePoliceViewController implements viewController
         "Accidents"
     );
 
-  public Label getLabelErrorPrice()
-  {
-    return LabelErrorPrice;
-  }
-
-  public Label getLabelErrorDeductible()
-  {
-    return LabelErrorDeductible;
-  }
-
-  public Label getLabelErrorCoverage()
-  {
-    return LabelErrorCoverage;
-  }
-
-  public Label getLabelErrorPolicyNr()
-  {
-    return LabelErrorPolicyNr;
-  }
 
   @Override public void init(ViewHandler vh, ViewModelFactory vmf, Region root)
   {
@@ -75,8 +50,6 @@ public class CreatePoliceViewController implements viewController
        price.textProperty().bindBidirectional(cpv.priceProperty());
        deductible.textProperty().bindBidirectional(cpv.deductibleProperty());
        coverage.textProperty().bindBidirectional(cpv.coverageProperty());
-       Customer.textProperty().bindBidirectional(cpv.customerProperty());
-       LabelErrorPolicyNr.textProperty().bind(cpv.labelPolicyNrProperty());
        LabelErrorPrice.textProperty().bind(cpv.labelPriceProperty());
        LabelErrorDeductible.textProperty().bind(cpv.labelDeductibleProperty());
        LabelErrorCoverage.textProperty().bind(cpv.labelCoverageProperty());
@@ -95,10 +68,8 @@ public class CreatePoliceViewController implements viewController
       coverage.clear();
       price.clear();
       deductible.clear();
-      Customer.clear();
     cpv.labelCoverageProperty().setValue("");
     cpv.labelDeductibleProperty().setValue("");
-    cpv.labelPolicyNrProperty().setValue("");
     cpv.labelPriceProperty().setValue("");
     }
 
@@ -113,13 +84,14 @@ public class CreatePoliceViewController implements viewController
       {
         cpv.createPolicy((String) policyType.getValue());
         clearAll();
-      }
-
-      if(cpv.getUpdate())
+        if(cpv.getUpdate())
       {
         vh.updatePolicyViews();
         vh.openView("Policies");
       }
+      }
+
+
 
     }
 }

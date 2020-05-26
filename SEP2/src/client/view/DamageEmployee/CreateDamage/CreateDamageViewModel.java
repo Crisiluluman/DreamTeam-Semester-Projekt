@@ -110,7 +110,7 @@ public class CreateDamageViewModel implements PropertyChangeListener
   {
     clearLabels();
 
-    if(expensesTextfield.getValue().equals("") || Pattern.matches("[a-åA-Å]+",expensesTextfield.getValue()))
+    if(expensesTextfield.getValue().equals("") || !(Pattern.matches("[0-9]+",expensesTextfield.getValue())))
     {
       expensesLabel.setValue("Invalid input - try again");
       return false;

@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 
@@ -16,12 +17,16 @@ public class SEditPolicyViewController implements viewController {
     private SEditPolicyViewModel epv;
     private Region root;
 
-    @FXML TextField policyNr;
     @FXML TextField price;
     @FXML TextField deductible;
     @FXML TextField coverage;
-    @FXML TextField Customer;
     @FXML ChoiceBox policyType;
+    @FXML
+    private Label LabelErrorPrice;
+    @FXML
+    private Label LabelErrorDeductible;
+    @FXML
+    private Label LabelErrorCoverage;
 
     ObservableList<String> options =
         FXCollections.observableArrayList(
@@ -39,8 +44,12 @@ public class SEditPolicyViewController implements viewController {
         price.textProperty().bindBidirectional(epv.priceProperty());
         deductible.textProperty().bindBidirectional(epv.deductibleProperty());
         coverage.textProperty().bindBidirectional(epv.coverageProperty());
+        LabelErrorPrice.textProperty().bind(epv.labelPriceProperty());
+        LabelErrorDeductible.textProperty().bind(epv.labelDeductibleProperty());
+        LabelErrorCoverage.textProperty().bind(epv.labelCoverageProperty());
       policyType.setItems(options);
       epv.setChoiceBox(policyType);
+      epv.clear();
 
     }
     @Override
@@ -56,11 +65,15 @@ public class SEditPolicyViewController implements viewController {
 
     public void onSave()
     {
-        epv.onSave();
-        if(epv.getUpdate())
+        if(epv.checker())
         {
-            vh.updatePolicyViews();
-            vh.openView("Policies");
+            epv.onSave();
+            if(epv.getUpdate())
+            {
+                vh.updatePolicyViews();
+                vh.openView("Policies");
+            }
         }
+
     }
 }

@@ -37,6 +37,7 @@ public class DEMainViewController implements viewController {
         if (data != null)
         {
             vh.openDEPolicies(data);
+            vh.updateDEPolicyViews();
         }
     }
 

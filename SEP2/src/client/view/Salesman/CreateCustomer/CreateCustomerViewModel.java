@@ -67,10 +67,6 @@ public class CreateCustomerViewModel implements PropertyChangeListener
     return cprnoLabel;
   }
 
-  public StringProperty getcustomernoLabelProperty()
-  {
-    return customernoLabel;
-  }
 
   public StringProperty getNameTextfield()
   {
@@ -92,10 +88,6 @@ public class CreateCustomerViewModel implements PropertyChangeListener
     return cprnoTextfield;
   }
 
-  public StringProperty getCustomerNoTextField()
-  {
-    return customerNoTextField;
-  }
 
   public void onClick()
   {

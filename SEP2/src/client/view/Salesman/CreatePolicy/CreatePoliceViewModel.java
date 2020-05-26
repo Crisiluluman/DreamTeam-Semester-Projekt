@@ -13,13 +13,9 @@ public class CreatePoliceViewModel implements PropertyChangeListener
 {
   private Model model;
   CreatePoliceViewController controller;
-  private StringProperty policeType;
-  private StringProperty policyNr;
   private StringProperty price;
   private StringProperty deductible;
   private StringProperty coverage;
-  private StringProperty customer;
-  private StringProperty LabelPolicyNr;
   private StringProperty LabelPrice;
   private StringProperty LabelDeductible;
   private StringProperty LabelCoverage;
@@ -31,14 +27,10 @@ public class CreatePoliceViewModel implements PropertyChangeListener
   public CreatePoliceViewModel(Model model)
   {
     this.model = model;
-    policeType = new SimpleStringProperty();
-    policyNr = new SimpleStringProperty();
     price = new SimpleStringProperty();
     deductible = new SimpleStringProperty();
     coverage = new SimpleStringProperty();
-    customer = new SimpleStringProperty();
     controller = new CreatePoliceViewController();
-    LabelPolicyNr = new SimpleStringProperty();
     LabelPrice = new SimpleStringProperty();
     LabelDeductible = new SimpleStringProperty();
     LabelCoverage = new SimpleStringProperty();
@@ -64,12 +56,12 @@ public boolean checker()
 {
  clear();
 
-  if (price.getValue().equals("") || Pattern.matches("[a-åA-å]+", price.getValue()))
+  if (price.getValue().equals("") || !(Pattern.matches("[0-9]+", price.getValue())))
   {
    LabelPrice.setValue("Missing Price or invalid input");
    return false;
   }
-  if (deductible.getValue().equals("") || Pattern.matches("[a-åA-å]+", deductible.getValue()))
+  if (deductible.getValue().equals("") || !(Pattern.matches("[0-9]+", price.getValue())))
   {
     LabelDeductible.setValue("Missing Deductible or invalid input");
     return false;
@@ -84,7 +76,6 @@ public void clear()
 {
   LabelCoverage.setValue("");
   LabelDeductible.setValue("");
-  LabelPolicyNr.setValue("");
   LabelPrice.setValue("");
 }
   public StringProperty coverageProperty()
@@ -92,23 +83,6 @@ public void clear()
     return coverage;
   }
 
-
-  public StringProperty customerProperty()
-  {
-    return customer;
-  }
-
-
-  public StringProperty policeTypeProperty()
-  {
-    return policeType;
-  }
-
-
-  public StringProperty policyNrProperty()
-  {
-    return policyNr;
-  }
 
 
   public StringProperty priceProperty()
@@ -120,11 +94,6 @@ public void clear()
   public StringProperty deductibleProperty()
   {
     return deductible;
-  }
-
-  public StringProperty labelPolicyNrProperty()
-  {
-    return LabelPolicyNr;
   }
 
   public StringProperty labelPriceProperty()

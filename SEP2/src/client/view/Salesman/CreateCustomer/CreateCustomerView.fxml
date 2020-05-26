@@ -35,7 +35,6 @@
             <Label fx:id="addressLabel" layoutX="431.0" layoutY="85.0" prefHeight="17.0" prefWidth="135.0" textFill="#da0808" />
             <Label fx:id="postcodeLabel" layoutX="431.0" layoutY="118.0" prefHeight="17.0" prefWidth="135.0" textFill="#da0808" />
             <Label fx:id="cprnoLabel" layoutX="431.0" layoutY="149.0" prefHeight="17.0" prefWidth="135.0" textFill="#da0808" />
-            <Label fx:id="customernoLabel" layoutX="431.0" layoutY="182.0" prefHeight="17.0" prefWidth="135.0" textFill="#da0808" />
          </children>
       </Pane>
    </center>

@@ -89,6 +89,7 @@ public class DEMainViewModel
 
           income += model.readPolicy(customers.get(i).getCustomerNo()).get(j).getPrice();
           customers.get(i).setCombinedRatio(expenses/income);
+          System.out.println(customers.get(i).getCombinedRatio());
         }
       }
       row.add(String.valueOf(customers.get(i).getCombinedRatio()));

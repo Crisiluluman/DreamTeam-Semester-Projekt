@@ -65,6 +65,11 @@
                         <Insets left="33.0" />
                      </HBox.margin>
                   </TextField>
+                  <Label fx:id="LabelErrorPrice" textFill="#fc0c0c">
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
@@ -79,6 +84,11 @@
                         <Insets left="1.0" />
                      </HBox.margin>
                   </TextField>
+                  <Label fx:id="LabelErrorDeductible" textFill="#fc0c0c">
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
@@ -93,6 +103,11 @@
                         <Insets left="8.0" />
                      </HBox.margin>
                   </TextField>
+                  <Label fx:id="LabelErrorCoverage" textFill="#fc0c0c">
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" />

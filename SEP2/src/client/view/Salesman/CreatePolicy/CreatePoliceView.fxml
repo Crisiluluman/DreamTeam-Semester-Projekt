@@ -102,20 +102,7 @@
                   <Label fx:id="LabelErrorCoverage" textFill="RED" />
                     </children>
                 </HBox>
-                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-                    <children>
-                        <Label text="Customer">
-                            <HBox.margin>
-                                <Insets left="160.0" right="10.0" />
-                            </HBox.margin>
-                        </Label>
-                        <TextField fx:id="Customer">
-                            <HBox.margin>
-                                <Insets left="7.0" />
-                            </HBox.margin>
-                        </TextField>
-                    </children>
-                </HBox>
+                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" />
             </children>
         </VBox>
     </center>

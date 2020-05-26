@@ -8,6 +8,7 @@ import shared.Customer;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.regex.Pattern;
 
 public class ManageCustomerViewModel implements PropertyChangeListener
 {
@@ -17,6 +18,11 @@ public class ManageCustomerViewModel implements PropertyChangeListener
   public StringProperty postcodeTextField;
   public StringProperty cprnoTextfield;
   public StringProperty customerNoTextField;
+  public StringProperty nameLabel;
+  public StringProperty addressLabel;
+  public StringProperty postcodeLabel;
+  public StringProperty cprnoLabel;
+  public StringProperty customernoLabel;
   private ObservableList list;
   private boolean update;
 
@@ -27,6 +33,11 @@ public class ManageCustomerViewModel implements PropertyChangeListener
     postcodeTextField = new SimpleStringProperty();
     cprnoTextfield = new SimpleStringProperty();
     customerNoTextField = new SimpleStringProperty();
+    nameLabel = new SimpleStringProperty();
+    addressLabel = new SimpleStringProperty();
+    postcodeLabel = new SimpleStringProperty();
+    cprnoLabel = new SimpleStringProperty();
+    customernoLabel = new SimpleStringProperty();
     this.model = model;
     this.model.addListener(this);
     update = false;
@@ -50,6 +61,44 @@ public void onSave()
   model.updateCustomer(customer);
 }
 
+  public boolean checker()
+  {
+    clearLabels();
+
+    if(nameTextfield.getValue().equals("") || !(Pattern
+        .matches("[a-åA-Å]+",nameTextfield.getValue())))
+    {
+      nameLabel.setValue("Invalid input - try again");
+      return false;
+    }
+    if(addressTextfield.getValue().equals(""))
+    {
+      addressLabel.setValue("Invalid input - try again");
+      return false;
+    }
+
+    if(postcodeTextField.getValue().equals("") || Integer.parseInt(postcodeTextField.getValue()) > 9990 || Integer.parseInt(postcodeTextField.getValue()) < 1000)
+    {
+      postcodeLabel.setValue("Invalid input - try again");
+      return false;
+    }
+
+    if(cprnoTextfield.getValue().equals("") || Pattern.matches("[a-åA-Å]+",cprnoTextfield.getValue()) || Long.parseLong(cprnoTextfield.getValue()) < Long.parseLong("0101000001")  || Long.parseLong(cprnoTextfield.getValue()) > Long.parseLong("3112999999"))
+    {
+      cprnoLabel.setValue("Invalid input - try again");
+      return false;
+    }
+
+    return true;
+  }
+
+  public void clearLabels()
+  {
+    nameLabel.setValue("");
+    addressLabel.setValue("");
+    postcodeLabel.setValue("");
+    cprnoLabel.setValue("");
+  }
 
   public StringProperty getNameTextfield()
   {
@@ -75,13 +124,26 @@ public void onSave()
   {
     return cprnoTextfield;
   }
-
-
-
-  public StringProperty getCustomerNoTextField()
+  public StringProperty getnameLabelProperty()
   {
-    return customerNoTextField;
+    return nameLabel;
   }
+
+  public StringProperty getaddressLabelProperty()
+  {
+    return addressLabel;
+  }
+
+  public StringProperty getpostcodeLabelProperty()
+  {
+    return postcodeLabel;
+  }
+
+  public StringProperty getcprnoLabelProperty()
+  {
+    return cprnoLabel;
+  }
+
 
   public boolean getUpdate()
   {
