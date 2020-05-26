@@ -56,6 +56,7 @@ public class SEditPolicyViewController implements viewController {
 
     public void onSave()
     {
+        epv.onSave();
         if(epv.getUpdate())
         {
             vh.updatePolicyViews();

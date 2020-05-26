@@ -47,6 +47,11 @@ public class ManageCustomerViewController implements viewController
 public void onSave()
 {
   mcv.onSave();
-  vh.openView("Salesman");
+  if(mcv.getUpdate())
+  {
+    vh.updateCustomerViews();
+    vh.openView("Salesman");
+  }
+
 }
 }

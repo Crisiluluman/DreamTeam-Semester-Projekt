@@ -6,7 +6,10 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
 import shared.Customer;
 
-public class ManageCustomerViewModel
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
+public class ManageCustomerViewModel implements PropertyChangeListener
 {
   private Model model;
   public StringProperty nameTextfield;
@@ -15,6 +18,7 @@ public class ManageCustomerViewModel
   public StringProperty cprnoTextfield;
   public StringProperty customerNoTextField;
   private ObservableList list;
+  private boolean update;
 
   public ManageCustomerViewModel(Model model)
   {
@@ -24,6 +28,8 @@ public class ManageCustomerViewModel
     cprnoTextfield = new SimpleStringProperty();
     customerNoTextField = new SimpleStringProperty();
     this.model = model;
+    this.model.addListener(this);
+    update = false;
   }
 
   public void setFields(ObservableList<String> list)
@@ -75,5 +81,15 @@ public void onSave()
   public StringProperty getCustomerNoTextField()
   {
     return customerNoTextField;
+  }
+
+  public boolean getUpdate()
+  {
+    return update;
+  }
+
+  @Override public void propertyChange(PropertyChangeEvent evt)
+  {
+    update = true;
   }
 }

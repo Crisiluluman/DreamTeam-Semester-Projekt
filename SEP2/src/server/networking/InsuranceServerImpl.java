@@ -83,6 +83,7 @@ public class InsuranceServerImpl implements InsuranceServer
   {
 
     serverModel.updateCustomer(customer);
+    client.updateCustomers();
   }
 
   @Override public void updateDamage(Damage damage) throws RemoteException

@@ -10,13 +10,16 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.ChoiceBox;
 import shared.Employee;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import java.util.regex.Pattern;
 
-public class EditEmployeeViewModel {
+public class EditEmployeeViewModel implements PropertyChangeListener
+{
     private Model model;
     private StringProperty nameTextField;
     private StringProperty addressTextField;
@@ -33,11 +36,14 @@ public class EditEmployeeViewModel {
     private Manager manager;
     private Salesman salesman;
     private DamageEmployee damageEmployee;
+    private boolean update;
     ObservableList list;
 
 
     public EditEmployeeViewModel(Model model) {
         this.model = model;
+        this.model.addListener(this);
+        update = false;
         nameTextField = new SimpleStringProperty();
         addressTextField = new SimpleStringProperty();
         CPRTextField = new SimpleStringProperty();
@@ -197,6 +203,16 @@ public class EditEmployeeViewModel {
         positionTextField.setValue(list.get(6));
         emailTextField.setValue(list.get(4));
         phoneTextField.setValue(String.valueOf(list.get(5)));
+    }
+
+    public boolean getUpdate()
+    {
+        return update;
+    }
+
+    @Override public void propertyChange(PropertyChangeEvent evt)
+    {
+        update = true;
     }
 }
 

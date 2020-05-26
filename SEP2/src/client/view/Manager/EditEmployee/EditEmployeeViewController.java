@@ -64,6 +64,11 @@ public class EditEmployeeViewController implements viewController {
             eev.onSaveClicked((String) position.getValue());
             eev.clearTextFields();
             eev.clearLabels();
+
+        }
+        if(eev.getUpdate())
+        {
+            vh.updateEmployeeViews();
             vh.openView("ManageEmployee");
         }
     }
