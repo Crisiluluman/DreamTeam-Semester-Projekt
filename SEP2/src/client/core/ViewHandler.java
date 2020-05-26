@@ -78,6 +78,11 @@ openView("DEMain");
     policiesViewController.init(this,vmf,policiesViewController.getRoot());
   }
 
+  public void updateDEPolicyViews()
+  {
+    depoliciesViewController.init(this,vmf,depoliciesViewController.getRoot());
+  }
+
   public void updateDamageViews(){
     manageDamageViewController.init(this,vmf,manageDamageViewController.getRoot());
   }

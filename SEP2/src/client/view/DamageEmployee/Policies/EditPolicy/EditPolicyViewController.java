@@ -50,7 +50,12 @@ public class EditPolicyViewController implements viewController {
     public void onSave()
     {
         epv.onSave();
-        vh.openView("DEPolicies");
+        if(epv.getUpdate())
+        {
+            vh.updateDEPolicyViews();
+            vh.openView("DEPolicies");
+        }
+
     }
     public void onBack()
     {

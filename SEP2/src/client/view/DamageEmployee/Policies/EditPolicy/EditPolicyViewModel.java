@@ -7,7 +7,11 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.ChoiceBox;
 import shared.Policy;
 
-public class EditPolicyViewModel {
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
+public class EditPolicyViewModel implements PropertyChangeListener
+{
     private Model model;
     private StringProperty policeType;
     private StringProperty policyNr;
@@ -15,11 +19,14 @@ public class EditPolicyViewModel {
     private StringProperty deductible;
     private StringProperty coverage;
     private ObservableList list;
+    private boolean update;
 
 
     public EditPolicyViewModel(Model model)
     {
         this.model = model;
+        this.model.addListener(this);
+        update = false;
         policeType = new SimpleStringProperty();
         policyNr = new SimpleStringProperty();
         price = new SimpleStringProperty();
@@ -77,6 +84,16 @@ coverage.setValue(list.get(4));
     public StringProperty coverageProperty()
     {
         return coverage;
+    }
+
+    public boolean getUpdate()
+    {
+        return update;
+    }
+
+    @Override public void propertyChange(PropertyChangeEvent evt)
+    {
+        update = true;
     }
 
 

@@ -36,7 +36,7 @@ public class CreateDamageViewModel implements PropertyChangeListener
   public CreateDamageViewModel(Model model)
     {
       this.model = model;
-      this.model.addListener("updateDamages", this);
+      this.model.addListener(this);
       this.updates=false;
       policyTypeDropdown = new SimpleStringProperty();
       expensesTextfield = new SimpleStringProperty();

@@ -52,4 +52,14 @@ public class SEditPolicyViewController implements viewController {
     {
         vh.openView("Policies");
     }
+
+
+    public void onSave()
+    {
+        if(epv.getUpdate())
+        {
+            vh.updatePolicyViews();
+            vh.openView("Policies");
+        }
+    }
 }

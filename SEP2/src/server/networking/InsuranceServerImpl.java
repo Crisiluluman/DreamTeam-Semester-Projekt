@@ -88,6 +88,7 @@ public class InsuranceServerImpl implements InsuranceServer
   @Override public void updateDamage(Damage damage) throws RemoteException
   {
     serverModel.updateDamage(damage);
+    client.updateDamages();
   }
 
   @Override public void updateEmployee(Employee employee)
@@ -114,6 +115,7 @@ public class InsuranceServerImpl implements InsuranceServer
   @Override public void updatePolicy(Policy policy) throws RemoteException
   {
     serverModel.updatePolicy(policy);
+    client.updatePolicies();
   }
 
   @Override public void deletePolicy(int policyno) throws RemoteException

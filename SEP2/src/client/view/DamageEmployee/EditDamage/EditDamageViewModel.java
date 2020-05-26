@@ -7,7 +7,10 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.ChoiceBox;
 import shared.Damage;
 
-public class EditDamageViewModel
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
+public class EditDamageViewModel implements PropertyChangeListener
 {
   Model model;
   private StringProperty expenses;
@@ -15,9 +18,12 @@ public class EditDamageViewModel
   private StringProperty policyDropDown;
   private int policyNo;
   private int damageNo;
+  private boolean update;
   public EditDamageViewModel(Model model)
   {
     this.model=model;
+    this.model.addListener(this);
+    update = false;
     expenses = new SimpleStringProperty();
     info = new SimpleStringProperty();
     policyDropDown = new SimpleStringProperty();
@@ -60,5 +66,15 @@ policyDropDown.setValue(String.valueOf(list.get(4)));
   public void setChoiceBox(ChoiceBox choiceBox)
   {
     choiceBox.setValue(policyDropDownProperty().getValue());
+  }
+
+  public boolean getUpdate()
+  {
+    return update;
+  }
+
+  @Override public void propertyChange(PropertyChangeEvent evt)
+  {
+    update = true;
   }
 }

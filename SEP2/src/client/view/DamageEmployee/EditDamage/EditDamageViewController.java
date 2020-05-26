@@ -51,6 +51,11 @@ public class EditDamageViewController implements viewController
   public void onSave()
   {
 edv.onSave();
-vh.openView("ManageDamage");
+if(edv.getUpdate())
+{
+  vh.updateDamageViews();
+  vh.openView("ManageDamage");
+}
+
   }
 }
