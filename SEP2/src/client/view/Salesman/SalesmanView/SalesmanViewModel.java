@@ -17,10 +17,6 @@ import shared.Customer;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.List;
 import java.util.Optional;
 
@@ -66,7 +62,24 @@ public class SalesmanViewModel implements PropertyChangeListener
       row.add(String.valueOf(customers.get(i).getPostcode()));
       row.add(String.valueOf(customers.get(i).getCprNr()));
       row.add(String.valueOf(customers.get(i).getCustomerNo()));
-      row.add(String.valueOf(model.readDamage(model.readPolicy(customers.get(i).getCustomerNo()).get(i).getPoliceNo())));
+
+      double income = 0;
+      double expenses = 0;
+
+      if(model.readPolicy(customers.get(i).getCustomerNo()).size() != 0)
+      {
+        for (int j = 0; j < model.readPolicy(customers.get(i).getCustomerNo()).size() ; j++)
+        {
+          if(model.readDamage(model.readPolicy(customers.get(i).getCustomerNo()).get(j).getPoliceNo()).size() != 0 && model.readDamage(model.readPolicy(customers.get(i).getCustomerNo()).get(j).getPoliceNo()).size() > j)
+          {
+            expenses += model.readDamage(model.readPolicy(customers.get(i).getCustomerNo()).get(j).getPoliceNo()).get(j).getExpenses();
+          }
+
+          income += model.readPolicy(customers.get(i).getCustomerNo()).get(j).getPrice();
+          customers.get(i).setCombinedRatio(expenses/income);
+        }
+      }
+      row.add(String.valueOf(customers.get(i).getCombinedRatio()));
       rows.add(row);
     }
     TV.setItems(rows);

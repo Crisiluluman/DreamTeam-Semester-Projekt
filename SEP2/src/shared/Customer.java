@@ -9,6 +9,7 @@ public class Customer implements Serializable
   private int postcode;
   private int costumerNo;
   private long cprNr; // primary key
+  private double combinedRatio;
 
   public Customer(String name,String address, int postcode,long cprNr)
   {
@@ -68,7 +69,15 @@ public class Customer implements Serializable
     this.cprNr = cprNr;
   }
 
+  public double getCombinedRatio()
+  {
+    return combinedRatio;
+  }
 
+  public void setCombinedRatio(double combinedRatio)
+  {
+    this.combinedRatio = combinedRatio;
+  }
 
   @Override public String toString()
   {

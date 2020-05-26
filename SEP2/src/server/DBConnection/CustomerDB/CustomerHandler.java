@@ -52,4 +52,14 @@ public class CustomerHandler implements CustomerData
     String sql = "SELECT * FROM \"insurance\".customer;";
     return connection.fillCustomerTableDB(sql);
   }
+
+  @Override public List incPrCus()
+  {
+    return null;
+  }
+
+  @Override public List expPrCus()
+  {
+    return null;
+  }
 }

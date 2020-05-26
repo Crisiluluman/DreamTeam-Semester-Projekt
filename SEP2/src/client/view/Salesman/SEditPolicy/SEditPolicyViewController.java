@@ -36,7 +36,6 @@ public class SEditPolicyViewController implements viewController {
         this.vh = vh;
         epv = vmf.getSEditPolicyViewModel();
         this.root = root;
-        policyNr.textProperty().bindBidirectional(epv.policeNoProperty());
         price.textProperty().bindBidirectional(epv.priceProperty());
         deductible.textProperty().bindBidirectional(epv.deductibleProperty());
         coverage.textProperty().bindBidirectional(epv.coverageProperty());
