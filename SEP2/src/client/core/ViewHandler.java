@@ -89,7 +89,7 @@ openView("DEMain");
   }
 
   public void updateDamageViews(){
-    manageDamageViewController.init(this,vmf,manageDamageViewController.getRoot());
+      manageDamageViewController.init(this,vmf,manageDamageViewController.getRoot());
   }
 
   public void openEditSEditPolice(ObservableList list)
