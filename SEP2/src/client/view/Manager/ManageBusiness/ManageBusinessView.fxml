@@ -26,9 +26,9 @@
       <Pane prefHeight="608.0" prefWidth="0.0" BorderPane.alignment="CENTER" />
    </left>
    <bottom>
-      <Pane prefHeight="79.0" prefWidth="786.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="79.0" prefWidth="1067.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="45.0" layoutY="27.0" mnemonicParsing="false" text="Back" />
+            <Button layoutX="51.0" layoutY="2.0" mnemonicParsing="false" onAction="#onBack" text="Back" />
          </children>
       </Pane>
    </bottom>
@@ -40,19 +40,31 @@
                   <Font size="15.0" />
                </font>
             </Text>
-            <Text layoutX="64.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of customers">
+            <Text layoutX="64.0" layoutY="503.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of customers">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
-            <Text layoutX="64.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of damages">
+            <Text layoutX="64.0" layoutY="541.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of damages">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
-            <TextField fx:id="totalEmployeesTextField" layoutX="229.0" layoutY="231.0" prefHeight="25.0" prefWidth="89.0" />
-            <TextField fx:id="totalCustomersTextField" layoutX="229.0" layoutY="271.0" prefHeight="25.0" prefWidth="90.0" />
-            <TextField fx:id="totalDamageTextField" layoutX="229.0" layoutY="309.0" prefHeight="25.0" prefWidth="90.0" />
+            <TextField fx:id="totalEmployeesTextField" layoutX="248.0" layoutY="231.0" prefHeight="25.0" prefWidth="89.0" />
+            <TextField fx:id="totalCustomersTextField" layoutX="248.0" layoutY="484.0" prefHeight="25.0" prefWidth="90.0" />
+            <TextField fx:id="totalDamageTextField" layoutX="248.0" layoutY="522.0" prefHeight="25.0" prefWidth="90.0" />
+            <Text layoutX="64.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of Salesmen" />
+            <Text layoutX="64.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of Damage employees" />
+            <Text layoutX="64.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of Managers" />
+            <TextField fx:id="totalSalesmenTextField" layoutX="248.0" layoutY="269.0" prefHeight="25.0" prefWidth="91.0" />
+            <TextField fx:id="totalDamageEmployeeTextField" layoutX="248.0" layoutY="309.0" prefHeight="25.0" prefWidth="91.0" />
+            <TextField fx:id="totalManagerTextField" layoutX="248.0" layoutY="349.0" prefHeight="25.0" prefWidth="92.0" />
+            <Text layoutX="64.0" layoutY="459.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of Policies">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="totalPoliciesTextField" layoutX="248.0" layoutY="442.0" prefHeight="25.0" prefWidth="93.0" />
          </children>
       </Pane>
    </center>

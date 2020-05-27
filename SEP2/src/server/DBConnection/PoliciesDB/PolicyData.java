@@ -12,4 +12,5 @@ public interface PolicyData
   void deletePolicyData(int policyno);
   List getIncome();
   List getExpenses();
+  List totalPolicies();
 }

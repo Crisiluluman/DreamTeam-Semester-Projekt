@@ -2,7 +2,6 @@ package client.view.Manager.ManageBusiness;
 
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
-import client.view.Manager.ManagerView.ManagerViewModel;
 import client.view.viewController;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
@@ -14,16 +13,21 @@ import javafx.scene.layout.Region;
 
 public class ManageBusinessController implements viewController
 {
-  public TextField totalCustomersTextField;
-  public TextField totalEmployeesTextField;
-  public TextField totalDamageTextField;
+  @FXML private TextField totalCustomersTextField;
+  @FXML private TextField totalEmployeesTextField;
+  @FXML private TextField totalDamageTextField;
+  @FXML private TextField totalPoliciesTextField;
+  @FXML private TextField totalSalesmenTextField;
+  @FXML private TextField totalDamageEmployeeTextField;
+  @FXML private TextField totalManagerTextField;
+
+
   @FXML private BarChart<?, ?> bar_chart;
   @FXML private CategoryAxis x;
   @FXML private NumberAxis y;
 
 
   private ViewHandler vh;
-  private ManagerViewModel mvm;
   private ManageBusinessViewModel mbvm;
   private Region root;
 
@@ -35,6 +39,10 @@ public class ManageBusinessController implements viewController
     totalCustomersTextField.textProperty().bind(mbvm.totalCustomersTextFieldProperty());
     totalEmployeesTextField.textProperty().bind(mbvm.totalEmployeesTextFieldProperty());
     totalDamageTextField.textProperty().bind(mbvm.totalDamagesTextFieldProperty());
+    totalPoliciesTextField.textProperty().bind(mbvm.TotalPoliciesTextFieldProperty());
+    totalSalesmenTextField.textProperty().bind(mbvm.totalSalesmenTextFieldProperty());
+    totalDamageEmployeeTextField.textProperty().bind(mbvm.totalDamageEmployeeTextFieldProperty());
+    totalManagerTextField.textProperty().bind(mbvm.totalManagerTextFieldProperty());
     mbvm.setTotalTextField();
 
     XYChart.Series set1 = new XYChart.Series<>();
@@ -51,7 +59,7 @@ public class ManageBusinessController implements viewController
     return root;
   }
 
-  void onBack()
+  public void onBack()
   {
     vh.openView("Manager");
   }

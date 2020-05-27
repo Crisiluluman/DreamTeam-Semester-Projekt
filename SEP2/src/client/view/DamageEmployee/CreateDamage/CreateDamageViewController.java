@@ -14,12 +14,10 @@ public class CreateDamageViewController implements viewController {
 
     @FXML public ChoiceBox policyDropdown;
     @FXML public TextField expensesTextfield;
-    @FXML public TextField damageNoTextfield;
     @FXML public TextArea infoTextArea;
     @FXML public Label expensesLabel;
     @FXML public Label damageNoLabel;
-    @FXML public Button backButton;
-    @FXML public Button createButton;
+
 
     private ViewHandler vh;
     private CreateDamageViewModel cdv;

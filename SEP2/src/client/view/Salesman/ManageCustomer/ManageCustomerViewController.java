@@ -51,7 +51,9 @@ public class ManageCustomerViewController implements viewController
 
   public void onBack()
   {
+    vh.updateCustomerViews();
     vh.openView("Salesman");
+
   }
 public void onSave()
 {

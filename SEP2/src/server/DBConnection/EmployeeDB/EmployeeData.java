@@ -12,4 +12,7 @@ public interface EmployeeData
   void updateEmployeeData(Employee employee);
   void deleteEmployeeData(int cpr);
   List totalEmployees();
+  List totalSalesmen();
+  List totalDamageEmployee();
+  List totalManager();
 }

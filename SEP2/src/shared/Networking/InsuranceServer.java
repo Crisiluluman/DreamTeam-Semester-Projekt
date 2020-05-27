@@ -31,6 +31,8 @@ public interface InsuranceServer extends Remote
   List<Policy> readPolicy(int customerNo) throws RemoteException;
   void updatePolicy(Policy policy) throws RemoteException;
   void deletePolicy(int policyno) throws RemoteException;
+  List totalPolicies() throws RemoteException;
+
   List getIncome() throws RemoteException;
 
   void addDamage(Damage damage) throws RemoteException;
@@ -40,10 +42,11 @@ public interface InsuranceServer extends Remote
 
   List totalCustomers() throws RemoteException;
   List totalEmployees() throws RemoteException;
+  List totalManager() throws RemoteException;
+  List totalSalesmen() throws RemoteException;
+  List totalDamageEmployee() throws RemoteException;
   List totalDamages() throws RemoteException;
 
-  //Callback
-  void updateDamage(int row, InsuranceClient insuranceClient) throws RemoteException;
 
   //Customer
 

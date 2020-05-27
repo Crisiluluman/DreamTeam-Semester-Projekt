@@ -100,17 +100,57 @@ public class InsuranceClientImpl implements InsuranceClient, Client
 
   @Override public List totalEmployees()
   {
-    List<List> list = new ArrayList<>();
     try
     {
-      list.add(server.totalEmployees());
+      return server.totalEmployees();
     }
     catch (RemoteException e)
     {
       e.printStackTrace();
     }
-    return list.get(0);
+    return null;
   }
+
+  @Override public List totalManager()
+  {
+    try
+    {
+      return server.totalManager();
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+    return null;
+  }
+
+  @Override public List totalSalesman()
+  {
+    try
+    {
+      return server.totalSalesmen();
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+    return null;
+  }
+
+  @Override public List totalDamageEmployee()
+  {
+    try
+    {
+      return server.totalDamageEmployee();
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+    return null;
+  }
+
+
 
   // Customer
 
@@ -227,6 +267,20 @@ public class InsuranceClientImpl implements InsuranceClient, Client
     {
       e.printStackTrace();
     }
+  }
+
+  @Override public List totalPolicies()
+  {
+    List<List> list = new ArrayList<>();
+    try
+    {
+      list.add(server.totalPolicies());
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+    return list.get(0);
   }
 
   @Override public List getIncome()

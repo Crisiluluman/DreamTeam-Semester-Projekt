@@ -44,6 +44,21 @@ public class Modelmanager implements Model
     return client.totalEmployees();
   }
 
+  @Override public List totalManager()
+  {
+    return client.totalManager();
+  }
+
+  @Override public List totalSalesmen()
+  {
+    return client.totalSalesman();
+  }
+
+  @Override public List totalDamageEmployee()
+  {
+    return client.totalDamageEmployee();
+  }
+
   // customer
 
   @Override public void addCustomer(Customer customer)
@@ -79,6 +94,11 @@ public class Modelmanager implements Model
   @Override public void deletePolicy(int policyno)
   {
     client.deletePolicy(policyno);
+  }
+
+  @Override public List totalPolicies()
+  {
+    return client.totalPolicies();
   }
 
   @Override public List getIncome()

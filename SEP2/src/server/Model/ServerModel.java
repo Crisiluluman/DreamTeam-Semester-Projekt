@@ -49,6 +49,21 @@ public class ServerModel implements ServerModelInterface
     return employeehandler.totalEmployees();
   }
 
+  @Override public List totalManager()
+  {
+    return employeehandler.totalManager();
+  }
+
+  @Override public List totalSalesmen()
+  {
+    return employeehandler.totalSalesmen();
+  }
+
+  @Override public List totalDamageEmployee()
+  {
+    return employeehandler.totalDamageEmployee();
+  }
+
   // Customers
   @Override public void addCustomer(Customer customer)
   {
@@ -89,6 +104,11 @@ public class ServerModel implements ServerModelInterface
     policyHandler.deletePolicyData(policyno);
   }
 
+  @Override public List totalPolicies()
+  {
+   return policyHandler.totalPolicies();
+  }
+
   @Override public List getIncome()
   {
     return policyHandler.getIncome();
@@ -122,6 +142,8 @@ public class ServerModel implements ServerModelInterface
   {
     policyHandler.updatePolicyData(policy);
   }
+
+
 
   @Override public List<Damage> readDamage(int policeno)
   {

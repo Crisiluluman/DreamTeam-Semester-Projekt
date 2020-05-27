@@ -62,4 +62,9 @@ public class PolicyHandler implements PolicyData
     return connection.totalFromDB(sql);
   }
 
+  @Override public List totalPolicies()
+  {
+    String sql = "SELECT count(policyno) as "+"total"+" from \"insurance\".policy";
+    return connection.totalFromDB(sql);
+  }
 }

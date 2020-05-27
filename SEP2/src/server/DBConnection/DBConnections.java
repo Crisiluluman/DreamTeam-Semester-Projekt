@@ -235,7 +235,6 @@ damage.setDamageNo(damageNo);
   public List totalFromDB(String sql)
   {
     ArrayList<Integer> list = new ArrayList<>();
-    ObservableList<String> row;
 
     Connection c = null;
     Statement stmt = null;

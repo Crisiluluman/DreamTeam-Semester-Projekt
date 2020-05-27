@@ -11,6 +11,9 @@ public interface Model extends Subject
   void updateEmployee(Employee employee);
   void deleteEmployee(int employee);
   List totalEmployees();
+  List totalManager();
+  List totalSalesmen();
+  List totalDamageEmployee();
 
   void addCustomer(Customer customer);
   void updateCustomer(Customer customer);
@@ -20,6 +23,8 @@ public interface Model extends Subject
   void addPolicy(Policy policy);
   void updatePolicy(Policy policy);
   void deletePolicy(int policyno);
+  List totalPolicies();
+
   List getIncome();
 
   void addDamage(Damage damage);

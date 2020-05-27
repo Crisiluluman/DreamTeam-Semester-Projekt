@@ -1,9 +1,11 @@
 package server.DBConnection.EmployeeDB;
 
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
 import server.DBConnection.DBConnections;
 import shared.Employee;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeHandler implements EmployeeData
@@ -60,4 +62,24 @@ public class EmployeeHandler implements EmployeeData
     String sql = "SELECT count(employeeno) as "+"total"+" from \"insurance\".employee";
     return connection.totalFromDB(sql);
   }
+
+  @Override public List totalManager()
+  {
+    String sql = "SELECT count(employeeno) as "+"total"+" from \"insurance\".employee where position ='Manager'";
+    return connection.totalFromDB(sql);
+  }
+
+  @Override public List totalSalesmen()
+  {
+    String sql = "SELECT count(employeeno) as "+"total"+" from \"insurance\".employee where position ='Salesman'";
+    return connection.totalFromDB(sql);
+  }
+
+  @Override public List totalDamageEmployee()
+  {
+    String sql = "SELECT count(employeeno) as "+"total"+" from \"insurance\".employee where position ='DamageEmployee'";
+    return connection.totalFromDB(sql);
+  }
+
+
 }

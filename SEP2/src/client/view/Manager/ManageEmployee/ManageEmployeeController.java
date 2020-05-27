@@ -57,4 +57,8 @@ public class ManageEmployeeController implements viewController
       vh.updateEmployeeViews();
     }
   }
+  public void onBack()
+  {
+    vh.openView("Manager");
+  }
 }

@@ -76,21 +76,20 @@ public class DEMainViewModel
           List<Damage> list = model.readDamage(model.readPolicy(customers.get(i).getCustomerNo()).get(j).getPoliceNo());
 
           System.out.println(j);
-          if(list.size() != 0 && list.size() > j)
+          if(list.size() != 0)
           {
-
             for (int k = 0; k < list.size(); k++)
-            {
+              {
 
-              expenses += list.get(k).getExpenses();
+                expenses += list.get(k).getExpenses();
 
-            }
+             }
           }
 
           income += model.readPolicy(customers.get(i).getCustomerNo()).get(j).getPrice();
-          customers.get(i).setCombinedRatio(expenses/income);
-          System.out.println(customers.get(i).getCombinedRatio());
         }
+        customers.get(i).setCombinedRatio(expenses/income);
+        System.out.println(customers.get(i).getCombinedRatio());
       }
       row.add(String.valueOf(customers.get(i).getCombinedRatio()));
       rows.add(row);
