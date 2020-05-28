@@ -23,5 +23,5 @@ public class Tester
     Customer customer = new Customer("Sonny","Hejvej",8700,1305901122);
     assertTrue(customer.getName() == "Sonny");
   }
-  
+
 }

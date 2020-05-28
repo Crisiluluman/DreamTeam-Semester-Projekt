@@ -8,12 +8,12 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DBConnections
+public class DBConnections implements DBConnectionsInterface
 {
 
   // Has a lot of logic, dealing with the database
 
-  public void AddToDB(String sql)
+  @Override public void AddToDB(String sql)
   {
     Connection connection = null;
     Statement statement = null;
@@ -43,7 +43,7 @@ public class DBConnections
     System.out.println("Insert to Database ok!");
   }
 
-  public List<Customer> fillCustomerTableDB(String sql)
+  @Override public List<Customer> fillCustomerTableDB(String sql)
   {
     ArrayList<Customer> list = new ArrayList<>();
     ObservableList<String> row;
@@ -89,7 +89,7 @@ public class DBConnections
     System.out.println(list);
     return list;
   }
-  public List<Policy> fillPolicyTableDB(String sql)
+  @Override public List<Policy> fillPolicyTableDB(String sql)
   {
     ArrayList<Policy> list = new ArrayList<>();
     ObservableList<String> row;
@@ -135,7 +135,7 @@ public class DBConnections
     System.out.println(list);
     return list;
   }
-  public List<Employee> fillEmployeeTableDB(String sql)
+  @Override public List<Employee> fillEmployeeTableDB(String sql)
 {
   ArrayList<Employee> list = new ArrayList<>();
   ObservableList<String> row;
@@ -184,7 +184,7 @@ public class DBConnections
   return list;
 }
 
-  public List<Damage> fillDamageTableDB(String sql,int policeno)
+  @Override public List<Damage> fillDamageTableDB(String sql, int policeno)
   {
     ArrayList<Damage> list = new ArrayList<>();
     ObservableList<String> row;
@@ -232,7 +232,7 @@ damage.setDamageNo(damageNo);
 
   }
 
-  public List totalFromDB(String sql)
+  @Override public List totalFromDB(String sql)
   {
     ArrayList<Integer> list = new ArrayList<>();
 
