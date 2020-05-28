@@ -12,6 +12,4 @@ public interface CustomerData
   void deleteCustomerData(int customerNo);
   List TotalCustomers();
   List<Customer> readCustomerData();
-  List incPrCus();
-  List expPrCus();
 }

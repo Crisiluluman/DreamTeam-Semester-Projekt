@@ -93,15 +93,4 @@ public abstract class Employee implements Serializable
         return "name: " + name + "cpr: " + CPR + "cell: " + tlfnr + "address: " + address + "email: " + email + "position: " + position;
     }
 
-    //    String getName();
-//    long getCPR();
-//    String getAddress();
-//    String getEmail();
-//    int getTlfNr();
-//    void setName(String name);
-//    void setCPR(long CPR);
-//    void setAddress(String address);
-//    void setEmail(String email);
-//    void setTlfNr(int tlfNr);
-//    String getPosition();
 }

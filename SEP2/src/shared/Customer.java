@@ -24,11 +24,6 @@ public class Customer implements Serializable
     return postcode;
   }
 
-  public void setPostcode(int postcode)
-  {
-    this.postcode = postcode;
-  }
-
   public int getCustomerNo()
   {
     return costumerNo;
@@ -44,29 +39,14 @@ public class Customer implements Serializable
     return name;
   }
 
-  public void setName(String name)
-  {
-    this.name = name;
-  }
-
   public String getAddress()
   {
     return address;
   }
 
-  public void setAddress(String address)
-  {
-    this.address = address;
-  }
-
   public long getCprNr()
   {
     return cprNr;
-  }
-
-  public void setCprNr(long cprNr)
-  {
-    this.cprNr = cprNr;
   }
 
   public double getCombinedRatio()
