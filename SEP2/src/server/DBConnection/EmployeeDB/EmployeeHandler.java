@@ -3,6 +3,7 @@ package server.DBConnection.EmployeeDB;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import server.DBConnection.DBConnections;
+import server.DBConnection.DBConnectionsInterface;
 import shared.Employee;
 
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import java.util.List;
 public class EmployeeHandler implements EmployeeData
 {
   // Calls methods in the Connections and has SQL strings
-  private DBConnections connection;
+  private DBConnectionsInterface connection;
 
   public EmployeeHandler()
   {

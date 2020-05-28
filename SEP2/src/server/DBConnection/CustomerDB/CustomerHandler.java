@@ -1,5 +1,6 @@
 package server.DBConnection.CustomerDB;
 
+import server.DBConnection.DBConnectionsInterface;
 import shared.Customer;
 import server.DBConnection.DBConnections;
 
@@ -7,7 +8,7 @@ import java.util.List;
 
 public class CustomerHandler implements CustomerData
 {
-  private DBConnections connection;
+  private DBConnectionsInterface connection;
 
   public CustomerHandler()
   {

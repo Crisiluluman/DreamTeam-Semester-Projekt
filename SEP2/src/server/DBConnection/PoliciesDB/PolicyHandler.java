@@ -1,5 +1,6 @@
 package server.DBConnection.PoliciesDB;
 
+import server.DBConnection.DBConnectionsInterface;
 import shared.Policy;
 import server.DBConnection.DBConnections;
 
@@ -7,7 +8,7 @@ import java.util.List;
 
 public class PolicyHandler implements PolicyData
 {
-  private DBConnections connection;
+  private DBConnectionsInterface connection;
 
   public PolicyHandler()
   {

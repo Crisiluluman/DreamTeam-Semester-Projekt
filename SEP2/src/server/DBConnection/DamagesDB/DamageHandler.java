@@ -1,5 +1,6 @@
 package server.DBConnection.DamagesDB;
 
+import server.DBConnection.DBConnectionsInterface;
 import shared.Damage;
 import server.DBConnection.DBConnections;
 
@@ -7,7 +8,7 @@ import java.util.List;
 
 public class DamageHandler implements DamageData
 {
-  private DBConnections connection;
+  private DBConnectionsInterface connection;
 
   public DamageHandler()
   {
