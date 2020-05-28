@@ -94,7 +94,7 @@ private EmployeeHandler handler;
             return false;
         }
 
-        if(CPR.getValue().equals("") || Pattern.matches("[a-åA-Å]+",CPR.getValue()) || Long.parseLong(CPR.getValue()) < Long.parseLong("0101000001")  || Long.parseLong(CPR.getValue()) > Long.parseLong("3112999999"))
+        if(CPR.getValue().equals("") || !Pattern.matches("[0-9]+",CPR.getValue()) || Long.parseLong(CPR.getValue()) < Long.parseLong("0101000001")  || Long.parseLong(CPR.getValue()) > Long.parseLong("3112999999"))
         {
             LabelCPR.setValue("Invalid input - try again");
             return false;
