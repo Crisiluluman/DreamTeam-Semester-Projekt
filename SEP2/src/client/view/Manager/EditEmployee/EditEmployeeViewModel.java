@@ -155,7 +155,7 @@ public class EditEmployeeViewModel implements PropertyChangeListener
             return false;
         }
 
-        if(CPRTextField.getValue().equals("") || Pattern.matches("[a-åA-Å]+",CPRTextField.getValue()) || Long.parseLong(CPRTextField.getValue()) < Long.parseLong("0101000001")  || Long.parseLong(CPRTextField.getValue()) > Long.parseLong("3112999999"))
+        if(CPRTextField.getValue().equals("") || !Pattern.matches("[0-9]+",CPRTextField.getValue()) || Long.parseLong(CPRTextField.getValue()) < Long.parseLong("0101000001")  || Long.parseLong(CPRTextField.getValue()) > Long.parseLong("3112999999"))
         {
             CPRLabel.setValue("Invalid input - try again");
             return false;
@@ -167,7 +167,7 @@ public class EditEmployeeViewModel implements PropertyChangeListener
             return false;
         }
 
-        if(phoneTextField.getValue().equals("") || Pattern.matches("[a-åA-Å]+",phoneTextField.getValue()) || !(
+        if(phoneTextField.getValue().equals("") || !Pattern.matches("[0-9]+",phoneTextField.getValue()) || !(
                 phoneTextField.getValue().length() ==8))
         {
             phoneLabel.setValue("Invalid input - try again");
