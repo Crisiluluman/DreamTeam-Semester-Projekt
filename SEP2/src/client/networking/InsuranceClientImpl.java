@@ -1,6 +1,5 @@
 package client.networking;
 
-import javafx.scene.control.TableView;
 import shared.Employee;
 import shared.Policy;
 import shared.Customer;
@@ -11,7 +10,6 @@ import shared.Networking.InsuranceServer;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.rmi.NotBoundException;
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;

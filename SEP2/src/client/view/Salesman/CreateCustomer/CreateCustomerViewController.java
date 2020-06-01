@@ -56,7 +56,6 @@ public class CreateCustomerViewController implements viewController
       {
         vh.updateCustomerViews();
         vh.openView("Salesman");
-
       }
     }
 

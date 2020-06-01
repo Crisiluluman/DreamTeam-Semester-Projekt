@@ -19,5 +19,9 @@ public class main extends Application
         Model model = mf.getModel();
 
         viewHandler.start(stage);
+
+
+
+
     }
 }

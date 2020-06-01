@@ -45,9 +45,6 @@ public class CustomerHandler implements CustomerData
     return connection.totalFromDB(sql);
   }
 
-
-
-
   @Override public List<Customer> readCustomerData()
   {
     String sql = "SELECT * FROM \"insurance\".customer;";
