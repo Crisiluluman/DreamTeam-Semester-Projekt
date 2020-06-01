@@ -6,8 +6,6 @@ public class Salesman extends Employee
 {
 
 
-  // private String rank;
-
   public Salesman(String name, String address,long cpr, String email, int tlf, String position)
   {
     super(name,address,cpr,tlf,email,position);

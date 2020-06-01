@@ -135,13 +135,13 @@ public class CreateCustomerViewModel implements PropertyChangeListener
       return false;
     }
 
-    if(postcodeTextField.getValue().equals("") || Integer.parseInt(postcodeTextField.getValue()) > 9990 || Integer.parseInt(postcodeTextField.getValue()) < 1000)
+    if(postcodeTextField.getValue().equals("") || Integer.parseInt(postcodeTextField.getValue()) > 9991 || Integer.parseInt(postcodeTextField.getValue()) < 999)
     {
       postcodeLabel.setValue("Invalid input - try again");
       return false;
     }
 
-    if(cprnoTextfield.getValue().equals("") || !Pattern.matches("[0-9]+",cprnoTextfield.getValue()) || Long.parseLong(cprnoTextfield.getValue()) < Long.parseLong("0101000001")  || Long.parseLong(cprnoTextfield.getValue()) > Long.parseLong("3112999999"))
+    if(cprnoTextfield.getValue().equals("") || !Pattern.matches("[0-9]+",cprnoTextfield.getValue()) || Long.parseLong(cprnoTextfield.getValue()) < Long.parseLong("0101000000")  || Long.parseLong(cprnoTextfield.getValue()) > Long.parseLong("3112999999"))
     {
       cprnoLabel.setValue("Invalid input - try again");
       return false;
