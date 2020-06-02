@@ -157,7 +157,6 @@ public class CreateCustomerViewModel implements PropertyChangeListener
 
   @Override public void propertyChange(PropertyChangeEvent evt)
   {
-    System.out.println(update);
     update = true;
   }
 }

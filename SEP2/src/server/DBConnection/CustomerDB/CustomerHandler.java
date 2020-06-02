@@ -53,12 +53,19 @@ public class CustomerHandler implements CustomerData
 
   @Override public void clearTableCustomer()
   {
-    String sql = "drop table Customer " + "create table Customer\n" + "(\n"
+    String sql = "drop table \"insurance\".Customer;";
+    connection.AddToDB(sql);
+  }
+
+  @Override public void createTableCustomer()
+  {
+    String sql ="create table \"insurance\".Customer" + "("
         + "customerNo SERIAL," + "name varchar(50) NOT NULL,"
         + "address varchar(50) NOT NULL,"
         + "postcode varchar(4) NOT NULL," + "cpr varchar(10) NOT NULL,"
-        + "cr numeric," + "primary key(customerNo)" + ");" +
-        "alter table policy add constraint customerNo_FK foreign key(customerNo) references customer(customerno) on update cascade on delete cascade;";
+        + "cr numeric," + "primary key(customerNo)" + ");";
+    System.out.println(sql);
     connection.AddToDB(sql);
   }
+
 }

@@ -13,4 +13,5 @@ public interface CustomerData
   List TotalCustomers();
   List<Customer> readCustomerData();
   void clearTableCustomer();
+  void createTableCustomer();
 }
