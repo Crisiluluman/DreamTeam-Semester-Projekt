@@ -15,7 +15,6 @@ public class Tester
   @BeforeEach public void Start()
   { // initial setup runs before each test
     customers = new ArrayList<>();
-    ch = new CustomerHandler();
   }
 
   @Test public void testZeroCustomer()
@@ -58,8 +57,11 @@ public class Tester
     Customer customer0 = new Customer("123", "1234", 999, 1305901122);
     Customer customer1 = new Customer("Camilla", "", 1000, 1709981044);
 
-    assertFalse(Pattern.matches("[a-åA-Å]+", customer0.getName()));
-    assertTrue(Pattern.matches("[a-åA-Å]+", customer1.getName()));
+    customers.add(customer0);
+    customers.add(customer1);
+
+    assertFalse(Pattern.matches("[a-åA-Å]+", customers.get(0).getName()));
+    assertTrue(Pattern.matches("[a-åA-Å]+", customers.get(1).getName()));
   }
 
   @Test public void testValidationAddress()
@@ -67,8 +69,11 @@ public class Tester
     Customer customer0 = new Customer("123", "1234", 999, 1305901122);
     Customer customer1 = new Customer("Camilla", "", 1000, 1709981044);
 
-    assertFalse(customer0.getAddress().equals(""));
-    assertTrue(customer1.getAddress().equals(""));
+    customers.add(customer0);
+    customers.add(customer1);
+
+    assertFalse(customers.get(0).getAddress().equals(""));
+    assertTrue(customers.get(1).getAddress().equals(""));
   }
 
 
@@ -81,16 +86,23 @@ public class Tester
     Customer customer1 = new Customer("Camilla", "", 1000, 1709981044);
     Customer customer2 = new Customer("Lotte", "Hejvej", 1001, 1305991122);
     Customer customer3 = new Customer("Louise", "Røvvej", 9991, 1410901144);
-    Customer customer4 = new Customer("Cecilie", "Margrethevej", 9990,
-        1420154811);
+    Customer customer4 = new Customer("Cecilie", "Margrethevej", 9990, 1420154811);
     Customer customer5 = new Customer("Astrid", "lærervej", 9989, 1091100323);
 
-    assertFalse(customer0.getPostcode() < 9991 && customer0.getPostcode() > 999);
-    assertTrue(customer1.getPostcode() < 9991 && customer1.getPostcode() > 999);
-    assertTrue(customer2.getPostcode() < 9991 && customer2.getPostcode() > 999);
-    assertFalse(customer3.getPostcode() < 9991 && customer3.getPostcode() > 999);
-    assertTrue(customer4.getPostcode() < 9991 && customer4.getPostcode() > 999);
-    assertTrue(customer5.getPostcode() < 9991 && customer5.getPostcode() > 999);
+    customers.add(customer0);
+    customers.add(customer1);
+    customers.add(customer2);
+    customers.add(customer3);
+    customers.add(customer4);
+    customers.add(customer5);
+
+    assertFalse(customers.get(0).getPostcode() < 9991 && customers.get(0).getPostcode() > 999);
+    assertTrue(customers.get(1).getPostcode() < 9991 && customers.get(1).getPostcode() > 999);
+    assertTrue(customers.get(2).getPostcode() < 9991 && customers.get(2).getPostcode() > 999);
+    assertFalse(customers.get(3).getPostcode() < 9991 && customers.get(3).getPostcode() > 999);
+    assertTrue(customers.get(4).getPostcode() < 9991 && customers.get(4).getPostcode() > 999);
+    assertTrue(customers.get(5).getPostcode() < 9991 && customers.get(5).getPostcode() > 999);
+
   }
 
   @Test public void testValidationCPR() // We have some problems with the long number as argument. int is the biggest we can use.
@@ -106,21 +118,25 @@ public class Tester
   //  Customer customer4 = new Customer("Cecilie", "Margrethevej", 9990, max0);
    // Customer customer5 = new Customer("Astrid", "lærervej", 9989, max1);
 
-    assertTrue(Pattern.matches("[0-9]+",String.valueOf(customer0.getCprNr())));
+    customers.add(customer0);
+    customers.add(customer1);
+    customers.add(customer2);
 
-    boolean flag = customer0.getCprNr() > 101000000;
+    assertTrue(Pattern.matches("[0-9]+",String.valueOf(customers.get(0).getCprNr())));
+
+    boolean flag = customers.get(0).getCprNr() > 101000000;
     assertFalse(flag);
-    flag = customer0.getCprNr() < Long.parseLong("3112999999");
+    flag = customers.get(0).getCprNr() < Long.parseLong("3112999999");
     assertTrue(flag);
 
-    flag = customer1.getCprNr() > 101000000;
+    flag = customers.get(1).getCprNr() > 101000000;
     assertTrue(flag);
-    flag = customer1.getCprNr() < Long.parseLong("3112999999");
+    flag = customers.get(1).getCprNr() < Long.parseLong("3112999999");
     assertTrue(flag);
 
-    flag = customer2.getCprNr() > 101000000;
+    flag = customers.get(2).getCprNr() > 101000000;
     assertTrue(flag);
-    flag = customer2.getCprNr() < Long.parseLong("3112999999");
+    flag = customers.get(2).getCprNr() < Long.parseLong("3112999999");
     assertTrue(flag);
 
 //    flag = customer3.getCprNr() > 101000000;
@@ -144,57 +160,76 @@ public class Tester
   {
     Customer customer = new Customer("Lotte", "Hejvej", 9000, 1305991122);
 
-    assertTrue(customer.getCustomerNo() == 0);
+    customers.add(customer);
+
+    assertTrue(customers.get(0).getCustomerNo() == 0);
 
   }
 
   @Test public void setCustomernumber()
   {
     Customer customer = new Customer("Lotte", "Hejvej", 9000, 1305991122);
-    customer.setCustomerNo(1);
-    assertTrue(customer.getCustomerNo() == 1);
+
+    customers.add(customer);
+
+    customers.get(0).setCustomerNo(1);
+    assertTrue(customers.get(0).getCustomerNo() == 1);
   }
 
   @Test public void getName()
   {
     Customer customer = new Customer("Lotte", "Hejvej", 9000, 1305991122);
 
-    assertTrue(customer.getName() == "Lotte");
+    customers.add(customer);
+
+
+    assertTrue(customers.get(0).getName() == "Lotte");
   }
 
   @Test public void getAddress()
   {
     Customer customer = new Customer("Lotte", "Hejvej", 9000, 1305991122);
 
-    assertTrue(customer.getAddress() == "Hejvej");
+    customers.add(customer);
+
+    assertTrue(customers.get(0).getAddress() == "Hejvej");
   }
 
   @Test public void getCpr()
   {
     Customer customer = new Customer("Lotte", "Hejvej", 9000, 1305991122);
 
-    assertTrue(customer.getCprNr() == 1305991122);
+    customers.add(customer);
+
+    assertTrue(customers.get(0).getCprNr() == 1305991122);
   }
 
   @Test public void getPostcode()
   {
     Customer customer = new Customer("Lotte", "Hejvej", 9000, 1305991122);
 
-    assertTrue(customer.getPostcode() == 9000);
+    customers.add(customer);
+
+    assertTrue(customers.get(0).getPostcode() == 9000);
   }
 
   @Test public void getCombinedRatio()
   {
     Customer customer = new Customer("Lotte", "Hejvej", 9000, 1305991122);
 
-    assertTrue(customer.getCombinedRatio() == 0);
+    customers.add(customer);
+
+    assertTrue(customers.get(0).getCombinedRatio() == 0);
   }
 
   @Test public void setCombinedRatio()
   {
     Customer customer = new Customer("Lotte", "Hejvej", 9000, 1305991122);
+
+    customers.add(customer);
+
     customer.setCombinedRatio(1);
-    assertTrue(customer.getCombinedRatio() == 1);
+    assertTrue(customers.get(0).getCombinedRatio() == 1);
   }
 
 //  @Test public void AddToDB()
