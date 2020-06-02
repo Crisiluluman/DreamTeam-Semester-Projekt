@@ -50,4 +50,10 @@ public class CustomerHandler implements CustomerData
     String sql = "SELECT * FROM \"insurance\".customer;";
     return connection.fillCustomerTableDB(sql);
   }
+
+  @Override public void clearTableCustomer()
+  {
+    String sql = "drop table Customer";
+    connection.AddToDB(sql);
+  }
 }
