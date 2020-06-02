@@ -201,6 +201,11 @@ public class InsuranceClientImpl implements InsuranceClient, Client
     }
   }
 
+  @Override public void clearTableCustomer()
+  {
+    server.clearTableCustomer();
+  }
+
   @Override public List totalCustomers()
   {
     List<List> list = new ArrayList<>();

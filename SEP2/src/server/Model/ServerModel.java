@@ -94,6 +94,11 @@ public class ServerModel implements ServerModelInterface
     customerhandler.deleteCustomerData(customerNo);
   }
 
+  @Override public void clearTableCustomer()
+  {
+    customerhandler.clearTableCustomer();
+  }
+
   @Override public List totalCustomers()
   {
     return customerhandler.TotalCustomers();

@@ -20,6 +20,7 @@ public interface Client extends Subject
   void addCustomer(Customer customer);
   void updateCustomer(Customer customer);
   void deleteCustomer(int customerNo);
+  void clearTableCustomer();
   List totalCustomers();
 
   void addPolicy(Policy policy);

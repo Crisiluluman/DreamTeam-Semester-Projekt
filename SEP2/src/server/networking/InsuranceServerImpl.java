@@ -105,6 +105,11 @@ public class InsuranceServerImpl implements InsuranceServer
     client.updateCustomers();
   }
 
+  @Override public void clearTableCustomer()
+  {
+    serverModel.clearTableCustomer();
+  }
+
   // policy
 
   @Override public void addPolicy(Policy policy) throws RemoteException
