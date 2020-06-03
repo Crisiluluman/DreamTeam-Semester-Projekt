@@ -68,16 +68,17 @@ private Label LabelErrorPhone;
     {
       if (cev.checker())
       {
+
         cev.onCreate((String) position.getValue());
         cev.clearTextFields();
         cev.clearLabel();
+        if (cev.getUpdate())
+        {
+          vh.updateEmployeeViews();
+          vh.openView("ManageEmployee");
+        }
       }
 
-      if (cev.getUpdate())
-      {
-        vh.updateEmployeeViews();
-        vh.openView("ManageEmployee");
-      }
 
 
     }

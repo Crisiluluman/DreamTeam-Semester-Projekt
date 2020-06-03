@@ -162,7 +162,7 @@ public class DBConnections implements DBConnectionsInterface
       int employeeNo = rs.getInt("employeeno");
       String name = rs.getString("name");
       String address = rs.getString("address");
-      int cpr = rs.getInt("cpr");
+      long cpr = rs.getLong("cpr");
       int tlfnr = rs.getInt("tlfnr");
       String email = rs.getString("email");
       String position = rs.getString("position");
