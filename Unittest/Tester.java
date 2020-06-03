@@ -281,4 +281,15 @@ customer.setCombinedRatio(1);
     ch.addCustomerData(customer);
     assertTrue(ch.readCustomerData().size() == 1);
   }
+
+  @Test public void twoOfSameCustomer()
+  {
+    Customer customer = new Customer("Lotte", "Hejvej", 9000, 1305991122);
+    Customer customer1 = new Customer("Lotte", "Hejvej", 9000, 1305991122);
+
+    ch.addCustomerData(customer);
+    ch.addCustomerData(customer1);
+
+    assertTrue(ch.readCustomerData().size() == 2);
+  }
 }
