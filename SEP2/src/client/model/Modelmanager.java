@@ -76,11 +76,6 @@ public class Modelmanager implements Model
     client.deleteCustomer(customerNo);
   }
 
-  @Override public void clearTableCustomer()
-  {
-    client.clearTableCustomer();
-  }
-
   @Override public List totalCustomers()
   {
   return client.totalCustomers();

@@ -20,7 +20,6 @@ public interface ServerModelInterface
    void addCustomer(Customer customer);
    void updateCustomer(Customer customer);
    void deleteCustomer(int customerNo);
-   void clearTableCustomer();
    List totalCustomers();
 
 

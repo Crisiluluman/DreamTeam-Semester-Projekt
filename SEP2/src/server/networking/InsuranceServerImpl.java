@@ -105,10 +105,7 @@ public class InsuranceServerImpl implements InsuranceServer
     client.updateCustomers();
   }
 
-  @Override public void clearTableCustomer()
-  {
-    serverModel.clearTableCustomer();
-  }
+
 
   // policy
 

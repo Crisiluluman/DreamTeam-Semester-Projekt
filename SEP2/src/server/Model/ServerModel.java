@@ -1,5 +1,9 @@
 package server.Model;
 
+import server.DBConnection.CustomerDB.CustomerData;
+import server.DBConnection.DamagesDB.DamageData;
+import server.DBConnection.EmployeeDB.EmployeeData;
+import server.DBConnection.PoliciesDB.PolicyData;
 import shared.Damage;
 import shared.Policy;
 import server.DBConnection.CustomerDB.CustomerHandler;
@@ -13,10 +17,10 @@ import java.util.List;
 
 public class ServerModel implements ServerModelInterface
 {
- private EmployeeHandler employeehandler;
- private CustomerHandler customerhandler;
-  private PolicyHandler policyHandler;
-  private DamageHandler damageHandler;
+ private EmployeeData employeehandler;
+ private CustomerData customerhandler;
+  private PolicyData policyHandler;
+  private DamageData damageHandler;
 
   public ServerModel()
   {
@@ -94,10 +98,7 @@ public class ServerModel implements ServerModelInterface
     customerhandler.deleteCustomerData(customerNo);
   }
 
-  @Override public void clearTableCustomer()
-  {
-    customerhandler.clearTableCustomer();
-  }
+
 
   @Override public List totalCustomers()
   {
